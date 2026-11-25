@@ -1,0 +1,4 @@
+build/
+generated/*/build/
+# Inter is copied in by bin/emit.dart --fonts; not vendored during the spike.
+generated/*/fonts/

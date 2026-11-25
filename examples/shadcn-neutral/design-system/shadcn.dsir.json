@@ -1,0 +1,2849 @@
+{
+  "dsirVersion": "0.1.0",
+  "source": {
+    "kind": "shadcn-registry",
+    "style": "new-york-v4",
+    "url": "https://ui.shadcn.com/r/styles/new-york-v4",
+    "license": "MIT",
+    "hash": "sha256:544319757c8a8cb5e6034702055eef39b04f63d27ddc706fc6133c643f1a6cb3"
+  },
+  "tokens": {
+    "color": {
+      "background": {
+        "light": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#0a0a0a",
+          "alpha": 1
+        }
+      },
+      "foreground": {
+        "light": {
+          "hex": "#0a0a0a",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        }
+      },
+      "card": {
+        "light": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#171717",
+          "alpha": 1
+        }
+      },
+      "card-foreground": {
+        "light": {
+          "hex": "#0a0a0a",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        }
+      },
+      "popover": {
+        "light": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#171717",
+          "alpha": 1
+        }
+      },
+      "popover-foreground": {
+        "light": {
+          "hex": "#0a0a0a",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        }
+      },
+      "primary": {
+        "light": {
+          "hex": "#171717",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#e5e5e5",
+          "alpha": 1
+        }
+      },
+      "primary-foreground": {
+        "light": {
+          "hex": "#fafafa",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#171717",
+          "alpha": 1
+        }
+      },
+      "secondary": {
+        "light": {
+          "hex": "#f5f5f5",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#262626",
+          "alpha": 1
+        }
+      },
+      "secondary-foreground": {
+        "light": {
+          "hex": "#171717",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        }
+      },
+      "muted": {
+        "light": {
+          "hex": "#f5f5f5",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#262626",
+          "alpha": 1
+        }
+      },
+      "muted-foreground": {
+        "light": {
+          "hex": "#737373",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#a1a1a1",
+          "alpha": 1
+        }
+      },
+      "accent": {
+        "light": {
+          "hex": "#f5f5f5",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#262626",
+          "alpha": 1
+        }
+      },
+      "accent-foreground": {
+        "light": {
+          "hex": "#171717",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        }
+      },
+      "destructive": {
+        "light": {
+          "hex": "#e7000b",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#ff6467",
+          "alpha": 1
+        }
+      },
+      "border": {
+        "light": {
+          "hex": "#e5e5e5",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#ffffff",
+          "alpha": 0.1
+        }
+      },
+      "input": {
+        "light": {
+          "hex": "#e5e5e5",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#ffffff",
+          "alpha": 0.15
+        }
+      },
+      "ring": {
+        "light": {
+          "hex": "#a1a1a1",
+          "alpha": 1
+        },
+        "dark": {
+          "hex": "#737373",
+          "alpha": 1
+        }
+      }
+    },
+    "radius": {
+      "base": 10,
+      "derived": {
+        "sm": -4,
+        "md": -2,
+        "lg": 0,
+        "xl": 4
+      }
+    },
+    "font": {
+      "sans": {
+        "family": "Inter",
+        "note": "pinned for the oracle; shadcn ships no font in the registry"
+      }
+    },
+    "gamutClamped": [
+      "light.destructive",
+      "dark.destructive"
+    ]
+  },
+  "globals": {
+    "*": {
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            }
+          },
+          "from": "border-border",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "noops": [
+        {
+          "class": "outline-ring/50",
+          "why": "styles only the browser focus outline; components without outline-none list it as unsupported"
+        }
+      ]
+    },
+    "body": {
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "background",
+              "alpha": 1
+            }
+          },
+          "from": "bg-background",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "noops": []
+    }
+  },
+  "components": [
+    {
+      "name": "Button",
+      "slot": "button",
+      "role": "button",
+      "behaviour": null,
+      "variants": {
+        "variant": [
+          "default",
+          "destructive",
+          "outline",
+          "secondary",
+          "ghost",
+          "link"
+        ],
+        "size": [
+          "default",
+          "xs",
+          "sm",
+          "lg",
+          "icon",
+          "icon-xs",
+          "icon-sm",
+          "icon-lg"
+        ]
+      },
+      "defaultVariants": {
+        "variant": "default",
+        "size": "default"
+      },
+      "slots": [
+        {
+          "name": "icon",
+          "kind": "leading",
+          "optional": true
+        },
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "layout": "inlineRow"
+          },
+          "from": "inline-flex",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "icon-xs"
+          },
+          "target": "root",
+          "set": {
+            "h": 24,
+            "w": 24
+          },
+          "from": "size-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "icon-sm"
+          },
+          "target": "root",
+          "set": {
+            "h": 32,
+            "w": 32
+          },
+          "from": "size-8",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "icon"
+          },
+          "target": "root",
+          "set": {
+            "h": 36,
+            "w": 36
+          },
+          "from": "size-9",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "icon-lg"
+          },
+          "target": "root",
+          "set": {
+            "h": 40,
+            "w": 40
+          },
+          "from": "size-10",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "root",
+          "set": {
+            "h": 24
+          },
+          "from": "h-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "sm"
+          },
+          "target": "root",
+          "set": {
+            "h": 32
+          },
+          "from": "h-8",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "default"
+          },
+          "target": "root",
+          "set": {
+            "h": 36
+          },
+          "from": "h-9",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "target": "root",
+          "set": {
+            "h": 40
+          },
+          "from": "h-10",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "crossAlign": "center"
+          },
+          "from": "items-center",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "mainAlign": "center"
+          },
+          "from": "justify-center",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "root",
+          "set": {
+            "gap": 4
+          },
+          "from": "gap-1",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "sm"
+          },
+          "target": "root",
+          "set": {
+            "gap": 6
+          },
+          "from": "gap-1.5",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "gap": 8
+          },
+          "from": "gap-2",
+          "spec": [
+            0,
+            1,
+            0
+          ],
+          "except": [
+            {
+              "size": "xs"
+            },
+            {
+              "size": "sm"
+            }
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "radius": {
+              "token": "radius-md"
+            }
+          },
+          "from": "rounded-md",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "root",
+          "set": {
+            "radius": {
+              "token": "radius-md"
+            }
+          },
+          "from": "rounded-md",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "sm"
+          },
+          "target": "root",
+          "set": {
+            "radius": {
+              "token": "radius-md"
+            }
+          },
+          "from": "rounded-md",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "target": "root",
+          "set": {
+            "radius": {
+              "token": "radius-md"
+            }
+          },
+          "from": "rounded-md",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "icon-xs"
+          },
+          "target": "root",
+          "set": {
+            "radius": {
+              "token": "radius-md"
+            }
+          },
+          "from": "rounded-md",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline"
+          },
+          "target": "root",
+          "set": {
+            "borderWidth": 1
+          },
+          "from": "border",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "background",
+              "alpha": 1
+            }
+          },
+          "from": "bg-background",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 1
+            }
+          },
+          "from": "bg-destructive",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "default"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 1
+            }
+          },
+          "from": "bg-primary",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 1
+            }
+          },
+          "from": "bg-secondary",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "root",
+          "set": {
+            "px": 8
+          },
+          "from": "px-2",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "sm"
+          },
+          "target": "root",
+          "set": {
+            "px": 12
+          },
+          "from": "px-3",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "default"
+          },
+          "target": "root",
+          "set": {
+            "px": 16
+          },
+          "from": "px-4",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "target": "root",
+          "set": {
+            "px": 24
+          },
+          "from": "px-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "default"
+          },
+          "target": "root",
+          "set": {
+            "py": 8
+          },
+          "from": "py-2",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fontSize": 14,
+            "lineHeightFactor": 1.4285714285714286
+          },
+          "from": "text-sm",
+          "spec": [
+            0,
+            1,
+            0
+          ],
+          "except": [
+            {
+              "size": "xs"
+            }
+          ]
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "root",
+          "set": {
+            "fontSize": 12,
+            "lineHeightFactor": 1.3333333333333333
+          },
+          "from": "text-xs",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fontWeight": 500
+          },
+          "from": "font-medium",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "maxLines": 1
+          },
+          "from": "whitespace-nowrap",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "link"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "primary",
+              "alpha": 1
+            }
+          },
+          "from": "text-primary",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "default"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "primary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-primary-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "secondary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-secondary-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 1
+            }
+          },
+          "from": "text-white",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline"
+          },
+          "target": "root",
+          "set": {
+            "shadow": [
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 2,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.05
+                }
+              }
+            ]
+          },
+          "from": "shadow-xs",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "transitionMs": 150,
+            "transitionCurve": "cubic-bezier(0.4, 0, 0.2, 1)"
+          },
+          "from": "transition-all",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "icon",
+          "set": {
+            "h": 12,
+            "w": 12
+          },
+          "from": "[&_svg:not([class*='size-'])]:size-3",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "size": "icon-xs"
+          },
+          "target": "icon",
+          "set": {
+            "h": 12,
+            "w": 12
+          },
+          "from": "[&_svg:not([class*='size-'])]:size-3",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "icon",
+          "set": {
+            "h": 16,
+            "w": 16
+          },
+          "from": "[&_svg:not([class*='size-'])]:size-4",
+          "spec": [
+            0,
+            1,
+            0
+          ],
+          "except": [
+            {
+              "size": "xs"
+            },
+            {
+              "size": "icon-xs"
+            }
+          ]
+        },
+        {
+          "when": {
+            "size": "xs",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 6
+          },
+          "from": "has-[>svg]:px-1.5",
+          "spec": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "when": {
+            "size": "sm",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 10
+          },
+          "from": "has-[>svg]:px-2.5",
+          "spec": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "when": {
+            "size": "default",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 12
+          },
+          "from": "has-[>svg]:px-3",
+          "spec": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "when": {
+            "size": "lg",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 16
+          },
+          "from": "has-[>svg]:px-4",
+          "spec": [
+            0,
+            1,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 1
+            }
+          },
+          "from": "hover:bg-accent",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 1
+            }
+          },
+          "from": "hover:bg-accent",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.9
+            }
+          },
+          "from": "hover:bg-destructive/90",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "default",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 0.9
+            }
+          },
+          "from": "hover:bg-primary/90",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "secondary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 0.8
+            }
+          },
+          "from": "hover:bg-secondary/80",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "hover:text-accent-foreground",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "hover:text-accent-foreground",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "link",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "underline": true
+          },
+          "from": "hover:underline",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "ring",
+              "alpha": 1
+            }
+          },
+          "from": "focus-visible:border-ring",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringWidth": 3
+          },
+          "from": "focus-visible:ring-[3px]",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.2
+            }
+          },
+          "from": "focus-visible:ring-destructive/20",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "ring",
+              "alpha": 0.5
+            }
+          },
+          "from": "focus-visible:ring-ring/50",
+          "spec": [
+            0,
+            2,
+            0
+          ],
+          "except": [
+            {
+              "variant": "destructive"
+            }
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "opacity": 0.5
+          },
+          "from": "disabled:opacity-50",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "error"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "destructive",
+              "alpha": 1
+            }
+          },
+          "from": "aria-invalid:border-destructive",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "error"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.2
+            }
+          },
+          "from": "aria-invalid:ring-destructive/20",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "input",
+              "alpha": 1
+            }
+          },
+          "from": "dark:border-input",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.6
+            }
+          },
+          "from": "dark:bg-destructive/60",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "input",
+              "alpha": 0.3
+            }
+          },
+          "from": "dark:bg-input/30",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "states": [
+              "hovered"
+            ],
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 0.5
+            }
+          },
+          "from": "dark:hover:bg-accent/50",
+          "spec": [
+            0,
+            3,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "states": [
+              "hovered"
+            ],
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "input",
+              "alpha": 0.5
+            }
+          },
+          "from": "dark:hover:bg-input/50",
+          "spec": [
+            0,
+            3,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "focused"
+            ],
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.4
+            }
+          },
+          "from": "dark:focus-visible:ring-destructive/40",
+          "spec": [
+            0,
+            3,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "error"
+            ],
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.4
+            }
+          },
+          "from": "dark:aria-invalid:ring-destructive/40",
+          "spec": [
+            0,
+            3,
+            0
+          ]
+        }
+      ],
+      "noops": [
+        {
+          "class": "shrink-0",
+          "why": "Flutter flex children never shrink unless wrapped in Flexible; the parent decides"
+        },
+        {
+          "class": "outline-none",
+          "why": "Flutter draws no focus outline by default, so there is nothing to remove"
+        },
+        {
+          "class": "disabled:pointer-events-none",
+          "why": "disabled widgets get no onPressed, and icons never take pointer events in Flutter"
+        },
+        {
+          "class": "[&_svg]:pointer-events-none",
+          "why": "disabled widgets get no onPressed, and icons never take pointer events in Flutter"
+        },
+        {
+          "class": "[&_svg]:shrink-0",
+          "why": "Flutter flex children never shrink unless wrapped in Flexible; the parent decides"
+        }
+      ],
+      "unsupported": [
+        {
+          "what": "underline-offset-4",
+          "why": "Flutter TextDecoration has no underline offset",
+          "fallback": "default underline position"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "slot": "badge",
+      "role": "status",
+      "behaviour": null,
+      "variants": {
+        "variant": [
+          "default",
+          "secondary",
+          "destructive",
+          "outline",
+          "ghost",
+          "link"
+        ]
+      },
+      "defaultVariants": {
+        "variant": "default"
+      },
+      "slots": [
+        {
+          "name": "icon",
+          "kind": "leading",
+          "optional": true
+        },
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "layout": "inlineRow"
+          },
+          "from": "inline-flex",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "crossAlign": "center"
+          },
+          "from": "items-center",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "mainAlign": "center"
+          },
+          "from": "justify-center",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "gap": 4
+          },
+          "from": "gap-1",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "clip": true
+          },
+          "from": "overflow-hidden",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "radius": {
+              "full": true
+            }
+          },
+          "from": "rounded-full",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderWidth": 1
+          },
+          "from": "border",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            }
+          },
+          "from": "border-border",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "transparent": true
+            }
+          },
+          "from": "border-transparent",
+          "spec": [
+            0,
+            1,
+            0
+          ],
+          "except": [
+            {
+              "variant": "outline"
+            }
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 1
+            }
+          },
+          "from": "bg-destructive",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "default"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 1
+            }
+          },
+          "from": "bg-primary",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 1
+            }
+          },
+          "from": "bg-secondary",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "px": 8
+          },
+          "from": "px-2",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "py": 2
+          },
+          "from": "py-0.5",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fontSize": 12,
+            "lineHeightFactor": 1.3333333333333333
+          },
+          "from": "text-xs",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fontWeight": 500
+          },
+          "from": "font-medium",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "maxLines": 1
+          },
+          "from": "whitespace-nowrap",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "link"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "primary",
+              "alpha": 1
+            }
+          },
+          "from": "text-primary",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "default"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "primary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-primary-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "secondary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-secondary-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 1
+            }
+          },
+          "from": "text-white",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "transitionMs": 150,
+            "transitionCurve": "cubic-bezier(0.4, 0, 0.2, 1)"
+          },
+          "from": "transition-[color,box-shadow]",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "icon",
+          "set": {
+            "h": 12,
+            "w": 12
+          },
+          "from": "[&>svg]:size-3",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "ring",
+              "alpha": 1
+            }
+          },
+          "from": "focus-visible:border-ring",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringWidth": 3
+          },
+          "from": "focus-visible:ring-[3px]",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.2
+            }
+          },
+          "from": "focus-visible:ring-destructive/20",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "ring",
+              "alpha": 0.5
+            }
+          },
+          "from": "focus-visible:ring-ring/50",
+          "spec": [
+            0,
+            2,
+            0
+          ],
+          "except": [
+            {
+              "variant": "destructive"
+            }
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "error"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "destructive",
+              "alpha": 1
+            }
+          },
+          "from": "aria-invalid:border-destructive",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "error"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.2
+            }
+          },
+          "from": "aria-invalid:ring-destructive/20",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.6
+            }
+          },
+          "from": "dark:bg-destructive/60",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 1
+            }
+          },
+          "from": "[a&]:hover:bg-accent",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 1
+            }
+          },
+          "from": "[a&]:hover:bg-accent",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.9
+            }
+          },
+          "from": "[a&]:hover:bg-destructive/90",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "default",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 0.9
+            }
+          },
+          "from": "[a&]:hover:bg-primary/90",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "secondary",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 0.9
+            }
+          },
+          "from": "[a&]:hover:bg-secondary/90",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "[a&]:hover:text-accent-foreground",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "[a&]:hover:text-accent-foreground",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "link",
+            "states": [
+              "hovered"
+            ],
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "underline": true
+          },
+          "from": "[a&]:hover:underline",
+          "spec": [
+            0,
+            2,
+            1
+          ]
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "focused"
+            ],
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.4
+            }
+          },
+          "from": "dark:focus-visible:ring-destructive/40",
+          "spec": [
+            0,
+            3,
+            0
+          ]
+        },
+        {
+          "when": {
+            "states": [
+              "error"
+            ],
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.4
+            }
+          },
+          "from": "dark:aria-invalid:ring-destructive/40",
+          "spec": [
+            0,
+            3,
+            0
+          ]
+        }
+      ],
+      "noops": [
+        {
+          "class": "w-fit",
+          "why": "Flutter rows built here are MainAxisSize.min, which is fit-content"
+        },
+        {
+          "class": "shrink-0",
+          "why": "Flutter flex children never shrink unless wrapped in Flexible; the parent decides"
+        },
+        {
+          "class": "[&>svg]:pointer-events-none",
+          "why": "disabled widgets get no onPressed, and icons never take pointer events in Flutter"
+        }
+      ],
+      "unsupported": [
+        {
+          "what": "underline-offset-4",
+          "why": "Flutter TextDecoration has no underline offset",
+          "fallback": "default underline position"
+        },
+        {
+          "what": "browser focus outline (outline-ring/50 from the base layer, no outline-none)",
+          "why": "a focused <a> or <button> also gets the browser's own outline (outline-style: auto); Flutter has none",
+          "fallback": "the focus-visible ring only"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "slot": "card",
+      "role": "group",
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "layout": "row"
+          },
+          "from": "flex",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "layout": "column"
+          },
+          "from": "flex-col",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "gap": 24
+          },
+          "from": "gap-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "radius": {
+              "token": "radius-xl"
+            }
+          },
+          "from": "rounded-xl",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderWidth": 1
+          },
+          "from": "border",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "card",
+              "alpha": 1
+            }
+          },
+          "from": "bg-card",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "py": 24
+          },
+          "from": "py-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "card-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-card-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "shadow": [
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 3,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.1
+                }
+              },
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 2,
+                "spread": -1,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.1
+                }
+              }
+            ]
+          },
+          "from": "shadow-sm",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardHeader",
+      "slot": "card-header",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        },
+        {
+          "name": "action",
+          "kind": "trailing",
+          "optional": true,
+          "dataSlot": "card-action"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "layout": "grid"
+          },
+          "from": "grid",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "crossAlign": "start"
+          },
+          "from": "items-start",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "gap": 8
+          },
+          "from": "gap-2",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "px": 24
+          },
+          "from": "px-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {
+            "hasSlot": "action"
+          },
+          "target": "root",
+          "set": {
+            "columns": [
+              "1fr",
+              "auto"
+            ]
+          },
+          "from": "has-data-[slot=card-action]:grid-cols-[1fr_auto]",
+          "spec": [
+            0,
+            2,
+            0
+          ]
+        }
+      ],
+      "noops": [
+        {
+          "class": "@container/card-header",
+          "why": "declares a container-query name that no shipped rule uses"
+        },
+        {
+          "class": "auto-rows-min",
+          "why": "rows are stacked by content height, which a Column does by default"
+        },
+        {
+          "class": "grid-rows-[auto_auto]",
+          "why": "rows are stacked by content height, which a Column does by default"
+        }
+      ],
+      "unsupported": [
+        {
+          "what": "[.border-b]:pb-6",
+          "why": "applies only when a consumer adds a border-b class; DSIR components take no class overrides",
+          "fallback": "ignored"
+        }
+      ]
+    },
+    {
+      "name": "CardTitle",
+      "slot": "card-title",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "lineHeightFactor": 1
+          },
+          "from": "leading-none",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fontWeight": 600
+          },
+          "from": "font-semibold",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardDescription",
+      "slot": "card-description",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fontSize": 14,
+            "lineHeightFactor": 1.4285714285714286
+          },
+          "from": "text-sm",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "muted-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "text-muted-foreground",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardAction",
+      "slot": "card-action",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [],
+      "noops": [
+        {
+          "class": "col-start-2",
+          "why": "placement is handled by the header-with-action layout pattern"
+        },
+        {
+          "class": "row-span-2",
+          "why": "placement is handled by the header-with-action layout pattern"
+        },
+        {
+          "class": "row-start-1",
+          "why": "placement is handled by the header-with-action layout pattern"
+        },
+        {
+          "class": "self-start",
+          "why": "placement is handled by the header-with-action layout pattern"
+        },
+        {
+          "class": "justify-self-end",
+          "why": "placement is handled by the header-with-action layout pattern"
+        }
+      ],
+      "unsupported": []
+    },
+    {
+      "name": "CardContent",
+      "slot": "card-content",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "px": 24
+          },
+          "from": "px-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardFooter",
+      "slot": "card-footer",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "layout": "row"
+          },
+          "from": "flex",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "crossAlign": "center"
+          },
+          "from": "items-center",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "px": 24
+          },
+          "from": "px-6",
+          "spec": [
+            0,
+            1,
+            0
+          ]
+        }
+      ],
+      "noops": [],
+      "unsupported": [
+        {
+          "what": "[.border-t]:pt-6",
+          "why": "applies only when a consumer adds a border-t class; DSIR components take no class overrides",
+          "fallback": "ignored"
+        }
+      ]
+    }
+  ]
+}
