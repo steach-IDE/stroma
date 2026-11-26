@@ -29,6 +29,19 @@ Cells are set through Storybook's preview channel (`updateStoryArgs`, `updateGlo
 ## An image of every cell
 
 Beside each cell file the extractor saves `<cell>.png`: what Chrome drew for the component's root, its box plus a 6 px margin (a focus ring or a shadow sits outside the box), at 2x like the Flutter goldens. The images are deterministic (two extractions are byte-identical) and are what the oracle compares Flutter with, so a design system needs no Chrome reference sheet of its own. The cell files are unchanged by the 2x rendering: CSS pixels and computed styles do not depend on it.
+## Coverage: what the stories did not exercise
+
+The extractor describes only what a story draws, so `index.json` also holds a `coverage` section, per story, of facts about the cells it measured:
+
+| Field | Says |
+| --- | --- |
+| `axes` | Each variant axis's options, and any the cells did not render (`--where` leaves the rest out) |
+| `uncontrolled` | Args with a control and no options (a text or boolean control): nothing varies them |
+| `states` | The states measured (`rest`, `hovered`, `focused`, `disabled`) |
+| `icon` | Whether the root had an `svg` child: `never`, `sometimes` or `always` |
+| `parts` | Child parts (`data-slot`, `data-part`, `data-scope`) and how often each was present |
+
+`node bin/coverage.mjs <extraction dir>` (`stroma-coverage`) prints it as a table, and `stroma-extract` ends with the gaps it can name without judgement (an axis option not rendered, args no cell varies). The report states facts; whether a component should have an icon is for a person to decide. On this repository's Storybooks it shows, for instance, that shadcn's Badge shows no icon unless the `WithIcon` story is included, and that **no Carbon Button story draws an icon** though Carbon's own Storybook has icon-button stories.
 
 ## No network
 
