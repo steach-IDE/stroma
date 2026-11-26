@@ -113,6 +113,7 @@ That code now lives here, with its history (see [Repository layout](#repository-
 | `examples/shadcn-neutral` | — | shadcn/ui Button, Badge and Card: a pinned Storybook, the DSIR and the generated package | Exists |
 | `packages/extractor` | JavaScript, Playwright | Renders every Storybook cell and records what the browser drew | Exists |
 | `packages/infer` | JavaScript | Turns an extraction into a DSIR and compares it with a source-derived one | Exists |
+| `examples/mui/storybook` | — | A pinned Material UI Storybook (Button): the CSS-in-JS probe | Exists (extraction and inference only) |
 | `examples/carbon/storybook` | — | A pinned Carbon Storybook (Button, Tag, Tile): the second design system | Exists (extraction only) |
 | `packages/primitives-flutter` | Dart (Flutter) | The primitives as a package generated code depends on | Planned |
 | `packages/cli` | TypeScript (+ a Dart CLI) | `stroma init`, `extract`, `emit`, `verify` | Planned (`feat-010`, `feat-011`) |
@@ -127,7 +128,7 @@ Durations are estimates for one engineer, based on the spike.
 | --- | --- | --- | --- |
 | 0 · Bootstrap | Repository, licence, CI, DSIR 0.2 schema, spike code moved | 1 week | Spike code moved with its history; CI green |
 | 1 · Prove it | Render-based extraction on shadcn/ui and Carbon | 2 weeks | **Done: go** ([verdict](docs/phase-1-verdict.md)). Both pass their oracle (426/426 and 780/780 cells); what rendering loses is measured |
-| 2 · Style | The CLI (`npx`, `dart`, Docker); a coverage report, a pixel comparison for every system and DSIR overrides for names; a CSS-in-JS probe (Chakra or Fluent); 15+ style-only components per system; the layout linter | 4 weeks | 15+ components per system pass; the linter flags an input in a row; the CSS-in-JS probe has a verdict |
+| 2 · Style | The CLI (`npx`, `dart`, Docker); a coverage report, a pixel comparison for every system and DSIR overrides for names; a CSS-in-JS probe (Chakra or Fluent); 15+ style-only components per system; the layout linter | 4 weeks | 15+ components per system pass; the linter flags an input in a row; the CSS-in-JS probe (done: [in scope, with variant-dependent tokens first](docs/css-in-js-probe.md)) has a verdict |
 | 3 · Behaviour | P1 patterns: tabs, dialog, checkbox, switch, disclosure | 5 weeks | Real-input tests pass on both systems |
 | 4 · Third system | P2 patterns (menus, popovers, select) and a contributor-led port | 5 weeks | A third design system ported with no core changes |
 | 5 · LLM help | A model proposes what deterministic extraction can't infer (names, intent), marked `provenance: llm` and reviewed; never used when emitting | To plan | Proposals measurably reduce review work without lowering oracle pass rates |

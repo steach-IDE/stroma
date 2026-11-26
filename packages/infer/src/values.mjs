@@ -9,7 +9,8 @@ const DECLARED_BY = {
   px: ['padding', 'padding-inline', 'padding-left', 'padding-right'],
   py: ['padding', 'padding-block', 'padding-top', 'padding-bottom'],
   gap: ['gap', 'column-gap', 'row-gap'],
-  radius: ['border-radius'],
+  // A rule a CSS-in-JS library inserted through the CSS object model holds the longhands, not the shorthand.
+  radius: ['border-radius', 'border-top-left-radius'],
   bg: ['background-color', 'background'],
   fg: ['color'],
   borderWidth: ['border', 'border-width', 'border-top-width'],

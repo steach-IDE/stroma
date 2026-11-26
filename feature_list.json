@@ -231,9 +231,9 @@
       "dependencies": [
         "feat-009"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "docs/css-in-js-probe.md states, with evidence, whether the extractor and inference produce a DSIR for that system's Button, how many colour, radius and spacing values come out as named tokens, and which step failed if one did; the roadmap says whether CSS-in-JS systems are in scope.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #39: docs/css-in-js-probe.md. Material UI's Button (examples/mui/storybook, @mui/material 9.6.0): 432 cells extracted, a valid DSIR inferred (7,308 of 7,344 values explained; 36 shadow values in unsupported), emit fails loudly (no page background token). The probe found and fixed two bugs (the extractor dropped every rule Emotion inserts through the CSS object model; radius longhands were not read), and found that all 6 colour tokens depend on the colour axis (2 to 12 values in one mode), now listed in unsupported instead of kept quietly; shadcn and Carbon inference unchanged. Chakra UI v3 and Fluent UI v9 buttons reference custom properties (5 of 8 and 4 of 4 declarations). Verdict: in scope, with feat-021 (tokens that vary by variant) first."
     },
     {
       "id": "feat-020",
@@ -245,6 +245,30 @@
       ],
       "status": "not-started",
       "done_when": "Carbon's Tile reports a width within 1 px of Chrome's in the oracle, and width becomes a gated check for it; the shadcn oracle still passes 426/426.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-021",
+      "phase": 2,
+      "name": "Tokens that vary by variant",
+      "description": "A DSIR token can say its value depends on a variant axis (or inference writes such a value as a literal): Material UI's per-colour variables, found by the CSS-in-JS probe.",
+      "dependencies": [
+        "feat-019"
+      ],
+      "status": "not-started",
+      "done_when": "Inference on the Material UI Button lists no token conflict: each variant-dependent colour is either a token with a value per axis value or a literal, the DSIR validates, and emit plus the oracle pass for its Button at the gates; shadcn and Carbon DSIRs are unchanged.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-022",
+      "phase": 2,
+      "name": "Report fonts that did not load",
+      "description": "The extractor records, per extraction, which font families the measured elements asked for and whether the first one loaded, so a measurement in a fallback font is visible.",
+      "dependencies": [
+        "feat-019"
+      ],
+      "status": "not-started",
+      "done_when": "On the Material UI Storybook (Roboto not shipped) the extraction's index.json says the first family did not load and names the fallback; on shadcn and Carbon it says they did.",
       "evidence": ""
     }
   ]
