@@ -113,6 +113,7 @@ That code now lives here, with its history (see [Repository layout](#repository-
 | `examples/shadcn-neutral` | — | shadcn/ui Button, Badge and Card: a pinned Storybook, the DSIR and the generated package | Exists |
 | `packages/extractor` | JavaScript, Playwright | Renders every Storybook cell and records what the browser drew | Exists |
 | `packages/infer` | JavaScript | Turns an extraction into a DSIR and compares it with a source-derived one | Exists |
+| `examples/carbon/storybook` | — | A pinned Carbon Storybook (Button, Tag, Tile): the second design system | Exists (extraction only) |
 | `packages/primitives-flutter` | Dart (Flutter) | The primitives as a package generated code depends on | Planned |
 | `packages/cli` | TypeScript (+ a Dart CLI) | `stroma init`, `extract`, `emit`, `verify` | Planned (`feat-010`, `feat-011`) |
 

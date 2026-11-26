@@ -62,6 +62,19 @@ test('a story without a marked component root fails, naming the story', async ()
   await assert.rejects(extract({ storybook: fake, out: path.join(tmp(), 'out') }), /plain--default: no component root/);
 });
 
+test('--root finds a root that has no data-* marker, and fails naming the story when nothing matches', async () => {
+  const fake = tmp();
+  fs.writeFileSync(path.join(fake, 'index.json'), JSON.stringify({ v: 5, entries: { 'plain--default': { type: 'story', id: 'plain--default' } } }));
+  fs.writeFileSync(path.join(fake, 'iframe.html'), `<!doctype html><div id="storybook-root"><div class="ds-box">no marker</div></div>
+<script>window.__STORYBOOK_PREVIEW__ = { ready: async () => {}, storyStore: {
+  loadStory: async () => ({ title: 'Plain', name: 'Default', argTypes: {} }), projectAnnotations: {}, args: { get: () => ({}) } } };</script>`);
+  await assert.rejects(extract({ storybook: fake, out: path.join(tmp(), 'out'), root: '.nothing' }), /plain--default: no component root.*nothing matches \.nothing/);
+  const out = path.join(tmp(), 'out');
+  const { cells } = await extract({ storybook: fake, out, root: '.other, .ds-box' });
+  assert.equal(cells, 1);
+  assert.equal(read(out, 'plain--default/state=rest.json').elements[0].tag, 'div');
+});
+
 test('it refuses to write into a directory that already holds files', async () => {
   const out = tmp();
   fs.writeFileSync(path.join(out, 'old.json'), '{}');

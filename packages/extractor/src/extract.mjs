@@ -67,9 +67,9 @@ async function render({ storyId, args, theme }) {
 }
 
 /** Root element's CDP node id and all its descendants', in document order. */
-async function nodeIdsUnderRoot(cdp) {
+async function nodeIdsUnderRoot(cdp, rootSelector) {
   const { root } = await cdp.send('DOM.getDocument', { depth: -1 });
-  const { nodeId } = await cdp.send('DOM.querySelector', { nodeId: root.nodeId, selector: ROOT_SELECTOR });
+  const { nodeId } = await cdp.send('DOM.querySelector', { nodeId: root.nodeId, selector: rootSelector });
   const { nodeIds } = await cdp.send('DOM.querySelectorAll', { nodeId, selector: '*' });
   return [nodeId, ...nodeIds];
 }
@@ -83,8 +83,11 @@ const fileName = ({ theme, args, state }) =>
  * @param {string} o.out        output directory (must be empty or absent; nothing is ever deleted)
  * @param {string[]} [o.stories] story ids to extract (default: all)
  * @param {Record<string,string>} [o.where] keep only combinations with these arg values
+ * @param {string} [o.root]     CSS selector of the component root, for a design system that marks no parts with
+ *                              data-slot, data-part or data-scope (default: those markers). Only the first match counts.
  */
-export async function extract({ storybook, out, stories = [], where = {} }) {
+export async function extract({ storybook, out, stories = [], where = {}, root }) {
+  const rootSelector = root ? `#storybook-root :is(${root})` : ROOT_SELECTOR;
   if (fs.existsSync(out) && fs.readdirSync(out).length) throw new Error(`${out} is not empty; use a fresh directory`);
   const index = JSON.parse(fs.readFileSync(path.join(storybook, 'index.json'), 'utf8'));
   const ids = Object.values(index.entries).filter((e) => e.type === 'story').map((e) => e.id).sort();
@@ -107,9 +110,9 @@ export async function extract({ storybook, out, stories = [], where = {} }) {
       // preview's channel, waiting for the render each update causes.
       await page.goto(`${server.url}/iframe.html?id=${storyId}&viewMode=story`);
       try {
-        await page.locator(ROOT_SELECTOR).first().waitFor({ timeout: 10_000 });
+        await page.locator(rootSelector).first().waitFor({ timeout: 10_000 });
       } catch {
-        throw new Error(`${storyId}: no component root in #storybook-root (an element with data-slot, data-part or data-scope)`);
+        throw new Error(`${storyId}: no component root in #storybook-root (${root ? `nothing matches ${root}` : 'an element with data-slot, data-part or data-scope'})`);
       }
       await cdp.send('DOM.enable');
       await cdp.send('CSS.enable');
@@ -125,13 +128,13 @@ export async function extract({ storybook, out, stories = [], where = {} }) {
               if (shown.args[k] !== v) throw new Error(`${storyId}: Storybook rendered ${k}=${shown.args[k]}, not ${v}`);
             }
             if (theme && shown.theme !== theme) throw new Error(`${storyId}: Storybook rendered theme ${shown.theme}, not ${theme}`);
-            const nodeIds = await nodeIdsUnderRoot(cdp);
-            const interactive = await page.locator(ROOT_SELECTOR).first().evaluate((el, sel) => el.matches(sel), INTERACTIVE);
+            const nodeIds = await nodeIdsUnderRoot(cdp, rootSelector);
+            const interactive = await page.locator(rootSelector).first().evaluate((el, sel) => el.matches(sel), INTERACTIVE);
             const states = disabled ? ['disabled'] : ['rest', ...(interactive ? ['hovered', 'focused'] : [])];
             for (const state of states) {
               await cdp.send('CSS.forcePseudoState', { nodeId: nodeIds[0], forcedPseudoClasses: FORCED[state] ?? [] });
               await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
-              const elements = await measure(page, cdp, nodeIds);
+              const elements = await measure(page, cdp, nodeIds, rootSelector);
               const cell = { story: storyId, title: meta.title, name: meta.name, theme, args: combo, state, elements };
               const rel = path.posix.join(storyId, fileName({ theme, args: combo, state }));
               fs.mkdirSync(path.join(out, storyId), { recursive: true });

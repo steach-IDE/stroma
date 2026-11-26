@@ -2,30 +2,34 @@
 
 ## Current objective
 
-`feat-008`: the Phase 1 gate on Carbon. `feat-007` is done (issue #23).
+`feat-008`, Carbon. First slice (issue #25) done; inference, fonts, emit and the oracle are next.
 
 ## Completed this session
 
-- `feat-007` (issues #21, #23): the emitter takes an inferred DSIR; the example package is emitted from `examples/shadcn-neutral/inferred/shadcn.dsir.json`; Linux goldens regenerated on CI.
-- The `update-goldens` workflow now works (it had a pathspec bug).
-- Badge `WithIcon` story: a story set decides what the extractor can see.
+- `examples/carbon/storybook`: pinned `@carbon/react` 1.121.0 and `@carbon/styles` 1.120.0; Button, Tag, Tile and ClickableTile stories with Carbon's own axes; four themes.
+- The extractor takes `--root <css selector>`; the shadcn extraction is unchanged.
 
 ## Verification evidence
 
 | Check | Command | Result |
 | --- | --- | --- |
-| Baseline | `./init.sh` | green |
-| Oracle | `pnpm run compare` in `packages/oracle` after `flutter test` | 426/426 cells, 36/36 tokens |
+| Extraction | `extract.mjs --storybook examples/carbon/storybook/storybook-static --out <dir> --root '.cds--btn, .cds--tag, .cds--tile'` | 784 cells, 4 stories, 83 s |
+| Determinism | two runs, `diff -r` | identical |
+| No match | `--root '.cds--nothing'` | exit 1, names the story |
+| Baseline | `./init.sh` | see the PR |
 
-## Blockers
+## Findings for the next slice
 
-None. The token check still reads shadcn's source theme (`shortcut:` in `compare.mjs`); make it read the emitted tokens when Carbon needs it.
+- Carbon's tokens are `var(--cds-button-primary, #0f62fe)`: a fallback after the name. Infer must read that form, and the hover rule names a different token (`--cds-button-primary-hover`).
+- Four themes (`white`, `g10`, `g90`, `g100`), where the DSIR and emitter assume `light` and `dark`.
+- Infer finds components by `data-slot`; Carbon has none, so it needs the root's class (`cds--btn`) as the component name.
+- Carbon's stylesheet loads IBM Plex from a CDN: pin the fonts like Inter (`tool/fetch-fonts.sh`) before any oracle run.
+- The oracle's browser side comes from the shadcn enricher; Carbon's must come from the extraction itself.
 
 ## Next session startup
 
 1. Read `AGENTS.md`, `feature_list.json`, `progress.md` and this file; run `./init.sh`.
-2. Regenerate the inferred DSIR with `packages/extractor` then `packages/infer` (output goes to `examples/shadcn-neutral/inferred/`).
 
 ## Recommended next step
 
-`feat-008`: pin Carbon's Storybook and run extract, infer, emit and the oracle on Button, Tag and Tile. List every remaining failure in `unsupported` with a reason.
+An issue for infer on Carbon: components from the root class, `var()` fallbacks, themes as modes. Run it on `examples/carbon/storybook` and report how much of the 784 cells the rules explain.

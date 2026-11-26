@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-007` is done on branch `feat/23-example-from-inferred` (issue #23, after #22); `feat-008` (Carbon) is next.
+- **Active feature:** `feat-008` (Carbon), first slice on `feat/25-carbon-storybook` (issue #25).
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -27,7 +27,7 @@
 
 ## In progress
 
-Nothing.
+- `feat-008`: a pinned Carbon Storybook and an extractor `--root` option are done (issue #25). Next slices: inference for Carbon (four themes, `var()` with fallbacks, no `data-slot`), pinned IBM Plex fonts, emit, and the oracle's browser side.
 
 ## Next
 
@@ -80,6 +80,7 @@ Nothing.
 | 2026-11-26 | The Storybook gets a `WithIcon` badge story | The extractor can only describe what a story draws; without it the inferred Badge had no icon slot | Guessing an icon slot from the layout |
 | 2026-11-26 | A colour token measured in one mode only is emitted with the other mode's value and a comment | No cell used it in the other mode, so no rule reads it there | Failing the emit; inventing a value |
 | 2026-11-26 | `examples/shadcn-neutral` is emitted from the inferred DSIR (`inferred/shadcn.dsir.json`); `design-system/` keeps the source-derived one as ground truth | The gate must run on what the extractor measured; CI then guards it | Keeping the example source-derived |
+| 2026-11-26 | Carbon is read from a local Storybook built from pinned `@carbon/react`, not the hosted one; the extractor takes `--root` for it | The hosted site can't be pinned; Carbon marks no `data-slot`/`data-part` | Extracting the hosted site |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified
