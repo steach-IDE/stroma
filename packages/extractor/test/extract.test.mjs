@@ -28,7 +28,7 @@ test('two runs write byte-identical cells, one per variant x state x theme', asy
   const first = await extract({ storybook, out: a, stories });
   await extract({ storybook, out: b, stories });
   // The link badge: 6 variants x rest/hovered/focused x light/dark. The card is not interactive: rest x 2 themes.
-  assert.deepEqual(first, { stories: 2, cells: 6 * 3 * 2 + 2 });
+  assert.deepEqual({ stories: first.stories, cells: first.cells }, { stories: 2, cells: 6 * 3 * 2 + 2 });
   const files = (dir) => fs.readdirSync(dir, { recursive: true }).filter((f) => f.endsWith('.json')).sort();
   assert.deepEqual(files(a), files(b));
   for (const f of files(a)) assert.equal(fs.readFileSync(path.join(a, f), 'utf8'), fs.readFileSync(path.join(b, f), 'utf8'), f);
@@ -101,6 +101,21 @@ window.__STORYBOOK_PREVIEW__ = { ready: async () => {}, storyStore: {
   const decls = rules.flatMap((r) => r.decls);
   assert.ok(decls.some(([n, v]) => n === 'background-color' && v === 'rgb(25, 118, 210)'), JSON.stringify(rules));
   assert.ok(decls.some(([n]) => n === 'padding'), 'the shorthand as written is kept');
+});
+
+test('coverage says what the stories did not exercise: an icon never drawn, options not rendered, args not varied', async () => {
+  const without = tmp();
+  await extract({ storybook, out: path.join(without, 'a'), stories: ['badge--default'] });
+  const withIcon = tmp();
+  await extract({ storybook, out: path.join(withIcon, 'a'), stories: ['badge--default', 'badge--with-icon'], where: { variant: 'default' } });
+  assert.equal(read(without, 'a/index.json').coverage['badge--default'].icon, 'never');
+  const cov = read(withIcon, 'a/index.json').coverage;
+  assert.equal(cov['badge--with-icon'].icon, 'always');
+  assert.equal(cov['badge--default'].icon, 'never');
+  // --where kept one variant: the other five are named as not rendered.
+  assert.deepEqual(cov['badge--default'].axes.variant.notRendered, ['secondary', 'destructive', 'outline', 'ghost', 'link']);
+  assert.ok(cov['badge--default'].uncontrolled.includes('children'), 'a text control no cell varies');
+  assert.deepEqual(cov['badge--default'].states, ['rest']);
 });
 
 test('it refuses to write into a directory that already holds files', async () => {

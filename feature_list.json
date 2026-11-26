@@ -195,9 +195,9 @@
       "dependencies": [
         "feat-009"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "stroma-extract writes a coverage section to index.json; on the shadcn Storybook before its Badge WithIcon story it lists the Badge icon slot as unobserved, and after it lists none; a component with an axis option no story renders names that option.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #43: stroma-extract writes a coverage section to index.json per story (axis options and any not rendered, args with a control no cell varies, states measured, icon never/sometimes/always, child parts) and stroma-coverage prints it. shadcn Badge without badge--with-icon: icon never; with it: badge--with-icon always, badge--default never; --where variant=default names the other five variants as not rendered (extractor tests 8/8). Carbon's Button story shows icon: never. Re-extracting shadcn (834 cells), Carbon (784) and Material UI (432) gives DSIRs identical to the committed ones but for the source hash; the cell files are byte-identical across runs."
     },
     {
       "id": "feat-017",

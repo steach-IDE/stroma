@@ -33,7 +33,11 @@ async function describeStory(page, base, storyId) {
     const items = preview.storyStore.projectAnnotations?.globalTypes?.theme?.toolbar?.items ?? [];
     const themes = items.map((i) => (typeof i === 'string' ? i : i.value)).filter(Boolean);
     const defaults = Object.fromEntries(Object.keys(axes).sort().map((k) => [k, String(story.initialArgs[k])]));
-    return { title: story.title, name: story.name, axes, defaults, hasDisabled, themes };
+    // Args with a control and no options: the extractor sets none of them, so no cell varies them.
+    const uncontrolled = Object.entries(story.argTypes)
+      .filter(([name, t]) => t.control && t.control !== false && !Array.isArray(t.options) && t.type?.name !== 'function' && !(name === 'disabled' && hasDisabled))
+      .map(([name]) => name).sort();
+    return { title: story.title, name: story.name, axes, defaults, hasDisabled, themes, uncontrolled };
   }, storyId);
 }
 
@@ -98,6 +102,7 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
   const browser = await chromium.launch();
   const cells = [];
   const blocked = new Set();
+  const seen = {}; // story -> what its cells showed, for the coverage section
   const pageColours = {}; // theme -> the page's background and text colour, from <body> (else <html>, else white)
   const described = {};
   try {
@@ -114,6 +119,7 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
     for (const storyId of selected) {
       const meta = await describeStory(page, server.url, storyId);
       described[storyId] = meta;
+      const saw = (seen[storyId] ??= { cells: 0, icon: 0, states: new Set(), parts: {}, args: Object.fromEntries(Object.keys(meta.axes).map((a) => [a, new Set()])) });
       const themes = meta.themes.length ? meta.themes : [null];
       const combos = combinations(meta.axes).filter((c) => Object.entries(where).every(([k, v]) => !(k in c) || c[k] === v));
       // Storybook ignores `args` in the iframe URL, so cells are set the way its own UI does: through the
@@ -150,6 +156,14 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
               await cdp.send('CSS.forcePseudoState', { nodeId: nodeIds[0], forcedPseudoClasses: FORCED[state] ?? [] });
               await page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
               const elements = await measure(page, cdp, nodeIds, rootSelector);
+              saw.cells++;
+              saw.states.add(state);
+              for (const [axis, v] of Object.entries(combo)) saw.args[axis].add(v);
+              if (elements.some((e, i) => i > 0 && e.tag === 'svg' && e.parent === 0)) saw.icon++;
+              for (const e of elements.filter((x, i) => i > 0 && x.parent === 0)) {
+                const part = e.attrs['data-slot'] ?? e.attrs['data-part'] ?? e.attrs['data-scope'];
+                if (part) saw.parts[part] = (saw.parts[part] ?? 0) + 1;
+              }
               const cell = { story: storyId, title: meta.title, name: meta.name, theme, args: combo, state, elements };
               const rel = path.posix.join(storyId, fileName({ theme, args: combo, state }));
               fs.mkdirSync(path.join(out, storyId), { recursive: true });
@@ -166,7 +180,21 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
     await server.close();
   }
   cells.sort((a, b) => (a.file < b.file ? -1 : 1));
+  // What the stories did and did not exercise: facts about the cells, not a judgement of what a component should have.
+  const how = (n, total) => (n === 0 ? 'never' : n === total ? 'always' : 'sometimes');
+  const coverage = Object.fromEntries(Object.entries(seen).map(([id, saw]) => [id, {
+    cells: saw.cells,
+    axes: Object.fromEntries(Object.entries(described[id].axes).map(([axis, options]) => [axis, { options, notRendered: options.filter((o) => !saw.args[axis].has(o)) }])),
+    uncontrolled: described[id].uncontrolled,
+    states: [...saw.states].sort(),
+    icon: how(saw.icon, saw.cells),
+    parts: Object.fromEntries(Object.entries(saw.parts).sort().map(([part, n]) => [part, how(n, saw.cells)])),
+  }]));
+  const gaps = Object.entries(coverage).flatMap(([id, c]) => [
+    ...Object.entries(c.axes).filter(([, a]) => a.notRendered.length).map(([axis, a]) => `${id}: ${axis} options not rendered: ${a.notRendered.join(', ')}`),
+    ...(c.uncontrolled.length ? [`${id}: args with a control that no cell varies: ${c.uncontrolled.join(', ')}`] : []),
+  ]);
   fs.mkdirSync(out, { recursive: true });
-  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells, page: Object.fromEntries(Object.entries(pageColours).sort()), ...(blocked.size ? { blocked: [...blocked].sort() } : {}) }, null, 2) + '\n');
-  return { stories: selected.length, cells: cells.length };
+  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells, coverage, page: Object.fromEntries(Object.entries(pageColours).sort()), ...(blocked.size ? { blocked: [...blocked].sort() } : {}) }, null, 2) + '\n');
+  return { stories: selected.length, cells: cells.length, gaps };
 }
