@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-`feat-016`, the coverage report (the Storybook decides what can be seen: Badge's icon, Carbon's clickable tile), then `feat-018` (overrides: `MuiButtonBaseRoot` to `Button`, `radius-minus2` to `radius-md`), `feat-017` (a Chrome crop per cell), `feat-022` (fonts that did not load) and `feat-010` (the CLI). Open each issue first.
+`feat-018`, DSIR overrides for names (`MuiButtonBaseRoot` to `Button`, `Btn` to `Button`, `radius-minus2` to `radius-md`, roles and slot kinds), kept when re-inferred; an override naming something that does not exist must fail naming it. Then `feat-017` (a Chrome crop per cell), `feat-022` (fonts that did not load) and `feat-010` (the CLI). Open each issue first, and run `.github/scripts/work-gate.sh` before pushing: CI rejects a commit subject over 72 characters.
