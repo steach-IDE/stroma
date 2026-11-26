@@ -44,12 +44,7 @@ class Badge extends StatelessWidget {
     final t = DsTheme.of(context);
     if (onPressed == null) {
       final states = <WidgetState>{if (invalid) WidgetState.error};
-      final style = resolveBadgeStyle(
-        t,
-        variant: variant,
-        states: states,
-        interactive: onPressed != null,
-      );
+      final style = resolveBadgeStyle(t, variant: variant, states: states, hasIcon: icon != null);
       return Semantics(
         label: semanticLabel,
         child: DsBox(
@@ -72,12 +67,7 @@ class Badge extends StatelessWidget {
       autofocus: autofocus,
       semanticLabel: semanticLabel,
       builder: (context, states) {
-        final style = resolveBadgeStyle(
-          t,
-          variant: variant,
-          states: states,
-          interactive: onPressed != null,
-        );
+        final style = resolveBadgeStyle(t, variant: variant, states: states, hasIcon: icon != null);
         return DsBox(
           style: style.root,
           icon: style.icon,
@@ -99,107 +89,106 @@ class Badge extends StatelessWidget {
   DsTokens t, {
   required BadgeVariant variant,
   required Set<WidgetState> states,
-  required bool interactive,
+  required bool hasIcon,
 }) {
   final dark = t.brightness == Brightness.dark;
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
+  var root = DsStyle();
   var icon = const DsStyle();
-  root = root.merge(const DsStyle(layout: DsLayout.inlineRow)); // inline-flex
-  root = root.merge(const DsStyle(crossAlign: DsAlign.center)); // items-center
-  root = root.merge(const DsStyle(mainAlign: DsAlign.center)); // justify-center
-  root = root.merge(const DsStyle(gap: 4)); // gap-1
-  root = root.merge(const DsStyle(clip: true)); // overflow-hidden
-  root = root.merge(const DsStyle(radius: 9999)); // rounded-full
-  root = root.merge(const DsStyle(borderWidth: 1)); // border
-  if (variant == BadgeVariant.outline) {
-    root = root.merge(DsStyle(borderColor: t.border));
-  } // border-border
-  if (variant != BadgeVariant.outline) {
-    root = root.merge(const DsStyle(borderColor: Color(0x00000000)));
-  } // border-transparent
-  if (variant == BadgeVariant.destructive) {
-    root = root.merge(DsStyle(background: t.destructive));
-  } // bg-destructive
+  icon = icon.merge(
+    DsStyle(
+      borderColor: t.border,
+      borderWidth: 0,
+      height: 12,
+      layout: DsLayout.block,
+      paddingX: 0,
+      paddingY: 0,
+      width: 12,
+    ),
+  ); // measured: every cell
+  root = root.merge(
+    DsStyle(
+      background: Color.from(alpha: 0, red: 0, green: 0, blue: 0),
+      borderColor: Color(0x00000000),
+      borderWidth: 1,
+      clip: true,
+      crossAlign: DsAlign.center,
+      foreground: t.colorWhite,
+      fontSize: 12,
+      fontWeight: FontWeight.w500,
+      gap: 4,
+      layout: DsLayout.inlineRow,
+      lineHeight: 1.3333,
+      mainAlign: DsAlign.center,
+      maxLines: 1,
+      paddingX: 8,
+      paddingY: 2,
+      radius: 33554400,
+      curve: Cubic(0.4, 0, 0.2, 1),
+      transition: Duration(milliseconds: 150),
+      underline: false,
+      width: 54.6094,
+    ),
+  ); // measured: every cell
   if (variant == BadgeVariant.regular) {
-    root = root.merge(DsStyle(background: t.primary));
-  } // bg-primary
-  if (variant == BadgeVariant.secondary) {
-    root = root.merge(DsStyle(background: t.secondary));
-  } // bg-secondary
-  root = root.merge(const DsStyle(paddingX: 8)); // px-2
-  root = root.merge(const DsStyle(paddingY: 2)); // py-0.5
-  root = root.merge(const DsStyle(fontSize: 12, lineHeight: 1.3333333333333333)); // text-xs
-  root = root.merge(const DsStyle(fontWeight: FontWeight.w500)); // font-medium
-  root = root.merge(const DsStyle(maxLines: 1)); // whitespace-nowrap
-  if (variant == BadgeVariant.outline) {
-    root = root.merge(DsStyle(foreground: t.foreground));
-  } // text-foreground
+    root = root.merge(DsStyle(background: t.primary, foreground: t.primaryForeground));
+  } // measured: variant=default
+  if (variant == BadgeVariant.destructive) {
+    root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.6)));
+  } // measured: variant=destructive
+  if (variant == BadgeVariant.ghost) {
+    root = root.merge(const DsStyle(foreground: Color(0xFF0A0A0A)));
+  } // measured: variant=ghost
   if (variant == BadgeVariant.link) {
     root = root.merge(DsStyle(foreground: t.primary));
-  } // text-primary
-  if (variant == BadgeVariant.regular) {
-    root = root.merge(DsStyle(foreground: t.primaryForeground));
-  } // text-primary-foreground
+  } // measured: variant=link
+  if (variant == BadgeVariant.outline) {
+    root = root.merge(DsStyle(borderColor: t.border, foreground: t.foreground));
+  } // measured: variant=outline
   if (variant == BadgeVariant.secondary) {
-    root = root.merge(DsStyle(foreground: t.secondaryForeground));
-  } // text-secondary-foreground
-  if (variant == BadgeVariant.destructive) {
-    root = root.merge(const DsStyle(foreground: Color(0xFFFFFFFF)));
-  } // text-white
-  root = root.merge(
-    const DsStyle(transition: Duration(milliseconds: 150), curve: Cubic(0.4, 0, 0.2, 1)),
-  ); // transition-[color,box-shadow]
-  icon = icon.merge(const DsStyle(height: 12, width: 12)); // [&>svg]:size-3
+    root = root.merge(DsStyle(background: t.secondary, foreground: t.secondaryForeground));
+  } // measured: variant=secondary
   if (states.contains(WidgetState.focused)) {
-    root = root.merge(DsStyle(borderColor: t.ring));
-  } // focus-visible:border-ring
-  if (states.contains(WidgetState.focused)) {
-    root = root.merge(const DsStyle(ringWidth: 3));
-  } // focus-visible:ring-[3px]
+    root = root.merge(
+      DsStyle(borderColor: t.ring, ringColor: t.ring.scaleAlpha(0.5), ringWidth: 3),
+    );
+  } // measured: state=focused
+  if (states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(background: t.accent));
+  } // measured: state=hovered
+  if (hasIcon) {
+    root = root.merge(const DsStyle(width: 70.6094));
+  } // measured: hasIcon=true
+  if (variant == BadgeVariant.destructive && !dark) {
+    root = root.merge(DsStyle(background: t.destructive));
+  } // measured: variant=destructive, mode=light
+  if (variant == BadgeVariant.ghost && dark) {
+    root = root.merge(const DsStyle(foreground: Color(0xFFFAFAFA)));
+  } // measured: variant=ghost, mode=dark
+  if (variant == BadgeVariant.regular && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(background: t.primary.scaleAlpha(0.9)));
+  } // measured: variant=default, state=hovered
   if (variant == BadgeVariant.destructive && states.contains(WidgetState.focused)) {
     root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.2)));
-  } // focus-visible:ring-destructive/20
-  if (states.contains(WidgetState.focused) && variant != BadgeVariant.destructive) {
-    root = root.merge(DsStyle(ringColor: t.ring.scaleAlpha(0.5)));
-  } // focus-visible:ring-ring/50
-  if (states.contains(WidgetState.error)) {
-    root = root.merge(DsStyle(borderColor: t.destructive));
-  } // aria-invalid:border-destructive
-  if (states.contains(WidgetState.error)) {
-    root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.2)));
-  } // aria-invalid:ring-destructive/20
-  if (variant == BadgeVariant.destructive && dark) {
-    root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.6)));
-  } // dark:bg-destructive/60
-  if (variant == BadgeVariant.outline && states.contains(WidgetState.hovered) && interactive) {
-    root = root.merge(DsStyle(background: t.accent));
-  } // [a&]:hover:bg-accent
-  if (variant == BadgeVariant.ghost && states.contains(WidgetState.hovered) && interactive) {
-    root = root.merge(DsStyle(background: t.accent));
-  } // [a&]:hover:bg-accent
-  if (variant == BadgeVariant.destructive && states.contains(WidgetState.hovered) && interactive) {
+  } // measured: variant=destructive, state=focused
+  if (variant == BadgeVariant.destructive && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.9)));
-  } // [a&]:hover:bg-destructive/90
-  if (variant == BadgeVariant.regular && states.contains(WidgetState.hovered) && interactive) {
-    root = root.merge(DsStyle(background: t.primary.scaleAlpha(0.9)));
-  } // [a&]:hover:bg-primary/90
-  if (variant == BadgeVariant.secondary && states.contains(WidgetState.hovered) && interactive) {
+  } // measured: variant=destructive, state=hovered
+  if (variant == BadgeVariant.ghost && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(foreground: t.accentForeground));
+  } // measured: variant=ghost, state=hovered
+  if (variant == BadgeVariant.link && states.contains(WidgetState.hovered)) {
+    root = root.merge(
+      const DsStyle(background: Color.from(alpha: 0, red: 0, green: 0, blue: 0), underline: true),
+    );
+  } // measured: variant=link, state=hovered
+  if (variant == BadgeVariant.outline && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(foreground: t.accentForeground));
+  } // measured: variant=outline, state=hovered
+  if (variant == BadgeVariant.secondary && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.secondary.scaleAlpha(0.9)));
-  } // [a&]:hover:bg-secondary/90
-  if (variant == BadgeVariant.outline && states.contains(WidgetState.hovered) && interactive) {
-    root = root.merge(DsStyle(foreground: t.accentForeground));
-  } // [a&]:hover:text-accent-foreground
-  if (variant == BadgeVariant.ghost && states.contains(WidgetState.hovered) && interactive) {
-    root = root.merge(DsStyle(foreground: t.accentForeground));
-  } // [a&]:hover:text-accent-foreground
-  if (variant == BadgeVariant.link && states.contains(WidgetState.hovered) && interactive) {
-    root = root.merge(const DsStyle(underline: true));
-  } // [a&]:hover:underline
-  if (variant == BadgeVariant.destructive && states.contains(WidgetState.focused) && dark) {
+  } // measured: variant=secondary, state=hovered
+  if (variant == BadgeVariant.destructive && dark && states.contains(WidgetState.focused)) {
     root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.4)));
-  } // dark:focus-visible:ring-destructive/40
-  if (states.contains(WidgetState.error) && dark) {
-    root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.4)));
-  } // dark:aria-invalid:ring-destructive/40
+  } // measured: variant=destructive, mode=dark, state=focused
   return (root: root, icon: icon);
 }

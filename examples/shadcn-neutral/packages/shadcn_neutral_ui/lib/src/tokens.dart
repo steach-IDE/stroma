@@ -6,24 +6,22 @@ import 'package:flutter/material.dart';
 class DsTokens extends ThemeExtension<DsTokens> {
   const DsTokens({
     required this.brightness,
-    required this.background,
-    required this.foreground,
-    required this.card,
-    required this.cardForeground,
-    required this.popover,
-    required this.popoverForeground,
-    required this.primary,
-    required this.primaryForeground,
-    required this.secondary,
-    required this.secondaryForeground,
-    required this.muted,
-    required this.mutedForeground,
     required this.accent,
     required this.accentForeground,
-    required this.destructive,
+    required this.background,
     required this.border,
+    required this.card,
+    required this.cardForeground,
+    required this.colorWhite,
+    required this.destructive,
+    required this.foreground,
     required this.input,
+    required this.mutedForeground,
+    required this.primary,
+    required this.primaryForeground,
     required this.ring,
+    required this.secondary,
+    required this.secondaryForeground,
     this.radius = 10,
     this.fontFamily = 'Inter',
     this.fontPackage = 'shadcn_neutral_ui',
@@ -31,11 +29,17 @@ class DsTokens extends ThemeExtension<DsTokens> {
 
   final Brightness brightness;
 
+  /// `--accent`
+  final Color accent;
+
+  /// `--accent-foreground`
+  final Color accentForeground;
+
   /// `--background`
   final Color background;
 
-  /// `--foreground`
-  final Color foreground;
+  /// `--border`
+  final Color border;
 
   /// `--card`
   final Color card;
@@ -43,11 +47,20 @@ class DsTokens extends ThemeExtension<DsTokens> {
   /// `--card-foreground`
   final Color cardForeground;
 
-  /// `--popover`
-  final Color popover;
+  /// `--color-white`
+  final Color colorWhite;
 
-  /// `--popover-foreground`
-  final Color popoverForeground;
+  /// `--destructive`
+  final Color destructive;
+
+  /// `--foreground`
+  final Color foreground;
+
+  /// `--input`
+  final Color input;
+
+  /// `--muted-foreground`
+  final Color mutedForeground;
 
   /// `--primary`
   final Color primary;
@@ -55,52 +68,25 @@ class DsTokens extends ThemeExtension<DsTokens> {
   /// `--primary-foreground`
   final Color primaryForeground;
 
+  /// `--ring`
+  final Color ring;
+
   /// `--secondary`
   final Color secondary;
 
   /// `--secondary-foreground`
   final Color secondaryForeground;
 
-  /// `--muted`
-  final Color muted;
-
-  /// `--muted-foreground`
-  final Color mutedForeground;
-
-  /// `--accent`
-  final Color accent;
-
-  /// `--accent-foreground`
-  final Color accentForeground;
-
-  /// `--destructive`
-  final Color destructive;
-
-  /// `--border`
-  final Color border;
-
-  /// `--input`
-  final Color input;
-
-  /// `--ring`
-  final Color ring;
-
   /// `--radius`. The scale below derives from it, as shadcn's `@theme inline` does.
   final double radius;
   final String fontFamily;
   final String? fontPackage;
 
-  /// `--radius-sm`: calc(var(--radius) - 4px)
-  double get radiusSm => radius - 4;
+  /// `--radius-minus2`: calc(var(--radius) - 2px)
+  double get radiusMinus2 => radius - 2;
 
-  /// `--radius-md`: calc(var(--radius) - 2px)
-  double get radiusMd => radius - 2;
-
-  /// `--radius-lg`: calc(var(--radius) + 0px)
-  double get radiusLg => radius;
-
-  /// `--radius-xl`: calc(var(--radius) + 4px)
-  double get radiusXl => radius + 4;
+  /// `--radius-plus4`: calc(var(--radius) + 4px)
+  double get radiusPlus4 => radius + 4;
 
   /// What components inherit from `body`: the browser's 16px, preflight's line-height
   /// 1.5, and `text-foreground` from the style's base layer.
@@ -117,90 +103,87 @@ class DsTokens extends ThemeExtension<DsTokens> {
 
   static const light = DsTokens(
     brightness: Brightness.light,
-    background: Color(0xFFFFFFFF),
-    foreground: Color(0xFF0A0A0A),
-    card: Color(0xFFFFFFFF),
-    cardForeground: Color(0xFF0A0A0A),
-    popover: Color(0xFFFFFFFF),
-    popoverForeground: Color(0xFF0A0A0A),
-    primary: Color(0xFF171717),
-    primaryForeground: Color(0xFFFAFAFA),
-    secondary: Color(0xFFF5F5F5),
-    secondaryForeground: Color(0xFF171717),
-    muted: Color(0xFFF5F5F5),
-    mutedForeground: Color(0xFF737373),
     accent: Color(0xFFF5F5F5),
     accentForeground: Color(0xFF171717),
-    destructive: Color(0xFFE7000B),
+    background: Color(0xFFFFFFFF),
     border: Color(0xFFE5E5E5),
-    input: Color(0xFFE5E5E5),
+    card: Color(0xFFFFFFFF),
+    cardForeground: Color(0xFF0A0A0A),
+    colorWhite: Color(0xFFFFFFFF),
+    destructive: Color(0xFFE7000B),
+    foreground: Color(0xFF0A0A0A),
+    input: Color.from(
+      alpha: 0.15,
+      red: 1,
+      green: 1,
+      blue: 1,
+    ), // not measured in light: no rule reads it there
+    mutedForeground: Color(0xFF737373),
+    primary: Color(0xFF171717),
+    primaryForeground: Color(0xFFFAFAFA),
     ring: Color(0xFFA1A1A1),
+    secondary: Color(0xFFF5F5F5),
+    secondaryForeground: Color(0xFF171717),
   );
 
   static const dark = DsTokens(
     brightness: Brightness.dark,
-    background: Color(0xFF0A0A0A),
-    foreground: Color(0xFFFAFAFA),
-    card: Color(0xFF171717),
-    cardForeground: Color(0xFFFAFAFA),
-    popover: Color(0xFF171717),
-    popoverForeground: Color(0xFFFAFAFA),
-    primary: Color(0xFFE5E5E5),
-    primaryForeground: Color(0xFF171717),
-    secondary: Color(0xFF262626),
-    secondaryForeground: Color(0xFFFAFAFA),
-    muted: Color(0xFF262626),
-    mutedForeground: Color(0xFFA1A1A1),
     accent: Color(0xFF262626),
     accentForeground: Color(0xFFFAFAFA),
-    destructive: Color(0xFFFF6467),
+    background: Color(0xFF0A0A0A),
     border: Color.from(alpha: 0.1, red: 1, green: 1, blue: 1),
+    card: Color(0xFF171717),
+    cardForeground: Color(0xFFFAFAFA),
+    colorWhite: Color(0xFFFFFFFF),
+    destructive: Color(0xFFFF6467),
+    foreground: Color(0xFFFAFAFA),
     input: Color.from(alpha: 0.15, red: 1, green: 1, blue: 1),
+    mutedForeground: Color(0xFFA1A1A1),
+    primary: Color(0xFFE5E5E5),
+    primaryForeground: Color(0xFF171717),
     ring: Color(0xFF737373),
+    secondary: Color(0xFF262626),
+    secondaryForeground: Color(0xFFFAFAFA),
   );
 
   @override
   DsTokens copyWith({
     Brightness? brightness,
-    Color? background,
-    Color? foreground,
-    Color? card,
-    Color? cardForeground,
-    Color? popover,
-    Color? popoverForeground,
-    Color? primary,
-    Color? primaryForeground,
-    Color? secondary,
-    Color? secondaryForeground,
-    Color? muted,
-    Color? mutedForeground,
     Color? accent,
     Color? accentForeground,
-    Color? destructive,
+    Color? background,
     Color? border,
+    Color? card,
+    Color? cardForeground,
+    Color? colorWhite,
+    Color? destructive,
+    Color? foreground,
     Color? input,
+    Color? mutedForeground,
+    Color? primary,
+    Color? primaryForeground,
     Color? ring,
+    Color? secondary,
+    Color? secondaryForeground,
     double? radius,
   }) => DsTokens(
     brightness: brightness ?? this.brightness,
-    background: background ?? this.background,
-    foreground: foreground ?? this.foreground,
-    card: card ?? this.card,
-    cardForeground: cardForeground ?? this.cardForeground,
-    popover: popover ?? this.popover,
-    popoverForeground: popoverForeground ?? this.popoverForeground,
-    primary: primary ?? this.primary,
-    primaryForeground: primaryForeground ?? this.primaryForeground,
-    secondary: secondary ?? this.secondary,
-    secondaryForeground: secondaryForeground ?? this.secondaryForeground,
-    muted: muted ?? this.muted,
-    mutedForeground: mutedForeground ?? this.mutedForeground,
     accent: accent ?? this.accent,
     accentForeground: accentForeground ?? this.accentForeground,
-    destructive: destructive ?? this.destructive,
+    background: background ?? this.background,
     border: border ?? this.border,
+    card: card ?? this.card,
+    cardForeground: cardForeground ?? this.cardForeground,
+    colorWhite: colorWhite ?? this.colorWhite,
+    destructive: destructive ?? this.destructive,
+    foreground: foreground ?? this.foreground,
     input: input ?? this.input,
+    mutedForeground: mutedForeground ?? this.mutedForeground,
+    primary: primary ?? this.primary,
+    primaryForeground: primaryForeground ?? this.primaryForeground,
     ring: ring ?? this.ring,
+    secondary: secondary ?? this.secondary,
+    secondaryForeground: secondaryForeground ?? this.secondaryForeground,
     radius: radius ?? this.radius,
     fontFamily: fontFamily,
     fontPackage: fontPackage,
@@ -211,24 +194,22 @@ class DsTokens extends ThemeExtension<DsTokens> {
     if (other == null) return this;
     return DsTokens(
       brightness: t < 0.5 ? brightness : other.brightness,
-      background: Color.lerp(background, other.background, t)!,
-      foreground: Color.lerp(foreground, other.foreground, t)!,
-      card: Color.lerp(card, other.card, t)!,
-      cardForeground: Color.lerp(cardForeground, other.cardForeground, t)!,
-      popover: Color.lerp(popover, other.popover, t)!,
-      popoverForeground: Color.lerp(popoverForeground, other.popoverForeground, t)!,
-      primary: Color.lerp(primary, other.primary, t)!,
-      primaryForeground: Color.lerp(primaryForeground, other.primaryForeground, t)!,
-      secondary: Color.lerp(secondary, other.secondary, t)!,
-      secondaryForeground: Color.lerp(secondaryForeground, other.secondaryForeground, t)!,
-      muted: Color.lerp(muted, other.muted, t)!,
-      mutedForeground: Color.lerp(mutedForeground, other.mutedForeground, t)!,
       accent: Color.lerp(accent, other.accent, t)!,
       accentForeground: Color.lerp(accentForeground, other.accentForeground, t)!,
-      destructive: Color.lerp(destructive, other.destructive, t)!,
+      background: Color.lerp(background, other.background, t)!,
       border: Color.lerp(border, other.border, t)!,
+      card: Color.lerp(card, other.card, t)!,
+      cardForeground: Color.lerp(cardForeground, other.cardForeground, t)!,
+      colorWhite: Color.lerp(colorWhite, other.colorWhite, t)!,
+      destructive: Color.lerp(destructive, other.destructive, t)!,
+      foreground: Color.lerp(foreground, other.foreground, t)!,
       input: Color.lerp(input, other.input, t)!,
+      mutedForeground: Color.lerp(mutedForeground, other.mutedForeground, t)!,
+      primary: Color.lerp(primary, other.primary, t)!,
+      primaryForeground: Color.lerp(primaryForeground, other.primaryForeground, t)!,
       ring: Color.lerp(ring, other.ring, t)!,
+      secondary: Color.lerp(secondary, other.secondary, t)!,
+      secondaryForeground: Color.lerp(secondaryForeground, other.secondaryForeground, t)!,
       radius: radius + (other.radius - radius) * t,
       fontFamily: fontFamily,
       fontPackage: fontPackage,

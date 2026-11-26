@@ -86,110 +86,87 @@ class Button extends StatelessWidget {
   required bool hasIcon,
 }) {
   final dark = t.brightness == Brightness.dark;
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
+  var root = DsStyle();
   var icon = const DsStyle();
-  root = root.merge(const DsStyle(layout: DsLayout.inlineRow)); // inline-flex
-  if (size == ButtonSize.iconXs) {
-    root = root.merge(const DsStyle(height: 24, width: 24));
-  } // size-6
-  if (size == ButtonSize.iconSm) {
-    root = root.merge(const DsStyle(height: 32, width: 32));
-  } // size-8
+  icon = icon.merge(
+    DsStyle(
+      borderColor: t.border,
+      borderWidth: 0,
+      height: 16,
+      layout: DsLayout.block,
+      paddingX: 0,
+      paddingY: 0,
+      width: 16,
+    ),
+  ); // measured: every cell
+  root = root.merge(
+    DsStyle(
+      background: Color(0x00000000),
+      borderColor: t.border,
+      borderWidth: 0,
+      crossAlign: DsAlign.center,
+      foreground: Color(0xFF0A0A0A),
+      fontSize: 14,
+      fontWeight: FontWeight.w500,
+      gap: 8,
+      height: 24,
+      layout: DsLayout.inlineRow,
+      lineHeight: 1.4286,
+      mainAlign: DsAlign.center,
+      maxLines: 1,
+      opacity: 1,
+      paddingX: 0,
+      paddingY: 0,
+      radius: t.radiusMinus2,
+      curve: Cubic(0.4, 0, 0.2, 1),
+      transition: Duration(milliseconds: 150),
+      underline: false,
+    ),
+  ); // measured: every cell
+  if (size == ButtonSize.regular) {
+    root = root.merge(const DsStyle(height: 36, paddingX: 16, paddingY: 8));
+  } // measured: size=default
   if (size == ButtonSize.icon) {
     root = root.merge(const DsStyle(height: 36, width: 36));
-  } // size-9
+  } // measured: size=icon
   if (size == ButtonSize.iconLg) {
     root = root.merge(const DsStyle(height: 40, width: 40));
-  } // size-10
-  if (size == ButtonSize.xs) {
-    root = root.merge(const DsStyle(height: 24));
-  } // h-6
-  if (size == ButtonSize.sm) {
-    root = root.merge(const DsStyle(height: 32));
-  } // h-8
-  if (size == ButtonSize.regular) {
-    root = root.merge(const DsStyle(height: 36));
-  } // h-9
-  if (size == ButtonSize.lg) {
-    root = root.merge(const DsStyle(height: 40));
-  } // h-10
-  root = root.merge(const DsStyle(crossAlign: DsAlign.center)); // items-center
-  root = root.merge(const DsStyle(mainAlign: DsAlign.center)); // justify-center
-  if (size == ButtonSize.xs) {
-    root = root.merge(const DsStyle(gap: 4));
-  } // gap-1
-  if (size == ButtonSize.sm) {
-    root = root.merge(const DsStyle(gap: 6));
-  } // gap-1.5
-  if (size != ButtonSize.xs && size != ButtonSize.sm) {
-    root = root.merge(const DsStyle(gap: 8));
-  } // gap-2
-  root = root.merge(DsStyle(radius: t.radiusMd)); // rounded-md
-  if (size == ButtonSize.xs) {
-    root = root.merge(DsStyle(radius: t.radiusMd));
-  } // rounded-md
-  if (size == ButtonSize.sm) {
-    root = root.merge(DsStyle(radius: t.radiusMd));
-  } // rounded-md
-  if (size == ButtonSize.lg) {
-    root = root.merge(DsStyle(radius: t.radiusMd));
-  } // rounded-md
+  } // measured: size=icon-lg
+  if (size == ButtonSize.iconSm) {
+    root = root.merge(const DsStyle(height: 32, width: 32));
+  } // measured: size=icon-sm
   if (size == ButtonSize.iconXs) {
-    root = root.merge(DsStyle(radius: t.radiusMd));
-  } // rounded-md
-  if (variant == ButtonVariant.outline) {
-    root = root.merge(const DsStyle(borderWidth: 1));
-  } // border
-  if (variant == ButtonVariant.outline) {
-    root = root.merge(DsStyle(background: t.background));
-  } // bg-background
-  if (variant == ButtonVariant.destructive) {
-    root = root.merge(DsStyle(background: t.destructive));
-  } // bg-destructive
-  if (variant == ButtonVariant.regular) {
-    root = root.merge(DsStyle(background: t.primary));
-  } // bg-primary
-  if (variant == ButtonVariant.secondary) {
-    root = root.merge(DsStyle(background: t.secondary));
-  } // bg-secondary
-  if (size == ButtonSize.xs) {
-    root = root.merge(const DsStyle(paddingX: 8));
-  } // px-2
-  if (size == ButtonSize.sm) {
-    root = root.merge(const DsStyle(paddingX: 12));
-  } // px-3
-  if (size == ButtonSize.regular) {
-    root = root.merge(const DsStyle(paddingX: 16));
-  } // px-4
+    icon = icon.merge(const DsStyle(height: 12, width: 12));
+  } // measured: size=icon-xs
+  if (size == ButtonSize.iconXs) {
+    root = root.merge(const DsStyle(width: 24));
+  } // measured: size=icon-xs
   if (size == ButtonSize.lg) {
-    root = root.merge(const DsStyle(paddingX: 24));
-  } // px-6
-  if (size == ButtonSize.regular) {
-    root = root.merge(const DsStyle(paddingY: 8));
-  } // py-2
-  if (size != ButtonSize.xs) {
-    root = root.merge(const DsStyle(fontSize: 14, lineHeight: 1.4285714285714286));
-  } // text-sm
+    root = root.merge(const DsStyle(height: 40, paddingX: 24));
+  } // measured: size=lg
+  if (size == ButtonSize.sm) {
+    root = root.merge(const DsStyle(gap: 6, height: 32, paddingX: 12));
+  } // measured: size=sm
   if (size == ButtonSize.xs) {
-    root = root.merge(const DsStyle(fontSize: 12, lineHeight: 1.3333333333333333));
-  } // text-xs
-  root = root.merge(const DsStyle(fontWeight: FontWeight.w500)); // font-medium
-  root = root.merge(const DsStyle(maxLines: 1)); // whitespace-nowrap
+    icon = icon.merge(const DsStyle(height: 12, width: 12));
+  } // measured: size=xs
+  if (size == ButtonSize.xs) {
+    root = root.merge(const DsStyle(fontSize: 12, gap: 4, lineHeight: 1.3333, paddingX: 8));
+  } // measured: size=xs
+  if (variant == ButtonVariant.regular) {
+    root = root.merge(DsStyle(background: t.primary, foreground: t.primaryForeground));
+  } // measured: variant=default
+  if (variant == ButtonVariant.destructive) {
+    root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.6), foreground: t.colorWhite));
+  } // measured: variant=destructive
   if (variant == ButtonVariant.link) {
     root = root.merge(DsStyle(foreground: t.primary));
-  } // text-primary
-  if (variant == ButtonVariant.regular) {
-    root = root.merge(DsStyle(foreground: t.primaryForeground));
-  } // text-primary-foreground
-  if (variant == ButtonVariant.secondary) {
-    root = root.merge(DsStyle(foreground: t.secondaryForeground));
-  } // text-secondary-foreground
-  if (variant == ButtonVariant.destructive) {
-    root = root.merge(const DsStyle(foreground: Color(0xFFFFFFFF)));
-  } // text-white
+  } // measured: variant=link
   if (variant == ButtonVariant.outline) {
     root = root.merge(
-      const DsStyle(
+      DsStyle(
+        background: t.background,
+        borderWidth: 1,
         shadows: [
           BoxShadow(
             offset: Offset(0, 1),
@@ -200,96 +177,76 @@ class Button extends StatelessWidget {
         ],
       ),
     );
-  } // shadow-xs
-  root = root.merge(
-    const DsStyle(transition: Duration(milliseconds: 150), curve: Cubic(0.4, 0, 0.2, 1)),
-  ); // transition-all
-  if (size == ButtonSize.xs) {
-    icon = icon.merge(const DsStyle(height: 12, width: 12));
-  } // [&_svg:not([class*='size-'])]:size-3
-  if (size == ButtonSize.iconXs) {
-    icon = icon.merge(const DsStyle(height: 12, width: 12));
-  } // [&_svg:not([class*='size-'])]:size-3
-  if (size != ButtonSize.xs && size != ButtonSize.iconXs) {
-    icon = icon.merge(const DsStyle(height: 16, width: 16));
-  } // [&_svg:not([class*='size-'])]:size-4
-  if (size == ButtonSize.xs && hasIcon) {
-    root = root.merge(const DsStyle(paddingX: 6));
-  } // has-[>svg]:px-1.5
-  if (size == ButtonSize.sm && hasIcon) {
-    root = root.merge(const DsStyle(paddingX: 10));
-  } // has-[>svg]:px-2.5
-  if (size == ButtonSize.regular && hasIcon) {
-    root = root.merge(const DsStyle(paddingX: 12));
-  } // has-[>svg]:px-3
-  if (size == ButtonSize.lg && hasIcon) {
-    root = root.merge(const DsStyle(paddingX: 16));
-  } // has-[>svg]:px-4
-  if (variant == ButtonVariant.outline && states.contains(WidgetState.hovered)) {
-    root = root.merge(DsStyle(background: t.accent));
-  } // hover:bg-accent
-  if (variant == ButtonVariant.ghost && states.contains(WidgetState.hovered)) {
-    root = root.merge(DsStyle(background: t.accent));
-  } // hover:bg-accent
-  if (variant == ButtonVariant.destructive && states.contains(WidgetState.hovered)) {
-    root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.9)));
-  } // hover:bg-destructive/90
-  if (variant == ButtonVariant.regular && states.contains(WidgetState.hovered)) {
-    root = root.merge(DsStyle(background: t.primary.scaleAlpha(0.9)));
-  } // hover:bg-primary/90
-  if (variant == ButtonVariant.secondary && states.contains(WidgetState.hovered)) {
-    root = root.merge(DsStyle(background: t.secondary.scaleAlpha(0.8)));
-  } // hover:bg-secondary/80
-  if (variant == ButtonVariant.outline && states.contains(WidgetState.hovered)) {
-    root = root.merge(DsStyle(foreground: t.accentForeground));
-  } // hover:text-accent-foreground
-  if (variant == ButtonVariant.ghost && states.contains(WidgetState.hovered)) {
-    root = root.merge(DsStyle(foreground: t.accentForeground));
-  } // hover:text-accent-foreground
-  if (variant == ButtonVariant.link && states.contains(WidgetState.hovered)) {
-    root = root.merge(const DsStyle(underline: true));
-  } // hover:underline
-  if (states.contains(WidgetState.focused)) {
-    root = root.merge(DsStyle(borderColor: t.ring));
-  } // focus-visible:border-ring
-  if (states.contains(WidgetState.focused)) {
-    root = root.merge(const DsStyle(ringWidth: 3));
-  } // focus-visible:ring-[3px]
-  if (variant == ButtonVariant.destructive && states.contains(WidgetState.focused)) {
-    root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.2)));
-  } // focus-visible:ring-destructive/20
-  if (states.contains(WidgetState.focused) && variant != ButtonVariant.destructive) {
-    root = root.merge(DsStyle(ringColor: t.ring.scaleAlpha(0.5)));
-  } // focus-visible:ring-ring/50
+  } // measured: variant=outline
+  if (variant == ButtonVariant.secondary) {
+    root = root.merge(DsStyle(background: t.secondary, foreground: t.secondaryForeground));
+  } // measured: variant=secondary
   if (states.contains(WidgetState.disabled)) {
     root = root.merge(const DsStyle(opacity: 0.5));
-  } // disabled:opacity-50
-  if (states.contains(WidgetState.error)) {
-    root = root.merge(DsStyle(borderColor: t.destructive));
-  } // aria-invalid:border-destructive
-  if (states.contains(WidgetState.error)) {
+  } // measured: state=disabled
+  if (states.contains(WidgetState.focused)) {
+    root = root.merge(
+      DsStyle(borderColor: t.ring, ringColor: t.ring.scaleAlpha(0.5), ringWidth: 3),
+    );
+  } // measured: state=focused
+  if (size == ButtonSize.regular && hasIcon) {
+    root = root.merge(const DsStyle(paddingX: 12));
+  } // measured: size=default, hasIcon=true
+  if (size == ButtonSize.lg && hasIcon) {
+    root = root.merge(const DsStyle(paddingX: 16));
+  } // measured: size=lg, hasIcon=true
+  if (size == ButtonSize.sm && hasIcon) {
+    root = root.merge(const DsStyle(paddingX: 10));
+  } // measured: size=sm, hasIcon=true
+  if (size == ButtonSize.xs && hasIcon) {
+    root = root.merge(const DsStyle(paddingX: 6));
+  } // measured: size=xs, hasIcon=true
+  if (variant == ButtonVariant.destructive && !dark) {
+    root = root.merge(DsStyle(background: t.destructive));
+  } // measured: variant=destructive, mode=light
+  if (variant == ButtonVariant.ghost && dark) {
+    root = root.merge(const DsStyle(foreground: Color(0xFFFAFAFA)));
+  } // measured: variant=ghost, mode=dark
+  if (variant == ButtonVariant.outline && dark) {
+    root = root.merge(
+      DsStyle(
+        background: t.input.scaleAlpha(0.3),
+        borderColor: t.input,
+        foreground: Color(0xFFFAFAFA),
+      ),
+    );
+  } // measured: variant=outline, mode=dark
+  if (variant == ButtonVariant.regular && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(background: t.primary.scaleAlpha(0.9)));
+  } // measured: variant=default, state=hovered
+  if (variant == ButtonVariant.destructive && states.contains(WidgetState.focused)) {
     root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.2)));
-  } // aria-invalid:ring-destructive/20
-  if (variant == ButtonVariant.outline && dark) {
-    root = root.merge(DsStyle(borderColor: t.input));
-  } // dark:border-input
-  if (variant == ButtonVariant.destructive && dark) {
-    root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.6)));
-  } // dark:bg-destructive/60
-  if (variant == ButtonVariant.outline && dark) {
-    root = root.merge(DsStyle(background: t.input.scaleAlpha(0.3)));
-  } // dark:bg-input/30
-  if (variant == ButtonVariant.ghost && states.contains(WidgetState.hovered) && dark) {
-    root = root.merge(DsStyle(background: t.accent.scaleAlpha(0.5)));
-  } // dark:hover:bg-accent/50
-  if (variant == ButtonVariant.outline && states.contains(WidgetState.hovered) && dark) {
+  } // measured: variant=destructive, state=focused
+  if (variant == ButtonVariant.ghost && states.contains(WidgetState.hovered)) {
+    root = root.merge(
+      DsStyle(background: t.accent.scaleAlpha(0.5), foreground: t.accentForeground),
+    );
+  } // measured: variant=ghost, state=hovered
+  if (variant == ButtonVariant.link && states.contains(WidgetState.hovered)) {
+    root = root.merge(const DsStyle(underline: true));
+  } // measured: variant=link, state=hovered
+  if (variant == ButtonVariant.outline && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(background: t.accent, foreground: t.accentForeground));
+  } // measured: variant=outline, state=hovered
+  if (variant == ButtonVariant.secondary && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(background: t.secondary.scaleAlpha(0.8)));
+  } // measured: variant=secondary, state=hovered
+  if (variant == ButtonVariant.destructive && dark && states.contains(WidgetState.focused)) {
+    root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.4)));
+  } // measured: variant=destructive, mode=dark, state=focused
+  if (variant == ButtonVariant.destructive && !dark && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.9)));
+  } // measured: variant=destructive, mode=light, state=hovered
+  if (variant == ButtonVariant.ghost && !dark && states.contains(WidgetState.hovered)) {
+    root = root.merge(DsStyle(background: t.accent));
+  } // measured: variant=ghost, mode=light, state=hovered
+  if (variant == ButtonVariant.outline && dark && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.input.scaleAlpha(0.5)));
-  } // dark:hover:bg-input/50
-  if (variant == ButtonVariant.destructive && states.contains(WidgetState.focused) && dark) {
-    root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.4)));
-  } // dark:focus-visible:ring-destructive/40
-  if (states.contains(WidgetState.error) && dark) {
-    root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.4)));
-  } // dark:aria-invalid:ring-destructive/40
+  } // measured: variant=outline, mode=dark, state=hovered
   return (root: root, icon: icon);
 }
