@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** `feat-007`, in progress on `feat/21-emit-inferred` (issue #21).
+- **Active feature:** none. `feat-007` is done on branch `feat/21-emit-inferred` (PR #22); `feat-008` (Carbon) is next.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -20,13 +20,14 @@
 
 - `feat-015`: a pinned shadcn Storybook in `examples/shadcn-neutral/storybook`, the extractor's first input.
 
+- `feat-007`: the example package is emitted from the inferred DSIR; the oracle passes 426/426 cells and 36/36 tokens on Linux goldens.
 - `feat-005`: `packages/extractor`, 822 deterministic cell files from the example Storybook.
 
 - `feat-006`: `packages/infer` and DSIR 0.3 (anatomy). Rendering recovered every colour token and explains every measured value.
 
 ## In progress
 
-- `feat-007`: the emitter takes an inferred DSIR (no `globals`, part slots named by `data-slot`, measured radii, tokens measured in one mode only). The oracle passes 426/426 with locally rendered goldens. Open: a Linux-golden run on CI, and generating the example package from the inferred DSIR.
+Nothing.
 
 ## Next
 
@@ -78,6 +79,7 @@
 | 2026-11-26 | Every story must be extracted together | A component left out is read as a part of another (the card footer's button) | Guessing components from names |
 | 2026-11-26 | The Storybook gets a `WithIcon` badge story | The extractor can only describe what a story draws; without it the inferred Badge had no icon slot | Guessing an icon slot from the layout |
 | 2026-11-26 | A colour token measured in one mode only is emitted with the other mode's value and a comment | No cell used it in the other mode, so no rule reads it there | Failing the emit; inventing a value |
+| 2026-11-26 | `examples/shadcn-neutral` is emitted from the inferred DSIR (`inferred/shadcn.dsir.json`); `design-system/` keeps the source-derived one as ground truth | The gate must run on what the extractor measured; CI then guards it | Keeping the example source-derived |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

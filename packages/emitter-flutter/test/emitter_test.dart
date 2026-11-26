@@ -41,7 +41,7 @@ void main() {
   });
 
   test('an inferred DSIR (no globals, part slots named by data-slot, measured radii) emits', () {
-    final inferred = read('test/fixtures/shadcn.inferred.dsir.json');
+    final inferred = read('../../examples/shadcn-neutral/inferred/shadcn.dsir.json');
     final files = emit(inferred);
     expect(files, equals(emit(inferred)));
     final header = files['lib/src/components/card.dart']!;

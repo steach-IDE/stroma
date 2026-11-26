@@ -19,8 +19,14 @@ Future<void> main(List<String> args) async {
     return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback;
   }
 
-  final dsirPath = option('dsir', p.join(repo, 'examples', 'shadcn-neutral', 'design-system', 'shadcn.dsir.json'));
-  final mappingPath = option('mapping', p.join(repo, 'packages', 'adapter-scrib', 'mappings', 'shadcn.scrib.json'));
+  final dsirPath = option(
+    'dsir',
+    p.join(repo, 'examples', 'shadcn-neutral', 'inferred', 'shadcn.dsir.json'),
+  );
+  final mappingPath = option(
+    'mapping',
+    p.join(repo, 'packages', 'adapter-scrib', 'mappings', 'shadcn.scrib.json'),
+  );
   final out = option('out', p.join(repo, 'examples', 'shadcn-neutral', 'packages', packageName));
   Map<String, dynamic> readJson(String path) =>
       jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
