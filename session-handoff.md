@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-`feat-016`, the coverage report (the Storybook decides what can be seen: Badge's icon, Carbon's clickable tile), then `feat-018` (overrides: `MuiButtonBaseRoot` to `Button`, `radius-minus2` to `radius-md`), `feat-017` (a Chrome crop per cell), `feat-022` (fonts that did not load) and `feat-010` (the CLI). Open each issue first.
+`feat-017`, a Chrome crop per cell and a pixel comparison for every system (text colour, SSIM), so no oracle compares only the numbers the rules were mined from; then `feat-022` (report fonts that did not load) and `feat-010` (the CLI, which exposes the coverage report and the overrides). Open each issue first; run `.github/scripts/work-gate.sh` before pushing.

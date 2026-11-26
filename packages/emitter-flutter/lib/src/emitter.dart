@@ -70,10 +70,8 @@ Map<String, String> emitPackage({
   _pageTokens(dsir); // fails here, naming the problem, if the tokens name no page background
   out['lib/src/tokens.dart'] = dart(_tokens(dsir, packageName));
   for (final entry in templates.entries) {
-    // The pressable test drives a Button; a design system with none has nothing for it to press.
-    if (entry.key == 'test/pressable_test.dart' && !components.any((c) => c['name'] == 'Button')) {
-      continue;
-    }
+    // The pressable test drives `Button(child: Text(..), onPressed: ..)`: only a button that takes a `child` fits it.
+    if (entry.key == 'test/pressable_test.dart' && !components.any(_hasPressableButton)) continue;
     final text = entry.value
         .replaceAll('{{package}}', packageName)
         .replaceAll('{{fontFamily}}', _fontFamily(dsir));
@@ -570,6 +568,11 @@ Set<String> _inputs(Map<String, dynamic> c) {
   }
   return used;
 }
+
+bool _hasPressableButton(Map<String, dynamic> c) =>
+    c['name'] == 'Button' &&
+    c['role'] == 'button' &&
+    (c['slots'] as List).any((s) => (s as Map)['name'] == 'child');
 
 /// A button, or any component whose rules ask about its state or whether it is interactive (Badge as a link).
 bool _isPressable(Map<String, dynamic> c) =>

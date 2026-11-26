@@ -39,10 +39,10 @@ Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool d
     for (final c in (n['children'] as List? ?? const [])) buildNode((c as Map).cast()),
   ];
   switch (n[r'$component'] ?? n['type']) {
-    case 'Btn':
-      return Btn(
-        kind: _enumByName(BtnKind.values, n['kind'] as String),
-        size: _enumByName(BtnSize.values, n['size'] as String),
+    case 'Button':
+      return Button(
+        kind: _enumByName(ButtonKind.values, n['kind'] as String),
+        size: _enumByName(ButtonSize.values, n['size'] as String),
         children: text == null ? kids() : [Text(text)],
         statesController: states,
         onPressed: disabled ? null : () {},

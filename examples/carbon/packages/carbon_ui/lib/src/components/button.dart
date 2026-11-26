@@ -7,17 +7,17 @@ import '../primitives/ds_style.dart';
 import '../theme.dart';
 import '../tokens.dart';
 
-enum BtnKind { primary, secondary, tertiary, ghost, danger, dangerTertiary, dangerGhost }
+enum ButtonKind { primary, secondary, tertiary, ghost, danger, dangerTertiary, dangerGhost }
 
-enum BtnSize { xs, sm, md, lg, xl, v2xl }
+enum ButtonSize { xs, sm, md, lg, xl, v2xl }
 
-/// `Btn` (data-slot="cds--btn") from the shadcn registry.
-class Btn extends StatelessWidget {
-  const Btn({
+/// `Button` (data-slot="cds--btn") from the shadcn registry.
+class Button extends StatelessWidget {
+  const Button({
     super.key,
     this.children = const [],
-    this.kind = BtnKind.primary,
-    this.size = BtnSize.lg,
+    this.kind = ButtonKind.primary,
+    this.size = ButtonSize.lg,
     this.onPressed,
     this.invalid = false,
     this.statesController,
@@ -27,8 +27,8 @@ class Btn extends StatelessWidget {
   });
 
   final List<Widget> children;
-  final BtnKind kind;
-  final BtnSize size;
+  final ButtonKind kind;
+  final ButtonSize size;
 
   /// Null disables the button.
   final VoidCallback? onPressed;
@@ -51,19 +51,19 @@ class Btn extends StatelessWidget {
       autofocus: autofocus,
       semanticLabel: semanticLabel,
       builder: (context, states) {
-        final style = resolveBtnStyle(t, kind: kind, size: size, states: states);
+        final style = resolveButtonStyle(t, kind: kind, size: size, states: states);
         return DsBox(style: style, tokens: t, resetText: true, children: [...children]);
       },
     );
   }
 }
 
-/// Btn's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
+/// Button's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
 /// tailwind-merge). A later line wins. Each line names the class it came from.
-DsStyle resolveBtnStyle(
+DsStyle resolveButtonStyle(
   DsTokens t, {
-  required BtnKind kind,
-  required BtnSize size,
+  required ButtonKind kind,
+  required ButtonSize size,
   required Set<WidgetState> states,
 }) {
   var root = DsStyle();
@@ -87,45 +87,45 @@ DsStyle resolveBtnStyle(
       width: 123.5,
     ),
   ); // measured: every cell
-  if (kind == BtnKind.danger) {
+  if (kind == ButtonKind.danger) {
     root = root.merge(DsStyle(background: t.cdsButtonDangerPrimary));
   } // measured: kind=danger
-  if (kind == BtnKind.dangerGhost) {
+  if (kind == ButtonKind.dangerGhost) {
     root = root.merge(DsStyle(foreground: t.cdsButtonDangerSecondary, width: 75.5));
   } // measured: kind=danger--ghost
-  if (kind == BtnKind.dangerTertiary) {
+  if (kind == ButtonKind.dangerTertiary) {
     root = root.merge(
       DsStyle(borderColor: t.cdsButtonDangerSecondary, foreground: t.cdsButtonDangerSecondary),
     );
   } // measured: kind=danger--tertiary
-  if (kind == BtnKind.ghost) {
+  if (kind == ButtonKind.ghost) {
     root = root.merge(DsStyle(foreground: t.cdsLinkPrimary, width: 75.5));
   } // measured: kind=ghost
-  if (kind == BtnKind.primary) {
+  if (kind == ButtonKind.primary) {
     root = root.merge(DsStyle(background: t.cdsButtonPrimary));
   } // measured: kind=primary
-  if (kind == BtnKind.secondary) {
+  if (kind == ButtonKind.secondary) {
     root = root.merge(DsStyle(background: t.cdsButtonSecondary));
   } // measured: kind=secondary
-  if (kind == BtnKind.tertiary) {
+  if (kind == ButtonKind.tertiary) {
     root = root.merge(DsStyle(borderColor: t.cdsButtonTertiary, foreground: t.cdsButtonTertiary));
   } // measured: kind=tertiary
-  if (size == BtnSize.v2xl) {
+  if (size == ButtonSize.v2xl) {
     root = root.merge(const DsStyle(height: 80));
   } // measured: size=2xl
-  if (size == BtnSize.lg) {
+  if (size == ButtonSize.lg) {
     root = root.merge(const DsStyle(height: 48));
   } // measured: size=lg
-  if (size == BtnSize.md) {
+  if (size == ButtonSize.md) {
     root = root.merge(const DsStyle(height: 40, paddingY: 10));
   } // measured: size=md
-  if (size == BtnSize.sm) {
+  if (size == ButtonSize.sm) {
     root = root.merge(const DsStyle(height: 32, paddingY: 6));
   } // measured: size=sm
-  if (size == BtnSize.xl) {
+  if (size == ButtonSize.xl) {
     root = root.merge(const DsStyle(height: 64));
   } // measured: size=xl
-  if (size == BtnSize.xs) {
+  if (size == ButtonSize.xs) {
     root = root.merge(const DsStyle(paddingBottom: 1.99996, paddingY: 1.5));
   } // measured: size=xs
   if (states.contains(WidgetState.disabled)) {
@@ -145,46 +145,46 @@ DsStyle resolveBtnStyle(
   if (states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.cdsButtonDangerHover, foreground: t.cdsTextOnColor));
   } // measured: state=hovered
-  if (kind == BtnKind.danger && states.contains(WidgetState.disabled)) {
+  if (kind == ButtonKind.danger && states.contains(WidgetState.disabled)) {
     root = root.merge(
       DsStyle(background: t.cdsButtonDisabled, foreground: t.cdsTextOnColorDisabled),
     );
   } // measured: kind=danger, state=disabled
-  if (kind == BtnKind.dangerGhost && states.contains(WidgetState.disabled)) {
+  if (kind == ButtonKind.dangerGhost && states.contains(WidgetState.disabled)) {
     root = root.merge(const DsStyle(borderColor: Color(0x00000000)));
   } // measured: kind=danger--ghost, state=disabled
-  if (kind == BtnKind.dangerTertiary && states.contains(WidgetState.focused)) {
+  if (kind == ButtonKind.dangerTertiary && states.contains(WidgetState.focused)) {
     root = root.merge(DsStyle(background: t.cdsButtonDangerPrimary, foreground: t.cdsTextOnColor));
   } // measured: kind=danger--tertiary, state=focused
-  if (kind == BtnKind.dangerTertiary && states.contains(WidgetState.hovered)) {
+  if (kind == ButtonKind.dangerTertiary && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(borderColor: t.cdsButtonDangerHover));
   } // measured: kind=danger--tertiary, state=hovered
-  if (kind == BtnKind.ghost && states.contains(WidgetState.disabled)) {
+  if (kind == ButtonKind.ghost && states.contains(WidgetState.disabled)) {
     root = root.merge(const DsStyle(borderColor: Color(0x00000000)));
   } // measured: kind=ghost, state=disabled
-  if (kind == BtnKind.ghost && states.contains(WidgetState.hovered)) {
+  if (kind == ButtonKind.ghost && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.cdsBackgroundHover, foreground: t.cdsLinkPrimaryHover));
   } // measured: kind=ghost, state=hovered
-  if (kind == BtnKind.primary && states.contains(WidgetState.disabled)) {
+  if (kind == ButtonKind.primary && states.contains(WidgetState.disabled)) {
     root = root.merge(
       DsStyle(background: t.cdsButtonDisabled, foreground: t.cdsTextOnColorDisabled),
     );
   } // measured: kind=primary, state=disabled
-  if (kind == BtnKind.primary && states.contains(WidgetState.hovered)) {
+  if (kind == ButtonKind.primary && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.cdsButtonPrimaryHover));
   } // measured: kind=primary, state=hovered
-  if (kind == BtnKind.secondary && states.contains(WidgetState.disabled)) {
+  if (kind == ButtonKind.secondary && states.contains(WidgetState.disabled)) {
     root = root.merge(
       DsStyle(background: t.cdsButtonDisabled, foreground: t.cdsTextOnColorDisabled),
     );
   } // measured: kind=secondary, state=disabled
-  if (kind == BtnKind.secondary && states.contains(WidgetState.hovered)) {
+  if (kind == ButtonKind.secondary && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.cdsButtonSecondaryHover));
   } // measured: kind=secondary, state=hovered
-  if (kind == BtnKind.tertiary && states.contains(WidgetState.focused)) {
+  if (kind == ButtonKind.tertiary && states.contains(WidgetState.focused)) {
     root = root.merge(DsStyle(background: t.cdsButtonTertiary, foreground: t.cdsTextInverse));
   } // measured: kind=tertiary, state=focused
-  if (kind == BtnKind.tertiary && states.contains(WidgetState.hovered)) {
+  if (kind == ButtonKind.tertiary && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.cdsButtonTertiaryHover, foreground: t.cdsTextInverse));
   } // measured: kind=tertiary, state=hovered
   if (t.mode == 'g10' && states.contains(WidgetState.focused)) {

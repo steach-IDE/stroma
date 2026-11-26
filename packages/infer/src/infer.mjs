@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import { valuesOf, fallbacksOf } from './values.mjs';
 import { mine } from './mine.mjs';
 import { pageTokenNames } from '../../dsir/src/page.mjs';
+import { applyOverrides } from './overrides.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const { oklchToSrgb, hex } = await import(path.join(here, '..', '..', 'enricher-shadcn', 'oklch.mjs'));
@@ -71,7 +72,7 @@ function partParent(elements, index, partIndices) {
   return p;
 }
 
-export function infer({ extraction, license, source }) {
+export function infer({ extraction, license, source, overrides }) {
   const indexText = fs.readFileSync(path.join(extraction, 'index.json'), 'utf8');
   const index = JSON.parse(indexText);
   const cells = index.cells.map((c) => ({ ...c, data: JSON.parse(fs.readFileSync(path.join(extraction, c.file), 'utf8')) }));
@@ -294,7 +295,7 @@ export function infer({ extraction, license, source }) {
     background: Object.fromEntries(Object.entries(index.page).map(([m, c]) => [m, literalColor(c.background)])),
     foreground: Object.fromEntries(Object.entries(index.page).map(([m, c]) => [m, literalColor(c.color)])),
   };
-  const dsir = {
+  const inferred = {
     dsirVersion: '0.3.0',
     source: { kind: 'storybook', url: source, license, hash: `sha256:${crypto.createHash('sha256').update(indexText).digest('hex')}` },
     tokens: {
@@ -306,6 +307,7 @@ export function infer({ extraction, license, source }) {
     globals: {},
     components,
   };
+  const dsir = overrides ? applyOverrides(inferred, overrides) : inferred;
   const errors = validate(dsir);
   if (errors.length) throw new Error(`inferred an invalid DSIR:\n${errors.map((e) => `${e.path}: ${e.message}`).join('\n')}`);
   const pct = ([a, b]) => (b ? round((100 * a) / b) : null);

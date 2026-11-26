@@ -15,7 +15,7 @@ MIT licence. The package has no fonts: Roboto is not pinned yet (`feat-022`).
 - **No colour is a token.** Material UI's colours are per-component variables whose value depends on the `color` prop, so each took several values within a mode. Inference writes each such colour as the literal the browser drew, in a rule conditioned on the variant, and lists the tokens it did that for in its report (`writtenAsLiterals`).
 - **The page's colours are measured.** No token names the page background or text colour, so the extractor reads `<body>` per theme and the DSIR holds them as `tokens.page` (`#ffffff` light, `#121212` dark).
 - **"No shadow" is a value.** A disabled contained button says `box-shadow: none`; the DSIR says `shadow: []`, or Flutter would paint a translucent fill over the shadow.
-- **The component's name is its first class**, `MuiButtonBaseRoot` (DSIR overrides, `feat-018`, will name it `Button`).
+- **The component's name is its first class**, `MuiButtonBaseRoot`; `overrides.json` names it `Button` (`stroma-infer --overrides`).
 - **432 cells make two sheets per mode**: a sheet holds about 200 cells, so a component with more is split over `name-1`, `name-2`.
 
 ## Scorecard

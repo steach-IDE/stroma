@@ -21,6 +21,23 @@ node bin/infer.mjs --extraction .stroma/extract --out shadcn.inferred.dsir.json 
    - Every cell is checked against the result. What no rule explains goes in the component's `unsupported`, with an example.
 5. **Tokens:** colours are read from the recorded variables (light and dark); radii are relative to `--radius` (`radius-minus2`).
 
+## Overrides: names are a person's to give
+
+Inference names what the browser shows it: `Btn` from `cds--btn`, `MuiButtonBaseRoot` from Material UI's first class, `radius-minus2` for shadcn's `md`. A hand-written overrides file renames and annotates the result, and because `stroma-infer` applies it every time, a re-inference does not write the old names back:
+
+```sh
+node bin/infer.mjs --extraction <dir> --out carbon.dsir.json --license Apache-2.0 --overrides ../../examples/carbon/overrides.json
+```
+
+```json
+{
+  "components": { "Btn": { "name": "Button", "role": "button", "slots": { "children": { "kind": "content" } } } },
+  "tokens": { "color": { "cds-background": "background" }, "radius": { "radius-minus2": "radius-md" } }
+}
+```
+
+A rename is carried through every rule that uses the name; a radius token is named with its `radius-` prefix; `role` and a slot's `kind` can be set. Overrides never change a measured value or a rule's condition. An override that names a component, token or slot that does not exist, a rename onto a name that is taken, and any key it does not know fail, naming it. The three examples keep theirs next to their DSIR: `examples/<system>/overrides.json`.
+
 ## On the example
 
 Full extraction of `examples/shadcn-neutral/storybook`, compared with the DSIR read from shadcn's source:
@@ -35,7 +52,7 @@ Full extraction of `examples/shadcn-neutral/storybook`, compared with the DSIR r
 | Radius values written as tokens | 93% |
 | Spacing values on the `--spacing` scale | 69% |
 
-What rendering can't recover: radius names (`radius-md` is measured as "`--radius` minus 2px", named `radius-minus2`), and anything the browser never draws in a story.
+What rendering can't recover: radius names (`radius-md` is measured as "`--radius` minus 2px", named `radius-minus2`), roles, and anything the browser never draws in a story. A short overrides file gives the names and roles back: shadcn's (`examples/shadcn-neutral/overrides.json`, 3 components and 2 radius steps) takes the radius names from 0 of 6 to 6 of 6 and the roles from 7 of 9 to 9 of 9 (`stroma-intent-loss` on the committed DSIR).
 
 ## On Carbon
 
@@ -43,7 +60,7 @@ What rendering can't recover: radius names (`radius-md` is measured as "`--radiu
 
 | | |
 | --- | --- |
-| Components | Btn, Tag, Tile (named from the root's block class) |
+| Components | Button (`Btn` from `cds--btn`, renamed by the example's overrides), Tag, Tile |
 | Values explained by the rules | 14,416 of 14,416 (100%) |
 | Modes | the theme names: `white`, `g10`, `g90`, `g100` |
 | Colour values written as tokens | 64% |

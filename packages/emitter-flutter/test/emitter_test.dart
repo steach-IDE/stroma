@@ -66,9 +66,12 @@ void main() {
       expect(tokens, contains('static const light = white;'));
       expect(tokens, contains('static const dark = g100;'));
       expect(files['lib/src/components/tile.dart']!, contains("t.mode == 'g90'"));
-      expect(files['lib/src/components/btn.dart']!, contains('dangerTertiary')); // danger--tertiary
       expect(
-        files['lib/src/components/btn.dart']!,
+        files['lib/src/components/button.dart']!,
+        contains('dangerTertiary'),
+      ); // danger--tertiary
+      expect(
+        files['lib/src/components/button.dart']!,
         contains('v2xl'),
       ); // 2xl is not a Dart identifier
       expect(files.containsKey('scrib/scrib_adapter.dart'), isFalse);
@@ -93,9 +96,9 @@ void main() {
       expect(files['pubspec.yaml']!, isNot(contains('fonts:')));
       final cells = (jsonDecode(files['test/oracle/cells.json']!) as List)
           .cast<Map<String, dynamic>>();
-      expect({for (final c in cells) c['sheet']}, {'muibuttonbaseroot-1', 'muibuttonbaseroot-2'});
+      expect({for (final c in cells) c['sheet']}, {'button-1', 'button-2'});
       expect(
-        cells.where((c) => c['sheet'] == 'muibuttonbaseroot-1' && c['mode'] == 'light').length,
+        cells.where((c) => c['sheet'] == 'button-1' && c['mode'] == 'light').length,
         lessThanOrEqualTo(200),
       );
     },

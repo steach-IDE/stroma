@@ -7,20 +7,20 @@ import '../primitives/ds_style.dart';
 import '../theme.dart';
 import '../tokens.dart';
 
-enum MuiButtonBaseRootVariant { text, outlined, contained }
+enum ButtonVariant { text, outlined, contained }
 
-enum MuiButtonBaseRootColor { primary, secondary, error, warning, info, success }
+enum ButtonColor { primary, secondary, error, warning, info, success }
 
-enum MuiButtonBaseRootSize { small, medium, large }
+enum ButtonSize { small, medium, large }
 
-/// `MuiButtonBaseRoot` (data-slot="MuiButtonBase-root") from the shadcn registry.
-class MuiButtonBaseRoot extends StatelessWidget {
-  const MuiButtonBaseRoot({
+/// `Button` (data-slot="MuiButtonBase-root") from the shadcn registry.
+class Button extends StatelessWidget {
+  const Button({
     super.key,
     this.children = const [],
-    this.variant = MuiButtonBaseRootVariant.contained,
-    this.color = MuiButtonBaseRootColor.primary,
-    this.size = MuiButtonBaseRootSize.medium,
+    this.variant = ButtonVariant.contained,
+    this.color = ButtonColor.primary,
+    this.size = ButtonSize.medium,
     this.onPressed,
     this.invalid = false,
     this.statesController,
@@ -30,9 +30,9 @@ class MuiButtonBaseRoot extends StatelessWidget {
   });
 
   final List<Widget> children;
-  final MuiButtonBaseRootVariant variant;
-  final MuiButtonBaseRootColor color;
-  final MuiButtonBaseRootSize size;
+  final ButtonVariant variant;
+  final ButtonColor color;
+  final ButtonSize size;
 
   /// Null disables the button.
   final VoidCallback? onPressed;
@@ -55,7 +55,7 @@ class MuiButtonBaseRoot extends StatelessWidget {
       autofocus: autofocus,
       semanticLabel: semanticLabel,
       builder: (context, states) {
-        final style = resolveMuiButtonBaseRootStyle(
+        final style = resolveButtonStyle(
           t,
           variant: variant,
           color: color,
@@ -68,13 +68,13 @@ class MuiButtonBaseRoot extends StatelessWidget {
   }
 }
 
-/// MuiButtonBaseRoot's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
+/// Button's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
 /// tailwind-merge). A later line wins. Each line names the class it came from.
-DsStyle resolveMuiButtonBaseRootStyle(
+DsStyle resolveButtonStyle(
   DsTokens t, {
-  required MuiButtonBaseRootVariant variant,
-  required MuiButtonBaseRootColor color,
-  required MuiButtonBaseRootSize size,
+  required ButtonVariant variant,
+  required ButtonColor color,
+  required ButtonSize size,
   required Set<WidgetState> states,
 }) {
   var root = DsStyle();
@@ -98,28 +98,28 @@ DsStyle resolveMuiButtonBaseRootStyle(
       underline: false,
     ),
   ); // measured: every cell
-  if (color == MuiButtonBaseRootColor.info) {
+  if (color == ButtonColor.info) {
     root = root.merge(const DsStyle(foreground: Color(0xFF0288D1)));
   } // measured: color=info
-  if (color == MuiButtonBaseRootColor.primary) {
+  if (color == ButtonColor.primary) {
     root = root.merge(const DsStyle(foreground: Color(0xFF1976D2)));
   } // measured: color=primary
-  if (color == MuiButtonBaseRootColor.secondary) {
+  if (color == ButtonColor.secondary) {
     root = root.merge(const DsStyle(foreground: Color(0xFF9C27B0)));
   } // measured: color=secondary
-  if (color == MuiButtonBaseRootColor.success) {
+  if (color == ButtonColor.success) {
     root = root.merge(const DsStyle(foreground: Color(0xFF2E7D32)));
   } // measured: color=success
-  if (color == MuiButtonBaseRootColor.warning) {
+  if (color == ButtonColor.warning) {
     root = root.merge(const DsStyle(foreground: Color(0xFFED6C02)));
   } // measured: color=warning
-  if (size == MuiButtonBaseRootSize.large) {
+  if (size == ButtonSize.large) {
     root = root.merge(const DsStyle(fontSize: 15, paddingX: 11, paddingY: 8));
   } // measured: size=large
-  if (size == MuiButtonBaseRootSize.medium) {
+  if (size == ButtonSize.medium) {
     root = root.merge(const DsStyle(fontSize: 14, paddingX: 15, paddingY: 6));
   } // measured: size=medium
-  if (variant == MuiButtonBaseRootVariant.contained) {
+  if (variant == ButtonVariant.contained) {
     root = root.merge(
       const DsStyle(
         background: Color(0xFF0288D1),
@@ -147,7 +147,7 @@ DsStyle resolveMuiButtonBaseRootStyle(
       ),
     );
   } // measured: variant=contained
-  if (variant == MuiButtonBaseRootVariant.outlined) {
+  if (variant == ButtonVariant.outlined) {
     root = root.merge(
       const DsStyle(
         borderColor: Color.from(alpha: 0.5, red: 0.0078, green: 0.5333, blue: 0.8196),
@@ -156,7 +156,7 @@ DsStyle resolveMuiButtonBaseRootStyle(
       ),
     );
   } // measured: variant=outlined
-  if (variant == MuiButtonBaseRootVariant.text) {
+  if (variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF0288D1)));
   } // measured: variant=text
   if (t.mode == 'dark') {
@@ -174,175 +174,175 @@ DsStyle resolveMuiButtonBaseRootStyle(
       const DsStyle(background: Color.from(alpha: 0.04, red: 0.0078, green: 0.5333, blue: 0.8196)),
     );
   } // measured: state=hovered
-  if (color == MuiButtonBaseRootColor.error && size == MuiButtonBaseRootSize.large) {
+  if (color == ButtonColor.error && size == ButtonSize.large) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFFFFFFF), foreground: Color(0xFFD32F2F)));
   } // measured: color=error, size=large
-  if (color == MuiButtonBaseRootColor.error && size == MuiButtonBaseRootSize.medium) {
+  if (color == ButtonColor.error && size == ButtonSize.medium) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFFFFFFF), foreground: Color(0xFFD32F2F)));
   } // measured: color=error, size=medium
-  if (color == MuiButtonBaseRootColor.error && size == MuiButtonBaseRootSize.small) {
+  if (color == ButtonColor.error && size == ButtonSize.small) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFFFFFFF), foreground: Color(0xFFD32F2F)));
   } // measured: color=error, size=small
-  if (color == MuiButtonBaseRootColor.error && variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.error && variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(background: Color(0xFFD32F2F)));
   } // measured: color=error, variant=contained
-  if (color == MuiButtonBaseRootColor.error && variant == MuiButtonBaseRootVariant.outlined) {
+  if (color == ButtonColor.error && variant == ButtonVariant.outlined) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.8275, green: 0.1843, blue: 0.1843)),
     );
   } // measured: color=error, variant=outlined
-  if (color == MuiButtonBaseRootColor.error && variant == MuiButtonBaseRootVariant.text) {
+  if (color == ButtonColor.error && variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFD32F2F)));
   } // measured: color=error, variant=text
-  if (color == MuiButtonBaseRootColor.primary && variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.primary && variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(background: Color(0xFF1976D2)));
   } // measured: color=primary, variant=contained
-  if (color == MuiButtonBaseRootColor.primary && variant == MuiButtonBaseRootVariant.outlined) {
+  if (color == ButtonColor.primary && variant == ButtonVariant.outlined) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.098, green: 0.4627, blue: 0.8235)),
     );
   } // measured: color=primary, variant=outlined
-  if (color == MuiButtonBaseRootColor.primary && variant == MuiButtonBaseRootVariant.text) {
+  if (color == ButtonColor.primary && variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF1976D2)));
   } // measured: color=primary, variant=text
-  if (color == MuiButtonBaseRootColor.secondary && variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.secondary && variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(background: Color(0xFF9C27B0)));
   } // measured: color=secondary, variant=contained
-  if (color == MuiButtonBaseRootColor.secondary && variant == MuiButtonBaseRootVariant.outlined) {
+  if (color == ButtonColor.secondary && variant == ButtonVariant.outlined) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.6118, green: 0.1529, blue: 0.6902)),
     );
   } // measured: color=secondary, variant=outlined
-  if (color == MuiButtonBaseRootColor.secondary && variant == MuiButtonBaseRootVariant.text) {
+  if (color == ButtonColor.secondary && variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF9C27B0)));
   } // measured: color=secondary, variant=text
-  if (color == MuiButtonBaseRootColor.success && variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.success && variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(background: Color(0xFF2E7D32)));
   } // measured: color=success, variant=contained
-  if (color == MuiButtonBaseRootColor.success && variant == MuiButtonBaseRootVariant.outlined) {
+  if (color == ButtonColor.success && variant == ButtonVariant.outlined) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.1804, green: 0.4902, blue: 0.1961)),
     );
   } // measured: color=success, variant=outlined
-  if (color == MuiButtonBaseRootColor.success && variant == MuiButtonBaseRootVariant.text) {
+  if (color == ButtonColor.success && variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF2E7D32)));
   } // measured: color=success, variant=text
-  if (color == MuiButtonBaseRootColor.warning && variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.warning && variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(background: Color(0xFFED6C02)));
   } // measured: color=warning, variant=contained
-  if (color == MuiButtonBaseRootColor.warning && variant == MuiButtonBaseRootVariant.outlined) {
+  if (color == ButtonColor.warning && variant == ButtonVariant.outlined) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.9294, green: 0.4235, blue: 0.0078)),
     );
   } // measured: color=warning, variant=outlined
-  if (color == MuiButtonBaseRootColor.warning && variant == MuiButtonBaseRootVariant.text) {
+  if (color == ButtonColor.warning && variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFED6C02)));
   } // measured: color=warning, variant=text
-  if (color == MuiButtonBaseRootColor.error && t.mode == 'dark') {
+  if (color == ButtonColor.error && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFFF44336)));
   } // measured: color=error, mode=dark
-  if (color == MuiButtonBaseRootColor.info && t.mode == 'dark') {
+  if (color == ButtonColor.info && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFF29B6F6)));
   } // measured: color=info, mode=dark
-  if (color == MuiButtonBaseRootColor.primary && t.mode == 'dark') {
+  if (color == ButtonColor.primary && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFF90CAF9)));
   } // measured: color=primary, mode=dark
-  if (color == MuiButtonBaseRootColor.secondary && t.mode == 'dark') {
+  if (color == ButtonColor.secondary && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFFCE93D8)));
   } // measured: color=secondary, mode=dark
-  if (color == MuiButtonBaseRootColor.success && t.mode == 'dark') {
+  if (color == ButtonColor.success && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFF66BB6A)));
   } // measured: color=success, mode=dark
-  if (color == MuiButtonBaseRootColor.warning && t.mode == 'dark') {
+  if (color == ButtonColor.warning && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFFFFA726)));
   } // measured: color=warning, mode=dark
-  if (color == MuiButtonBaseRootColor.error && states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.error && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: color=error, state=disabled
-  if (color == MuiButtonBaseRootColor.error && states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.error && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.04, red: 0.8275, green: 0.1843, blue: 0.1843)),
     );
   } // measured: color=error, state=hovered
-  if (color == MuiButtonBaseRootColor.primary && states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.primary && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: color=primary, state=disabled
-  if (color == MuiButtonBaseRootColor.primary && states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.primary && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.04, red: 0.098, green: 0.4627, blue: 0.8235)),
     );
   } // measured: color=primary, state=hovered
-  if (color == MuiButtonBaseRootColor.secondary && states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.secondary && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: color=secondary, state=disabled
-  if (color == MuiButtonBaseRootColor.secondary && states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.secondary && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.04, red: 0.6118, green: 0.1529, blue: 0.6902)),
     );
   } // measured: color=secondary, state=hovered
-  if (color == MuiButtonBaseRootColor.success && states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.success && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: color=success, state=disabled
-  if (color == MuiButtonBaseRootColor.success && states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.success && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.04, red: 0.1804, green: 0.4902, blue: 0.1961)),
     );
   } // measured: color=success, state=hovered
-  if (color == MuiButtonBaseRootColor.warning && states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.warning && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: color=warning, state=disabled
-  if (color == MuiButtonBaseRootColor.warning && states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.warning && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.04, red: 0.9294, green: 0.4235, blue: 0.0078)),
     );
   } // measured: color=warning, state=hovered
-  if (size == MuiButtonBaseRootSize.large && variant == MuiButtonBaseRootVariant.contained) {
+  if (size == ButtonSize.large && variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(paddingX: 22));
   } // measured: size=large, variant=contained
-  if (size == MuiButtonBaseRootSize.large && variant == MuiButtonBaseRootVariant.outlined) {
+  if (size == ButtonSize.large && variant == ButtonVariant.outlined) {
     root = root.merge(const DsStyle(paddingX: 21, paddingY: 7));
   } // measured: size=large, variant=outlined
-  if (size == MuiButtonBaseRootSize.medium && variant == MuiButtonBaseRootVariant.contained) {
+  if (size == ButtonSize.medium && variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(paddingX: 16));
   } // measured: size=medium, variant=contained
-  if (size == MuiButtonBaseRootSize.medium && variant == MuiButtonBaseRootVariant.outlined) {
+  if (size == ButtonSize.medium && variant == ButtonVariant.outlined) {
     root = root.merge(const DsStyle(paddingY: 5));
   } // measured: size=medium, variant=outlined
-  if (size == MuiButtonBaseRootSize.medium && variant == MuiButtonBaseRootVariant.text) {
+  if (size == ButtonSize.medium && variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(paddingX: 8));
   } // measured: size=medium, variant=text
-  if (size == MuiButtonBaseRootSize.small && variant == MuiButtonBaseRootVariant.outlined) {
+  if (size == ButtonSize.small && variant == ButtonVariant.outlined) {
     root = root.merge(const DsStyle(paddingX: 9));
   } // measured: size=small, variant=outlined
-  if (size == MuiButtonBaseRootSize.small && variant == MuiButtonBaseRootVariant.text) {
+  if (size == ButtonSize.small && variant == ButtonVariant.text) {
     root = root.merge(const DsStyle(paddingX: 5));
   } // measured: size=small, variant=text
-  if (size == MuiButtonBaseRootSize.large && states.contains(WidgetState.disabled)) {
+  if (size == ButtonSize.large && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(foreground: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: size=large, state=disabled
-  if (size == MuiButtonBaseRootSize.medium && states.contains(WidgetState.disabled)) {
+  if (size == ButtonSize.medium && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(foreground: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: size=medium, state=disabled
-  if (size == MuiButtonBaseRootSize.small && states.contains(WidgetState.disabled)) {
+  if (size == ButtonSize.small && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(foreground: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: size=small, state=disabled
-  if (variant == MuiButtonBaseRootVariant.contained && t.mode == 'dark') {
+  if (variant == ButtonVariant.contained && t.mode == 'dark') {
     root = root.merge(
       const DsStyle(
         background: Color(0xFF29B6F6),
@@ -350,20 +350,20 @@ DsStyle resolveMuiButtonBaseRootStyle(
       ),
     );
   } // measured: variant=contained, mode=dark
-  if (variant == MuiButtonBaseRootVariant.outlined && t.mode == 'dark') {
+  if (variant == ButtonVariant.outlined && t.mode == 'dark') {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.1608, green: 0.7137, blue: 0.9647)),
     );
   } // measured: variant=outlined, mode=dark
-  if (variant == MuiButtonBaseRootVariant.text && t.mode == 'dark') {
+  if (variant == ButtonVariant.text && t.mode == 'dark') {
     root = root.merge(const DsStyle(borderColor: Color(0xFF29B6F6)));
   } // measured: variant=text, mode=dark
-  if (variant == MuiButtonBaseRootVariant.contained && states.contains(WidgetState.disabled)) {
+  if (variant == ButtonVariant.contained && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.12, red: 0, green: 0, blue: 0), shadows: []),
     );
   } // measured: variant=contained, state=disabled
-  if (variant == MuiButtonBaseRootVariant.contained && states.contains(WidgetState.hovered)) {
+  if (variant == ButtonVariant.contained && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(
         background: Color(0xFF01579B),
@@ -390,12 +390,12 @@ DsStyle resolveMuiButtonBaseRootStyle(
       ),
     );
   } // measured: variant=contained, state=hovered
-  if (variant == MuiButtonBaseRootVariant.outlined && states.contains(WidgetState.disabled)) {
+  if (variant == ButtonVariant.outlined && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.12, red: 0, green: 0, blue: 0)),
     );
   } // measured: variant=outlined, state=disabled
-  if (variant == MuiButtonBaseRootVariant.outlined && states.contains(WidgetState.hovered)) {
+  if (variant == ButtonVariant.outlined && states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF0288D1)));
   } // measured: variant=outlined, state=hovered
   if (t.mode == 'dark' && states.contains(WidgetState.disabled)) {
@@ -411,166 +411,134 @@ DsStyle resolveMuiButtonBaseRootStyle(
       const DsStyle(background: Color.from(alpha: 0.08, red: 0.1608, green: 0.7137, blue: 0.9647)),
     );
   } // measured: mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.error &&
-      size == MuiButtonBaseRootSize.large &&
-      variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.error &&
+      size == ButtonSize.large &&
+      variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(foreground: Color(0xFFFFFFFF)));
   } // measured: color=error, size=large, variant=contained
-  if (color == MuiButtonBaseRootColor.error &&
-      size == MuiButtonBaseRootSize.medium &&
-      variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.error &&
+      size == ButtonSize.medium &&
+      variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(foreground: Color(0xFFFFFFFF)));
   } // measured: color=error, size=medium, variant=contained
-  if (color == MuiButtonBaseRootColor.error &&
-      size == MuiButtonBaseRootSize.small &&
-      variant == MuiButtonBaseRootVariant.contained) {
+  if (color == ButtonColor.error &&
+      size == ButtonSize.small &&
+      variant == ButtonVariant.contained) {
     root = root.merge(const DsStyle(foreground: Color(0xFFFFFFFF)));
   } // measured: color=error, size=small, variant=contained
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.contained &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.error && variant == ButtonVariant.contained && t.mode == 'dark') {
     root = root.merge(const DsStyle(background: Color(0xFFF44336)));
   } // measured: color=error, variant=contained, mode=dark
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.outlined &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.error && variant == ButtonVariant.outlined && t.mode == 'dark') {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.9569, green: 0.2627, blue: 0.2118)),
     );
   } // measured: color=error, variant=outlined, mode=dark
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.text &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.error && variant == ButtonVariant.text && t.mode == 'dark') {
     root = root.merge(const DsStyle(borderColor: Color(0xFFF44336)));
   } // measured: color=error, variant=text, mode=dark
-  if (color == MuiButtonBaseRootColor.primary &&
-      variant == MuiButtonBaseRootVariant.contained &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.primary && variant == ButtonVariant.contained && t.mode == 'dark') {
     root = root.merge(const DsStyle(background: Color(0xFF90CAF9)));
   } // measured: color=primary, variant=contained, mode=dark
-  if (color == MuiButtonBaseRootColor.primary &&
-      variant == MuiButtonBaseRootVariant.outlined &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.primary && variant == ButtonVariant.outlined && t.mode == 'dark') {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.5647, green: 0.7922, blue: 0.9765)),
     );
   } // measured: color=primary, variant=outlined, mode=dark
-  if (color == MuiButtonBaseRootColor.primary &&
-      variant == MuiButtonBaseRootVariant.text &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.primary && variant == ButtonVariant.text && t.mode == 'dark') {
     root = root.merge(const DsStyle(borderColor: Color(0xFF90CAF9)));
   } // measured: color=primary, variant=text, mode=dark
-  if (color == MuiButtonBaseRootColor.secondary &&
-      variant == MuiButtonBaseRootVariant.contained &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.secondary && variant == ButtonVariant.contained && t.mode == 'dark') {
     root = root.merge(const DsStyle(background: Color(0xFFCE93D8)));
   } // measured: color=secondary, variant=contained, mode=dark
-  if (color == MuiButtonBaseRootColor.secondary &&
-      variant == MuiButtonBaseRootVariant.outlined &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.secondary && variant == ButtonVariant.outlined && t.mode == 'dark') {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.8078, green: 0.5765, blue: 0.8471)),
     );
   } // measured: color=secondary, variant=outlined, mode=dark
-  if (color == MuiButtonBaseRootColor.secondary &&
-      variant == MuiButtonBaseRootVariant.text &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.secondary && variant == ButtonVariant.text && t.mode == 'dark') {
     root = root.merge(const DsStyle(borderColor: Color(0xFFCE93D8)));
   } // measured: color=secondary, variant=text, mode=dark
-  if (color == MuiButtonBaseRootColor.success &&
-      variant == MuiButtonBaseRootVariant.contained &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.success && variant == ButtonVariant.contained && t.mode == 'dark') {
     root = root.merge(const DsStyle(background: Color(0xFF66BB6A)));
   } // measured: color=success, variant=contained, mode=dark
-  if (color == MuiButtonBaseRootColor.success &&
-      variant == MuiButtonBaseRootVariant.outlined &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.success && variant == ButtonVariant.outlined && t.mode == 'dark') {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 0.4, green: 0.7333, blue: 0.4157)),
     );
   } // measured: color=success, variant=outlined, mode=dark
-  if (color == MuiButtonBaseRootColor.success &&
-      variant == MuiButtonBaseRootVariant.text &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.success && variant == ButtonVariant.text && t.mode == 'dark') {
     root = root.merge(const DsStyle(borderColor: Color(0xFF66BB6A)));
   } // measured: color=success, variant=text, mode=dark
-  if (color == MuiButtonBaseRootColor.warning &&
-      variant == MuiButtonBaseRootVariant.contained &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.warning && variant == ButtonVariant.contained && t.mode == 'dark') {
     root = root.merge(const DsStyle(background: Color(0xFFFFA726)));
   } // measured: color=warning, variant=contained, mode=dark
-  if (color == MuiButtonBaseRootColor.warning &&
-      variant == MuiButtonBaseRootVariant.outlined &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.warning && variant == ButtonVariant.outlined && t.mode == 'dark') {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.5, red: 1, green: 0.6549, blue: 0.149)),
     );
   } // measured: color=warning, variant=outlined, mode=dark
-  if (color == MuiButtonBaseRootColor.warning &&
-      variant == MuiButtonBaseRootVariant.text &&
-      t.mode == 'dark') {
+  if (color == ButtonColor.warning && variant == ButtonVariant.text && t.mode == 'dark') {
     root = root.merge(const DsStyle(borderColor: Color(0xFFFFA726)));
   } // measured: color=warning, variant=text, mode=dark
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.error &&
+      variant == ButtonVariant.contained &&
       states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(foreground: Color.from(alpha: 0.26, red: 0, green: 0, blue: 0)),
     );
   } // measured: color=error, variant=contained, state=disabled
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.error &&
+      variant == ButtonVariant.contained &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFFC62828)));
   } // measured: color=error, variant=contained, state=hovered
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.error &&
+      variant == ButtonVariant.outlined &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFD32F2F)));
   } // measured: color=error, variant=outlined, state=hovered
-  if (color == MuiButtonBaseRootColor.primary &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.primary &&
+      variant == ButtonVariant.contained &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFF1565C0)));
   } // measured: color=primary, variant=contained, state=hovered
-  if (color == MuiButtonBaseRootColor.primary &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.primary &&
+      variant == ButtonVariant.outlined &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF1976D2)));
   } // measured: color=primary, variant=outlined, state=hovered
-  if (color == MuiButtonBaseRootColor.secondary &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.secondary &&
+      variant == ButtonVariant.contained &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFF7B1FA2)));
   } // measured: color=secondary, variant=contained, state=hovered
-  if (color == MuiButtonBaseRootColor.secondary &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.secondary &&
+      variant == ButtonVariant.outlined &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF9C27B0)));
   } // measured: color=secondary, variant=outlined, state=hovered
-  if (color == MuiButtonBaseRootColor.success &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.success &&
+      variant == ButtonVariant.contained &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFF1B5E20)));
   } // measured: color=success, variant=contained, state=hovered
-  if (color == MuiButtonBaseRootColor.success &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.success &&
+      variant == ButtonVariant.outlined &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF2E7D32)));
   } // measured: color=success, variant=outlined, state=hovered
-  if (color == MuiButtonBaseRootColor.warning &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.warning &&
+      variant == ButtonVariant.contained &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFFE65100)));
   } // measured: color=warning, variant=contained, state=hovered
-  if (color == MuiButtonBaseRootColor.warning &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.warning &&
+      variant == ButtonVariant.outlined &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFED6C02)));
   } // measured: color=warning, variant=outlined, state=hovered
-  if (color == MuiButtonBaseRootColor.error &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.error && t.mode == 'dark' && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(
         borderColor: Color.from(alpha: 0.3, red: 1, green: 1, blue: 1),
@@ -578,149 +546,131 @@ DsStyle resolveMuiButtonBaseRootStyle(
       ),
     );
   } // measured: color=error, mode=dark, state=disabled
-  if (color == MuiButtonBaseRootColor.error &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.error && t.mode == 'dark' && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.08, red: 0.9569, green: 0.2627, blue: 0.2118)),
     );
   } // measured: color=error, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.primary &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.primary && t.mode == 'dark' && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.3, red: 1, green: 1, blue: 1)),
     );
   } // measured: color=primary, mode=dark, state=disabled
-  if (color == MuiButtonBaseRootColor.primary &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.primary && t.mode == 'dark' && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.08, red: 0.5647, green: 0.7922, blue: 0.9765)),
     );
   } // measured: color=primary, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.secondary &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.secondary && t.mode == 'dark' && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.3, red: 1, green: 1, blue: 1)),
     );
   } // measured: color=secondary, mode=dark, state=disabled
-  if (color == MuiButtonBaseRootColor.secondary &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.secondary && t.mode == 'dark' && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.08, red: 0.8078, green: 0.5765, blue: 0.8471)),
     );
   } // measured: color=secondary, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.success &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.success && t.mode == 'dark' && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.3, red: 1, green: 1, blue: 1)),
     );
   } // measured: color=success, mode=dark, state=disabled
-  if (color == MuiButtonBaseRootColor.success &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.success && t.mode == 'dark' && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.08, red: 0.4, green: 0.7333, blue: 0.4157)),
     );
   } // measured: color=success, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.warning &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.disabled)) {
+  if (color == ButtonColor.warning && t.mode == 'dark' && states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.3, red: 1, green: 1, blue: 1)),
     );
   } // measured: color=warning, mode=dark, state=disabled
-  if (color == MuiButtonBaseRootColor.warning &&
-      t.mode == 'dark' &&
-      states.contains(WidgetState.hovered)) {
+  if (color == ButtonColor.warning && t.mode == 'dark' && states.contains(WidgetState.hovered)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.08, red: 1, green: 0.6549, blue: 0.149)),
     );
   } // measured: color=warning, mode=dark, state=hovered
-  if (variant == MuiButtonBaseRootVariant.contained &&
+  if (variant == ButtonVariant.contained &&
       t.mode == 'dark' &&
       states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(background: Color.from(alpha: 0.12, red: 1, green: 1, blue: 1)),
     );
   } // measured: variant=contained, mode=dark, state=disabled
-  if (variant == MuiButtonBaseRootVariant.contained &&
+  if (variant == ButtonVariant.contained &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFF0288D1)));
   } // measured: variant=contained, mode=dark, state=hovered
-  if (variant == MuiButtonBaseRootVariant.outlined &&
+  if (variant == ButtonVariant.outlined &&
       t.mode == 'dark' &&
       states.contains(WidgetState.disabled)) {
     root = root.merge(
       const DsStyle(borderColor: Color.from(alpha: 0.12, red: 1, green: 1, blue: 1)),
     );
   } // measured: variant=outlined, mode=dark, state=disabled
-  if (variant == MuiButtonBaseRootVariant.outlined &&
+  if (variant == ButtonVariant.outlined &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF29B6F6)));
   } // measured: variant=outlined, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.error &&
+      variant == ButtonVariant.contained &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFFD32F2F)));
   } // measured: color=error, variant=contained, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.error &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.error &&
+      variant == ButtonVariant.outlined &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFF44336)));
   } // measured: color=error, variant=outlined, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.primary &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.primary &&
+      variant == ButtonVariant.contained &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFF42A5F5)));
   } // measured: color=primary, variant=contained, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.primary &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.primary &&
+      variant == ButtonVariant.outlined &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF90CAF9)));
   } // measured: color=primary, variant=outlined, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.secondary &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.secondary &&
+      variant == ButtonVariant.contained &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFFAB47BC)));
   } // measured: color=secondary, variant=contained, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.secondary &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.secondary &&
+      variant == ButtonVariant.outlined &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFCE93D8)));
   } // measured: color=secondary, variant=outlined, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.success &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.success &&
+      variant == ButtonVariant.contained &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFF388E3C)));
   } // measured: color=success, variant=contained, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.success &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.success &&
+      variant == ButtonVariant.outlined &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFF66BB6A)));
   } // measured: color=success, variant=outlined, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.warning &&
-      variant == MuiButtonBaseRootVariant.contained &&
+  if (color == ButtonColor.warning &&
+      variant == ButtonVariant.contained &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(background: Color(0xFFF57C00)));
   } // measured: color=warning, variant=contained, mode=dark, state=hovered
-  if (color == MuiButtonBaseRootColor.warning &&
-      variant == MuiButtonBaseRootVariant.outlined &&
+  if (color == ButtonColor.warning &&
+      variant == ButtonVariant.outlined &&
       t.mode == 'dark' &&
       states.contains(WidgetState.hovered)) {
     root = root.merge(const DsStyle(borderColor: Color(0xFFFFA726)));

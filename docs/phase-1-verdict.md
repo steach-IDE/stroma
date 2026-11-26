@@ -44,7 +44,7 @@ node packages/infer/bin/intent-loss.mjs \
 
 Colour and radius values written as named tokens: shadcn 82% and 93%, Carbon 64% and none (Carbon has no radius scale and its sizes are `rem` literals, so none of its spacing is a token either).
 
-In short: **values and colour tokens survive rendering; names and semantics do not.** What is lost is what a person would write in a review ("this is the `md` radius", "this is a status"), not what a user would see. That loss is acceptable for an emitter whose output is checked against the browser, and it is exactly what Phase 2's overrides and Phase 5's reviewed proposals are for.
+In short: **values and colour tokens survive rendering; names and semantics do not** (and an overrides file, `stroma-infer --overrides`, gives them back: with shadcn's 3-component, 2-radius-step file the same script reports radius names 6 of 6 and roles 9 of 9 on the committed DSIR; the 0 of 6 and 7 of 9 above are from renders alone). What is lost is what a person would write in a review ("this is the `md` radius", "this is a status"), not what a user would see. That loss is acceptable for an emitter whose output is checked against the browser, and it is exactly what Phase 2's overrides and Phase 5's reviewed proposals are for.
 
 ## Conditions on the go
 
