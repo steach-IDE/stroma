@@ -34,7 +34,7 @@ Each generated cascade line names the Tailwind class it came from, for example `
 All of it lives in `templates/package/lib/src/` (382 lines), written once and shared by every generated component:
 
 - `DsBox` paints one CSS box: decoration, ring, opacity, inherited text and icon style, and flex/grid layout.
-- `DsPressable` handles hover, keyboard-only focus (`:focus-visible`), press, Enter/Space activation, disabled, `aria-invalid` as `WidgetState.error`, and button semantics.
+- `DsPressable` handles hover (any pointer), keyboard-only focus (`:focus-visible`), press, Enter/Space activation, disabled, `aria-invalid` as `WidgetState.error`, and button semantics.
 - `DsTheme` and `DsTokens` lookup.
 
 The next 45 components need many more of these (section 6.4 of the brief): Dialog, Popover, Menu, Select, Tabs, Tooltip and so on. Each is behaviour, so each is hand-written.
@@ -52,7 +52,8 @@ Every item here is written down in code or data, not hidden:
 ## Findings the oracle caught
 
 1. **The browser focus outline on Badge.** Badge has no `outline-none`, so a focused link badge in Chrome also gets the browser's own two-tone outline inside the ring. Flutter has none. The low SSIM on focused badges (0.45 to 0.76) is exactly that outline, and every other measured value is equal. It's now an `unsupported` entry; the ingest had wrongly called it a no-op.
-2. Three harness bugs, all fixed:
+2. **Hover never showed on touch platforms.** `DsPressable` took hover from `FocusableActionDetector`'s highlight callback, which stays off in Flutter's touch highlight mode (Android, iOS, an iPad with a trackpad). CSS `:hover` applies to any hovering pointer. A behaviour test that drives real mouse and keyboard input (`test/pressable_test.dart`) caught it, and hover now comes from a `MouseRegion`. The oracle couldn't see it, because it forces states.
+3. Three harness bugs, all fixed:
    - `matchesGoldenFile` on a finder captures at 1x.
    - Preflight's border-box shrank the card cell.
    - Alpha tokens were composited over the wrong page colour.

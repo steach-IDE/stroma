@@ -32,7 +32,8 @@ class DsPressable extends StatefulWidget {
 
 class _DsPressableState extends State<DsPressable> {
   WidgetStatesController? _own;
-  WidgetStatesController get _states => widget.statesController ?? (_own ??= WidgetStatesController());
+  WidgetStatesController get _states =>
+      widget.statesController ?? (_own ??= WidgetStatesController());
 
   bool get _enabled => widget.onPressed != null;
 
@@ -56,7 +57,11 @@ class _DsPressableState extends State<DsPressable> {
   void _sync() {
     _states.update(WidgetState.disabled, !_enabled);
     _states.update(WidgetState.error, widget.error);
-    if (!_enabled) _states.update(WidgetState.pressed, false);
+    if (!_enabled) {
+      // disabled:pointer-events-none: a disabled control is neither pressed nor hovered.
+      _states.update(WidgetState.pressed, false);
+      _states.update(WidgetState.hovered, false);
+    }
   }
 
   void _changed() => setState(() {});
@@ -79,18 +84,24 @@ class _DsPressableState extends State<DsPressable> {
         focusNode: widget.focusNode,
         autofocus: widget.autofocus,
         mouseCursor: _enabled ? SystemMouseCursors.click : MouseCursor.defer,
-        onShowHoverHighlight: (v) => _states.update(WidgetState.hovered, v),
+        // Focus shows only in keyboard mode, like :focus-visible. Hover is tracked by the
+        // MouseRegion below: onShowHoverHighlight stays off on touch platforms, even for an iPad
+        // trackpad, while CSS :hover applies to any hovering pointer.
         onShowFocusHighlight: (v) => _states.update(WidgetState.focused, v),
         actions: {
           ActivateIntent: CallbackAction<ActivateIntent>(onInvoke: (_) => widget.onPressed?.call()),
         },
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTapDown: _enabled ? (_) => _states.update(WidgetState.pressed, true) : null,
-          onTapUp: _enabled ? (_) => _states.update(WidgetState.pressed, false) : null,
-          onTapCancel: _enabled ? () => _states.update(WidgetState.pressed, false) : null,
-          onTap: widget.onPressed,
-          child: widget.builder(context, _states.value),
+        child: MouseRegion(
+          onEnter: _enabled ? (_) => _states.update(WidgetState.hovered, true) : null,
+          onExit: (_) => _states.update(WidgetState.hovered, false),
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTapDown: _enabled ? (_) => _states.update(WidgetState.pressed, true) : null,
+            onTapUp: _enabled ? (_) => _states.update(WidgetState.pressed, false) : null,
+            onTapCancel: _enabled ? () => _states.update(WidgetState.pressed, false) : null,
+            onTap: widget.onPressed,
+            child: widget.builder(context, _states.value),
+          ),
         ),
       ),
     );
