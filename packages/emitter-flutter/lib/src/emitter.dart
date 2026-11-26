@@ -39,7 +39,7 @@ Map<String, String> emitPackage({
   required String packageName,
 }) {
   final components = (dsir['components'] as List).cast<Map<String, dynamic>>();
-  final globals = (dsir['globals'] as Map).cast<String, dynamic>();
+  final globals = ((dsir['globals'] as Map?) ?? const {}).cast<String, dynamic>();
   final out = <String, String>{};
   String dart(String src) => _formatter.format(src);
 
@@ -191,8 +191,15 @@ String _tokens(Map<String, dynamic> dsir, String packageName) {
       ..writeln('  static const $mode = DsTokens(')
       ..writeln('    brightness: Brightness.$mode,');
     for (var i = 0; i < names.length; i++) {
-      final v = (colors[names[i]] as Map)[mode] as Map<String, dynamic>;
-      b.writeln('    ${fields[i]}: ${_colorLiteral(v['hex'] as String, v['alpha'] as num)},');
+      // A token no cell used in one mode has no measured value there; no rule can read it, so it
+      // borrows the other mode's value and says so.
+      final modes = (colors[names[i]] as Map).cast<String, dynamic>();
+      final measured = modes[mode] as Map<String, dynamic>?;
+      final v = (measured ?? modes.values.first) as Map<String, dynamic>;
+      b.writeln(
+        '    ${fields[i]}: ${_colorLiteral(v['hex'] as String, v['alpha'] as num)},'
+        '${measured == null ? ' // not measured in $mode: no rule reads it there' : ''}',
+      );
     }
     b
       ..writeln('  );')
@@ -310,6 +317,9 @@ String _cubic(String css) {
         color('borderColor', v);
       case 'ringColor':
         color('ringColor', v);
+      case 'radius' when v is num:
+        // A measured corner that matches no token (inferred DSIRs).
+        args.add('radius: ${_num(v)}');
       case 'radius':
         final r = (v as Map).cast<String, dynamic>();
         if (r['full'] == true) {
@@ -343,7 +353,24 @@ String _cubic(String css) {
 String _enumName(Map<String, dynamic> c, String axis) => '${c['name']}${_upperFirst(axis)}';
 Map<String, dynamic> _variants(Map<String, dynamic> c) =>
     (c['variants'] as Map).cast<String, dynamic>();
-String _flag(String slot) => 'has${_upperFirst(slot)}';
+
+/// A part slot's widget field: `card-action` in a `card-header` is `action`. A DSIR names a slot by `name`
+/// (source-derived: `action`) or by `dataSlot` (inferred: `card-action`); both resolve to the same field.
+String? _partField(Map<String, dynamic> c, String ref) {
+  for (final s in (c['slots'] as List).cast<Map<String, dynamic>>()) {
+    final data = s['dataSlot'] as String?;
+    if (data == null || (s['name'] != ref && data != ref)) continue;
+    final prefix = '${(c['slot'] as String).split('-').first}-';
+    return camel(data.startsWith(prefix) ? data.substring(prefix.length) : data);
+  }
+  return null;
+}
+
+String _flag(Map<String, dynamic> c, String slot) {
+  final field = _partField(c, slot);
+  if (field == null) throw EmitException('${c['name']}: hasSlot "$slot" names no part slot');
+  return 'has${_upperFirst(field)}';
+}
 
 String _condition(Map<String, dynamic> c, Map<String, dynamic> rule) {
   final when = (rule['when'] as Map).cast<String, dynamic>();
@@ -359,7 +386,7 @@ String _condition(Map<String, dynamic> c, Map<String, dynamic> rule) {
       case 'hasIcon' || 'interactive':
         parts.add(e.key);
       case 'hasSlot':
-        parts.add(_flag(e.value as String));
+        parts.add(_flag(c, e.value as String));
       default:
         if (!_variants(c).containsKey(e.key)) throw EmitException('unknown condition ${e.key}');
         parts.add(eq(e.key, e.value as String, '=='));
@@ -382,7 +409,7 @@ Set<String> _inputs(Map<String, dynamic> c) {
   for (final r in (c['rules'] as List).cast<Map<String, dynamic>>()) {
     final when = (r['when'] as Map).cast<String, dynamic>();
     for (final k in when.keys) {
-      used.add(k == 'hasSlot' ? _flag(when[k] as String) : k);
+      used.add(k == 'hasSlot' ? _flag(c, when[k] as String) : k);
     }
     for (final ex in ((r['except'] as List?) ?? const []).cast<Map>()) {
       used.addAll(ex.keys.cast<String>());
@@ -390,6 +417,12 @@ Set<String> _inputs(Map<String, dynamic> c) {
   }
   return used;
 }
+
+/// The boolean inputs among a resolver's inputs: icon, then interactive, then one per part slot.
+List<String> _flags(Set<String> inputs) => [
+  ...['hasIcon', 'interactive'].where(inputs.contains),
+  ...inputs.where((i) => i.startsWith('has') && i != 'hasIcon'),
+];
 
 bool _hasIconRules(Map<String, dynamic> c) =>
     (c['rules'] as List).cast<Map<String, dynamic>>().any((r) => r['target'] == 'icon');
@@ -402,12 +435,12 @@ String _resolver(Map<String, dynamic> c, Map<String, dynamic> globals) {
   final named = <String>[
     for (final axis in _variants(c).keys) 'required ${_enumName(c, axis)} $axis',
     if (inputs.contains('states')) 'required Set<WidgetState> states',
-    for (final flag in ['hasIcon', 'interactive', 'hasAction'])
-      if (inputs.contains(flag)) 'required bool $flag',
+    for (final flag in _flags(inputs)) 'required bool $flag',
   ];
   final ret = hasIcon ? '({DsStyle root, DsStyle icon})' : 'DsStyle';
-  final star = ((globals['*'] as Map)['rules'] as List).cast<Map<String, dynamic>>().single;
-  final (starArgs, _) = _styleArgs((star['set'] as Map).cast<String, dynamic>());
+  // A DSIR may hold no globals (an inferred one puts every cell's shared values in the component's own rules).
+  final star = (((globals['*'] as Map?)?['rules']) as List?)?.cast<Map<String, dynamic>>().single;
+  final starArgs = star == null ? '' : _styleArgs((star['set'] as Map).cast<String, dynamic>()).$1;
   final b = StringBuffer()
     ..writeln(
       "/// $name's cascade in CSS order (specificity, then Tailwind's stylesheet order, after",
@@ -417,7 +450,9 @@ String _resolver(Map<String, dynamic> c, Map<String, dynamic> globals) {
       '$ret resolve${name}Style(DsTokens t${named.isEmpty ? '' : ', {${named.join(', ')}}'}) {',
     );
   if (inputs.contains('mode')) b.writeln('  final dark = t.brightness == Brightness.dark;');
-  b.writeln('  var root = DsStyle($starArgs); // * { @apply ${star['from']} }');
+  b.writeln(
+    '  var root = DsStyle($starArgs);${star == null ? '' : " // * { @apply ${star['from']} }"}',
+  );
   if (hasIcon) b.writeln('  var icon = const DsStyle();');
   for (final r in rules) {
     final (args, isConst) = _styleArgs((r['set'] as Map).cast<String, dynamic>());
@@ -466,6 +501,15 @@ String _widget(Map<String, dynamic> c) {
       .map((s) => s['name'] as String)
       .toSet();
   final inputs = _inputs(c);
+  // The part slots a rule asks about (`hasSlot`). The one grid this emitter lays out has a single trailing part.
+  final parts = [
+    for (final s in (c['slots'] as List).cast<Map<String, dynamic>>())
+      if (s['dataSlot'] != null && inputs.contains(_flag(c, s['dataSlot'] as String)))
+        (_partField(c, s['dataSlot'] as String)!, s['dataSlot'] as String),
+  ];
+  if (parts.length > 1)
+    throw EmitException('$name: ${parts.length} part slots have no Flutter layout here');
+  final part = parts.isEmpty ? null : parts.single.$1;
   final defaults = (c['defaultVariants'] as Map).cast<String, dynamic>();
   final isButton = c['role'] == 'button';
   final isBadge = name == 'Badge';
@@ -487,11 +531,11 @@ String _widget(Map<String, dynamic> c) {
     );
   if (slots.contains('child')) field('Widget? child', 'this.child');
   if (slots.contains('children')) field('List<Widget> children', 'this.children = const []');
-  if (slots.contains('action')) {
+  if (part != null) {
     field(
-      'Widget? action',
-      'this.action',
-      doc: 'The `data-slot="card-action"` child, placed in the trailing column.',
+      'Widget? $part',
+      'this.$part',
+      doc: 'The `data-slot="${parts.single.$2}"` child, placed in the trailing column.',
     );
   }
   for (final axis in _variants(c).keys) {
@@ -519,7 +563,7 @@ String _widget(Map<String, dynamic> c) {
     if (inputs.contains('states')) 'states: states',
     if (inputs.contains('hasIcon')) 'hasIcon: icon != null',
     if (inputs.contains('interactive')) 'interactive: onPressed != null',
-    if (inputs.contains('hasAction')) 'hasAction: action != null',
+    if (part != null) 'has${_upperFirst(part)}: $part != null',
   ];
   final call = 'resolve${name}Style(t${named.isEmpty ? '' : ', ${named.join(', ')}'})';
   // A component root resets to body text; Card's parts inherit from the Card, as in CSS.
@@ -536,7 +580,7 @@ String _widget(Map<String, dynamic> c) {
     hasIcon || _hasIconRules(c) ? 'style: style.root, icon: style.icon, ' : 'style: style, ',
     'tokens: t, ',
     if (isRoot) 'resetText: true, ',
-    if (slots.contains('action')) 'trailing: action, ',
+    if (part != null) 'trailing: $part, ',
     'children: [${kids.join(', ')}])',
   ].join();
 

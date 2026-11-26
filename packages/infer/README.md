@@ -5,7 +5,7 @@
 ```sh
 node bin/infer.mjs --extraction .stroma/extract --out shadcn.inferred.dsir.json --license MIT \
   --report report.json --compare ../../examples/shadcn-neutral/design-system/shadcn.dsir.json
-# inferred 9 components from 822 cells: 100% of values explained
+# inferred 9 components from 834 cells: 100% of values explained
 ```
 
 `--license` is required: Stroma records the licence of every design system it reads. `--compare` adds a comparison with a source-derived DSIR to the report.
@@ -27,12 +27,12 @@ Full extraction of `examples/shadcn-neutral/storybook`, compared with the DSIR r
 
 | | |
 | --- | --- |
-| Values explained by the rules | 22,360 of 22,360 (100%) |
+| Values explained by the rules | 22,708 of 22,708 (100%) |
 | Colour tokens the source uses, recovered | all of them, for every component |
 | Variants and defaults | match for every component |
 | Rules | about half the source's (Button 36 vs 68), since one measured rule can stand for several classes |
 | Colour values written as tokens | 82% (the rest are literal colours such as shadows) |
-| Radius values written as tokens | 94% |
+| Radius values written as tokens | 93% |
 | Spacing values on the `--spacing` scale | 69% |
 
 What rendering can't recover: radius names (`radius-md` is measured as "`--radius` minus 2px", named `radius-minus2`), and anything the browser never draws in a story.

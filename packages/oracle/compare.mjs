@@ -10,7 +10,8 @@ import { differenceCiede2000, formatHex, parse, toGamut } from 'culori';
 
 const repo = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const example = path.join(repo, 'examples', 'shadcn-neutral');
-const pkg = path.join(example, 'packages', 'shadcn_neutral_ui');
+// STROMA_ORACLE_PKG points at another generated package, such as one emitted from an inferred DSIR.
+const pkg = process.env.STROMA_ORACLE_PKG ?? path.join(example, 'packages', 'shadcn_neutral_ui');
 const chromeDir = path.join(repo, '.stroma', 'oracle', 'chrome');
 const flutterDir = path.join(pkg, 'build', 'oracle', 'flutter');
 const reportDir = path.join(repo, '.stroma', 'oracle', 'report');
