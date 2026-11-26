@@ -44,7 +44,7 @@ What rendering can't recover: radius names (`radius-md` is measured as "`--radiu
 | | |
 | --- | --- |
 | Components | Btn, Tag, Tile (named from the root's block class) |
-| Values explained by the rules | 14,304 of 14,304 (100%) |
+| Values explained by the rules | 14,416 of 14,416 (100%) |
 | Modes | the theme names: `white`, `g10`, `g90`, `g100` |
 | Colour values written as tokens | 64% |
 | Radius and spacing as tokens | 0%: Carbon has no radius and its sizes are `rem` literals, not a scale |

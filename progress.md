@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-008` is done (PRs for issues #25 to #29, stacked); `feat-009`, the Phase 1 verdict, is next.
+- **Active feature:** none. Phase 1 is done: `feat-009` (issue #35) wrote the verdict, go. `feat-010` (the npm CLI) is next, after the Phase 2 conditions in the verdict are planned into issues.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -20,6 +20,7 @@
 
 - `feat-015`: a pinned shadcn Storybook in `examples/shadcn-neutral/storybook`, the extractor's first input.
 
+- `feat-009`: `docs/phase-1-verdict.md`: go, with the intent-loss figure (`packages/infer/bin/intent-loss.mjs`), what was not proven, and Phase 2 re-planned.
 - `feat-008`: Carbon's Button, Tag and Tile pass the oracle (780/780 cells on Linux goldens) from a pinned Storybook through extract, infer, emit and verify; unsupported items are listed in `examples/carbon/README.md`.
 - `feat-007`: the example package is emitted from the inferred DSIR; the oracle passes 426/426 cells and 36/36 tokens on Linux goldens.
 - `feat-005`: `packages/extractor`, 822 deterministic cell files from the example Storybook.
@@ -90,6 +91,7 @@ Nothing.
 | 2026-11-26 | The extractor aborts every request outside the Storybook and lists them in `index.json` | A CDN font would change a measurement silently | Trusting the network |
 | 2026-11-26 | The oracle compares Carbon with its extraction (Chrome's computed styles), not a Chrome reference sheet | The extraction already holds what Chrome drew per cell; a sheet would measure the same thing a second way | Rendering a Chrome sheet for every design system |
 | 2026-11-26 | `tool/pin-fonts.sh <package>` picks the pinned font from the package's pubspec | `init.sh` and `update-goldens` ran the Inter script for every package | One script per family called by name |
+| 2026-11-26 | Phase 1 verdict: go. Phase 2 starts with a CSS-in-JS probe and three conditions (a coverage report, a pixel comparison for every system, a DSIR override file for names) beside the CLI | Both systems passed; what rendering lost is names and semantics, not values; the unproven part is systems with no `var()` references | Going on to the CLI only |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

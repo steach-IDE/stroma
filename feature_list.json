@@ -97,7 +97,7 @@
       ],
       "status": "done",
       "done_when": "Carbon's Button, Tag and Tile pass the same oracle gates against a pinned Carbon version, with every failure that remains listed in unsupported with a reason.",
-      "evidence": "2026-11-26, issues #25 to #29 (stacked PRs): Carbon's Button, Tag and Tile from a pinned @carbon/react 1.121.0 Storybook (examples/carbon/storybook; extractor --root; IBM Plex Sans 1.1.0 pinned, outside requests blocked; 784 cells, four themes, byte-identical across runs and with the CDN reachable or not). packages/infer: valid DSIR, 3 components, 100% of 14,304 values explained, modes white/g10/g90/g100, var() fallbacks read as tokens. packages/emitter-flutter: examples/carbon/packages/carbon_ui, flutter analyze clean. Oracle (compare-extraction.mjs against the extraction, on Linux goldens from the update-goldens workflow): 780/780 cells pass at the gates (height 0 px, padding 0 px, background dE2000 0.32, radius 0.35 px at worst; radius measurable in 157 of 268 rest cells); a damaged cell fails alone (779/780). The shadcn oracle still passes 426/426 and 36/36. Failures that remain, each with its reason, are in examples/carbon/README.md under unsupported: tile width (no fill value in the DSIR), 111 radii not measurable, ClickableTile at rest matched at hovered and focused only, text colour and SSIM not compared."
+      "evidence": "2026-11-26, issues #25 to #29 (stacked PRs): Carbon's Button, Tag and Tile from a pinned @carbon/react 1.121.0 Storybook (examples/carbon/storybook; extractor --root; IBM Plex Sans 1.1.0 pinned, outside requests blocked; 784 cells, four themes, byte-identical across runs and with the CDN reachable or not). packages/infer: valid DSIR, 3 components, 100% of 14,416 values explained, modes white/g10/g90/g100, var() fallbacks read as tokens. packages/emitter-flutter: examples/carbon/packages/carbon_ui, flutter analyze clean. Oracle (compare-extraction.mjs against the extraction, on Linux goldens from the update-goldens workflow): 780/780 cells pass at the gates (height 0 px, padding 0 px, background dE2000 0.32, radius 0.35 px at worst; radius measurable in 157 of 268 rest cells); a damaged cell fails alone (779/780). The shadcn oracle still passes 426/426 and 36/36. Failures that remain, each with its reason, are in examples/carbon/README.md under unsupported: tile width (no fill value in the DSIR), 111 radii not measurable, ClickableTile at rest matched at hovered and focused only, text colour and SSIM not compared."
     },
     {
       "id": "feat-009",
@@ -108,9 +108,9 @@
         "feat-007",
         "feat-008"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "docs/phase-1-verdict.md states go or no-go, links the scorecards of both systems, reports the intent-loss figure, and the roadmap in README.md is updated to match.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #35: docs/phase-1-verdict.md says go, links both scorecards (shadcn 426/426 cells and 36/36 tokens; Carbon 780/780 cells, on Linux goldens) and their reproduction commands, reports the intent-loss figure from packages/infer/bin/intent-loss.mjs (colour tokens 23/23, radius values 6/6, radius names 0/6, roles 7/9, class names on rules lost: 65 inferred vs 131 source rules), lists what was not proven (two systems, style-only, only var()-based styling, circular Carbon oracle, ungated text colour/shadows/width) and re-plans Phase 2 first. The README roadmap matches. ./init.sh green."
     },
     {
       "id": "feat-010",

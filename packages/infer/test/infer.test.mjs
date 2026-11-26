@@ -92,3 +92,15 @@ test('a root with no data-* marker is a component named by its block class, and 
   assert.deepEqual(dsir.components.map((c) => [c.name, c.slot]), [['Box', 'ds--box']]);
   assert.deepEqual(Object.keys(dsir.tokens.color['ds-layer']).sort(), ['g100', 'white']);
 });
+
+test('intent loss on shadcn: colour tokens and radius values survive, radius names and class names do not', async () => {
+  const { execFileSync } = await import('node:child_process');
+  const out = execFileSync(process.execPath, [
+    path.join(here, '..', 'bin', 'intent-loss.mjs'),
+    '--inferred', path.join(repo, 'examples', 'shadcn-neutral', 'inferred', 'shadcn.dsir.json'),
+    '--source', path.join(repo, 'examples', 'shadcn-neutral', 'design-system', 'shadcn.dsir.json'),
+  ], { encoding: 'utf8' });
+  assert.match(out, /colour tokens a component uses, recovered by name\s+23\/23 \(100%\)/);
+  assert.match(out, /radius references, same value in px\s+6\/6 \(100%\)/);
+  assert.match(out, /radius references, same token name\s+0\/6 \(0%\)/);
+});
