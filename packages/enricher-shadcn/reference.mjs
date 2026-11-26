@@ -14,7 +14,7 @@ import * as tailwind from 'tailwindcss';
 import { chromium } from 'playwright';
 import { PNG } from 'pngjs';
 import { parseComponentFile } from './ingest.mjs';
-import { SHADCN_V4_THEME_INLINE } from './tailwind.mjs';
+import { globalsCss } from './globals-css.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repo = path.join(here, '..', '..');
@@ -61,37 +61,9 @@ function html(n, attrs = '') {
 
 // ---------- CSS: a shadcn v4 globals.css built from the same pinned sources ----------
 
-function globalsCss() {
-  const { cssVarsV4 } = readJson(path.join(sources, 'colors-neutral.json'));
-  const style = readJson(path.join(sources, 'index.json'));
-  const names = Object.keys(cssVarsV4.light).filter((k) => k !== 'radius');
-  const vars = (m) => Object.entries(cssVarsV4[m]).map(([k, v]) => `  --${k}: ${v};`).join('\n');
-  const layer = Object.entries(style.css['@layer base']).map(([sel, body]) => `  ${sel} { ${Object.keys(body)[0]}; }`).join('\n');
-  const fonts = [['Regular', 400], ['Medium', 500], ['SemiBold', 600]]
-    .map(([f, w]) => `@font-face { font-family: Inter; font-weight: ${w}; src: url("${pathToFileURL(path.join(pkg, 'fonts', `Inter-${f}.ttf`))}"); }`)
-    .join('\n');
-  return `@import "tailwindcss";
-@custom-variant dark (&:is(.dark *));
-@theme inline {
-  --font-sans: Inter, sans-serif;
-${names.map((n) => `  --color-${n}: var(--${n});`).join('\n')}
-${Object.entries(SHADCN_V4_THEME_INLINE.radius).map(([k, d]) => `  --radius-${k}: calc(var(--radius) + ${d}px);`).join('\n')}
-}
-:root {
-${vars('light')}
-}
-.dark {
-${vars('dark')}
-}
-@layer base {
-${layer}
-}
-${fonts}
-`;
-}
 
 async function compileCss(candidates) {
-  const compiler = await tailwind.compile(globalsCss(), {
+  const compiler = await tailwind.compile(globalsCss((f) => pathToFileURL(path.join(pkg, 'fonts', f))), {
     base: here,
     loadStylesheet: async (id, base) => ({
       path: id,
