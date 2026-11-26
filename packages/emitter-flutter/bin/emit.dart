@@ -1,7 +1,8 @@
 // dart run bin/emit.dart [--check] [--dsir <file>] [--mapping <file>] [--out <dir>] [--fonts <dir>]
 // Emits a Flutter package from a DSIR. The defaults build the shadcn example in examples/shadcn-neutral.
 // --check fails if the committed output differs from what would be written, or holds files no longer emitted.
-// --fonts is where Inter-{Regular,Medium,SemiBold}.ttf are copied from (default /Library/Fonts).
+// --fonts is where Inter-{Regular,Medium,SemiBold}.ttf are copied from (default: the pinned copy that
+// tool/fetch-fonts.sh keeps in .stroma/fonts/inter-4.1).
 import 'dart:convert';
 import 'dart:io';
 
@@ -79,13 +80,13 @@ Future<void> main(List<String> args) async {
   }
   if (stale > 0) exit(1);
   if (!check) {
-    // shortcut: fonts come from a local install and are gitignored; vendor them (OFL) before CI goldens.
+    // Goldens are only reproducible with the exact font bytes, so the default is the pinned copy.
     final i = args.indexOf('--fonts');
-    final from = i >= 0 ? args[i + 1] : '/Library/Fonts';
+    final from = i >= 0 ? args[i + 1] : p.join(repo, '.stroma', 'fonts', 'inter-4.1');
     for (final w in ['Regular', 'Medium', 'SemiBold']) {
       final src = File(p.join(from, 'Inter-$w.ttf'));
       if (!src.existsSync()) {
-        stderr.writeln('missing ${src.path}: goldens need Inter (pass --fonts <dir>)');
+        stderr.writeln('missing ${src.path}: run tool/fetch-fonts.sh first, or pass --fonts <dir>');
         exit(1);
       }
       final dst = File(p.join(out, 'fonts', 'Inter-$w.ttf'))..parent.createSync(recursive: true);

@@ -4,11 +4,12 @@
 
 ```sh
 dart pub get
+../../tool/fetch-fonts.sh         # once: downloads and verifies the pinned Inter 4.1 into .stroma/fonts
 dart run bin/emit.dart            # writes examples/shadcn-neutral/packages/shadcn_neutral_ui and copies Inter in
 dart run bin/emit.dart --check    # exit 1 if the committed package differs, or holds a file no longer emitted
 ```
 
-Options: `--dsir <file>`, `--mapping <file>` (a Scrib adapter mapping), `--out <dir>`, `--fonts <dir>` (where `Inter-{Regular,Medium,SemiBold}.ttf` are copied from; default `/Library/Fonts`). The defaults build the shadcn example.
+Options: `--dsir <file>`, `--mapping <file>` (a Scrib adapter mapping), `--out <dir>`, `--fonts <dir>` (where `Inter-{Regular,Medium,SemiBold}.ttf` are copied from; default the pinned copy in `.stroma/fonts/inter-4.1`). The defaults build the shadcn example.
 
 | Path | What it is |
 | --- | --- |
@@ -24,4 +25,4 @@ The primitives will move to `packages/primitives-flutter` once generated package
 | --- | --- | --- |
 | `EmitException: DSIR style key "…" has no Flutter mapping` | The DSIR holds a style the emitter can't print | Teach the emitter the key, and add it to the DSIR schema in the same change |
 | `stale: …` from `--check` | The committed package isn't what the emitter writes now | Run `dart run bin/emit.dart` and commit the result. Never edit generated files by hand |
-| `missing /Library/Fonts/Inter-Regular.ttf` | Inter isn't installed where the emitter looks | Pass `--fonts <dir>` |
+| `missing …/.stroma/fonts/inter-4.1/Inter-Regular.ttf` | The pinned fonts haven't been downloaded yet | Run `tool/fetch-fonts.sh` (or `./init.sh`), or pass `--fonts <dir>` |

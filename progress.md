@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-004` is done on branch `chore/5-move-spike`, waiting for its pull request.
+- **Active feature:** none. `feat-014` is done on branch `feat/11-pinned-fonts` (PR #12).
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -15,15 +15,17 @@
 - `feat-003`: `packages/dsir`, the DSIR 0.2 schema, validator (schema + cross-references) and migration, with the shadcn fixture and 10 tests.
 - `feat-004`: the spike's code moved over with its 8 commits and split into packages; the enricher now writes DSIR 0.2; the oracle reproduces 426/426 and 36/36; CI installs Flutter and `./init.sh` checks the example.
 
+- `feat-002`: Carbon, no LLM until Phase 5, pinned font downloads.
+- `feat-014`: `tool/fetch-fonts.sh` (Inter 4.1, hash-checked, cached); the golden tests run in CI on Linux.
+
 ## In progress
 
 Nothing.
 
 ## Next
 
-1. Merge the `feat-004` pull request (issue #5). That closes Phase 0 except `feat-002`.
-2. Merge the `feat-002` pull request (issue #3).
-3. Phase 1: `feat-014` (pinned fonts, so CI runs the goldens) and `feat-005` (the render-based extractor) can start in parallel.
+1. Merge PR #12 (`feat-014`) with a merge commit or a squash; it carries no history worth keeping.
+2. Phase 1: `feat-005`, the render-based extractor, on shadcn's Storybook first.
 3. Later, not blocking: reserve the names (npm organisation `steach` for `@steach/stroma`; `stroma` on pub.dev). Deferred by the maintainer on 2026-11-26.
 
 ## Blockers and risks
@@ -55,6 +57,9 @@ Nothing.
 | 2026-11-26 | Phase 1's second design system: Carbon (IBM), Apache-2.0, Storybook https://react.carbondesignsystem.com | Furthest from shadcn (SCSS and global classes, not utility classes), the same licence as Stroma, and 668 stories keep Phase 1 to two weeks | Primer React (MIT, CSS modules); Fluent UI v9 (MIT, runtime CSS-in-JS); Chakra UI v3 (MIT, CSS-in-JS recipes) |
 | 2026-11-26 | No LLM at extraction for now; LLM help becomes Phase 5 (`feat-013`) | Deterministic extraction must be good first; a model would hide where it falls short | Allowing a model to propose DSIR facts from the start |
 | 2026-11-26 | CI gets the golden fonts by downloading pinned files and checking their SHA-256 (`feat-014`) | Keeps font binaries out of the repository while making goldens reproducible | Committing the OFL font files |
+| 2026-11-26 | Golden images are Linux renders, compared only on Linux | macOS rasterises text differently by 1-2% of pixels even with byte-identical fonts (the diff is glyph edges only) | A pixel tolerance, which would also hide real regressions |
+| 2026-11-26 | Goldens are regenerated on CI (`update-goldens` workflow), never on a laptop | Only CI's runner type gives CI's pixels; a Docker image on an arm64 Mac may still differ from x86_64 | A local Docker script |
+| 2026-11-26 | Stacked pull requests: merge the lower one first, and merge any PR that carries history to keep with a merge commit | #7's squash dropped the spike history and #8 merged into a branch; fixed by #10 | — |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

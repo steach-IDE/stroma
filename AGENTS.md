@@ -49,9 +49,11 @@ A feature is done when all four hold:
 
 | Command | What it checks |
 | --- | --- |
-| `./init.sh` | The harness (required files, `feature_list.json` integrity, shell syntax) and every package that exists: Node packages (`check`, `lint`, `test`, `build` scripts) and Dart packages (`analyze`, `test`) |
+| `./init.sh` | The harness (required files, `feature_list.json` integrity, shell syntax) and every package that exists: Node packages (`check`, `lint`, `test`, `build` scripts), Dart packages (`analyze`, `test`) and the generated example packages (`flutter analyze`, `flutter test`). The first run downloads the pinned fonts the goldens need (`tool/fetch-fonts.sh`, about 34 MB, then cached in `.stroma/fonts`) |
 
 Each package adds its own checks to `init.sh` in the feature that creates it.
+
+**Goldens are Linux renders.** Golden images are compared only on Linux, the platform CI runs on, because other systems rasterise text slightly differently even with the same fonts. On macOS the golden tests still run, but skip the image comparison. To change goldens, push your branch and run `gh workflow run update-goldens.yml --ref <branch>`: it renders them on CI's runner type and commits them. Never commit goldens rendered on another platform.
 
 ## Commits
 

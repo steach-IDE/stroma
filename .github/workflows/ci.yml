@@ -31,8 +31,20 @@ jobs:
         with:
           flutter-version: 3.35.4
           channel: stable
+      - name: Pinned fonts (downloaded once, keyed on their hashes)
+        uses: actions/cache@v4
+        with:
+          path: .stroma/fonts
+          key: fonts-${{ hashFiles('tool/fonts.sha256') }}
       - name: ./init.sh
         run: ./init.sh
+      - name: Keep the Linux renders when a golden test fails
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: golden-failures
+          path: examples/*/packages/*/test/failures/
+          if-no-files-found: ignore
 
   work:
     name: work rules
