@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/react-vite';
-import { GlobalTheme } from '@carbon/react';
+import { Theme } from '@carbon/react';
 // Carbon's precompiled stylesheet: SCSS already compiled, so the build needs no Sass.
 import '@carbon/styles/css/styles.css';
 
@@ -13,11 +13,12 @@ const preview: Preview = {
   initialGlobals: { theme: 'white' },
   decorators: [
     (Story, context) => (
-      <GlobalTheme theme={context.globals.theme}>
+      // `Theme` puts the theme's class (`cds--g90`) on a wrapper; `GlobalTheme` only sets React context.
+      <Theme theme={context.globals.theme}>
         <div style={{ padding: 16 }}>
           <Story />
         </div>
-      </GlobalTheme>
+      </Theme>
     ),
   ],
 };

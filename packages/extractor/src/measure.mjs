@@ -37,6 +37,8 @@ function inPage({ rootSelector, properties }) {
         attrs[a.name] = a.value;
       }
     }
+    // A design system that marks no parts (Carbon) is named by its root's classes; only the root's are kept.
+    if (el === root && el.getAttribute('class')) attrs.class = el.getAttribute('class');
     const text = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').trim();
     return {
       tag: el.tagName.toLowerCase(),
