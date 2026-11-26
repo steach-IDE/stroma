@@ -43,9 +43,9 @@
         "feat-001",
         "feat-003"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "git log shows the spike's commits; the moved emitter, ingest and generated-package tests pass in the new layout; the oracle reproduces 426/426 cells and 36/36 tokens; ./init.sh runs all of it.",
-      "evidence": ""
+      "evidence": "2026-11-26, branch chore/5-move-spike: git log --follow packages/oracle/compare.mjs reaches the spike's commits (8 commits via git filter-repo). Generated package byte-identical to the spike's (git status clean under it after re-emitting from the 0.2 DSIR). Oracle: 426/426 cells, 36/36 tokens, worst token dE 0.7015. ./init.sh green: dsir 10/10, emitter 5/5 (incl. emit --check), enricher 5/5 (incl. ingest --check), example package analyze clean + 9/9 tests. Deviations: primitives stay as emitter templates (no packages/primitives-flutter until generated code depends on them); the example lives in examples/shadcn-neutral, not under packages/."
     },
     {
       "id": "feat-005",

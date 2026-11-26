@@ -3,8 +3,8 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-003` is done on branch `feat/4-dsir-schema`, waiting for its pull request.
-- **Code:** `packages/dsir`: the DSIR 0.2 schema, validator and 0.1 migration.
+- **Active feature:** none. `feat-004` is done on branch `chore/5-move-spike`, waiting for its pull request.
+- **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
 
@@ -13,6 +13,7 @@
 
 - `feat-001`: the repository is public with CI; issues #3, #4 and #5 are open.
 - `feat-003`: `packages/dsir`, the DSIR 0.2 schema, validator (schema + cross-references) and migration, with the shadcn fixture and 10 tests.
+- `feat-004`: the spike's code moved over with its 8 commits and split into packages; the enricher now writes DSIR 0.2; the oracle reproduces 426/426 and 36/36; CI installs Flutter and `./init.sh` checks the example.
 
 ## In progress
 
@@ -20,8 +21,9 @@ Nothing.
 
 ## Next
 
-1. Merge the `feat-003` pull request (issue #4).
-2. `feat-004` (issue #5): move the spike code over with its history, and migrate its DSIR with `packages/dsir/bin/migrate.mjs`.
+1. Merge the `feat-004` pull request (issue #5). That closes Phase 0 except `feat-002`.
+2. `feat-002` (issue #3): the second design system, the LLM policy, and fonts in CI. The second system blocks `feat-008`; the fonts decision would let CI run the goldens.
+3. Phase 1: `feat-005`, the render-based extractor.
 3. Later, not blocking: reserve the names (npm organisation `steach` for `@steach/stroma`; `stroma` on pub.dev). Deferred by the maintainer on 2026-11-26.
 
 ## Blockers and risks
@@ -46,6 +48,10 @@ Nothing.
 | 2026-11-26 | DSIR 0.2 leaves out `anatomy`; it moves to `feat-006` (0.3) | Its shape depends on what the extractor can read from the DOM | Designing it now |
 | 2026-11-26 | The validator runs the schema, then cross-reference checks (variant axes and values, colour and radius tokens) | JSON Schema can't relate one part of the file to another; a misspelt condition would pass as a variant axis | Schema only |
 | 2026-11-26 | `ajv` (pinned 8.20.0) for JSON Schema 2020-12 | The standard validator for Node; no hand-rolled schema code | A hand-written checker |
+| 2026-11-26 | The spike moved with `git filter-repo`, renaming each file to its final path in history | `git log --follow` works on the new paths | Copying the files (history lost); keeping the old layout |
+| 2026-11-26 | The converted shadcn example lives in `examples/shadcn-neutral`, laid out like a user's repository | It is the fixture `docs/usage.md` describes, and it keeps generated output out of `packages/` | A folder inside the emitter package |
+| 2026-11-26 | The primitives stay as emitter templates for now | They import generated `tokens.dart`, so they aren't a standalone package yet | `packages/primitives-flutter` now |
+| 2026-11-26 | CI analyzes the generated Flutter package but skips its golden tests while Inter isn't vendored | Goldens need the exact font; how to pin it is `feat-002` | Committing the fonts now |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified
@@ -57,6 +63,7 @@ All files in the repository were created on 2026-11-26.
 | Check | Command | Result |
 | --- | --- | --- |
 | Harness | `./init.sh` | Green: 12 features, `packages/dsir` 10/10 tests |
+| Oracle (spike parity) | `pnpm run reference` (enricher-shadcn), then `pnpm run compare` (oracle) | 426/426 cells, 36/36 tokens |
 | DSIR fixture | `node packages/dsir/bin/validate.mjs packages/dsir/fixtures/shadcn/shadcn.dsir.json` | `valid DSIR 0.2.0`, exit 0 |
 
 ## Notes for the next session
