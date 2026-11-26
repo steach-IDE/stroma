@@ -1,3 +1,5 @@
+> **Historical.** Written during the spike in Scrib (`packages/scrib_ds`, issue steach-IDE/scrib#82). Paths refer to that layout: `ingest/` is now `packages/enricher-shadcn`, `generated/` and `dsir/` are now `examples/shadcn-neutral`, `mappings/` and `tool/` are now `packages/adapter-scrib`, and the rest is `packages/emitter-flutter`. The oracle's `compare.mjs` is `packages/oracle`.
+
 # scrib_ds (spike)
 
 Compiles a design system from another ecosystem into a Flutter widget package and a Scrib adapter.
