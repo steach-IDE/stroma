@@ -41,4 +41,6 @@ None. `feat-002` needs the maintainer's choices.
 
 ## Recommended next step
 
-`feat-002` (issue #3) so CI can run the goldens and `feat-008` has its second design system. Then `feat-005`, the render-based extractor.
+Phase 1. `feat-014` (pinned fonts, so CI runs the goldens) is small and unblocks `feat-007`. Then `feat-005`, the render-based extractor, starting with shadcn's Storybook.
+
+`feat-002` is recorded on branch `chore/3-phase-1-decisions`: Carbon, no LLM until Phase 5, pinned font downloads.
