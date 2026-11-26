@@ -82,9 +82,9 @@
         "feat-006",
         "feat-014"
       ],
-      "status": "in-progress",
+      "status": "done",
       "done_when": "The oracle passes every Button, Badge and Card cell at height, padding and radius within 1 px and background within dE2000 2, light and dark.",
-      "evidence": "2026-11-26, issue #21, branch feat/21-emit-inferred (not done: macOS goldens only): the emitter now emits the DSIR inferred from the Storybook (834 cells, 8 stories); flutter analyze clean, flutter test passes; oracle on the package emitted from it with locally rendered macOS goldens: 426/426 cells, 36/36 tokens (the token check still reads shadcn's source theme). Still to do: the same oracle run on Linux goldens from the update-goldens workflow, and the example package generated from the inferred DSIR."
+      "evidence": "2026-11-26, issues #21 and #23, PRs #22 and the follow-up: the example package is now emitted from the DSIR inferred from the Storybook (examples/shadcn-neutral/inferred/shadcn.dsir.json; 834 cells, 8 stories). flutter analyze clean; goldens regenerated on Linux CI (update-goldens run on the branch). Oracle with those goldens: 426/426 cells (every Button, Badge and Card cell, light and dark, height/padding/radius within 1 px, background dE2000 under 2) and 36/36 tokens; the token check still reads shadcn's source theme. The emitter needed: no globals, hasSlot by data-slot, numeric radii, one-mode colour tokens; the Storybook needed a Badge WithIcon story. The update-goldens workflow had never succeeded (pathspec glob); fixed."
     },
     {
       "id": "feat-008",

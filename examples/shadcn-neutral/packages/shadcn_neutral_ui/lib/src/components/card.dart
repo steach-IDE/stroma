@@ -23,17 +23,18 @@ class Card extends StatelessWidget {
 /// Card's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
 /// tailwind-merge). A later line wins. Each line names the class it came from.
 DsStyle resolveCardStyle(DsTokens t) {
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
-  root = root.merge(const DsStyle(layout: DsLayout.row)); // flex
-  root = root.merge(const DsStyle(layout: DsLayout.column)); // flex-col
-  root = root.merge(const DsStyle(gap: 24)); // gap-6
-  root = root.merge(DsStyle(radius: t.radiusXl)); // rounded-xl
-  root = root.merge(const DsStyle(borderWidth: 1)); // border
-  root = root.merge(DsStyle(background: t.card)); // bg-card
-  root = root.merge(const DsStyle(paddingY: 24)); // py-6
-  root = root.merge(DsStyle(foreground: t.cardForeground)); // text-card-foreground
+  var root = DsStyle();
   root = root.merge(
-    const DsStyle(
+    DsStyle(
+      background: t.card,
+      borderColor: t.border,
+      borderWidth: 1,
+      foreground: t.cardForeground,
+      gap: 24,
+      layout: DsLayout.column,
+      paddingX: 0,
+      paddingY: 24,
+      radius: t.radiusPlus4,
       shadows: [
         BoxShadow(
           offset: Offset(0, 1),
@@ -49,7 +50,118 @@ DsStyle resolveCardStyle(DsTokens t) {
         ),
       ],
     ),
-  ); // shadow-sm
+  ); // measured: every cell
+  return root;
+}
+
+/// `CardAction` (data-slot="card-action") from the shadcn registry.
+class CardAction extends StatelessWidget {
+  const CardAction({super.key, this.child});
+
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = DsTheme.of(context);
+    final style = resolveCardActionStyle(t);
+    return DsBox(style: style, tokens: t, children: [if (child != null) child!]);
+  }
+}
+
+/// CardAction's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
+/// tailwind-merge). A later line wins. Each line names the class it came from.
+DsStyle resolveCardActionStyle(DsTokens t) {
+  var root = DsStyle();
+  root = root.merge(
+    DsStyle(borderColor: t.border, borderWidth: 0, paddingX: 0, paddingY: 0),
+  ); // measured: every cell
+  return root;
+}
+
+/// `CardContent` (data-slot="card-content") from the shadcn registry.
+class CardContent extends StatelessWidget {
+  const CardContent({super.key, this.child});
+
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = DsTheme.of(context);
+    final style = resolveCardContentStyle(t);
+    return DsBox(style: style, tokens: t, children: [if (child != null) child!]);
+  }
+}
+
+/// CardContent's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
+/// tailwind-merge). A later line wins. Each line names the class it came from.
+DsStyle resolveCardContentStyle(DsTokens t) {
+  var root = DsStyle();
+  root = root.merge(
+    DsStyle(borderColor: t.border, borderWidth: 0, paddingX: 24, paddingY: 0),
+  ); // measured: every cell
+  return root;
+}
+
+/// `CardDescription` (data-slot="card-description") from the shadcn registry.
+class CardDescription extends StatelessWidget {
+  const CardDescription({super.key, this.child});
+
+  final Widget? child;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = DsTheme.of(context);
+    final style = resolveCardDescriptionStyle(t);
+    return DsBox(style: style, tokens: t, children: [if (child != null) child!]);
+  }
+}
+
+/// CardDescription's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
+/// tailwind-merge). A later line wins. Each line names the class it came from.
+DsStyle resolveCardDescriptionStyle(DsTokens t) {
+  var root = DsStyle();
+  root = root.merge(
+    DsStyle(
+      borderColor: t.border,
+      borderWidth: 0,
+      foreground: t.mutedForeground,
+      fontSize: 14,
+      lineHeight: 1.4286,
+      paddingX: 0,
+      paddingY: 0,
+    ),
+  ); // measured: every cell
+  return root;
+}
+
+/// `CardFooter` (data-slot="card-footer") from the shadcn registry.
+class CardFooter extends StatelessWidget {
+  const CardFooter({super.key, this.children = const []});
+
+  final List<Widget> children;
+
+  @override
+  Widget build(BuildContext context) {
+    final t = DsTheme.of(context);
+    final style = resolveCardFooterStyle(t);
+    return DsBox(style: style, tokens: t, children: [...children]);
+  }
+}
+
+/// CardFooter's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
+/// tailwind-merge). A later line wins. Each line names the class it came from.
+DsStyle resolveCardFooterStyle(DsTokens t) {
+  var root = DsStyle();
+  root = root.merge(
+    DsStyle(
+      borderColor: t.border,
+      borderWidth: 0,
+      crossAlign: DsAlign.center,
+      layout: DsLayout.row,
+      paddingX: 24,
+      paddingY: 0,
+    ),
+  ); // measured: every cell
   return root;
 }
 
@@ -73,14 +185,20 @@ class CardHeader extends StatelessWidget {
 /// CardHeader's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
 /// tailwind-merge). A later line wins. Each line names the class it came from.
 DsStyle resolveCardHeaderStyle(DsTokens t, {required bool hasAction}) {
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
-  root = root.merge(const DsStyle(layout: DsLayout.grid)); // grid
-  root = root.merge(const DsStyle(crossAlign: DsAlign.start)); // items-start
-  root = root.merge(const DsStyle(gap: 8)); // gap-2
-  root = root.merge(const DsStyle(paddingX: 24)); // px-6
+  var root = DsStyle();
+  root = root.merge(
+    DsStyle(
+      borderColor: t.border,
+      borderWidth: 0,
+      gap: 8,
+      layout: DsLayout.grid,
+      paddingX: 24,
+      paddingY: 0,
+    ),
+  ); // measured: every cell
   if (hasAction) {
     root = root.merge(const DsStyle());
-  } // has-data-[slot=card-action]:grid-cols-[1fr_auto]
+  } // measured: hasSlot:card-action=true
   return root;
 }
 
@@ -101,98 +219,16 @@ class CardTitle extends StatelessWidget {
 /// CardTitle's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
 /// tailwind-merge). A later line wins. Each line names the class it came from.
 DsStyle resolveCardTitleStyle(DsTokens t) {
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
-  root = root.merge(const DsStyle(lineHeight: 1)); // leading-none
-  root = root.merge(const DsStyle(fontWeight: FontWeight.w600)); // font-semibold
-  return root;
-}
-
-/// `CardDescription` (data-slot="card-description") from the shadcn registry.
-class CardDescription extends StatelessWidget {
-  const CardDescription({super.key, this.child});
-
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = DsTheme.of(context);
-    final style = resolveCardDescriptionStyle(t);
-    return DsBox(style: style, tokens: t, children: [if (child != null) child!]);
-  }
-}
-
-/// CardDescription's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
-/// tailwind-merge). A later line wins. Each line names the class it came from.
-DsStyle resolveCardDescriptionStyle(DsTokens t) {
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
-  root = root.merge(const DsStyle(fontSize: 14, lineHeight: 1.4285714285714286)); // text-sm
-  root = root.merge(DsStyle(foreground: t.mutedForeground)); // text-muted-foreground
-  return root;
-}
-
-/// `CardAction` (data-slot="card-action") from the shadcn registry.
-class CardAction extends StatelessWidget {
-  const CardAction({super.key, this.child});
-
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = DsTheme.of(context);
-    final style = resolveCardActionStyle(t);
-    return DsBox(style: style, tokens: t, children: [if (child != null) child!]);
-  }
-}
-
-/// CardAction's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
-/// tailwind-merge). A later line wins. Each line names the class it came from.
-DsStyle resolveCardActionStyle(DsTokens t) {
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
-  return root;
-}
-
-/// `CardContent` (data-slot="card-content") from the shadcn registry.
-class CardContent extends StatelessWidget {
-  const CardContent({super.key, this.child});
-
-  final Widget? child;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = DsTheme.of(context);
-    final style = resolveCardContentStyle(t);
-    return DsBox(style: style, tokens: t, children: [if (child != null) child!]);
-  }
-}
-
-/// CardContent's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
-/// tailwind-merge). A later line wins. Each line names the class it came from.
-DsStyle resolveCardContentStyle(DsTokens t) {
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
-  root = root.merge(const DsStyle(paddingX: 24)); // px-6
-  return root;
-}
-
-/// `CardFooter` (data-slot="card-footer") from the shadcn registry.
-class CardFooter extends StatelessWidget {
-  const CardFooter({super.key, this.children = const []});
-
-  final List<Widget> children;
-
-  @override
-  Widget build(BuildContext context) {
-    final t = DsTheme.of(context);
-    final style = resolveCardFooterStyle(t);
-    return DsBox(style: style, tokens: t, children: [...children]);
-  }
-}
-
-/// CardFooter's cascade in CSS order (specificity, then Tailwind's stylesheet order, after
-/// tailwind-merge). A later line wins. Each line names the class it came from.
-DsStyle resolveCardFooterStyle(DsTokens t) {
-  var root = DsStyle(borderColor: t.border); // * { @apply border-border }
-  root = root.merge(const DsStyle(layout: DsLayout.row)); // flex
-  root = root.merge(const DsStyle(crossAlign: DsAlign.center)); // items-center
-  root = root.merge(const DsStyle(paddingX: 24)); // px-6
+  var root = DsStyle();
+  root = root.merge(
+    DsStyle(
+      borderColor: t.border,
+      borderWidth: 0,
+      fontWeight: FontWeight.w600,
+      lineHeight: 1,
+      paddingX: 0,
+      paddingY: 0,
+    ),
+  ); // measured: every cell
   return root;
 }

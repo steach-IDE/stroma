@@ -9,7 +9,7 @@ dart run bin/emit.dart            # writes examples/shadcn-neutral/packages/shad
 dart run bin/emit.dart --check    # exit 1 if the committed package differs, or holds a file no longer emitted
 ```
 
-Options: `--dsir <file>`, `--mapping <file>` (a Scrib adapter mapping), `--out <dir>`, `--fonts <dir>` (where `Inter-{Regular,Medium,SemiBold}.ttf` are copied from; default the pinned copy in `.stroma/fonts/inter-4.1`). The defaults build the shadcn example.
+Options: `--dsir <file>`, `--mapping <file>` (a Scrib adapter mapping), `--out <dir>`, `--fonts <dir>` (where `Inter-{Regular,Medium,SemiBold}.ttf` are copied from; default the pinned copy in `.stroma/fonts/inter-4.1`). The defaults build the shadcn example from `examples/shadcn-neutral/inferred/shadcn.dsir.json`, the DSIR `packages/infer` wrote from the Storybook (regenerate it with `packages/extractor` then `packages/infer`). The source-derived DSIR in `design-system/` stays as the ground truth it is compared with.
 
 | Path | What it is |
 | --- | --- |
