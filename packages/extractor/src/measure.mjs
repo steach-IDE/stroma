@@ -4,7 +4,7 @@
 /** Computed properties recorded per element: layout, box, colour, type and motion. */
 export const PROPERTIES = [
   'display', 'position', 'visibility', 'flex-direction', 'flex-wrap', 'align-items', 'justify-content',
-  'row-gap', 'column-gap', 'width', 'height', 'min-width', 'min-height', 'max-width',
+  'row-gap', 'column-gap', 'grid-template-columns', 'align-self', 'justify-self', 'width', 'height', 'min-width', 'min-height', 'max-width',
   'padding-top', 'padding-right', 'padding-bottom', 'padding-left',
   'margin-top', 'margin-right', 'margin-bottom', 'margin-left',
   'border-top-width', 'border-right-width', 'border-bottom-width', 'border-left-width',
@@ -27,7 +27,8 @@ function inPage({ rootSelector, properties }) {
   const IMPLICIT_ROLES = { BUTTON: 'button', A: 'link', INPUT: 'textbox', SELECT: 'combobox', TEXTAREA: 'textbox', IMG: 'img' };
   const root = document.querySelector(rootSelector);
   const origin = root.getBoundingClientRect();
-  return [root, ...root.querySelectorAll('*')].map((el) => {
+  const all = [root, ...root.querySelectorAll('*')];
+  return all.map((el) => {
     const r = el.getBoundingClientRect();
     const cs = getComputedStyle(el);
     const attrs = {};
@@ -39,6 +40,7 @@ function inPage({ rootSelector, properties }) {
     const text = [...el.childNodes].filter((n) => n.nodeType === 3).map((n) => n.textContent).join('').trim();
     return {
       tag: el.tagName.toLowerCase(),
+      parent: el === root ? -1 : all.indexOf(el.parentElement),
       role: el.getAttribute('role') ?? (el.tagName === 'A' && !el.hasAttribute('href') ? null : IMPLICIT_ROLES[el.tagName] ?? null),
       attrs,
       text,
