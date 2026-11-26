@@ -2,11 +2,11 @@
 
 ## Current objective
 
-`feat-008`: the Phase 1 gate on Carbon. `feat-007` is done (PR #22).
+`feat-008`: the Phase 1 gate on Carbon. `feat-007` is done (issue #23).
 
 ## Completed this session
 
-- `feat-007` (issue #21): the emitter takes an inferred DSIR; the example package is emitted from `examples/shadcn-neutral/inferred/shadcn.dsir.json`; Linux goldens regenerated on CI.
+- `feat-007` (issues #21, #23): the emitter takes an inferred DSIR; the example package is emitted from `examples/shadcn-neutral/inferred/shadcn.dsir.json`; Linux goldens regenerated on CI.
 - The `update-goldens` workflow now works (it had a pathspec bug).
 - Badge `WithIcon` story: a story set decides what the extractor can see.
 

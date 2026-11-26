@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-007` is done on branch `feat/21-emit-inferred` (PR #22); `feat-008` (Carbon) is next.
+- **Active feature:** none. `feat-007` is done on branch `feat/23-example-from-inferred` (issue #23, after #22); `feat-008` (Carbon) is next.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
