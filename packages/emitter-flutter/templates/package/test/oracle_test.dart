@@ -166,7 +166,12 @@ void main() {
       // matchesGoldenFile on a finder captures at 1x; the oracle compares at 2x like Chrome.
       final boundary = tester.renderObject<RenderRepaintBoundary>(find.byKey(sheetKey));
       final image = (await tester.runAsync(() => boundary.toImage(pixelRatio: 2)))!;
-      await expectLater(image, matchesGoldenFile('goldens/${entry.key}.png'));
+      // Goldens are Linux renders, the platform CI runs on. Other platforms rasterise text slightly
+      // differently (1-2% of pixels, even with the same font files), so they skip the comparison but
+      // still write the geometry the oracle reads. Regenerate them with the update-goldens workflow.
+      if (Platform.isLinux) {
+        await expectLater(image, matchesGoldenFile('goldens/${entry.key}.png'));
+      }
 
       final origin = tester.getRect(find.byKey(sheetKey)).topLeft;
       Map<String, double>? first(Finder of, Type type) {
