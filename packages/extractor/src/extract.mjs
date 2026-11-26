@@ -98,6 +98,7 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
   const browser = await chromium.launch();
   const cells = [];
   const blocked = new Set();
+  const pageColours = {}; // theme -> the page's background and text colour, from <body> (else <html>, else white)
   const described = {};
   try {
     const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
@@ -137,6 +138,11 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
               if (shown.args[k] !== v) throw new Error(`${storyId}: Storybook rendered ${k}=${shown.args[k]}, not ${v}`);
             }
             if (theme && shown.theme !== theme) throw new Error(`${storyId}: Storybook rendered theme ${shown.theme}, not ${theme}`);
+            pageColours[theme ?? 'light'] ??= await page.evaluate(() => {
+              const clear = (c) => /^rgba\(.*,\s*0\)$|^transparent$/.test(c);
+              const [body, html] = [getComputedStyle(document.body), getComputedStyle(document.documentElement)];
+              return { background: !clear(body.backgroundColor) ? body.backgroundColor : !clear(html.backgroundColor) ? html.backgroundColor : 'rgb(255, 255, 255)', color: body.color };
+            });
             const nodeIds = await nodeIdsUnderRoot(cdp, rootSelector);
             const interactive = await page.locator(rootSelector).first().evaluate((el, sel) => el.matches(sel), INTERACTIVE);
             const states = disabled ? ['disabled'] : ['rest', ...(interactive ? ['hovered', 'focused'] : [])];
@@ -161,6 +167,6 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
   }
   cells.sort((a, b) => (a.file < b.file ? -1 : 1));
   fs.mkdirSync(out, { recursive: true });
-  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells, ...(blocked.size ? { blocked: [...blocked].sort() } : {}) }, null, 2) + '\n');
+  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells, page: Object.fromEntries(Object.entries(pageColours).sort()), ...(blocked.size ? { blocked: [...blocked].sort() } : {}) }, null, 2) + '\n');
   return { stories: selected.length, cells: cells.length };
 }

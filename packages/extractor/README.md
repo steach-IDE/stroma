@@ -24,6 +24,8 @@ Nothing here knows about any particular design system. Everything comes from the
 
 Cells are set through Storybook's preview channel (`updateStoryArgs`, `updateGlobals`), the way its own UI does: **Storybook ignores `args` in the iframe URL.** After each render the extractor checks the args and theme Storybook actually holds, and stops if they differ, so a cell is never measured under the wrong label.
 
+`index.json` also holds `page`: the page's background and text colour per theme (from `<body>`, else `<html>`, else white), for a DSIR whose tokens do not name them.
+
 ## No network
 
 Every request that is not to the Storybook's own server is aborted, and `index.json` lists them under `blocked` (the key is absent when there were none). A CDN font can't change a measurement, and one that is missing shows up as a URL, not as a quietly different width.

@@ -76,6 +76,31 @@ void main() {
     },
   );
 
+  test(
+    'a DSIR with page colours and no page tokens (Material UI) emits them; a big component splits over sheets',
+    () {
+      final mui = read('../../examples/mui/inferred/mui.dsir.json');
+      final files = emitPackage(
+        dsir: mui,
+        templates: const {},
+        packageName: 'mui_ui',
+        withFonts: false,
+      );
+      expect(
+        files['lib/src/tokens.dart']!,
+        contains('Color get pageBackground => pageColourBackground;'),
+      );
+      expect(files['pubspec.yaml']!, isNot(contains('fonts:')));
+      final cells = (jsonDecode(files['test/oracle/cells.json']!) as List)
+          .cast<Map<String, dynamic>>();
+      expect({for (final c in cells) c['sheet']}, {'muibuttonbaseroot-1', 'muibuttonbaseroot-2'});
+      expect(
+        cells.where((c) => c['sheet'] == 'muibuttonbaseroot-1' && c['mode'] == 'light').length,
+        lessThanOrEqualTo(200),
+      );
+    },
+  );
+
   test('tokens that name no page background fail, saying so', () {
     final broken =
         jsonDecode(jsonEncode(read('../../examples/carbon/inferred/carbon.dsir.json')))
@@ -106,7 +131,7 @@ void main() {
     expect(pubspec, contains('asset: fonts/IBMPlexSans-Regular.ttf'));
   });
 
-  for (final example in ['shadcn-neutral', 'carbon']) {
+  for (final example in ['shadcn-neutral', 'carbon', 'mui']) {
     test('the committed $example example is what the emitter writes now', () {
       final run = Process.runSync(Platform.resolvedExecutable, [
         'run',

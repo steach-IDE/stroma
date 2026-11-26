@@ -69,3 +69,5 @@ node bin/migrate.mjs old.dsir.json new.dsir.json
 ## New in 0.3
 
 `anatomy.children`: the slots of the parts that appear directly inside a component, in DOM order (Card → `card-header`, `card-content`, `card-footer`). The inferrer (`packages/infer`) reads it from the rendered DOM.
+
+`tokens.page` (optional) holds the page's background and text colour per mode, for a design system whose tokens name neither (Material UI); the emitter looks for tokens named `background` and `foreground` first, and `packages/dsir/src/page.mjs` holds that rule for the JavaScript tools. A rule's `shadow: []` says "no shadow".

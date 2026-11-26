@@ -1,4 +1,4 @@
-// dart run bin/emit.dart [--check] [--example shadcn-neutral|carbon] [--dsir <file>] [--mapping <file> | --no-mapping] [--package <name>] [--out <dir>] [--fonts <dir>]
+// dart run bin/emit.dart [--check] [--example shadcn-neutral|carbon|mui] [--no-fonts] [--dsir <file>] [--mapping <file> | --no-mapping] [--package <name>] [--out <dir>] [--fonts <dir>]
 // Emits a Flutter package from a DSIR. The defaults build the shadcn example in examples/shadcn-neutral.
 // --check fails if the committed output differs from what would be written, or holds files no longer emitted.
 // --fonts is where Inter-{Regular,Medium,SemiBold}.ttf are copied from (default: the pinned copy that
@@ -23,6 +23,7 @@ Future<void> main(List<String> args) async {
   const examples = {
     'shadcn-neutral': ('shadcn.dsir.json', 'shadcn_neutral_ui'),
     'carbon': ('carbon.dsir.json', 'carbon_ui'),
+    'mui': ('mui.dsir.json', 'mui_ui'),
   };
   if (!examples.containsKey(example)) {
     stderr.writeln('unknown --example $example (known: ${examples.keys.join(', ')})');
@@ -51,6 +52,8 @@ Future<void> main(List<String> args) async {
       p.posix.joinAll(p.split(p.relative(f.path, from: templateDir.path))): f.readAsStringSync(),
   };
   final dsir = readJson(dsirPath);
+  // Roboto (Material UI's font) is not pinned yet (feat-022): that package has no fonts and the oracle's gates do not need them.
+  final withFonts = !args.contains('--no-fonts') && example != 'mui';
   final files = emitPackage(
     dsir: dsir,
     mapping: args.contains('--no-mapping') || example != 'shadcn-neutral'
@@ -58,6 +61,7 @@ Future<void> main(List<String> args) async {
         : readJson(mappingPath),
     templates: templates,
     packageName: packageName,
+    withFonts: withFonts,
   );
 
   final check = args.contains('--check');
@@ -96,7 +100,7 @@ Future<void> main(List<String> args) async {
     }
   }
   if (stale > 0) exit(1);
-  if (!check) {
+  if (!check && withFonts) {
     // Goldens are only reproducible with the exact font bytes, so the default is a pinned copy.
     final family = (((dsir['tokens'] as Map)['font'] as Map?)?['sans'] as Map?)?['family'];
     final pinned = {'Inter': 'inter-4.1', 'IBM Plex Sans': 'plex-sans-1.1.0'}[family];

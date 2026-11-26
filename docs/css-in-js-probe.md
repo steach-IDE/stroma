@@ -1,6 +1,6 @@
 # CSS-in-JS probe
 
-**Verdict: in scope, with one new requirement.** The pipeline produces a DSIR for a CSS-in-JS system's Button (Material UI, Emotion), but its named tokens come out wrong rather than missing, so Stroma needs a token model that can say "this token's value depends on a variant" before such a system can be emitted. Systems that keep their tokens in CSS custom properties (Chakra UI v3, Fluent UI v9) look like shadcn and Carbon, which already pass; that is shown below from their CSS, not by running them through the pipeline.
+**Verdict: in scope.** The whole pipeline now runs on a CSS-in-JS system's Button (Material UI, Emotion) and the oracle passes it (432 of 432 cells; [scorecard](../examples/mui/README.md)). The probe's first run found that its named tokens came out wrong rather than missing; inference now writes those colours as literals (`feat-021`, issue #41), and the DSIR holds the page colours it could not find in a token. Systems that keep their tokens in CSS custom properties (Chakra UI v3, Fluent UI v9) look like shadcn and Carbon, which already pass; that is shown below from their CSS, not by running them through the pipeline.
 
 Written for the maintainers of Stroma, to decide what Phase 2 builds. Issue #39, `feat-019`.
 
@@ -46,3 +46,14 @@ So both leave the references the extractor recovers tokens from. Not shown: that
 - Before one can be emitted, the DSIR needs tokens that vary by a variant axis, or inference must write such values as literals instead of a token (`feat-021`). The conflict list in `unsupported` is the safety net until then.
 - The extractor should report a font that did not load (`feat-022`), so a machine-dependent measurement is visible.
 - The next probe should be Chakra or Fluent run end to end, once the above is in, to confirm the custom-property case.
+
+## Update: Material UI through the oracle (`feat-021`, issue #41)
+
+The finding in "What the probe found" 3 is closed by writing a colour as the literal the browser drew where its token held several values in a mode (it is then no token: Material UI's DSIR has none). Getting the Button through emit and the oracle needed four more things, each found by a failing cell, not by reading:
+
+1. **No page tokens.** The emitter found none, so the extractor now measures `<body>` per theme and the DSIR holds `tokens.page`; the emitter turns it into two ordinary colour tokens.
+2. **No fonts.** `emit --no-fonts` (Roboto is not pinned: `feat-022`).
+3. **"No shadow" was inexpressible.** The 36 unexplained shadow values were disabled buttons saying `box-shadow: none`. A rule that says so now sets an empty shadow list where a shadow is in play; without it, Flutter painted a translucent fill over a shadow (`#888888` for Chrome's `#e0e0e0`). Inference now explains 100% of the values.
+4. **A sheet is one image.** 216 cells per mode overflowed it and the last ones were never drawn (64 false background failures); a component with more than about 200 cells is split over several sheets.
+
+shadcn's and Carbon's DSIRs, packages and oracle results are unchanged by all of it.
