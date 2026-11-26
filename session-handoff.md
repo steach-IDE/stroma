@@ -2,37 +2,37 @@
 
 ## Current objective
 
-Phase 1: the render-based extractor (`feat-005`). Its input, a pinned shadcn Storybook (`feat-015`), is done.
+Phase 1: `feat-006`, measurements to DSIR. `feat-005`, the extractor, is done.
 
 ## Completed this session
 
-- `feat-015` (issue #13): `examples/shadcn-neutral/storybook`.
-  - Storybook 10.6.9, React 19.3.1, Vite 8.3.8, Tailwind 4.3.5, all pinned exactly.
-  - Components, `globals.css` and `variants.json` synced from `packages/enricher-shadcn/sources`; `pnpm run check` catches drift.
-  - Stories: Button (`Default`, `IconOnly`), Badge (`Default`, `AsLink`), Card (`Full`, `WithAction`, `ContentOnly`, 360 px like the oracle).
-  - `theme` global (light/dark) toggles shadcn's `dark` class.
-- `packages/enricher-shadcn/globals-css.mjs`: the one `globals.css` builder for the Chrome reference and the Storybook.
-- CI installs Playwright's Chromium (1.65.1); `./init.sh` scans `examples/*/storybook/`.
+- `feat-005` (issue #15): `packages/extractor`.
+  - Reads stories from `index.json`; variant axes (`argTypes` with `options`), themes (the `theme` global) and `disabled` come from Storybook's story store.
+  - Sets each cell through the preview channel (`updateStoryArgs`, `updateGlobals`) and checks the rendered args and theme.
+  - States: rest; hovered and focused through the DevTools protocol when the root is interactive; disabled.
+  - Per element under the root (first `data-slot`, `data-part` or `data-scope`): computed styles, geometry, matched author rules as written, referenced variables' values, ARIA attributes.
+- Closed #3 with evidence (its work reached `main` through #10).
 
 ## Verification evidence
 
 | Check | Command | Result | Notes |
 | --- | --- | --- | --- |
-| Baseline | `./init.sh` | passed | Storybook: sync check, build, 5/5 tests |
-| Controls | test reads `__STORYBOOK_PREVIEW__.storyStore.loadStory(...).argTypes` | equal to the registry cva config | the same call `feat-005` will use |
-| Oracle | `pnpm run reference` + `pnpm run compare` | 426/426, 36/36 | after moving `globals.css` into its own module |
+| Coverage | `node bin/extract.mjs --storybook …/storybook-static --out <dir>` | 822 cells, 7 stories, 79 s | every spike cell present |
+| Determinism | two full runs, `diff -r` | identical | 13 MB each, not committed |
+| Tokens | default button | `.bg-primary` -> `var(--primary)`; `--primary: oklch(20.5% 0 0)` | |
+| Baseline | `./init.sh` | passed | extractor 4/4, about 18 s |
 
 ## Files changed
 
-`examples/shadcn-neutral/storybook/**`, `packages/enricher-shadcn/{globals-css,reference}.mjs`, `init.sh`, `.github/workflows/ci.yml`, `.gitignore`, `examples/shadcn-neutral/README.md`, the state files.
+`packages/extractor/**`, `README.md` (layout table), the state files.
 
 ## Decisions
 
-See `progress.md`: Stroma's own shadcn Storybook; synced from the pinned sources; telemetry off.
+See `progress.md`: channel-driven cells; author rules plus variable values; marked component roots.
 
 ## Blockers
 
-None. The first-ever local Storybook build failed once and passed on every rerun; watch CI for it.
+None.
 
 ## Next session startup
 
@@ -41,8 +41,9 @@ None. The first-ever local Storybook build failed once and passed on every rerun
 
 ## Recommended next step
 
-`feat-005`, `packages/extractor`:
-- Serve `storybook-static/` and read `index.json`.
-- Get each story's `argTypes` through `storyStore.loadStory`.
-- Render each story x variant x state x theme (`iframe.html?id=…&args=…&globals=theme:…`, hover and focus forced through the DevTools protocol).
-- Record computed styles, geometry, `CSS.getMatchedStylesForNode` (with `var()` references) and ARIA attributes, written deterministically.
+`feat-006`. Turn a full extraction of `examples/shadcn-neutral/storybook` into a DSIR 0.3 with anatomy:
+- rules from diffing renders along each axis;
+- tokens from `vars`;
+- anatomy from the element tree.
+
+Then compare it with `examples/shadcn-neutral/design-system/shadcn.dsir.json`, the source-derived ground truth, and report how many colour, radius and spacing values were recovered as named tokens.

@@ -51,15 +51,15 @@
       "id": "feat-005",
       "phase": 1,
       "name": "Render-based extractor",
-      "description": "packages/extractor: read a Storybook index and each story's argTypes, render each story x state x theme in headless Chrome, and record computed styles, geometry, matched CSS rules (with var() references) and ARIA roles.",
+      "description": "packages/extractor: serve a static Storybook build, read each story's variant axes, themes and states from Storybook itself, set each cell through the preview channel, and record per element computed styles, geometry, the author rules that matched (declarations as written, so var() survives) with every referenced variable's value, and ARIA semantics.",
       "dependencies": [
         "feat-003",
         "feat-004",
         "feat-015"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "Pointed at examples/shadcn-neutral/storybook's static build, it writes a measurement file per cell for Button, Badge and Card covering the same variants and states as the spike; two runs give identical files.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #15, branch feat/15-extractor: full run over examples/shadcn-neutral/storybook: 822 cells from 7 stories in 79 s; a second full run is byte-identical (diff -r). Every spike cell is covered (0 missing of 384 button, 36 badge, 6 card). Default button: '.bg-primary' -> 'background-color: var(--primary)', --primary recorded as oklch(20.5% 0 0). ./init.sh: extractor 4/4 (determinism on a subset, var() recovery, missing root fails naming the story, non-empty output refused)."
     },
     {
       "id": "feat-006",
