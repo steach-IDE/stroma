@@ -70,6 +70,20 @@ Readable widgets with no runtime dependencies. Each generated style line names t
 
 ---
 
+## Using Stroma (planned)
+
+Three ways in, the same commands and byte-identical output:
+
+```sh
+npx @steach/stroma init                 # Node 20+
+dart pub global activate stroma         # Dart 3.9+; then: stroma init
+docker run --rm -v "$PWD:/work" ghcr.io/steach-ide/stroma verify   # CI: everything pinned
+```
+
+A team runs `init`, `extract`, `review`, `emit` and `verify`, then commits the DSIR, the scorecard and the generated package. [`docs/usage.md`](docs/usage.md) has the full design: what each install path needs, what lands in your repository, how to customise the output, and how to stay in sync.
+
+---
+
 ## What exists today
 
 The spike ran inside [Scrib](https://github.com/steach-IDE/scrib) (`packages/scrib_ds`, issue #82). It parsed shadcn/ui's source directly, which is the part Stroma replaces with rendering.
@@ -112,7 +126,7 @@ Durations are estimates for one engineer, based on the spike.
 | --- | --- | --- | --- |
 | 0 · Bootstrap | Repository, licence, CI, DSIR 0.2 schema, spike code moved | 1 week | Spike code moved with its history; CI green |
 | 1 · Prove it | Render-based extraction on shadcn/ui and one other design system | 2 weeks | Extracted shadcn passes the spike's gates; how much intent rendering loses is measured |
-| 2 · Style | Style-only components, layout linter | 3 weeks | 15+ components per system pass; the linter flags an input in a row |
+| 2 · Style | Style-only components, layout linter, the CLI (`npx`, `dart`, Docker) | 3 weeks | 15+ components per system pass; the linter flags an input in a row |
 | 3 · Behaviour | P1 patterns: tabs, dialog, checkbox, switch, disclosure | 5 weeks | Real-input tests pass on both systems |
 | 4 · Third system | P2 patterns (menus, popovers, select) and a contributor-led port | 5 weeks | A third design system ported with no core changes |
 
