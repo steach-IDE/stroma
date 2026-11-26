@@ -36,11 +36,16 @@ class OracleIcon extends StatelessWidget {
 }
 
 T _enumByName<T extends Enum>(List<T> values, String option) => values.byName(
-    option == 'default' ? 'regular' : option.replaceAllMapped(RegExp('-(.)'), (m) => m[1]!.toUpperCase()));
+  option == 'default'
+      ? 'regular'
+      : option.replaceAllMapped(RegExp('-(.)'), (m) => m[1]!.toUpperCase()),
+);
 
 Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool disabled = false}) {
   final text = n['text'] as String?;
-  List<Widget> kids() => [for (final c in (n['children'] as List? ?? const [])) buildNode((c as Map).cast())];
+  List<Widget> kids() => [
+    for (final c in (n['children'] as List? ?? const [])) buildNode((c as Map).cast()),
+  ];
   switch (n['type']) {
     case 'Button':
       return Button(
@@ -75,8 +80,12 @@ Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool d
   throw ArgumentError('unknown node ${n['type']}');
 }
 
-Map<String, double> _rect(Rect r, Offset o) =>
-    {'x': r.left - o.dx, 'y': r.top - o.dy, 'w': r.width, 'h': r.height};
+Map<String, double> _rect(Rect r, Offset o) => {
+  'x': r.left - o.dx,
+  'y': r.top - o.dy,
+  'w': r.width,
+  'h': r.height,
+};
 
 void main() {
   final cells = (jsonDecode(File('test/oracle/cells.json').readAsStringSync()) as List)
@@ -90,7 +99,9 @@ void main() {
     // Components ask for family Inter from this package, which Flutter names packages/<pkg>/Inter.
     final loader = FontLoader('packages/{{package}}/Inter');
     for (final w in ['Regular', 'Medium', 'SemiBold']) {
-      loader.addFont(Future.value(ByteData.sublistView(File('fonts/Inter-$w.ttf').readAsBytesSync())));
+      loader.addFont(
+        Future.value(ByteData.sublistView(File('fonts/Inter-$w.ttf').readAsBytesSync())),
+      );
     }
     await loader.load();
   });
@@ -113,7 +124,11 @@ void main() {
         };
         Widget w = KeyedSubtree(
           key: ValueKey(c['id']),
-          child: buildNode((c['node'] as Map).cast(), states: controller, disabled: state == 'disabled'),
+          child: buildNode(
+            (c['node'] as Map).cast(),
+            states: controller,
+            disabled: state == 'disabled',
+          ),
         );
         if (c['width'] != null) w = SizedBox(width: (c['width'] as num).toDouble(), child: w);
         return Padding(padding: const EdgeInsets.all(6), child: w);

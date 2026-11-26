@@ -30,16 +30,16 @@ class DsBox extends StatelessWidget {
   final bool resetText;
 
   static MainAxisAlignment _main(DsAlign? a) => switch (a) {
-        DsAlign.center => MainAxisAlignment.center,
-        DsAlign.end => MainAxisAlignment.end,
-        _ => MainAxisAlignment.start,
-      };
+    DsAlign.center => MainAxisAlignment.center,
+    DsAlign.end => MainAxisAlignment.end,
+    _ => MainAxisAlignment.start,
+  };
 
   static CrossAxisAlignment _cross(DsAlign? a) => switch (a) {
-        DsAlign.center => CrossAxisAlignment.center,
-        DsAlign.end => CrossAxisAlignment.end,
-        _ => CrossAxisAlignment.start,
-      };
+    DsAlign.center => CrossAxisAlignment.center,
+    DsAlign.end => CrossAxisAlignment.end,
+    _ => CrossAxisAlignment.start,
+  };
 
   Widget _layout() {
     final s = style;
@@ -49,7 +49,9 @@ class DsBox extends StatelessWidget {
       case DsLayout.inlineRow:
         return Row(
           // inline-flex sizes to content; a fixed width (size-9) still centres its content.
-          mainAxisSize: s.layout == DsLayout.inlineRow && s.width == null ? MainAxisSize.min : MainAxisSize.max,
+          mainAxisSize: s.layout == DsLayout.inlineRow && s.width == null
+              ? MainAxisSize.min
+              : MainAxisSize.max,
           mainAxisAlignment: _main(s.mainAlign),
           crossAxisAlignment: _cross(s.crossAlign),
           spacing: gap,
@@ -57,18 +59,35 @@ class DsBox extends StatelessWidget {
         );
       case DsLayout.column:
         // CSS flex-col defaults to align-items: stretch.
-        return Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, spacing: gap, children: children);
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          spacing: gap,
+          children: children,
+        );
       case DsLayout.grid:
-        final rows = Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, spacing: gap, children: children);
+        final rows = Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          spacing: gap,
+          children: children,
+        );
         if (trailing == null) return rows;
         return Row(
           crossAxisAlignment: _cross(s.crossAlign),
           spacing: gap,
-          children: [Expanded(child: rows), trailing!],
+          children: [
+            Expanded(child: rows),
+            trailing!,
+          ],
         );
       case DsLayout.block:
         if (children.length == 1) return children.single;
-        return Column(crossAxisAlignment: CrossAxisAlignment.stretch, mainAxisSize: MainAxisSize.min, children: children);
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: children,
+        );
     }
   }
 
@@ -129,7 +148,9 @@ class DsBox extends StatelessWidget {
         clipBehavior: s.clip == true ? Clip.antiAlias : Clip.none,
         decoration: BoxDecoration(
           color: s.background,
-          border: borderWidth > 0 ? Border.all(width: borderWidth, color: s.borderColor ?? const Color(0x00000000)) : null,
+          border: borderWidth > 0
+              ? Border.all(width: borderWidth, color: s.borderColor ?? const Color(0x00000000))
+              : null,
           borderRadius: radius,
           boxShadow: s.shadows,
         ),

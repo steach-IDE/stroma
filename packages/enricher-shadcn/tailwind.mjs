@@ -178,8 +178,6 @@ export function mapClasses(classString, { theme, tokens, base = {}, order }) {
       out.unsupported.push({ what: cls, why: UNSUPPORTED_VARIANTS[unsupportedVariant], fallback: 'ignored' });
       continue;
     }
-    if (variants.length === 0 && NOOPS[u]) { out.noops.push({ class: cls, why: NOOPS[u] }); continue; }
-    if (variants.length === 0 && UNSUPPORTED[u]) { out.unsupported.push({ what: cls, ...UNSUPPORTED[u] }); continue; }
     if (NOOPS[u]) { out.noops.push({ class: cls, why: NOOPS[u] }); continue; }
     if (UNSUPPORTED[u]) { out.unsupported.push({ what: cls, ...UNSUPPORTED[u] }); continue; }
 
