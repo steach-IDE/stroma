@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-005` is done on branch `feat/15-extractor`; `feat-006` is next.
+- **Active feature:** none. `feat-006` is done on branch `feat/17-infer` (stacked on `feat/15-extractor`); `feat-007` is next.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -22,14 +22,16 @@
 
 - `feat-005`: `packages/extractor`, 822 deterministic cell files from the example Storybook.
 
+- `feat-006`: `packages/infer` and DSIR 0.3 (anatomy). Rendering recovered every colour token and explains every measured value.
+
 ## In progress
 
 Nothing.
 
 ## Next
 
-1. Merge the `feat-005` pull request (issue #15).
-2. `feat-006`: turn the measurements into a DSIR (rules by diffing renders per axis, tokens from `var()`, anatomy from the DOM), and compare it with the source-derived DSIR.
+1. Merge PR #16 (`feat-005`) first, then the `feat-006` PR, which GitHub retargets to `main`.
+2. `feat-007`: emit Flutter from the inferred DSIR and pass the oracle. Expect emitter work: hasSlot names like `card-action`, colour tokens such as `color-white`, measured radius tokens, and no `globals`.
 3. Later, not blocking: reserve the names (npm organisation `steach` for `@steach/stroma`; `stroma` on pub.dev). Deferred by the maintainer on 2026-11-26.
 
 ## Blockers and risks
@@ -70,6 +72,10 @@ Nothing.
 | 2026-11-26 | The extractor sets cells through Storybook's preview channel, then checks the args and theme Storybook holds | Storybook ignores `args` in the iframe URL; the first run measured the default badge under every variant's name until the check caught it | URL args |
 | 2026-11-26 | Cells record author rules as written plus each referenced variable's computed value | Tailwind v4 inlines theme variables (`var(--primary)`, not `var(--color-primary)`); recording the value resolves any CSS-variable system without reading `:root` | Recording computed values only |
 | 2026-11-26 | The component root is the first element marked `data-slot`, `data-part` or `data-scope` | shadcn, Ark and Chakra mark parts this way; a story without one fails loudly | A layout heuristic |
+| 2026-11-26 | Only the current DSIR version validates; older files are migrated (`migrate()` chains 0.1 -> 0.2 -> 0.3) | One format to reason about | Validating every version |
+| 2026-11-26 | Rule values come from cells where unwritable conditions (not hovered, no icon) are at rest, and rules are judged on those cells | A DSIR can only add positive conditions; choosing otherwise left values that no rule could fix | Plain majority |
+| 2026-11-26 | Mining is followed by pruning and re-mining until stable | Greedy order kept rules a later rule made wrong | Single greedy pass |
+| 2026-11-26 | Every story must be extracted together | A component left out is read as a part of another (the card footer's button) | Guessing components from names |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified
