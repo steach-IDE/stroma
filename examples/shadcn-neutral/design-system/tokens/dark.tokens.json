@@ -1,0 +1,238 @@
+{
+  "color": {
+    "background": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.145,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#0a0a0a"
+      }
+    },
+    "foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.985,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#fafafa"
+      }
+    },
+    "card": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#171717"
+      }
+    },
+    "card-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.985,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#fafafa"
+      }
+    },
+    "popover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#171717"
+      }
+    },
+    "popover-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.985,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#fafafa"
+      }
+    },
+    "primary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.922,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#e5e5e5"
+      }
+    },
+    "primary-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.205,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#171717"
+      }
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.269,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#262626"
+      }
+    },
+    "secondary-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.985,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#fafafa"
+      }
+    },
+    "muted": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.269,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#262626"
+      }
+    },
+    "muted-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.708,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#a1a1a1"
+      }
+    },
+    "accent": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.269,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#262626"
+      }
+    },
+    "accent-foreground": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.985,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#fafafa"
+      }
+    },
+    "destructive": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.704,
+          0.191,
+          22.216
+        ],
+        "alpha": 1,
+        "hex": "#ff6467"
+      }
+    },
+    "border": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          1,
+          0,
+          0
+        ],
+        "alpha": 0.1,
+        "hex": "#ffffff"
+      }
+    },
+    "input": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          1,
+          0,
+          0
+        ],
+        "alpha": 0.15,
+        "hex": "#ffffff"
+      }
+    },
+    "ring": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "oklch",
+        "components": [
+          0.556,
+          0,
+          0
+        ],
+        "alpha": 1,
+        "hex": "#737373"
+      }
+    }
+  }
+}

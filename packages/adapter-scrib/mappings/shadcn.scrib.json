@@ -1,0 +1,43 @@
+{
+  "$comment": "How the Scrib adapter contract maps onto the generated components. Every Scrib value is listed; one with no shadcn equivalent says so in 'judgment'.",
+  "ScribButton": {
+    "component": "Button",
+    "variant": {
+      "primary": "default",
+      "accent": "default",
+      "secondary": "secondary",
+      "outline": "outline",
+      "ghost": "ghost",
+      "link": "link",
+      "destructive": "destructive"
+    },
+    "size": "default",
+    "delegate": ["circle"],
+    "judgment": [
+      { "what": "accent", "why": "shadcn has no accent button; it maps to default" },
+      { "what": "circle", "why": "shadcn has no round button; circle buttons are delegated to the base adapter" }
+    ]
+  },
+  "ScribBadge": {
+    "component": "Badge",
+    "variant": {
+      "neutral": "secondary",
+      "primary": "default",
+      "destructive": "destructive",
+      "success": "outline",
+      "warning": "outline"
+    },
+    "dot": { "success": "success", "warning": "warning" },
+    "judgment": [
+      { "what": "success, warning", "why": "shadcn has no status badges; they use outline plus a leading dot in the Scrib success/warning token, as the old adapter did" }
+    ]
+  },
+  "ScribCard": {
+    "component": "Card",
+    "body": "CardContent",
+    "judgment": [
+      { "what": "hero", "why": "shadcn Card has one padding; hero is accepted and ignored" },
+      { "what": "gap", "why": "Scrib's gap separates the card's children inside one CardContent" }
+    ]
+  }
+}

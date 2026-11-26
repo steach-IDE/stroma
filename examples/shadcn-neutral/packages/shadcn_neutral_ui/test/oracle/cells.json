@@ -1,0 +1,5224 @@
+[
+  {
+    "id": "button.default.default.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.default.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.default.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.default.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.icon.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.default.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.default.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.default.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.default.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.icon.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.default.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.default.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.default.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.default.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.icon.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.default.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.default.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.default.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.default.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.icon.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.default.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.default.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.default.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.default.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.icon.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.default.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.default.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.default.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.default.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.icon.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.rest.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.hovered.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.focused.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.disabled.light",
+    "sheet": "button",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "badge.default.rest.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "default",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.default.hovered.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "default",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.default.focused.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "default",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.secondary.rest.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "secondary",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.secondary.hovered.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "secondary",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.secondary.focused.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "secondary",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.destructive.rest.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "destructive",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.destructive.hovered.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "destructive",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.destructive.focused.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "destructive",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.outline.rest.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "outline",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.outline.hovered.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "outline",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.outline.focused.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "outline",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.ghost.rest.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "ghost",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.ghost.hovered.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "ghost",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.ghost.focused.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "ghost",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.link.rest.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "link",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.link.hovered.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "link",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.link.focused.light",
+    "sheet": "badge",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "link",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "card.full.rest.light",
+    "sheet": "card",
+    "mode": "light",
+    "state": "rest",
+    "width": 360,
+    "node": {
+      "type": "Card",
+      "children": [
+        {
+          "type": "CardHeader",
+          "children": [
+            {
+              "type": "CardTitle",
+              "text": "Card title"
+            },
+            {
+              "type": "CardDescription",
+              "text": "Card description that wraps onto a second line."
+            }
+          ]
+        },
+        {
+          "type": "CardContent",
+          "text": "Card content."
+        },
+        {
+          "type": "CardFooter",
+          "children": [
+            {
+              "type": "Button",
+              "variant": "default",
+              "size": "default",
+              "text": "Save"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "card.action.rest.light",
+    "sheet": "card",
+    "mode": "light",
+    "state": "rest",
+    "width": 360,
+    "node": {
+      "type": "Card",
+      "children": [
+        {
+          "type": "CardHeader",
+          "children": [
+            {
+              "type": "CardTitle",
+              "text": "Card title"
+            },
+            {
+              "type": "CardDescription",
+              "text": "Card description that wraps onto a second line."
+            }
+          ],
+          "action": {
+            "type": "Button",
+            "variant": "outline",
+            "size": "sm",
+            "text": "Edit"
+          }
+        },
+        {
+          "type": "CardContent",
+          "text": "Card content."
+        }
+      ]
+    }
+  },
+  {
+    "id": "card.content.rest.light",
+    "sheet": "card",
+    "mode": "light",
+    "state": "rest",
+    "width": 360,
+    "node": {
+      "type": "Card",
+      "children": [
+        {
+          "type": "CardContent",
+          "text": "Only content."
+        }
+      ]
+    }
+  },
+  {
+    "id": "button.default.default.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.default.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.default.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.default.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.default.icon.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.default.icon-lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "default",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.default.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.default.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.default.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.default.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.destructive.icon.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.destructive.icon-lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "destructive",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.default.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.default.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.default.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.default.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.outline.icon.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.outline.icon-lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "outline",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.default.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.default.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.default.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.default.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.secondary.icon.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.secondary.icon-lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "secondary",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.default.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.default.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.default.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.default.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.ghost.icon.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.ghost.icon-lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "ghost",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.default.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.default.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.default.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.default.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "default",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "xs",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "sm",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "lg",
+      "text": "Button"
+    }
+  },
+  {
+    "id": "button.link.icon.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-xs.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-xs",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-sm.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-sm",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.rest.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.hovered.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.focused.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "button.link.icon-lg.disabled.dark",
+    "sheet": "button",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "type": "Button",
+      "variant": "link",
+      "size": "icon-lg",
+      "icon": true
+    }
+  },
+  {
+    "id": "badge.default.rest.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "default",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.default.hovered.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "default",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.default.focused.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "default",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.secondary.rest.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "secondary",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.secondary.hovered.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "secondary",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.secondary.focused.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "secondary",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.destructive.rest.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "destructive",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.destructive.hovered.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "destructive",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.destructive.focused.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "destructive",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.outline.rest.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "outline",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.outline.hovered.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "outline",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.outline.focused.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "outline",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.ghost.rest.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "ghost",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.ghost.hovered.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "ghost",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.ghost.focused.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "ghost",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.link.rest.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "type": "Badge",
+      "variant": "link",
+      "text": "Badge",
+      "interactive": false
+    }
+  },
+  {
+    "id": "badge.link.hovered.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "type": "Badge",
+      "variant": "link",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "badge.link.focused.dark",
+    "sheet": "badge",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "type": "Badge",
+      "variant": "link",
+      "text": "Badge",
+      "interactive": true
+    }
+  },
+  {
+    "id": "card.full.rest.dark",
+    "sheet": "card",
+    "mode": "dark",
+    "state": "rest",
+    "width": 360,
+    "node": {
+      "type": "Card",
+      "children": [
+        {
+          "type": "CardHeader",
+          "children": [
+            {
+              "type": "CardTitle",
+              "text": "Card title"
+            },
+            {
+              "type": "CardDescription",
+              "text": "Card description that wraps onto a second line."
+            }
+          ]
+        },
+        {
+          "type": "CardContent",
+          "text": "Card content."
+        },
+        {
+          "type": "CardFooter",
+          "children": [
+            {
+              "type": "Button",
+              "variant": "default",
+              "size": "default",
+              "text": "Save"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  {
+    "id": "card.action.rest.dark",
+    "sheet": "card",
+    "mode": "dark",
+    "state": "rest",
+    "width": 360,
+    "node": {
+      "type": "Card",
+      "children": [
+        {
+          "type": "CardHeader",
+          "children": [
+            {
+              "type": "CardTitle",
+              "text": "Card title"
+            },
+            {
+              "type": "CardDescription",
+              "text": "Card description that wraps onto a second line."
+            }
+          ],
+          "action": {
+            "type": "Button",
+            "variant": "outline",
+            "size": "sm",
+            "text": "Edit"
+          }
+        },
+        {
+          "type": "CardContent",
+          "text": "Card content."
+        }
+      ]
+    }
+  },
+  {
+    "id": "card.content.rest.dark",
+    "sheet": "card",
+    "mode": "dark",
+    "state": "rest",
+    "width": 360,
+    "node": {
+      "type": "Card",
+      "children": [
+        {
+          "type": "CardContent",
+          "text": "Only content."
+        }
+      ]
+    }
+  }
+]

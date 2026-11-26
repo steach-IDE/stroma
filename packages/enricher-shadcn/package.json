@@ -1,0 +1,24 @@
+{
+  "name": "scrib-ds-ingest",
+  "private": true,
+  "version": "0.0.0",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "ingest": "node ingest.mjs",
+    "check": "node ingest.mjs --check",
+    "oracle": "node oracle/reference.mjs && node oracle/compare.mjs",
+    "test": "node --test"
+  },
+  "devDependencies": {
+    "class-variance-authority": "0.7.1",
+    "culori": "4.0.2",
+    "playwright": "1.65.1",
+    "pngjs": "7.0.0",
+    "tailwind-merge": "3.7.1",
+    "tailwindcss": "4.3.5",
+    "typescript": "5.9.3"
+  }
+}
