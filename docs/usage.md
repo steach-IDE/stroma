@@ -45,7 +45,7 @@ Why the split: extraction drives a real browser, which Stroma does from TypeScri
 ```sh
 stroma init        # asks for the Storybook and the package name, writes stroma.config.json
 stroma extract     # renders every story, writes design-system/<name>.dsir.json and dsir.lock
-stroma review      # opens a local report: the DSIR, every unsupported item, anything an LLM proposed
+stroma review      # opens a local report: the DSIR and every unsupported item
 stroma emit        # writes the Flutter package from the committed DSIR
 stroma verify      # renders the package's goldens, compares them with the browser, writes the scorecard
 stroma update      # re-extracts a new upstream version and shows what changed in the DSIR and the scorecard
