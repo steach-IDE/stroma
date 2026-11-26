@@ -1,0 +1,40 @@
+name: update goldens
+
+# Goldens are Linux renders: they are compared only on Linux (see the generated oracle_test.dart), so they
+# are regenerated here, on the same runner type CI compares on. Run it on your branch:
+#   gh workflow run update-goldens.yml --ref <branch>
+# It commits the new goldens to that branch if they changed.
+on:
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.35.4
+          channel: stable
+      - name: Pinned fonts
+        uses: actions/cache@v4
+        with:
+          path: .stroma/fonts
+          key: fonts-${{ hashFiles('tool/fonts.sha256') }}
+      - name: Render every example's goldens
+        run: |
+          for pkg in examples/*/packages/*/; do
+            tool/fetch-fonts.sh "$pkg/fonts"
+            (cd "$pkg" && flutter pub get && flutter test --update-goldens)
+          done
+      - name: Commit them if they changed
+        run: |
+          git add 'examples/*/packages/*/test/goldens/'
+          if git diff --cached --quiet; then echo "Goldens unchanged."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "test(emitter): regenerate the goldens on linux"
+          git push

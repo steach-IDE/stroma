@@ -53,6 +53,8 @@ A feature is done when all four hold:
 
 Each package adds its own checks to `init.sh` in the feature that creates it.
 
+**Goldens are Linux renders.** Golden images are compared only on Linux, the platform CI runs on, because other systems rasterise text slightly differently even with the same fonts. On macOS the golden tests still run, but skip the image comparison. To change goldens, push your branch and run `gh workflow run update-goldens.yml --ref <branch>`: it renders them on CI's runner type and commits them. Never commit goldens rendered on another platform.
+
 ## Commits
 
 One line, `type(scope): what changed`: at most 72 characters, lower case, imperative. Types are `feat`, `fix`, `chore`, `docs`, `refactor`, `test`, `style`. The detail goes in the pull request. **No attribution lines for Claude or any other agent, anywhere.**
