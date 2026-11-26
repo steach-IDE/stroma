@@ -2,7 +2,7 @@
 
 ## Current objective
 
-Phase 1 is done (`feat-009`, issue #35). Phase 2 starts with `feat-010` and the conditions in `docs/phase-1-verdict.md`.
+Phase 1 is done. Phase 2: `feat-019` and `feat-021` (issues #39, #41) are done; the Material UI Button passes the oracle (432/432).
 
 ## Completed this session
 
@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-`feat-021`, tokens that vary by variant: the probe's one blocking finding (`docs/css-in-js-probe.md`). Open its issue; decide between a token with a value per axis value and writing such values as literals; verify on the Material UI Button end to end, with shadcn and Carbon unchanged. Then `feat-016`, `feat-018`, `feat-017`, `feat-022`, `feat-010`.
+`feat-016`, the coverage report (the Storybook decides what can be seen: Badge's icon, Carbon's clickable tile), then `feat-018` (overrides: `MuiButtonBaseRoot` to `Button`, `radius-minus2` to `radius-md`), `feat-017` (a Chrome crop per cell), `feat-022` (fonts that did not load) and `feat-010` (the CLI). Open each issue first.

@@ -1,0 +1,6050 @@
+[
+  {
+    "id": "muibuttonbaseroot.text.primary.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.rest.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.hovered.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.focused.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.disabled.light",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.rest.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.hovered.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.focused.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.disabled.light",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "light",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.primary.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.secondary.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.error.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.warning.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.info.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.text.success.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "text",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.primary.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.secondary.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.rest.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.focused.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.error.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-1",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.warning.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.info.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.outlined.success.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "outlined",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.primary.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "primary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.secondary.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "secondary",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.error.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "error",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.warning.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "warning",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.info.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "info",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.small.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "small",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.medium.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "medium",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.rest.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "rest",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": false
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.hovered.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "hovered",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.focused.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "focused",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  },
+  {
+    "id": "muibuttonbaseroot.contained.success.large.disabled.dark",
+    "sheet": "muibuttonbaseroot-2",
+    "mode": "dark",
+    "state": "disabled",
+    "node": {
+      "$component": "MuiButtonBaseRoot",
+      "variant": "contained",
+      "color": "success",
+      "size": "large",
+      "text": "MuiButtonBaseRoot",
+      "interactive": true
+    }
+  }
+]

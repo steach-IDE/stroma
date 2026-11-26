@@ -1,0 +1,2160 @@
+{
+  "dsirVersion": "0.3.0",
+  "source": {
+    "kind": "storybook",
+    "url": "local Storybook build",
+    "license": "MIT",
+    "hash": "sha256:c63f058c6c349bc2c1340ea393cac2da108501da360d0960558c2497071e5db4"
+  },
+  "tokens": {
+    "color": {},
+    "font": {
+      "sans": {
+        "family": "Roboto"
+      }
+    },
+    "page": {
+      "background": {
+        "dark": {
+          "hex": "#121212",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "foreground": {
+        "dark": {
+          "hex": "#000000",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#000000",
+          "alpha": 1
+        }
+      }
+    }
+  },
+  "globals": {},
+  "components": [
+    {
+      "name": "MuiButtonBaseRoot",
+      "slot": "MuiButtonBase-root",
+      "role": "button",
+      "behaviour": "button",
+      "variants": {
+        "variant": [
+          "text",
+          "outlined",
+          "contained"
+        ],
+        "color": [
+          "primary",
+          "secondary",
+          "error",
+          "warning",
+          "info",
+          "success"
+        ],
+        "size": [
+          "small",
+          "medium",
+          "large"
+        ]
+      },
+      "defaultVariants": {
+        "color": "primary",
+        "size": "medium",
+        "variant": "contained"
+      },
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#000000",
+              "alpha": 0
+            },
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "crossAlign": "center",
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 1
+            },
+            "fontSize": 13,
+            "fontWeight": 500,
+            "layout": "inlineRow",
+            "lineHeightFactor": 1.75,
+            "mainAlign": "center",
+            "px": 10,
+            "py": 4,
+            "radius": 4,
+            "transitionCurve": "cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1), cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionMs": 250,
+            "underline": false
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "info"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#0288d1",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=info",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#1976d2",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#9c27b0",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#2e7d32",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ed6c02",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "large"
+          },
+          "target": "root",
+          "set": {
+            "fontSize": 15,
+            "px": 11,
+            "py": 8
+          },
+          "from": "measured: size=large",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "medium"
+          },
+          "target": "root",
+          "set": {
+            "fontSize": 14,
+            "px": 15,
+            "py": 6
+          },
+          "from": "measured: size=medium",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#0288d1",
+              "alpha": 1
+            },
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 1
+            },
+            "shadow": [
+              {
+                "x": 0,
+                "y": 3,
+                "blur": 1,
+                "spread": -2,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.2
+                }
+              },
+              {
+                "x": 0,
+                "y": 2,
+                "blur": 2,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.14
+                }
+              },
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 5,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.12
+                }
+              }
+            ]
+          },
+          "from": "measured: variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#0288d1",
+              "alpha": 0.5
+            },
+            "borderWidth": 1,
+            "py": 3
+          },
+          "from": "measured: variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#0288d1",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.87
+            }
+          },
+          "from": "measured: mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#0288d1",
+              "alpha": 0.04
+            }
+          },
+          "from": "measured: state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "size": "large"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 1
+            },
+            "fg": {
+              "hex": "#d32f2f",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, size=large",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "size": "medium"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 1
+            },
+            "fg": {
+              "hex": "#d32f2f",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, size=medium",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "size": "small"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 1
+            },
+            "fg": {
+              "hex": "#d32f2f",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, size=small",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#d32f2f",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#d32f2f",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=error, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#d32f2f",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#1976d2",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#1976d2",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=primary, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#1976d2",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#9c27b0",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#9c27b0",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=secondary, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#9c27b0",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#2e7d32",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#2e7d32",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=success, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#2e7d32",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ed6c02",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ed6c02",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=warning, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ed6c02",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#f44336",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "info",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#29b6f6",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=info, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#90caf9",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ce93d8",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#66bb6a",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ffa726",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: color=error, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#d32f2f",
+              "alpha": 0.04
+            }
+          },
+          "from": "measured: color=error, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: color=primary, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#1976d2",
+              "alpha": 0.04
+            }
+          },
+          "from": "measured: color=primary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: color=secondary, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#9c27b0",
+              "alpha": 0.04
+            }
+          },
+          "from": "measured: color=secondary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: color=success, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#2e7d32",
+              "alpha": 0.04
+            }
+          },
+          "from": "measured: color=success, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: color=warning, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ed6c02",
+              "alpha": 0.04
+            }
+          },
+          "from": "measured: color=warning, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "large",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "px": 22
+          },
+          "from": "measured: size=large, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "large",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "px": 21,
+            "py": 7
+          },
+          "from": "measured: size=large, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "medium",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "px": 16
+          },
+          "from": "measured: size=medium, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "medium",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "py": 5
+          },
+          "from": "measured: size=medium, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "medium",
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "px": 8
+          },
+          "from": "measured: size=medium, variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "small",
+            "variant": "outlined"
+          },
+          "target": "root",
+          "set": {
+            "px": 9
+          },
+          "from": "measured: size=small, variant=outlined",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "small",
+            "variant": "text"
+          },
+          "target": "root",
+          "set": {
+            "px": 5
+          },
+          "from": "measured: size=small, variant=text",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "large",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: size=large, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "medium",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: size=medium, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "small",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: size=small, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "contained",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#29b6f6",
+              "alpha": 1
+            },
+            "fg": {
+              "hex": "#000000",
+              "alpha": 0.87
+            }
+          },
+          "from": "measured: variant=contained, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outlined",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#29b6f6",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: variant=outlined, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "text",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#29b6f6",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=text, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "contained",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#000000",
+              "alpha": 0.12
+            },
+            "shadow": []
+          },
+          "from": "measured: variant=contained, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "contained",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#01579b",
+              "alpha": 1
+            },
+            "shadow": [
+              {
+                "x": 0,
+                "y": 2,
+                "blur": 4,
+                "spread": -1,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.2
+                }
+              },
+              {
+                "x": 0,
+                "y": 4,
+                "blur": 5,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.14
+                }
+              },
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 10,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.12
+                }
+              }
+            ]
+          },
+          "from": "measured: variant=contained, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outlined",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0.12
+            }
+          },
+          "from": "measured: variant=outlined, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outlined",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#0288d1",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=outlined, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            },
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            }
+          },
+          "from": "measured: mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#29b6f6",
+              "alpha": 0.08
+            }
+          },
+          "from": "measured: mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "size": "large",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, size=large, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "size": "medium",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, size=medium, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "size": "small",
+            "variant": "contained"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, size=small, variant=contained",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "contained",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#f44336",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=contained, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "outlined",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#f44336",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=error, variant=outlined, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "text",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#f44336",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=text, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "contained",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#90caf9",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=contained, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "outlined",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#90caf9",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=primary, variant=outlined, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "text",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#90caf9",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=text, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "contained",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ce93d8",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=contained, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "outlined",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ce93d8",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=secondary, variant=outlined, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "text",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ce93d8",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=text, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "contained",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#66bb6a",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=contained, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "outlined",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#66bb6a",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=success, variant=outlined, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "text",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#66bb6a",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=text, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "contained",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ffa726",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=contained, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "outlined",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffa726",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: color=warning, variant=outlined, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "text",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffa726",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=text, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "contained",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#000000",
+              "alpha": 0.26
+            }
+          },
+          "from": "measured: color=error, variant=contained, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "contained",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#c62828",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=contained, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "outlined",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#d32f2f",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=outlined, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "contained",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#1565c0",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=contained, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "outlined",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#1976d2",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=outlined, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "contained",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#7b1fa2",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=contained, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "outlined",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#9c27b0",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=outlined, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "contained",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#1b5e20",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=contained, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "outlined",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#2e7d32",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=outlined, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "contained",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#e65100",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=contained, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "outlined",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ed6c02",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=outlined, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            },
+            "fg": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            }
+          },
+          "from": "measured: color=error, mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#f44336",
+              "alpha": 0.08
+            }
+          },
+          "from": "measured: color=error, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            }
+          },
+          "from": "measured: color=primary, mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#90caf9",
+              "alpha": 0.08
+            }
+          },
+          "from": "measured: color=primary, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            }
+          },
+          "from": "measured: color=secondary, mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ce93d8",
+              "alpha": 0.08
+            }
+          },
+          "from": "measured: color=secondary, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            }
+          },
+          "from": "measured: color=success, mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#66bb6a",
+              "alpha": 0.08
+            }
+          },
+          "from": "measured: color=success, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 0.3
+            }
+          },
+          "from": "measured: color=warning, mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ffa726",
+              "alpha": 0.08
+            }
+          },
+          "from": "measured: color=warning, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "contained",
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ffffff",
+              "alpha": 0.12
+            }
+          },
+          "from": "measured: variant=contained, mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "contained",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#0288d1",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=contained, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outlined",
+            "mode": "dark",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 0.12
+            }
+          },
+          "from": "measured: variant=outlined, mode=dark, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outlined",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#29b6f6",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=outlined, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "contained",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#d32f2f",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=contained, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "error",
+            "variant": "outlined",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#f44336",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=error, variant=outlined, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "contained",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#42a5f5",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=contained, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "primary",
+            "variant": "outlined",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#90caf9",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=primary, variant=outlined, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "contained",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#ab47bc",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=contained, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "secondary",
+            "variant": "outlined",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ce93d8",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=secondary, variant=outlined, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "contained",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#388e3c",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=contained, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "success",
+            "variant": "outlined",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#66bb6a",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=success, variant=outlined, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "contained",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#f57c00",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=contained, mode=dark, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "color": "warning",
+            "variant": "outlined",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffa726",
+              "alpha": 1
+            }
+          },
+          "from": "measured: color=warning, variant=outlined, mode=dark, state=hovered",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    }
+  ]
+}

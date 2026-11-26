@@ -5,6 +5,8 @@
 set -euo pipefail
 repo="$(cd "$(dirname "$0")/.." && pwd)"
 pkg="$1"
+# A package that lists no fonts (Material UI's: Roboto is not pinned yet) has nothing to pin.
+grep -q 'asset: fonts/' "$pkg/pubspec.yaml" || exit 0
 family="$(awk '/- family:/ { sub(/.*- family: */, ""); print; exit }' "$pkg/pubspec.yaml")"
 case "$family" in
   Inter) "$repo/tool/fetch-fonts.sh" "$pkg/fonts" ;;

@@ -35,18 +35,35 @@ String _snake(String pascal) =>
 String _num(num v) => v == v.roundToDouble() ? v.toInt().toString() : v.toString();
 String _fixed(double v) => _num(double.parse(v.toStringAsFixed(4)));
 
+/// A DSIR that says its page colours in `tokens.page` (its tokens do not name them) gets them as two ordinary colour
+/// tokens, `page-colour-background` and `page-colour-foreground` (not `page-background`, which would collide with the getter), which the name rule for page tokens then finds.
+Map<String, dynamic> _withPageTokens(Map<String, dynamic> dsir) {
+  final tokens = dsir['tokens'] as Map<String, dynamic>;
+  final page = tokens['page'] as Map?;
+  if (page == null) return dsir;
+  final colors = {...(tokens['color'] as Map).cast<String, dynamic>()};
+  colors['page-colour-background'] ??= page['background'];
+  colors['page-colour-foreground'] ??= page['foreground'];
+  return {
+    ...dsir,
+    'tokens': {...tokens, 'color': colors},
+  };
+}
+
 Map<String, String> emitPackage({
   required Map<String, dynamic> dsir,
   Map<String, dynamic>? mapping,
   required Map<String, String> templates,
   required String packageName,
+  bool withFonts = true,
 }) {
+  dsir = _withPageTokens(dsir);
   final components = (dsir['components'] as List).cast<Map<String, dynamic>>();
   final globals = ((dsir['globals'] as Map?) ?? const {}).cast<String, dynamic>();
   final out = <String, String>{};
   String dart(String src) => _formatter.format(src);
 
-  out['pubspec.yaml'] = _pubspec(packageName, dsir);
+  out['pubspec.yaml'] = _pubspec(packageName, dsir, withFonts);
   // scrib/ holds the adapter an app copies in; it only resolves inside a Scrib app.
   out['analysis_options.yaml'] =
       'include: package:flutter_lints/flutter.yaml\n\nanalyzer:\n  exclude:\n    - scrib/**\n';
@@ -114,7 +131,7 @@ List<(String, int)> fontFiles(Map<String, dynamic> dsir) {
   ];
 }
 
-String _pubspec(String name, Map<String, dynamic> dsir) {
+String _pubspec(String name, Map<String, dynamic> dsir, bool withFonts) {
   final fonts = fontFiles(dsir)
       .map(
         (f) => '        - asset: fonts/${f.$1}${f.$2 == 400 ? '' : '\n          weight: ${f.$2}'}',
@@ -139,12 +156,13 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^6.0.0
 
+${withFonts ? '''
 flutter:
   fonts:
     - family: ${_fontFamily(dsir)}
       fonts:
 $fonts
-''';
+''' : ''}''';
 }
 
 // ---------------- tokens ----------------
@@ -853,6 +871,9 @@ List<Map<String, dynamic>> oracleCells(List<Map<String, dynamic>> components, Li
   return cells;
 }
 
+/// The most cells one oracle sheet (3200 logical px tall) holds, with room to spare for taller components.
+const _cellsPerSheet = 200;
+
 /// One cell per variant combination x state x mode for every component that is not drawn inside another.
 List<Map<String, dynamic>> _genericCells(
   List<Map<String, dynamic>> components,
@@ -880,9 +901,10 @@ List<Map<String, dynamic>> _genericCells(
           ? ['rest', 'hovered', 'focused']
           : ['rest'];
       final name = c['name'] as String;
+      final own = <Map<String, dynamic>>[];
       for (final combo in combos) {
         for (final state in states) {
-          cells.add({
+          own.add({
             'id': '${name.toLowerCase()}.${[...combo.values, state].join('.')}.$mode',
             'sheet': name.toLowerCase(),
             'mode': mode,
@@ -891,6 +913,14 @@ List<Map<String, dynamic>> _genericCells(
           });
         }
       }
+      // A sheet is one image of fixed height: more cells than fit are split over evenly filled sheets
+      // (`name-1`, `name-2`), or the last ones fall off its bottom and are never drawn.
+      final sheets = (own.length / _cellsPerSheet).ceil();
+      final each = (own.length / sheets).ceil();
+      for (var i = 0; i < own.length; i++) {
+        if (sheets > 1) own[i]['sheet'] = '${name.toLowerCase()}-${i ~/ each + 1}';
+      }
+      cells.addAll(own);
     }
   }
   return cells;
