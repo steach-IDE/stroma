@@ -70,7 +70,7 @@ echo "ok"
 
 shopt -s nullglob
 # Packages first (alphabetical: dsir installs before the enricher that imports it), then generated examples.
-packages=(packages/*/ examples/*/packages/*/)
+packages=(packages/*/ examples/*/packages/*/ examples/*/storybook/)
 if [[ ${#packages[@]} -eq 0 ]]; then
   step "packages"
   echo "none yet: only the harness was checked"
