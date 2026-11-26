@@ -116,9 +116,11 @@
       "id": "feat-010",
       "phase": 2,
       "name": "npm CLI",
-      "description": "packages/cli published as @steach/stroma: init, extract, review, emit, verify and update as docs/usage.md describes, with the Dart emitter compiled to JavaScript.",
+      "description": "packages/cli published as @steach/stroma: init, extract, review, emit, verify and update as docs/usage.md describes, with the Dart emitter compiled to JavaScript. It exposes the coverage report and the overrides file.",
       "dependencies": [
-        "feat-009"
+        "feat-009",
+        "feat-016",
+        "feat-018"
       ],
       "status": "not-started",
       "done_when": "npx @steach/stroma runs every command on the shadcn fixture from a clean machine with Node 20 alone (plus Flutter for verify); emit --check and verify exit non-zero on a stale file and on a failed gate.",
@@ -184,6 +186,66 @@
       "status": "done",
       "done_when": "pnpm run build-storybook writes an index of the Button, Badge and Card stories; the sync check fails when a component differs from the pinned source; a test fails if the story controls differ from the registry's cva config; a smoke test renders the default button in both themes with Inter loaded; ./init.sh and CI are green.",
       "evidence": "2026-11-26, issue #13, branch feat/13-shadcn-storybook: ./init.sh green with the Storybook as a package: sync check up to date; build writes index v5 with 7 stories; 5/5 tests (index; argTypes read through Storybook's own storyStore.loadStory equal the registry cva config; default button renders in light and dark with Inter 500 loaded; editing badge.tsx makes the sync check exit 1 naming it). Oracle unchanged after sharing globals.css: 426/426, 36/36."
+    },
+    {
+      "id": "feat-016",
+      "phase": 2,
+      "name": "Coverage report",
+      "description": "Extraction reports what the stories do not exercise: variant axes and options never rendered, states never reached, slots and parts never seen (the Badge icon, Carbon's clickable tile), per component.",
+      "dependencies": [
+        "feat-009"
+      ],
+      "status": "not-started",
+      "done_when": "stroma-extract writes a coverage section to index.json; on the shadcn Storybook before its Badge WithIcon story it lists the Badge icon slot as unobserved, and after it lists none; a component with an axis option no story renders names that option.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-017",
+      "phase": 2,
+      "name": "Pixel oracle for every system",
+      "description": "The extractor saves a Chrome crop of the component root for every cell, and the oracle compares each with the Flutter golden (SSIM, text colour) as well as the numbers, for shadcn and Carbon alike.",
+      "dependencies": [
+        "feat-009"
+      ],
+      "status": "not-started",
+      "done_when": "Both systems report SSIM and text colour per cell from the extraction's own crops, with no Chrome reference sheet; the gate on text colour is stated and met or its failures listed in unsupported; two extractions give identical crops.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-018",
+      "phase": 2,
+      "name": "DSIR overrides for names",
+      "description": "A hand-written overrides file renames components, tokens and radius steps (Btn to Button, radius-minus2 to radius-md) and sets roles and slot kinds, applied on top of the inferred DSIR and kept when it is re-inferred.",
+      "dependencies": [
+        "feat-009"
+      ],
+      "status": "not-started",
+      "done_when": "Re-inferring Carbon with an overrides file gives a DSIR whose components and radius tokens carry the override names and whose rules are unchanged; an override naming something that does not exist fails naming it; emit gives the same widgets under the new names and the oracle still passes.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-019",
+      "phase": 2,
+      "name": "CSS-in-JS probe",
+      "description": "Extract one CSS-in-JS design system (Chakra UI v3 or Fluent UI v9) from a pinned Storybook with the existing extractor, to learn whether token recovery works without var() references.",
+      "dependencies": [
+        "feat-009"
+      ],
+      "status": "not-started",
+      "done_when": "docs/css-in-js-probe.md states, with evidence, whether the extractor and inference produce a DSIR for that system's Button, how many colour, radius and spacing values come out as named tokens, and which step failed if one did; the roadmap says whether CSS-in-JS systems are in scope.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-020",
+      "phase": 2,
+      "name": "Layout values in the DSIR",
+      "description": "The DSIR can say a box fills its container's width (and the other layout values the Carbon tile showed), inference reads them from the render, the emitter lays them out.",
+      "dependencies": [
+        "feat-009"
+      ],
+      "status": "not-started",
+      "done_when": "Carbon's Tile reports a width within 1 px of Chrome's in the oracle, and width becomes a gated check for it; the shadcn oracle still passes 426/426.",
+      "evidence": ""
     }
   ]
 }
