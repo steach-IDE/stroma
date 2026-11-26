@@ -43,6 +43,7 @@ test('the index lists the Button, Badge and Card stories', () => {
   const stories = Object.values(index.entries).filter((e) => e.type === 'story').map((e) => e.id).sort();
   assert.deepEqual(stories, [
     'badge--as-link', 'badge--default',
+    'badge--with-icon',
     'button--default', 'button--icon-only',
     'card--content-only', 'card--full', 'card--with-action',
   ]);

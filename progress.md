@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-006` is done on branch `feat/17-infer` (stacked on `feat/15-extractor`); `feat-007` is next.
+- **Active feature:** `feat-007`, in progress on `feat/21-emit-inferred` (issue #21).
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -26,7 +26,7 @@
 
 ## In progress
 
-Nothing.
+- `feat-007`: the emitter takes an inferred DSIR (no `globals`, part slots named by `data-slot`, measured radii, tokens measured in one mode only). The oracle passes 426/426 with locally rendered goldens. Open: a Linux-golden run on CI, and generating the example package from the inferred DSIR.
 
 ## Next
 
@@ -76,6 +76,8 @@ Nothing.
 | 2026-11-26 | Rule values come from cells where unwritable conditions (not hovered, no icon) are at rest, and rules are judged on those cells | A DSIR can only add positive conditions; choosing otherwise left values that no rule could fix | Plain majority |
 | 2026-11-26 | Mining is followed by pruning and re-mining until stable | Greedy order kept rules a later rule made wrong | Single greedy pass |
 | 2026-11-26 | Every story must be extracted together | A component left out is read as a part of another (the card footer's button) | Guessing components from names |
+| 2026-11-26 | The Storybook gets a `WithIcon` badge story | The extractor can only describe what a story draws; without it the inferred Badge had no icon slot | Guessing an icon slot from the layout |
+| 2026-11-26 | A colour token measured in one mode only is emitted with the other mode's value and a comment | No cell used it in the other mode, so no rule reads it there | Failing the emit; inventing a value |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

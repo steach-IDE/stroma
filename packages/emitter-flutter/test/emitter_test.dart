@@ -40,6 +40,16 @@ void main() {
     expect(camel('primary-foreground'), 'primaryForeground');
   });
 
+  test('an inferred DSIR (no globals, part slots named by data-slot, measured radii) emits', () {
+    final inferred = read('test/fixtures/shadcn.inferred.dsir.json');
+    final files = emit(inferred);
+    expect(files, equals(emit(inferred)));
+    final header = files['lib/src/components/card.dart']!;
+    expect(header, contains('required bool hasAction'));
+    expect(header, contains('trailing: action'));
+    expect(files['lib/src/components/badge.dart']!, contains('Widget? icon'));
+  });
+
   test('the committed example is what the emitter writes now', () {
     final run = Process.runSync(Platform.resolvedExecutable, ['run', 'bin/emit.dart', '--check']);
     expect(run.exitCode, 0, reason: '${run.stdout}${run.stderr}');

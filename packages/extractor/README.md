@@ -5,7 +5,7 @@
 ```sh
 pnpm install   # Node 20.19+, Playwright's Chromium (npx playwright@1.65.1 install chromium)
 node bin/extract.mjs --storybook ../../examples/shadcn-neutral/storybook/storybook-static --out .stroma/extract
-# extracted 822 cells from 7 stories into .stroma/extract
+# extracted 834 cells from 8 stories into .stroma/extract
 ```
 
 Options: `--story <id>` (repeatable) to extract some stories, and `--where <arg>=<value>` (repeatable) to keep some variant combinations. The output folder must be empty or absent; the extractor never deletes anything.
