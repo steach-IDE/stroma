@@ -85,21 +85,30 @@ Future<void> main(List<String> args) async {
     }
   }
   if (stale > 0) exit(1);
-  // Only Inter is pinned so far; another family's font files are a later step (the package then has none).
-  final family = (((dsir['tokens'] as Map)['font'] as Map?)?['sans'] as Map?)?['family'];
-  if (!check && family == 'Inter') {
-    // Goldens are only reproducible with the exact font bytes, so the default is the pinned copy.
+  if (!check) {
+    // Goldens are only reproducible with the exact font bytes, so the default is a pinned copy.
+    final family = (((dsir['tokens'] as Map)['font'] as Map?)?['sans'] as Map?)?['family'];
+    final pinned = {'Inter': 'inter-4.1', 'IBM Plex Sans': 'plex-sans-1.1.0'}[family];
     final i = args.indexOf('--fonts');
-    final from = i >= 0 ? args[i + 1] : p.join(repo, '.stroma', 'fonts', 'inter-4.1');
-    for (final w in ['Regular', 'Medium', 'SemiBold']) {
-      final src = File(p.join(from, 'Inter-$w.ttf'));
+    if (i < 0 && pinned == null) {
+      stderr.writeln('$family has no pinned fonts: pass --fonts <dir> with its .ttf files');
+      exit(1);
+    }
+    final from = i >= 0 ? args[i + 1] : p.join(repo, '.stroma', 'fonts', pinned);
+    for (final (file, _) in fontFiles(dsir)) {
+      final src = File(p.join(from, file));
       if (!src.existsSync()) {
-        stderr.writeln('missing ${src.path}: run tool/fetch-fonts.sh first, or pass --fonts <dir>');
+        stderr.writeln(
+          'missing ${src.path}: run tool/fetch-fonts.sh or tool/fetch-plex.sh first, or pass --fonts <dir>',
+        );
         exit(1);
       }
-      final dst = File(p.join(out, 'fonts', 'Inter-$w.ttf'))..parent.createSync(recursive: true);
+      final dst = File(p.join(out, 'fonts', file))..parent.createSync(recursive: true);
       src.copySync(dst.path);
     }
+    // The fonts' licence travels with them.
+    final licence = File(p.join(from, 'LICENSE.txt'));
+    if (licence.existsSync()) licence.copySync(p.join(out, 'fonts', 'LICENSE.txt'));
   }
   stdout.writeln(
     check

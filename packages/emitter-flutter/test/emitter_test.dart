@@ -89,6 +89,23 @@ void main() {
     );
   });
 
+  test('a DSIR\'s font files come from its family and the weights its rules use', () {
+    expect(fontFiles(dsir).map((f) => f.$1), [
+      'Inter-Regular.ttf',
+      'Inter-Medium.ttf',
+      'Inter-SemiBold.ttf',
+    ]);
+    final carbon = read('../../examples/carbon/inferred/carbon.dsir.json');
+    expect(fontFiles(carbon).map((f) => f.$1), ['IBMPlexSans-Regular.ttf']);
+    final pubspec = emitPackage(
+      dsir: carbon,
+      templates: const {},
+      packageName: 'carbon_ui',
+    )['pubspec.yaml']!;
+    expect(pubspec, contains('family: IBM Plex Sans'));
+    expect(pubspec, contains('asset: fonts/IBMPlexSans-Regular.ttf'));
+  });
+
   test('the committed example is what the emitter writes now', () {
     final run = Process.runSync(Platform.resolvedExecutable, ['run', 'bin/emit.dart', '--check']);
     expect(run.exitCode, 0, reason: '${run.stdout}${run.stderr}');

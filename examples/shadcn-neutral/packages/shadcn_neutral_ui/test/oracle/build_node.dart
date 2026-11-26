@@ -38,7 +38,7 @@ Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool d
   List<Widget> kids() => [
     for (final c in (n['children'] as List? ?? const [])) buildNode((c as Map).cast()),
   ];
-  switch (n['type']) {
+  switch (n[r'$component'] ?? n['type']) {
     case 'Badge':
       return Badge(
         variant: _enumByName(BadgeVariant.values, n['variant'] as String),
@@ -72,5 +72,5 @@ Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool d
     case 'CardTitle':
       return CardTitle(child: text == null ? null : Text(text));
   }
-  throw ArgumentError('unknown node ${n['type']}');
+  throw ArgumentError('unknown node ${n[r'$component'] ?? n['type']}');
 }

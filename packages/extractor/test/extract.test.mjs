@@ -75,6 +75,18 @@ test('--root finds a root that has no data-* marker, and fails naming the story 
   assert.equal(read(out, 'plain--default/state=rest.json').elements[0].tag, 'div');
 });
 
+test('a request outside the Storybook is blocked, and listed in index.json', async () => {
+  const fake = tmp();
+  fs.writeFileSync(path.join(fake, 'index.json'), JSON.stringify({ v: 5, entries: { 'plain--default': { type: 'story', id: 'plain--default' } } }));
+  fs.writeFileSync(path.join(fake, 'iframe.html'), `<!doctype html><link rel="stylesheet" href="http://127.0.0.1:9/outside.css">
+<div id="storybook-root"><div data-slot="x">x</div></div>
+<script>window.__STORYBOOK_PREVIEW__ = { ready: async () => {}, storyStore: {
+  loadStory: async () => ({ title: 'Plain', name: 'Default', argTypes: {} }), projectAnnotations: {}, args: { get: () => ({}) } } };</script>`);
+  const out = path.join(tmp(), 'out');
+  await extract({ storybook: fake, out });
+  assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out, 'index.json'), 'utf8')).blocked, ['http://127.0.0.1:9/outside.css']);
+});
+
 test('it refuses to write into a directory that already holds files', async () => {
   const out = tmp();
   fs.writeFileSync(path.join(out, 'old.json'), '{}');

@@ -97,9 +97,18 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
   const server = await serveStatic(storybook);
   const browser = await chromium.launch();
   const cells = [];
+  const blocked = new Set();
   const described = {};
   try {
     const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
+    // Nothing outside the Storybook may shape a measurement (a CDN font, say): the network is cut, and what was
+    // asked for is listed in index.json, so a fallback font is never silent.
+    await page.route('**/*', (route) => {
+      const url = route.request().url();
+      if (url.startsWith(server.url) || /^(data|blob):/.test(url)) return route.continue();
+      blocked.add(url);
+      return route.abort();
+    });
     const cdp = await page.context().newCDPSession(page);
     for (const storyId of selected) {
       const meta = await describeStory(page, server.url, storyId);
@@ -152,6 +161,6 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
   }
   cells.sort((a, b) => (a.file < b.file ? -1 : 1));
   fs.mkdirSync(out, { recursive: true });
-  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells }, null, 2) + '\n');
+  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells, ...(blocked.size ? { blocked: [...blocked].sort() } : {}) }, null, 2) + '\n');
   return { stories: selected.length, cells: cells.length };
 }

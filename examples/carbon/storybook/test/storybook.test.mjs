@@ -61,3 +61,23 @@ test('each theme changes how a tile looks', async () => {
   assert.equal(new Set(Object.values(seen)).size >= 3, true, `themes render alike: ${JSON.stringify(seen)}`);
   await page.close();
 });
+
+test('IBM Plex Sans is loaded from the build itself, with every outside request refused', async () => {
+  const page = await browser.newPage();
+  const outside = [];
+  await page.route('**/*', (route) => {
+    const url = route.request().url();
+    if (url.startsWith(server.url) || /^(data|blob):/.test(url)) return route.continue();
+    outside.push(url);
+    return route.abort();
+  });
+  await page.goto(`${server.url}/iframe.html?id=button--default&viewMode=story`);
+  await page.locator('#storybook-root .cds--btn').waitFor({ timeout: 10_000 });
+  const loaded = await page.evaluate(async () => {
+    // Carbon's own CDN faces fail (refused); text falls through to the build's face, which must load.
+    await document.fonts.ready;
+    return [...document.fonts].filter((f) => f.family.includes('IBM Plex Sans') && f.status === 'loaded' && f.weight === '400').length;
+  });
+  assert.ok(loaded >= 1, 'no IBM Plex Sans face loaded');
+  await page.close();
+});

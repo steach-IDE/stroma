@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** `feat-008` (Carbon): slice 3 (emit) on `feat/27-emit-carbon` (issue #27), stacked on #26 and #25; none pushed.
+- **Active feature:** `feat-008` (Carbon): slice 4 (fonts) on `feat/28-carbon-fonts` (issue #28), stacked on #27, #26 and #25; none pushed.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -27,7 +27,7 @@
 
 ## In progress
 
-- `feat-008`: the pinned Carbon Storybook (#25), inference (#26) and emit (#27) are done. Next: pinned IBM Plex fonts, the oracle's browser side for Carbon, and its scorecard.
+- `feat-008`: the pinned Carbon Storybook (#25), inference (#26), emit (#27) and pinned fonts (#28) are done. Next: the oracle's browser side for Carbon, goldens on CI, and its scorecard.
 
 ## Next
 
@@ -85,6 +85,8 @@
 | 2026-11-26 | A root with no marker is a component named by its block class; a token's value is its `var()` fallback when no theme defines it | Carbon marks no parts and defines shared tokens only as fallbacks | An override table of component names |
 | 2026-11-26 | `DsTokens` has one set per DSIR mode and `t.mode` conditions; the page background and foreground tokens are found by name | Carbon has four themes; a DSIR does not name its page tokens yet | Two modes only; explicit page roles in the DSIR (later, if names stop working) |
 | 2026-11-26 | The oracle's node builder and cells are generated from the DSIR, except shadcn's card examples | A hand-written builder named Button, Badge and Card | Writing one per design system |
+| 2026-11-26 | IBM Plex Sans comes from the `@ibm/plex-sans` 1.1.0 release: its woff2 (npm, lockfile-pinned) for the Storybook, its TTFs (a hash-checked download, `tool/fetch-plex.sh`) for Flutter | The npm package has no TTF and Flutter needs one; both are the same release | Converting woff2 to TTF; the CDN |
+| 2026-11-26 | The extractor aborts every request outside the Storybook and lists them in `index.json` | A CDN font would change a measurement silently | Trusting the network |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

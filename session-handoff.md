@@ -2,7 +2,7 @@
 
 ## Current objective
 
-`feat-008`, Carbon. Slices 1 (#25), 2 (#26, infer) and 3 (#27, emit) are done locally and not pushed; fonts and the oracle are next.
+`feat-008`, Carbon. Slices 1 to 4 (#25 to #28: Storybook, infer, emit, fonts) are done locally and not pushed; the oracle is next.
 
 ## Completed this session
 
@@ -30,6 +30,13 @@
 - shadcn re-emitted: analyze clean, oracle 426/426 and 36/36. CI's Linux goldens are the real check of that.
 - Not done: IBM Plex fonts (the Carbon package has none, and its text falls back), and the oracle run itself.
 
+## Slice 4 (issue #28)
+
+- Plex pinned: `tool/fetch-plex.sh` (TTF from the 1.1.0 release, hashes in `tool/fonts.sha256`); the Storybook declares the same release's woff2.
+- The extractor blocks outside requests and lists them (`blocked`). The Carbon extraction is byte-identical with the CDN reachable and without it.
+- The emitter copies the DSIR family's font files and licence; the generated oracle test now names components under `$component` (Carbon's Tag has an axis called `type`).
+- The Carbon package's 12 sheets (`btn`, `tag`, `tile` x 4 themes) run under `flutter test` and write `build/oracle/flutter/*.json`.
+
 ## Findings for the next slice (some now done)
 
 - Carbon's tokens are `var(--cds-button-primary, #0f62fe)`: a fallback after the name. Infer must read that form, and the hover rule names a different token (`--cds-button-primary-hover`).
@@ -44,4 +51,4 @@
 
 ## Recommended next step
 
-Pin the IBM Plex fonts (`tool/fetch-fonts.sh`, a hash-checked download), then the oracle's browser side for Carbon: the extraction already holds each cell's box, colours and geometry, so compare Flutter's geometry with it instead of a Chrome reference page.
+The oracle's browser side for Carbon: the extraction (`.stroma/carbon-*`) already holds each cell's box and style, so compare Flutter's geometry (`build/oracle/flutter/*.json`, cell ids like `btn.primary.lg.rest.white`) with it instead of a Chrome reference page, at the same gates (1 px, dE2000 under 2). Colour needs a pixel from a Chrome screenshot or the computed colour. Then CI goldens, then the scorecard and the `unsupported` list.
