@@ -219,9 +219,9 @@
       "dependencies": [
         "feat-009"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "Re-inferring Carbon with an overrides file gives a DSIR whose components and radius tokens carry the override names and whose rules are unchanged; an override naming something that does not exist fails naming it; emit gives the same widgets under the new names and the oracle still passes.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #46: stroma-infer --overrides renames and annotates an inferred DSIR (components: name, role, slot kind; tokens: colour and radius renames carried through every rule); a name that does not exist, a rename onto a taken name, an unprefixed or base radius token and an unknown key fail naming it (4 new tests, infer 12/12). Carbon re-inferred with examples/carbon/overrides.json: Btn is Button and its rules are identical to the un-overridden DSIR's; shadcn's overrides give radius-md/radius-xl (intent-loss: radius names 0/6 to 6/6, roles 7/9 to 9/9); Material UI's MuiButtonBaseRoot is Button. emit writes button.dart/ButtonKind/radiusMd, flutter analyze clean for all three. Oracle on Linux goldens regenerated for the renamed sheets: Carbon 780/780, Material UI 432/432, shadcn 426/426 and 36/36. ./init.sh green, work-gate.sh run locally."
     },
     {
       "id": "feat-019",
