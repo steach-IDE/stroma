@@ -12,7 +12,7 @@
   "exports": {
     ".": "./src/validate.mjs",
     "./migrate": "./src/migrate.mjs",
-    "./schema": "./schema/dsir-0.2.schema.json"
+    "./schema": "./schema/dsir-0.3.schema.json"
   },
   "bin": {
     "stroma-dsir-validate": "bin/validate.mjs"
