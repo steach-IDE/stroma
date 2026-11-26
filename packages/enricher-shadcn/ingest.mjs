@@ -14,7 +14,7 @@ import { cva as runCva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 import { oklchToSrgb, hex } from './oklch.mjs';
 import { loadTailwindTheme, mapClasses, cascadeSort, SHADCN_V4_THEME_INLINE } from './tailwind.mjs';
-import { migrate01to02 } from '../dsir/src/migrate.mjs';
+import { migrate } from '../dsir/src/migrate.mjs';
 import { validate } from '../dsir/src/validate.mjs';
 
 const require = createRequire(import.meta.url);
@@ -318,12 +318,12 @@ export async function ingest() {
     globals: Object.fromEntries(Object.entries(globals).map(([k, v]) => [k, { rules: cascadeSort(v.rules), noops: v.noops }])),
     components,
   };
-  // The rules above are built in the 0.1 shape; the migration adds 0.2's provenance and behaviour.
-  const dsir02 = migrate01to02(dsir);
-  const errors = validate(dsir02);
+  // The rules above are built in the 0.1 shape; the migrations bring them to the current DSIR version.
+  const current = migrate(dsir);
+  const errors = validate(current);
   if (errors.length) throw new Error(`ingest built an invalid DSIR:\n${errors.map((e) => `${e.path}: ${e.message}`).join('\n')}`);
   return {
-    'shadcn.dsir.json': json(dsir02),
+    'shadcn.dsir.json': json(current),
     'dsir.lock': json(lock),
     'tokens/light.tokens.json': json(tokens.dtcg.light),
     'tokens/dark.tokens.json': json(tokens.dtcg.dark),

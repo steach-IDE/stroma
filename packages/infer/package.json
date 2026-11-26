@@ -1,0 +1,12 @@
+{
+  "name": "@steach/stroma-infer",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Turns an extraction into a DSIR: rules mined from what the browser drew.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": { "node": ">=20.19" },
+  "bin": { "stroma-infer": "bin/infer.mjs" },
+  "scripts": { "test": "node --test" }
+}

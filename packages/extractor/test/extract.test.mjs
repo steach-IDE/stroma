@@ -32,6 +32,9 @@ test('two runs write byte-identical cells, one per variant x state x theme', asy
   const files = (dir) => fs.readdirSync(dir, { recursive: true }).filter((f) => f.endsWith('.json')).sort();
   assert.deepEqual(files(a), files(b));
   for (const f of files(a)) assert.equal(fs.readFileSync(path.join(a, f), 'utf8'), fs.readFileSync(path.join(b, f), 'utf8'), f);
+  const story = read(a, 'index.json').stories['badge--as-link'];
+  assert.deepEqual(story.defaults, { variant: 'default' });
+  assert.deepEqual(story.themes, ['light', 'dark']);
   const cell = read(a, 'badge--as-link/theme=dark,variant=secondary,state=hovered.json');
   assert.equal(cell.elements[0].attrs['data-variant'], 'secondary');
   assert.equal(cell.elements[0].role, 'link');

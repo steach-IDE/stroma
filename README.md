@@ -112,6 +112,7 @@ That code now lives here, with its history (see [Repository layout](#repository-
 | `packages/adapter-scrib` | JSON, shell | Maps a generated package onto Scrib's widget contract | Exists (from the spike) |
 | `examples/shadcn-neutral` | — | shadcn/ui Button, Badge and Card: a pinned Storybook, the DSIR and the generated package | Exists |
 | `packages/extractor` | JavaScript, Playwright | Renders every Storybook cell and records what the browser drew | Exists |
+| `packages/infer` | JavaScript | Turns an extraction into a DSIR and compares it with a source-derived one | Exists |
 | `packages/primitives-flutter` | Dart (Flutter) | The primitives as a package generated code depends on | Planned |
 | `packages/cli` | TypeScript (+ a Dart CLI) | `stroma init`, `extract`, `emit`, `verify` | Planned (`feat-010`, `feat-011`) |
 

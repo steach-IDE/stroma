@@ -69,9 +69,9 @@
       "dependencies": [
         "feat-005"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "The DSIR inferred for shadcn Button, Badge and Card validates against 0.2, and the share of colour, radius and spacing values recovered as named tokens is reported against the spike's source-derived DSIR. The schema gains anatomy, and the validator and migration cover it.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #17, branch feat/17-infer: full extraction (822 cells) -> 9 components, valid DSIR 0.3, 22,360 of 22,360 measured values explained by the mined rules; two runs byte-identical. Versus the source-derived DSIR: every colour token the source uses recovered for every component; variants and defaults match everywhere; rules about half the source's (Button 36 vs 68). Token share of observations: colour 82.5%, radius 94.2%, spacing 69.3%. Card anatomy: card-header, card-content, card-footer. ./init.sh: dsir 11/11, extractor 4/4, infer 4/4."
     },
     {
       "id": "feat-007",

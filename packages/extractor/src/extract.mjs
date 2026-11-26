@@ -32,7 +32,8 @@ async function describeStory(page, base, storyId) {
     const hasDisabled = Boolean(d && (d.type?.name === 'boolean' || d.control === 'boolean' || d.control?.type === 'boolean'));
     const items = preview.storyStore.projectAnnotations?.globalTypes?.theme?.toolbar?.items ?? [];
     const themes = items.map((i) => (typeof i === 'string' ? i : i.value)).filter(Boolean);
-    return { title: story.title, name: story.name, axes, hasDisabled, themes };
+    const defaults = Object.fromEntries(Object.keys(axes).sort().map((k) => [k, String(story.initialArgs[k])]));
+    return { title: story.title, name: story.name, axes, defaults, hasDisabled, themes };
   }, storyId);
 }
 
@@ -93,11 +94,13 @@ export async function extract({ storybook, out, stories = [], where = {} }) {
   const server = await serveStatic(storybook);
   const browser = await chromium.launch();
   const cells = [];
+  const described = {};
   try {
     const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
     const cdp = await page.context().newCDPSession(page);
     for (const storyId of selected) {
       const meta = await describeStory(page, server.url, storyId);
+      described[storyId] = meta;
       const themes = meta.themes.length ? meta.themes : [null];
       const combos = combinations(meta.axes).filter((c) => Object.entries(where).every(([k, v]) => !(k in c) || c[k] === v));
       // Storybook ignores `args` in the iframe URL, so cells are set the way its own UI does: through the
@@ -146,6 +149,6 @@ export async function extract({ storybook, out, stories = [], where = {} }) {
   }
   cells.sort((a, b) => (a.file < b.file ? -1 : 1));
   fs.mkdirSync(out, { recursive: true });
-  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', cells }, null, 2) + '\n');
+  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells }, null, 2) + '\n');
   return { stories: selected.length, cells: cells.length };
 }

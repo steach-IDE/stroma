@@ -1,4 +1,4 @@
-// Validates a DSIR 0.2 document: first the JSON Schema, then the cross-references a schema can't
+// Validates a DSIR 0.3 document (older ones are migrated first, see migrate.mjs): first the JSON Schema, then the cross-references a schema can't
 // express (a rule's variant axis and value exist on its component; a colour or radius token exists).
 // Every error names a JSON Pointer path into the document.
 
@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import Ajv2020 from 'ajv/dist/2020.js';
 
-const schema = JSON.parse(readFileSync(fileURLToPath(new URL('../schema/dsir-0.2.schema.json', import.meta.url)), 'utf8'));
+const schema = JSON.parse(readFileSync(fileURLToPath(new URL('../schema/dsir-0.3.schema.json', import.meta.url)), 'utf8'));
 const ajv = new Ajv2020({ allErrors: true, strict: true });
 const checkSchema = ajv.compile(schema);
 
@@ -59,7 +59,11 @@ function crossReferenceErrors(doc) {
     group.rules.forEach((r, i) => checkSet(r.set, `/globals/${selector}/rules/${i}/set`));
   }
   const names = new Set();
+  const slots = new Set(doc.components.map((c) => c.slot).filter(Boolean));
   doc.components.forEach((c, ci) => {
+    (c.anatomy?.children ?? []).forEach((slot, i) => {
+      if (!slots.has(slot)) err(`/components/${ci}/anatomy/children/${i}`, `"${slot}" is not the slot of any component`);
+    });
     const base = `/components/${ci}`;
     if (names.has(c.name)) err(`${base}/name`, `duplicate component "${c.name}"`);
     names.add(c.name);
@@ -73,7 +77,7 @@ function crossReferenceErrors(doc) {
   return errors;
 }
 
-/** Returns a list of { path, message }; empty when the document is a valid DSIR 0.2. */
+/** Returns a list of { path, message }; empty when the document is a valid DSIR 0.3. */
 export function validate(doc) {
   if (!checkSchema(doc)) return schemaErrors();
   return crossReferenceErrors(doc);

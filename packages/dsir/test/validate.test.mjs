@@ -6,7 +6,7 @@ import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { validate } from '../src/validate.mjs';
-import { migrate01to02 } from '../src/migrate.mjs';
+import { migrate, migrate01to02, migrate02to03 } from '../src/migrate.mjs';
 
 const fixturePath = fileURLToPath(new URL('../fixtures/shadcn/shadcn.dsir.json', import.meta.url));
 const fixture = () => JSON.parse(readFileSync(fixturePath, 'utf8'));
@@ -42,9 +42,9 @@ test('an unknown behaviour pattern is rejected', () => {
   assert.match(only(validate(doc), '/components/0/behaviour'), /must be one of/);
 });
 
-test('a DSIR that is not 0.2.x is rejected', () => {
+test('a DSIR that is not 0.3.x is rejected', () => {
   const doc = fixture();
-  doc.dsirVersion = '0.1.0';
+  doc.dsirVersion = '0.2.0';
   assert.match(only(validate(doc), '/dsirVersion'), /must match pattern/);
 });
 
@@ -68,19 +68,31 @@ test('a colour token that does not exist is rejected', () => {
   assert.match(only(validate(doc), `/components/0/rules/${i}/set/bg/token`), /unknown colour token "primray"/);
 });
 
-test('migration from 0.1 adds provenance and behaviour, and is deterministic', () => {
-  const v02 = fixture();
+test('migration from 0.1 adds provenance and behaviour, reaches 0.3, and is deterministic', () => {
+  const v03 = fixture();
   const v01 = {
-    ...v02,
+    ...v03,
     dsirVersion: '0.1.0',
-    globals: Object.fromEntries(Object.entries(v02.globals).map(([k, g]) => [k, { ...g, rules: g.rules.map(({ provenance, ...r }) => r) }])),
-    components: v02.components.map(({ rules, ...c }) => ({ ...c, behaviour: null, rules: rules.map(({ provenance, ...r }) => r) })),
+    globals: Object.fromEntries(Object.entries(v03.globals).map(([k, g]) => [k, { ...g, rules: g.rules.map(({ provenance, ...r }) => r) }])),
+    components: v03.components.map(({ rules, ...c }) => ({ ...c, behaviour: null, rules: rules.map(({ provenance, ...r }) => r) })),
   };
-  const a = migrate01to02(v01);
+  const a = migrate(v01);
   assert.deepEqual(validate(a), []);
-  assert.equal(JSON.stringify(a), JSON.stringify(migrate01to02(v01)));
-  assert.deepEqual(a, v02);
-  assert.throws(() => migrate01to02(v02), /expected a DSIR 0.1.x/);
+  assert.equal(JSON.stringify(a), JSON.stringify(migrate(v01)));
+  assert.deepEqual(a, v03);
+  assert.equal(migrate01to02(v01).dsirVersion, '0.2.0');
+  assert.equal(migrate02to03(migrate01to02(v01)).dsirVersion, '0.3.0');
+  assert.deepEqual(migrate(v03), v03, 'a current DSIR is unchanged');
+  assert.throws(() => migrate({ ...v03, dsirVersion: '9.0.0' }), /unsupported DSIR version/);
+});
+
+test('anatomy lists child part slots, and an unknown slot is rejected', () => {
+  const doc = fixture();
+  const card = doc.components.findIndex((c) => c.name === 'Card');
+  doc.components[card].anatomy = { children: ['card-header', 'card-content', 'card-footer'] };
+  assert.deepEqual(validate(doc), []);
+  doc.components[card].anatomy.children.push('card-sidebar');
+  assert.match(only(validate(doc), `/components/${card}/anatomy/children/3`), /"card-sidebar" is not the slot of any component/);
 });
 
 test('the CLI exits 0 on a valid file and 1 with the path on a broken one', () => {
