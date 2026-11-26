@@ -97,24 +97,23 @@ The spike ran inside [Scrib](https://github.com/steach-IDE/scrib) (`packages/scr
 | Behaviour (dialogs, menus, focus traps) | Not tested |
 | Layout under pressure (an input in a row, scroll axes) | Not tested |
 
-The spike's emitter, primitives and oracle move here in Phase 0. Its shadcn parser becomes the first enricher.
+That code now lives here, with its history (see [Repository layout](#repository-layout)); the oracle reproduces the same 426/426 and 36/36. Its shadcn parser is the first enricher.
 
 ---
 
-## Repository layout (planned)
+## Repository layout
 
-Nothing below exists yet. Each package is created by the feature that needs it (see `feature_list.json`).
-
-| Package | Language | What it does |
-| --- | --- | --- |
-| `packages/dsir` | JSON Schema, TS + Dart bindings | The DSIR format and its validator |
-| `packages/extractor` | TypeScript, Playwright | Renders Storybook stories and measures them |
-| `packages/enricher-shadcn` | TypeScript | Reads shadcn/ui source for names and intent |
-| `packages/oracle` | TypeScript | Compares browser renders with Flutter goldens; writes the scorecard |
-| `packages/emitter-flutter` | Dart | DSIR to Flutter package |
-| `packages/primitives-flutter` | Dart (Flutter) | Hand-written behaviour, one primitive per WAI-ARIA pattern |
-| `packages/adapter-scrib` | Dart | Maps a generated package onto Scrib's widget contract |
-| `packages/cli` | TypeScript | `stroma extract`, `stroma emit`, `stroma verify` |
+| Path | Language | What it does | Status |
+| --- | --- | --- | --- |
+| `packages/dsir` | JSON Schema, JavaScript | The DSIR format, its validator and migrations | Exists |
+| `packages/emitter-flutter` | Dart | DSIR → Flutter package, with the hand-written primitives as templates | Exists (from the spike) |
+| `packages/enricher-shadcn` | JavaScript | Reads shadcn/ui source into a DSIR; renders its reference markup | Exists (from the spike) |
+| `packages/oracle` | JavaScript | Compares browser renders with Flutter goldens; writes the scorecard | Exists (from the spike) |
+| `packages/adapter-scrib` | JSON, shell | Maps a generated package onto Scrib's widget contract | Exists (from the spike) |
+| `examples/shadcn-neutral` | — | shadcn/ui Button, Badge and Card, converted: the DSIR and the generated package | Exists |
+| `packages/extractor` | TypeScript, Playwright | Renders Storybook stories and measures them | Planned (`feat-005`) |
+| `packages/primitives-flutter` | Dart (Flutter) | The primitives as a package generated code depends on | Planned |
+| `packages/cli` | TypeScript (+ a Dart CLI) | `stroma init`, `extract`, `emit`, `verify` | Planned (`feat-010`, `feat-011`) |
 
 ---
 

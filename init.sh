@@ -68,7 +68,8 @@ while IFS= read -r -d '' s; do bash -n "$s" || fail "syntax error in $s"; done \
 echo "ok"
 
 shopt -s nullglob
-packages=(packages/*/)
+# Packages first (alphabetical: dsir installs before the enricher that imports it), then generated examples.
+packages=(packages/*/ examples/*/packages/*/)
 if [[ ${#packages[@]} -eq 0 ]]; then
   step "packages"
   echo "none yet: only the harness was checked"
@@ -89,9 +90,17 @@ for pkg in ${packages[@]+"${packages[@]}"}; do
   if [[ -f "$pkg/pubspec.yaml" ]]; then
     if grep -qE '^\s+sdk: flutter' "$pkg/pubspec.yaml"; then
       step "$pkg (flutter)"
-      (cd "$pkg" && flutter pub get >/dev/null && flutter analyze && { [[ ! -d test ]] || flutter test; }) || fail "$pkg: flutter checks"
+      command -v flutter >/dev/null || fail "$pkg needs the Flutter SDK"
+      (cd "$pkg" && flutter pub get >/dev/null && flutter analyze) || fail "$pkg: flutter analyze"
+      if grep -q 'asset: fonts/' "$pkg/pubspec.yaml" && [[ ! -d "$pkg/fonts" ]]; then
+        # shortcut: goldens need the bundled fonts, which are not vendored until feat-002 decides how; CI analyzes only.
+        echo "tests skipped: $pkg/fonts is missing (run the emitter with --fonts to copy them)"
+      elif [[ -d "$pkg/test" ]]; then
+        (cd "$pkg" && flutter test) || fail "$pkg: flutter test"
+      fi
     else
       step "$pkg (dart)"
+      command -v dart >/dev/null || fail "$pkg needs the Dart SDK"
       (cd "$pkg" && dart pub get >/dev/null && dart analyze && { [[ ! -d test ]] || dart test; }) || fail "$pkg: dart checks"
     fi
   fi

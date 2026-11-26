@@ -1,0 +1,19 @@
+{
+  "name": "@steach/stroma-oracle",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Compares browser renders with Flutter goldens and writes the scorecard.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "compare": "node compare.mjs"
+  },
+  "dependencies": {
+    "culori": "4.0.2",
+    "pngjs": "7.0.0"
+  }
+}

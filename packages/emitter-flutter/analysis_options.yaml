@@ -1,0 +1,7 @@
+analyzer:
+  exclude:
+    - build/**
+    - generated/**
+    - ingest/**
+    # Templates are analyzed inside the generated package (flutter analyze there).
+    - templates/**
