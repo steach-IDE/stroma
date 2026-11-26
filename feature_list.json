@@ -95,9 +95,9 @@
         "feat-002",
         "feat-007"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "done_when": "Carbon's Button, Tag and Tile pass the same oracle gates against a pinned Carbon version, with every failure that remains listed in unsupported with a reason.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #25 (first slice only; not done): examples/carbon/storybook builds a pinned @carbon/react 1.121.0 Storybook (Button kind x size, Tag type x size, Tile, ClickableTile). The extractor gained --root; run on it, 784 cells from 4 stories (4 themes), two runs byte-identical, and a root that matches nothing fails naming the story. Still to do: infer (var() with fallbacks, four themes, no data-slot), emit, pinned IBM Plex fonts, the oracle's browser side for Carbon."
     },
     {
       "id": "feat-009",

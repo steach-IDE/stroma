@@ -17,7 +17,7 @@ export const PROPERTIES = [
   'cursor', 'pointer-events', 'transition-property', 'transition-duration', 'transition-timing-function',
 ];
 
-/** The component's root: the first element in the story that a design system marks as a part. */
+/** The component's root unless told otherwise: the first element in the story that a design system marks as a part. */
 export const ROOT_SELECTOR = '#storybook-root [data-slot], #storybook-root [data-part], #storybook-root [data-scope]';
 
 const round = (n) => Math.round(n * 1000) / 1000;
@@ -69,7 +69,7 @@ async function matchedRules(cdp, nodeId) {
 }
 
 /** Every custom property the rules reference (following var() inside their values), with its computed value. */
-async function variables(page, elementIndex, rules) {
+async function variables(page, rootSelector, elementIndex, rules) {
   const names = new Set();
   for (const r of rules) for (const [, v] of r.decls) for (const m of v.matchAll(/var\(\s*(--[\w-]+)/g)) names.add(m[1]);
   return page.evaluate(({ rootSelector, elementIndex, start }) => {
@@ -86,18 +86,18 @@ async function variables(page, elementIndex, rules) {
       for (const m of value.matchAll(/var\(\s*(--[\w-]+)/g)) if (!(m[1] in out)) queue.push(m[1]);
     }
     return Object.fromEntries(Object.keys(out).sort().map((k) => [k, out[k]]));
-  }, { rootSelector: ROOT_SELECTOR, elementIndex, start: [...names].sort() });
+  }, { rootSelector, elementIndex, start: [...names].sort() });
 }
 
 /** Measures the current render. `nodeIds` are the CDP ids of root + descendants, in document order. */
-export async function measure(page, cdp, nodeIds) {
-  const elements = await page.evaluate(inPage, { rootSelector: ROOT_SELECTOR, properties: PROPERTIES });
+export async function measure(page, cdp, nodeIds, rootSelector = ROOT_SELECTOR) {
+  const elements = await page.evaluate(inPage, { rootSelector, properties: PROPERTIES });
   if (elements.length !== nodeIds.length) throw new Error('the DOM changed while it was being measured');
   for (let i = 0; i < elements.length; i++) {
     const e = elements[i];
     e.box = { x: round(e.box.x), y: round(e.box.y), w: round(e.box.w), h: round(e.box.h) };
     e.rules = await matchedRules(cdp, nodeIds[i]);
-    e.vars = await variables(page, i, e.rules);
+    e.vars = await variables(page, rootSelector, i, e.rules);
   }
   return elements;
 }

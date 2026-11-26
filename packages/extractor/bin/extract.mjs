@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// stroma-extract --storybook <static build> --out <empty dir> [--story <id>]... [--where <arg>=<value>]...
+// stroma-extract --storybook <static build> --out <empty dir> [--story <id>]... [--where <arg>=<value>]... [--root <css selector>]
 import { extract } from '../src/extract.mjs';
 
 const args = process.argv.slice(2);
@@ -10,11 +10,12 @@ for (let i = 0; i < args.length; i++) {
   else if (flag === '--out') opts.out = value;
   else if (flag === '--story') opts.stories.push(value);
   else if (flag === '--where') { const [k, v] = value.split('='); opts.where[k] = v; }
+  else if (flag === '--root') opts.root = value;
   else { console.error(`unknown option ${flag}`); process.exit(2); }
   i++;
 }
 if (!opts.storybook || !opts.out) {
-  console.error('usage: stroma-extract --storybook <static build> --out <empty dir> [--story <id>]... [--where <arg>=<value>]...');
+  console.error('usage: stroma-extract --storybook <static build> --out <empty dir> [--story <id>]... [--where <arg>=<value>]... [--root <css selector>]');
   process.exit(2);
 }
 try {

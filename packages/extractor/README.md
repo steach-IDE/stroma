@@ -8,7 +8,7 @@ node bin/extract.mjs --storybook ../../examples/shadcn-neutral/storybook/storybo
 # extracted 834 cells from 8 stories into .stroma/extract
 ```
 
-Options: `--story <id>` (repeatable) to extract some stories, and `--where <arg>=<value>` (repeatable) to keep some variant combinations. The output folder must be empty or absent; the extractor never deletes anything.
+Options: `--story <id>` (repeatable) to extract some stories, `--where <arg>=<value>` (repeatable) to keep some variant combinations, and `--root <css selector>` for a design system that marks no parts (Carbon: `--root '.cds--btn, .cds--tag, .cds--tile'`). The output folder must be empty or absent; the extractor never deletes anything.
 
 ## What it reads
 
@@ -20,7 +20,7 @@ Nothing here knows about any particular design system. Everything comes from the
 | Variant axes | Each story's `argTypes` that have `options`, read through Storybook's own story store |
 | Themes | The items of a `theme` global's toolbar (none: one unthemed pass) |
 | States | `rest`; `hovered` and `focused` (forced through the DevTools protocol) when the root is interactive; `disabled` when the story has a `disabled` control |
-| The component's root | The first element in the story marked `data-slot`, `data-part` or `data-scope` (shadcn, Ark and Chakra mark their parts this way) |
+| The component's root | The first element in the story marked `data-slot`, `data-part` or `data-scope` (shadcn, Ark and Chakra mark their parts this way), or the first match of `--root` |
 
 Cells are set through Storybook's preview channel (`updateStoryArgs`, `updateGlobals`), the way its own UI does: **Storybook ignores `args` in the iframe URL.** After each render the extractor checks the args and theme Storybook actually holds, and stops if they differ, so a cell is never measured under the wrong label.
 
