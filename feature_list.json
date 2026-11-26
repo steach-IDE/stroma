@@ -6,9 +6,9 @@
       "name": "Bootstrap the repository",
       "description": "Create the GitHub repository, push the setup as the one commit made without an issue, and turn on CI.",
       "dependencies": [],
-      "status": "in-progress",
+      "status": "done",
       "done_when": "The repository exists on GitHub; main holds the bootstrap commit; the CI workflow runs ./init.sh and passes on main; the first issues for feat-002 to feat-004 are open.",
-      "evidence": ""
+      "evidence": "2026-11-26: https://github.com/steach-IDE/stroma is public, Apache-2.0 (GitHub detects it). CI on main: baseline success, all green success. Issues open: #3 (feat-002), #4 (feat-003), #5 (feat-004)."
     },
     {
       "id": "feat-002",
@@ -26,13 +26,13 @@
       "id": "feat-003",
       "phase": 0,
       "name": "DSIR 0.2 schema and validator",
-      "description": "packages/dsir: a JSON Schema for DSIR 0.2 (adds anatomy, behaviour as a WAI-ARIA pattern id, and per-fact provenance to the spike's 0.1) and a validator CLI.",
+      "description": "packages/dsir: a JSON Schema for DSIR 0.2 (adds behaviour as a WAI-ARIA pattern id and per-rule provenance to the spike's 0.1; closed style keys), a validator CLI with cross-reference checks, and the 0.1 -> 0.2 migration. Anatomy moved to feat-006 (issue #4).",
       "dependencies": [
         "feat-001"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "The validator accepts the spike's shadcn DSIR converted to 0.2 and rejects at least three broken fixtures (unknown rule key, missing provenance, unknown behaviour id), each with a message naming the path; ./init.sh runs these tests.",
-      "evidence": ""
+      "evidence": "2026-11-26, branch feat/4-dsir-schema: ./init.sh ran packages/dsir: 10/10 tests pass. node bin/validate.mjs fixtures/shadcn/shadcn.dsir.json -> 'valid DSIR 0.2.0', exit 0. Rejected with the JSON path: unknown set key (/components/0/rules/7/set), missing provenance, unknown behaviour, dsirVersion 0.1.0, unknown variant value, misspelt condition, unknown colour token. CLI exits 1 on a broken file."
     },
     {
       "id": "feat-004",
@@ -64,12 +64,12 @@
       "id": "feat-006",
       "phase": 1,
       "name": "Measurements to DSIR",
-      "description": "Infer the DSIR from measurements: diff renders per axis into conditional rules, recover tokens from matched var() rules, read anatomy from the DOM.",
+      "description": "Infer the DSIR from measurements: diff renders per axis into conditional rules, recover tokens from matched var() rules, and add anatomy (a component's parts and layout, read from the DOM) to the DSIR schema as 0.3.",
       "dependencies": [
         "feat-005"
       ],
       "status": "not-started",
-      "done_when": "The DSIR inferred for shadcn Button, Badge and Card validates against 0.2, and the share of colour, radius and spacing values recovered as named tokens is reported against the spike's source-derived DSIR.",
+      "done_when": "The DSIR inferred for shadcn Button, Badge and Card validates against 0.2, and the share of colour, radius and spacing values recovered as named tokens is reported against the spike's source-derived DSIR. The schema gains anatomy, and the validator and migration cover it.",
       "evidence": ""
     },
     {

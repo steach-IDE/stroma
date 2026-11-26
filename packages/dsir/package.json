@@ -1,0 +1,26 @@
+{
+  "name": "@steach/stroma-dsir",
+  "private": true,
+  "version": "0.0.0",
+  "description": "The DSIR format: JSON Schema, validator and migrations.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "node": ">=20"
+  },
+  "exports": {
+    ".": "./src/validate.mjs",
+    "./migrate": "./src/migrate.mjs",
+    "./schema": "./schema/dsir-0.2.schema.json"
+  },
+  "bin": {
+    "stroma-dsir-validate": "bin/validate.mjs"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "ajv": "8.20.0"
+  }
+}

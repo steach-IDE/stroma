@@ -3,13 +3,16 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** `feat-001` (bootstrap the repository): the repository is public at https://github.com/steach-IDE/stroma; the first issues are still to open.
-- **Code:** none yet. This repository holds the README, the agent harness and the working rules.
+- **Active feature:** none. `feat-003` is done on branch `feat/4-dsir-schema`, waiting for its pull request.
+- **Code:** `packages/dsir`: the DSIR 0.2 schema, validator and 0.1 migration.
 
 ## Done
 
 - The harness: `AGENTS.md`, `CLAUDE.md`, `feature_list.json`, `progress.md`, `session-handoff.md`, `init.sh`, `.claude/` rules and hook, `.github/` templates and CI.
 - The README: purpose, design, spike evidence, planned layout, roadmap.
+
+- `feat-001`: the repository is public with CI; issues #3, #4 and #5 are open.
+- `feat-003`: `packages/dsir`, the DSIR 0.2 schema, validator (schema + cross-references) and migration, with the shadcn fixture and 10 tests.
 
 ## In progress
 
@@ -17,8 +20,9 @@ Nothing.
 
 ## Next
 
-1. Finish `feat-001`: open issues for `feat-002`, `feat-003` and `feat-004`, then record the evidence.
-2. Reserve the names: create the npm organisation `steach` (for `@steach/stroma`) and publish a placeholder of `stroma` on pub.dev.
+1. Merge the `feat-003` pull request (issue #4).
+2. `feat-004` (issue #5): move the spike code over with its history, and migrate its DSIR with `packages/dsir/bin/migrate.mjs`.
+3. Later, not blocking: reserve the names (npm organisation `steach` for `@steach/stroma`; `stroma` on pub.dev). Deferred by the maintainer on 2026-11-26.
 
 ## Blockers and risks
 
@@ -39,6 +43,9 @@ Nothing.
 | 2026-11-26 | Generated packages are committed in the team's repository; Stroma never publishes them | Reviewable, and no redistribution of anyone's design system | Stroma publishing to pub.dev |
 | 2026-11-26 | Customisation through DSIR overrides and hand-written replacements, never edits to generated files | Keeps regeneration safe | Editable generated code |
 | 2026-11-26 | No hosted service and no catalogue of converted output for now | Scope, and licensing of derivatives | Both, later |
+| 2026-11-26 | DSIR 0.2 leaves out `anatomy`; it moves to `feat-006` (0.3) | Its shape depends on what the extractor can read from the DOM | Designing it now |
+| 2026-11-26 | The validator runs the schema, then cross-reference checks (variant axes and values, colour and radius tokens) | JSON Schema can't relate one part of the file to another; a misspelt condition would pass as a variant axis | Schema only |
+| 2026-11-26 | `ajv` (pinned 8.20.0) for JSON Schema 2020-12 | The standard validator for Node; no hand-rolled schema code | A hand-written checker |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified
@@ -49,7 +56,8 @@ All files in the repository were created on 2026-11-26.
 
 | Check | Command | Result |
 | --- | --- | --- |
-| Harness | `./init.sh` | See `session-handoff.md` |
+| Harness | `./init.sh` | Green: 12 features, `packages/dsir` 10/10 tests |
+| DSIR fixture | `node packages/dsir/bin/validate.mjs packages/dsir/fixtures/shadcn/shadcn.dsir.json` | `valid DSIR 0.2.0`, exit 0 |
 
 ## Notes for the next session
 
