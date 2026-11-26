@@ -21,3 +21,15 @@ The token check still reads shadcn's source theme (marked `shortcut:` in `compar
 | --- | --- | --- |
 | `flutter has no cell …` | The Flutter geometry is older than the cell list | Run `flutter test` in the example package first |
 | Low SSIM on focused badges | Chrome draws its own focus outline on links; Flutter has none | Expected, and listed in the DSIR's `unsupported` |
+
+## Comparing with an extraction
+
+Where there is no Chrome reference sheet (Carbon), `compare-extraction.mjs` reads the extractor's output instead: the extraction holds Chrome's computed styles and box for every cell.
+
+```sh
+node compare-extraction.mjs --extraction <dir> --dsir <dsir.json> --package <generated package> [--out summary.json]
+```
+
+Same gates as above: height, padding (border plus padding, from the extraction's style) and corner radius within ±1 px, background within ΔE2000 < 2 (a transparent background is composited over the page token, as the Flutter sheet paints it). Width is reported only. Cells match by id (`btn.primary.lg.rest.white`) and mode; a component that holds two stories (Tile and ClickableTile) matches each by whether the story is interactive. A cell that fails is listed in the summary's `failures`, grouped by component and check, with its worst case; the exit code is 1.
+
+`pixels.mjs` holds the pixel helpers both comparators use.

@@ -57,7 +57,7 @@ Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool d
         onPressed: disabled ? null : () {},
       );
     case 'Card':
-      return Card(children: kids());
+      return Card(children: text == null ? kids() : [Text(text)]);
     case 'CardAction':
       return CardAction(child: text == null ? null : Text(text));
     case 'CardContent':
@@ -65,10 +65,13 @@ Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool d
     case 'CardDescription':
       return CardDescription(child: text == null ? null : Text(text));
     case 'CardFooter':
-      return CardFooter(children: kids());
+      return CardFooter(children: text == null ? kids() : [Text(text)]);
     case 'CardHeader':
       final action = n['action'] as Map?;
-      return CardHeader(children: kids(), action: action == null ? null : buildNode(action.cast()));
+      return CardHeader(
+        children: text == null ? kids() : [Text(text)],
+        action: action == null ? null : buildNode(action.cast()),
+      );
     case 'CardTitle':
       return CardTitle(child: text == null ? null : Text(text));
   }

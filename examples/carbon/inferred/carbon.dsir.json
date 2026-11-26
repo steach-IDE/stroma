@@ -682,6 +682,7 @@
             },
             "fontSize": 14,
             "fontWeight": 400,
+            "h": 24,
             "layout": "inlineRow",
             "lineHeightFactor": 1.2857,
             "px": 15,
@@ -805,10 +806,33 @@
         },
         {
           "when": {
+            "size": "2xl"
+          },
+          "target": "root",
+          "set": {
+            "h": 80
+          },
+          "from": "measured: size=2xl",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "target": "root",
+          "set": {
+            "h": 48
+          },
+          "from": "measured: size=lg",
+          "provenance": "measured"
+        },
+        {
+          "when": {
             "size": "md"
           },
           "target": "root",
           "set": {
+            "h": 40,
             "py": 10
           },
           "from": "measured: size=md",
@@ -820,9 +844,21 @@
           },
           "target": "root",
           "set": {
+            "h": 32,
             "py": 6
           },
           "from": "measured: size=sm",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "xl"
+          },
+          "target": "root",
+          "set": {
+            "h": 64
+          },
+          "from": "measured: size=xl",
           "provenance": "measured"
         },
         {
@@ -1257,6 +1293,7 @@
             },
             "fontSize": 12,
             "fontWeight": 400,
+            "h": 18,
             "layout": "inlineRow",
             "lineHeightFactor": 1.3333,
             "mainAlign": "center",
@@ -1273,9 +1310,21 @@
           },
           "target": "root",
           "set": {
+            "h": 32,
             "px": 12
           },
           "from": "measured: size=lg",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "md"
+          },
+          "target": "root",
+          "set": {
+            "h": 24
+          },
+          "from": "measured: size=md",
           "provenance": "measured"
         },
         {
@@ -1482,6 +1531,7 @@
             },
             "fontSize": 14,
             "fontWeight": 400,
+            "h": 64,
             "layout": "block",
             "lineHeightFactor": 1.2857,
             "px": 16,

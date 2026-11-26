@@ -3,7 +3,8 @@
 
 /** DSIR style key -> the authored property names that declare it (shorthands included). */
 const DECLARED_BY = {
-  h: ['height', 'block-size'],
+  // Carbon sets a component's height as a minimum (`min-block-size: 3rem`); the content never exceeds it in a cell.
+  h: ['height', 'block-size', 'min-height', 'min-block-size'],
   w: ['width', 'inline-size'],
   px: ['padding', 'padding-inline', 'padding-left', 'padding-right'],
   py: ['padding', 'padding-block', 'padding-top', 'padding-bottom'],
