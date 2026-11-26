@@ -699,7 +699,10 @@ ${judgment(badge)}
 ${judgment(card)}
 library;
 
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:$packageName/$packageName.dart' as ds;
 
 import 'shadcn_adapter.dart' as base;
@@ -736,7 +739,13 @@ class ScribButton extends StatelessWidget {
       variant: ${_switch('ScribButtonVariant', (button['variant'] as Map).cast<String, dynamic>(), 'ds.ButtonVariant')},
       size: ds.ButtonSize.${enumValue(button['size'] as String)},
       icon: iconData == null ? null : Icon(iconData),
-      onPressed: disabled ? null : (onPressed ?? () {}),
+      // Same press feedback as the base adapter, so swapping design systems keeps the feel.
+      onPressed: disabled
+          ? null
+          : () {
+              unawaited(HapticFeedback.lightImpact());
+              onPressed?.call();
+            },
       child: Text(label),
     );
   }

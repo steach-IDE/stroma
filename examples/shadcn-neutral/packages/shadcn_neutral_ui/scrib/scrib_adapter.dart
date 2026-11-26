@@ -11,7 +11,10 @@
 // - gap: Scrib's gap separates the card's children inside one CardContent
 library;
 
+import 'dart:async' show unawaited;
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart' show HapticFeedback;
 import 'package:shadcn_neutral_ui/shadcn_neutral_ui.dart' as ds;
 
 import 'shadcn_adapter.dart' as base;
@@ -62,7 +65,13 @@ class ScribButton extends StatelessWidget {
       },
       size: ds.ButtonSize.regular,
       icon: iconData == null ? null : Icon(iconData),
-      onPressed: disabled ? null : (onPressed ?? () {}),
+      // Same press feedback as the base adapter, so swapping design systems keeps the feel.
+      onPressed: disabled
+          ? null
+          : () {
+              unawaited(HapticFeedback.lightImpact());
+              onPressed?.call();
+            },
       child: Text(label),
     );
   }
