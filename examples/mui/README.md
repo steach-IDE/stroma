@@ -31,7 +31,7 @@ node packages/oracle/compare-extraction.mjs --extraction <dir> --dsir examples/m
 | --- | --- | --- |
 | Button (3 variants x 6 colours x 3 sizes x rest, hovered, focused, disabled x 2 modes) | 432 | 432 |
 
-Largest difference on a gated check: height 0.5 px, padding 0 px, background dE2000 0, radius 0.19 px (36 of 108 rest cells have a measurable corner).
+The goldens are Linux renders from the `update-goldens` workflow; a macOS render gave the same numbers. Largest difference on a gated check: height 0.5 px, padding 0 px, background dE2000 0, radius 0.19 px (36 of 108 rest cells have a measurable corner).
 
 ### What the gates do not cover
 

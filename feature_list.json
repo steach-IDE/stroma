@@ -250,14 +250,14 @@
     {
       "id": "feat-021",
       "phase": 2,
-      "name": "Tokens that vary by variant",
-      "description": "A DSIR token can say its value depends on a variant axis (or inference writes such a value as a literal): Material UI's per-colour variables, found by the CSS-in-JS probe.",
+      "name": "Variant-dependent colours as literals",
+      "description": "Colours whose token has several values within a mode are written as literals (Material UI's per-colour variables), so the Material UI Button emits and passes the oracle.",
       "dependencies": [
         "feat-019"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "Inference on the Material UI Button lists no token conflict: each variant-dependent colour is either a token with a value per axis value or a literal, the DSIR validates, and emit plus the oracle pass for its Button at the gates; shadcn and Carbon DSIRs are unchanged.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #41: inference writes a colour as the literal the browser drew where its token took several values within a mode (Material UI: 6 tokens, all of them), lists them in the report (writtenAsLiterals) and no longer keeps the first value; shadcn and Carbon DSIRs are identical (but for the source hash). The Material UI Button now goes through infer (100% of 7,344 values explained, nothing unsupported), emit (flutter analyze clean, two emits identical) and the oracle: 432/432 cells at the gates on Linux goldens (height 0.5 px, padding 0 px, background dE2000 0, radius 0.19 px at worst). Needed on the way, each found by a failing cell: the page colours measured into tokens.page, emit --no-fonts, an empty shadow list for box-shadow: none, and oracle sheets split above about 200 cells. The shadcn oracle (426/426, 36/36) and the Carbon oracle (780/780) are unchanged."
     },
     {
       "id": "feat-022",
