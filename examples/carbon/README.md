@@ -29,7 +29,7 @@ node packages/oracle/compare-extraction.mjs --extraction <dir> --dsir examples/c
 | Tag (8 types x 3 sizes x 4 themes) | 96 | 96 |
 | Tile (rest, hovered, focused x 4 themes) | 12 | 12 |
 
-Largest difference on a gated check: height 0 px, padding 0 px, background dE2000 0.32, radius 0.35 px. A negative control (one Flutter height damaged by 3 px) fails that cell alone, 779 of 780.
+Against Chrome's own image of each cell (`feat-017`): text colour within ΔE 0.4 in all 780 cells (limit 5), mean SSIM 0.91 (lowest 0.54). Largest difference on a gated check: height 0 px, padding 0 px, background dE2000 0.32, radius 0.35 px. A negative control (one Flutter height damaged by 3 px) fails that cell alone, 779 of 780.
 
 **Which run.** The goldens are Linux renders from the `update-goldens` workflow (the platform CI compares on); Flutter's geometry is from `flutter test` on the same package. A macOS render of the goldens gave the same numbers.
 
@@ -40,5 +40,6 @@ Largest difference on a gated check: height 0 px, padding 0 px, background dE200
 | Tile's width: Chrome 1216 px, Flutter 55 px | A block-level box fills its container in Chrome. The DSIR has no "fill the width" value, so Flutter sizes to its content. Width is reported, not gated, for every design system |
 | Corner radius in 111 of 268 rest cells | The box does not stand out from the page (ghost and outline buttons and tags, a tile in its own colour), so the pixel measurement has nothing to read. Where it can be measured (157 cells) it passes |
 | ClickableTile at rest (4 cells) | The DSIR holds Tile and ClickableTile as one component; the Flutter cells for it at rest are the plain tile's, so the clickable story is matched at hovered and focused only |
-| Text colour, SSIM, glyph shapes | Not compared: there is no Chrome image of the extraction. The two engines rasterise text differently anyway |
+| An **inset** box-shadow | Found by the pixel comparison, and not fixed here (`feat-023`): Carbon draws an outline tag's border as `box-shadow: inset 0 0 0 1px`, the DSIR cannot tell an inset shadow from an outer ring, and Flutter paints that border about 1 px outside the box. The gates compare the layout box and could not see it; it is why the outlined small Tag has the lowest SSIM (0.54) |
+| Glyph shapes | The two engines rasterise text differently; SSIM is reported, not gated |
 | Carbon's other components, sizes in `rem` as a scale, spacing tokens | Out of scope: Button, Tag and Tile only. Carbon's sizes are `rem` literals, so none of them is recovered as a spacing token (0%) |

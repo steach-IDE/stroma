@@ -29,12 +29,19 @@ test('two runs write byte-identical cells, one per variant x state x theme', asy
   await extract({ storybook, out: b, stories });
   // The link badge: 6 variants x rest/hovered/focused x light/dark. The card is not interactive: rest x 2 themes.
   assert.deepEqual(first, { stories: 2, cells: 6 * 3 * 2 + 2 });
-  const files = (dir) => fs.readdirSync(dir, { recursive: true }).filter((f) => f.endsWith('.json')).sort();
+  const files = (dir) => fs.readdirSync(dir, { recursive: true }).filter((f) => f.endsWith('.json') || f.endsWith('.png')).sort();
   assert.deepEqual(files(a), files(b));
-  for (const f of files(a)) assert.equal(fs.readFileSync(path.join(a, f), 'utf8'), fs.readFileSync(path.join(b, f), 'utf8'), f);
+  // Cell files and the image of each cell (what Chrome drew) are byte-identical across runs.
+  for (const f of files(a)) assert.ok(fs.readFileSync(path.join(a, f)).equals(fs.readFileSync(path.join(b, f))), f);
+  assert.equal(files(a).filter((f) => f.endsWith('.png')).length, first.cells, 'one image per cell');
   const story = read(a, 'index.json').stories['badge--as-link'];
   assert.deepEqual(story.defaults, { variant: 'default' });
   assert.deepEqual(story.themes, ['light', 'dark']);
+  // The image is the root's box plus a 6 px margin, at 2x.
+  const png = fs.readFileSync(path.join(a, 'badge--as-link/theme=dark,variant=secondary,state=hovered.png'));
+  const [w, h] = [png.readUInt32BE(16), png.readUInt32BE(20)];
+  const box = read(a, 'badge--as-link/theme=dark,variant=secondary,state=hovered.json').elements[0].box;
+  assert.ok(Math.abs(w - (box.w + 12) * 2) <= 2 && Math.abs(h - (box.h + 12) * 2) <= 2, `image ${w}x${h} for a ${box.w}x${box.h} box`);
   const cell = read(a, 'badge--as-link/theme=dark,variant=secondary,state=hovered.json');
   assert.equal(cell.elements[0].attrs['data-variant'], 'secondary');
   assert.equal(cell.elements[0].role, 'link');

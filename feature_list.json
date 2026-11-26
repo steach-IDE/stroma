@@ -207,9 +207,9 @@
       "dependencies": [
         "feat-009"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "Both systems report SSIM and text colour per cell from the extraction's own crops, with no Chrome reference sheet; the gate on text colour is stated and met or its failures listed in unsupported; two extractions give identical crops.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #48: stroma-extract saves <cell>.png beside each cell file (the root's box plus 6 px, 2x; byte-identical across runs; the cell JSON is unchanged by 2x, 0 of 48 differ); compare-extraction.mjs reads them: text colour gated at dE2000 5 (glyph pixel, Chrome image vs Flutter golden), SSIM reported. Carbon 780/780 (text colour within dE 0.4, SSIM mean 0.91, min 0.54); shadcn Button and Badge 420/420 through the same path (SSIM mean 0.97; Card examples stay with the reference-sheet oracle); Material UI 390/432 with 42 dark-mode text-colour failures listed in examples/mui/README.md with their cause (SSIM mean 0.71: Roboto not loaded). A damaged golden is caught alone (779/780). Existing gates and results unchanged. Found: an inset box-shadow is read as an outer ring (feat-023)."
     },
     {
       "id": "feat-018",
@@ -269,6 +269,18 @@
       ],
       "status": "not-started",
       "done_when": "On the Material UI Storybook (Roboto not shipped) the extraction's index.json says the first family did not load and names the fallback; on shadcn and Carbon it says they did.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-023",
+      "phase": 2,
+      "name": "Inset box-shadows",
+      "description": "The DSIR can say a box-shadow ring is inset (Carbon draws borders and focus outlines as `box-shadow: inset 0 0 0 1px`); inference reads it, the emitter paints it inside the box. Found by the pixel oracle: Flutter paints an outline tag's border about 1 px outside the box.",
+      "dependencies": [
+        "feat-017"
+      ],
+      "status": "not-started",
+      "done_when": "Carbon's outlined Tag and Button (and every other cell with an inset ring) keep passing every gate, and the painted extent of an outline tag's border in Flutter's golden equals Chrome's image's within 1 device px; the SSIM of the small outlined Tag rises from 0.54; shadcn and Material UI results are unchanged.",
       "evidence": ""
     }
   ]

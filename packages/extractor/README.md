@@ -26,6 +26,10 @@ Cells are set through Storybook's preview channel (`updateStoryArgs`, `updateGlo
 
 `index.json` also holds `page`: the page's background and text colour per theme (from `<body>`, else `<html>`, else white), for a DSIR whose tokens do not name them.
 
+## An image of every cell
+
+Beside each cell file the extractor saves `<cell>.png`: what Chrome drew for the component's root, its box plus a 6 px margin (a focus ring or a shadow sits outside the box), at 2x like the Flutter goldens. The images are deterministic (two extractions are byte-identical) and are what the oracle compares Flutter with, so a design system needs no Chrome reference sheet of its own. The cell files are unchanged by the 2x rendering: CSS pixels and computed styles do not depend on it.
+
 ## No network
 
 Every request that is not to the Storybook's own server is aborted, and `index.json` lists them under `blocked` (the key is absent when there were none). A CDN font can't change a measurement, and one that is missing shows up as a URL, not as a quietly different width.

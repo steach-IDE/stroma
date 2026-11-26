@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-`feat-017`, a Chrome crop per cell and a pixel comparison for every system (text colour, SSIM), so no oracle compares only the numbers the rules were mined from; then `feat-022` (report fonts that did not load) and `feat-010` (the CLI, which exposes the coverage report and the overrides). Open each issue first; run `.github/scripts/work-gate.sh` before pushing.
+`feat-023`, inset box-shadows: Carbon's outlined Tag (SSIM 0.54, border painted about 1 px outside the box) shows the DSIR cannot tell `box-shadow: inset 0 0 0 1px` from an outer ring. Add an inset flag to the DSIR's ring, read it in inference, paint it inside in `DsBox`; verify the painted border extent in the golden against Chrome's image, and keep every gate. Then `feat-022` (fonts that did not load, which would also lift Material UI's SSIM) and `feat-010` (the CLI). Open each issue first; run `.github/scripts/work-gate.sh` before pushing.
