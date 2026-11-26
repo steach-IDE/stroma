@@ -2,7 +2,7 @@
 
 ## Current objective
 
-`feat-008`, Carbon. Slices 1 (#25) and 2 (#26, infer) are done locally and not pushed; fonts, emit and the oracle are next.
+`feat-008`, Carbon. Slices 1 (#25), 2 (#26, infer) and 3 (#27, emit) are done locally and not pushed; fonts and the oracle are next.
 
 ## Completed this session
 
@@ -24,6 +24,12 @@
 - The extractor now records the root's `class`; the schema's `mode` is any string; `py` stays set when only the bottom padding differs (`pb` overrides).
 - Slice 1's preview did not switch themes (`GlobalTheme` is context only); fixed with `Theme` and a test.
 
+## Slice 3 (issue #27)
+
+- The emitter writes a package for the Carbon DSIR (`examples/carbon/inferred/carbon.dsir.json`): four token sets, `t.mode` rules, generated oracle builder and 780 cells; `flutter analyze` clean.
+- shadcn re-emitted: analyze clean, oracle 426/426 and 36/36. CI's Linux goldens are the real check of that.
+- Not done: IBM Plex fonts (the Carbon package has none, and its text falls back), and the oracle run itself.
+
 ## Findings for the next slice (some now done)
 
 - Carbon's tokens are `var(--cds-button-primary, #0f62fe)`: a fallback after the name. Infer must read that form, and the hover rule names a different token (`--cds-button-primary-hover`).
@@ -38,4 +44,4 @@
 
 ## Recommended next step
 
-An issue for the emitter on Carbon's DSIR: themes beyond light and dark (`DsTokens` has `light` and `dark` only), then the pinned IBM Plex fonts, then the oracle's browser side.
+Pin the IBM Plex fonts (`tool/fetch-fonts.sh`, a hash-checked download), then the oracle's browser side for Carbon: the extraction already holds each cell's box, colours and geometry, so compare Flutter's geometry with it instead of a Chrome reference page.

@@ -9,7 +9,7 @@ dart run bin/emit.dart            # writes examples/shadcn-neutral/packages/shad
 dart run bin/emit.dart --check    # exit 1 if the committed package differs, or holds a file no longer emitted
 ```
 
-Options: `--dsir <file>`, `--mapping <file>` (a Scrib adapter mapping), `--out <dir>`, `--fonts <dir>` (where `Inter-{Regular,Medium,SemiBold}.ttf` are copied from; default the pinned copy in `.stroma/fonts/inter-4.1`). The defaults build the shadcn example from `examples/shadcn-neutral/inferred/shadcn.dsir.json`, the DSIR `packages/infer` wrote from the Storybook (regenerate it with `packages/extractor` then `packages/infer`). The source-derived DSIR in `design-system/` stays as the ground truth it is compared with.
+Options: `--dsir <file>`, `--mapping <file>` (a Scrib adapter mapping) or `--no-mapping`, `--package <name>`, `--out <dir>`, `--fonts <dir>` (where `Inter-{Regular,Medium,SemiBold}.ttf` are copied from; default the pinned copy in `.stroma/fonts/inter-4.1`). The defaults build the shadcn example from `examples/shadcn-neutral/inferred/shadcn.dsir.json`, the DSIR `packages/infer` wrote from the Storybook (regenerate it with `packages/extractor` then `packages/infer`). The source-derived DSIR in `design-system/` stays as the ground truth it is compared with.
 
 | Path | What it is |
 | --- | --- |
@@ -26,3 +26,17 @@ The primitives will move to `packages/primitives-flutter` once generated package
 | `EmitException: DSIR style key "…" has no Flutter mapping` | The DSIR holds a style the emitter can't print | Teach the emitter the key, and add it to the DSIR schema in the same change |
 | `stale: …` from `--check` | The committed package isn't what the emitter writes now | Run `dart run bin/emit.dart` and commit the result. Never edit generated files by hand |
 | `missing …/.stroma/fonts/inter-4.1/Inter-Regular.ttf` | The pinned fonts haven't been downloaded yet | Run `tool/fetch-fonts.sh` (or `./init.sh`), or pass `--fonts <dir>` |
+
+## Any design system's DSIR
+
+The emitter makes no assumption about a design system's themes or components:
+
+- **Modes.** `DsTokens` has one const set per mode in the DSIR (`white`, `g10`, `g90`, `g100`, or `light` and `dark`), a `mode` name, and `DsTokens.byMode`. Rules test `t.mode == '<mode>'`. `DsTokens.light` and `dark` always exist for the ambient theme: aliases to the lightest and darkest mode when the DSIR names others. A mode is dark when it is named `dark` or its page background is.
+- **Page tokens.** The tokens that paint the page and its text are found by name (`background` or `*-background`; `foreground`, `*-text-primary` or `*-foreground`); with none, the emit fails saying so. (A `shortcut:` in `emitter.dart`.)
+- **Names.** `danger--ghost` is `dangerGhost`, and `2xl` is `v2xl`, as Dart identifiers need.
+- **The oracle's test.** `test/oracle/build_node.dart` and `cells.json` are generated from the DSIR's components, slots and variant axes. Only shadcn's Button, Badge and Card have hand-written cells, for the card examples.
+- `scrib/` and `test/pressable_test.dart` are only written when there is a Scrib mapping, and a Button.
+
+```sh
+dart run bin/emit.dart --dsir ../../examples/carbon/inferred/carbon.dsir.json --package carbon_ui --no-mapping --out <dir>
+```

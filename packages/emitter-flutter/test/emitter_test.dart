@@ -50,6 +50,45 @@ void main() {
     expect(files['lib/src/components/badge.dart']!, contains('Widget? icon'));
   });
 
+  test(
+    'a DSIR with four themes, no radius and Carbon-style names emits one token set per mode',
+    () {
+      final carbon = read('../../examples/carbon/inferred/carbon.dsir.json');
+      final files = emitPackage(dsir: carbon, templates: const {}, packageName: 'carbon_ui');
+      expect(
+        files,
+        equals(emitPackage(dsir: carbon, templates: const {}, packageName: 'carbon_ui')),
+      );
+      final tokens = files['lib/src/tokens.dart']!;
+      for (final mode in ['white', 'g10', 'g90', 'g100']) {
+        expect(tokens, contains('static const $mode = DsTokens('));
+      }
+      expect(tokens, contains('static const light = white;'));
+      expect(tokens, contains('static const dark = g100;'));
+      expect(files['lib/src/components/tile.dart']!, contains("t.mode == 'g90'"));
+      expect(files['lib/src/components/btn.dart']!, contains('dangerTertiary')); // danger--tertiary
+      expect(
+        files['lib/src/components/btn.dart']!,
+        contains('v2xl'),
+      ); // 2xl is not a Dart identifier
+      expect(files.containsKey('scrib/scrib_adapter.dart'), isFalse);
+      expect(files.containsKey('test/pressable_test.dart'), isFalse);
+    },
+  );
+
+  test('tokens that name no page background fail, saying so', () {
+    final broken =
+        jsonDecode(jsonEncode(read('../../examples/carbon/inferred/carbon.dsir.json')))
+            as Map<String, dynamic>;
+    ((broken['tokens'] as Map)['color'] as Map).removeWhere(
+      (k, _) => (k as String).endsWith('background'),
+    );
+    expect(
+      () => emitPackage(dsir: broken, templates: const {}, packageName: 'carbon_ui'),
+      throwsA(predicate((e) => e is EmitException && e.message.contains('page background'))),
+    );
+  });
+
   test('the committed example is what the emitter writes now', () {
     final run = Process.runSync(Platform.resolvedExecutable, ['run', 'bin/emit.dart', '--check']);
     expect(run.exitCode, 0, reason: '${run.stdout}${run.stderr}');
