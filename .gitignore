@@ -1,0 +1,25 @@
+# Node
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+pubspec.lock
+
+# Stroma runs: renders, measurements and reports are rebuilt, never committed
+.stroma/
+**/oracle-report/
+
+# Local settings and secrets: never committed
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+
+# OS and editors
+.DS_Store
+*.swp
+*~

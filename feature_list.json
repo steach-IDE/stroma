@@ -1,0 +1,114 @@
+{
+  "features": [
+    {
+      "id": "feat-001",
+      "phase": 0,
+      "name": "Bootstrap the repository",
+      "description": "Create the GitHub repository, push the setup as the one commit made without an issue, and turn on CI.",
+      "dependencies": [],
+      "status": "in-progress",
+      "done_when": "The repository exists on GitHub; main holds the bootstrap commit; the CI workflow runs ./init.sh and passes on main; the first issues for feat-002 to feat-004 are open.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-002",
+      "phase": 0,
+      "name": "Record the remaining Phase 1 decisions",
+      "description": "The licence is decided (Apache-2.0). Decide the second design system for Phase 1, the LLM policy at extraction, and how CI gets pinned fonts.",
+      "dependencies": [
+        "feat-001"
+      ],
+      "status": "not-started",
+      "done_when": "Each of the three decisions is in progress.md under Decisions with the alternatives and the reason.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-003",
+      "phase": 0,
+      "name": "DSIR 0.2 schema and validator",
+      "description": "packages/dsir: a JSON Schema for DSIR 0.2 (adds anatomy, behaviour as a WAI-ARIA pattern id, and per-fact provenance to the spike's 0.1) and a validator CLI.",
+      "dependencies": [
+        "feat-001"
+      ],
+      "status": "not-started",
+      "done_when": "The validator accepts the spike's shadcn DSIR converted to 0.2 and rejects at least three broken fixtures (unknown rule key, missing provenance, unknown behaviour id), each with a message naming the path; ./init.sh runs these tests.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-004",
+      "phase": 0,
+      "name": "Move the spike code with its history",
+      "description": "Bring Scrib's packages/scrib_ds over with git filter-repo and split it into the planned packages (emitter-flutter, primitives-flutter, oracle, enricher-shadcn, adapter-scrib).",
+      "dependencies": [
+        "feat-001",
+        "feat-003"
+      ],
+      "status": "not-started",
+      "done_when": "git log shows the spike's commits; the moved emitter, ingest and generated-package tests pass in the new layout; the oracle reproduces 426/426 cells and 36/36 tokens; ./init.sh runs all of it.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-005",
+      "phase": 1,
+      "name": "Render-based extractor",
+      "description": "packages/extractor: read a Storybook index and each story's argTypes, render each story x state x theme in headless Chrome, and record computed styles, geometry, matched CSS rules (with var() references) and ARIA roles.",
+      "dependencies": [
+        "feat-003",
+        "feat-004"
+      ],
+      "status": "not-started",
+      "done_when": "Pointed at a pinned shadcn/ui Storybook, it writes a measurement file per cell for Button, Badge and Card covering the same variants and states as the spike; two runs give identical files.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-006",
+      "phase": 1,
+      "name": "Measurements to DSIR",
+      "description": "Infer the DSIR from measurements: diff renders per axis into conditional rules, recover tokens from matched var() rules, read anatomy from the DOM.",
+      "dependencies": [
+        "feat-005"
+      ],
+      "status": "not-started",
+      "done_when": "The DSIR inferred for shadcn Button, Badge and Card validates against 0.2, and the share of colour, radius and spacing values recovered as named tokens is reported against the spike's source-derived DSIR.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-007",
+      "phase": 1,
+      "name": "Phase 1 gate on shadcn/ui",
+      "description": "Emit Flutter from the render-extracted shadcn DSIR and run the oracle at the spike's gates.",
+      "dependencies": [
+        "feat-006"
+      ],
+      "status": "not-started",
+      "done_when": "The oracle passes every Button, Badge and Card cell at height, padding and radius within 1 px and background within dE2000 2, light and dark.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-008",
+      "phase": 1,
+      "name": "Phase 1 gate on a second design system",
+      "description": "Run extract, emit and verify on the second design system chosen in feat-002, styled with something other than Tailwind.",
+      "dependencies": [
+        "feat-002",
+        "feat-007"
+      ],
+      "status": "not-started",
+      "done_when": "Its button, badge (or tag) and card equivalents pass the same oracle gates, with every failure that remains listed in unsupported with a reason.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-009",
+      "phase": 1,
+      "name": "Phase 1 verdict",
+      "description": "Write whether render-based extraction works, with the evidence, and re-plan Phase 2 on that basis.",
+      "dependencies": [
+        "feat-007",
+        "feat-008"
+      ],
+      "status": "not-started",
+      "done_when": "docs/phase-1-verdict.md states go or no-go, links the scorecards of both systems, reports the intent-loss figure, and the roadmap in README.md is updated to match.",
+      "evidence": ""
+    }
+  ]
+}

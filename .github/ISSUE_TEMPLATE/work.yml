@@ -1,0 +1,67 @@
+name: Work
+description: Every change starts here. Say why, and what done looks like.
+labels: []
+title: "type(scope): "
+body:
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options: [feature, bug, chore, docs]
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is wrong or missing, and who it affects. A person's words, not a solution. Name the feature id (feat-NNN) if this delivers one.
+    validations:
+      required: true
+  - type: textarea
+    id: goal
+    attributes:
+      label: Goal
+      description: What will be true when this is done, in one or two sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: What this change includes.
+    validations:
+      required: true
+  - type: textarea
+    id: non-goals
+    attributes:
+      label: Non-goals
+      description: What it deliberately leaves out.
+  - type: textarea
+    id: criteria
+    attributes:
+      label: Acceptance criteria
+      description: "Each line is a check that passes or fails. Good: 'stroma extract on a story with no argTypes exits non-zero and names the story'. Not testable: 'improve the extractor'. No testable criteria means the work does not start."
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies and risks
+      description: What must happen first, what could go wrong (determinism, the DSIR version, a design system's licence, the oracle's gates).
+  - type: textarea
+    id: docs
+    attributes:
+      label: Docs impact
+      description: Which of README.md, AGENTS.md or docs/ this changes, or "none, because ...".
+    validations:
+      required: true
+  - type: dropdown
+    id: status
+    attributes:
+      label: Status
+      description: "ready only when the acceptance criteria are testable. draft: criteria missing or vague. blocked: waiting on something."
+      options: [draft, ready, blocked]
+      default: 0
+    validations:
+      required: true
