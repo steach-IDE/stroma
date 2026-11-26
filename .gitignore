@@ -14,6 +14,10 @@ pubspec.lock
 
 # Fonts are copied into an example by the emitter (--fonts); not vendored until feat-002 decides how
 examples/*/packages/*/fonts/
+examples/*/storybook/public/fonts/
+
+# Storybook builds are rebuilt by ./init.sh, never committed
+storybook-static/
 **/oracle-report/
 
 # Local settings and secrets: never committed

@@ -36,7 +36,11 @@ jobs:
         with:
           path: .stroma/fonts
           key: fonts-${{ hashFiles('tool/fonts.sha256') }}
+      - name: Chromium for Playwright (pinned to the version the packages use)
+        run: npx --yes playwright@1.65.1 install --with-deps chromium
       - name: ./init.sh
+        env:
+          STORYBOOK_DISABLE_TELEMETRY: "1"
         run: ./init.sh
       - name: Keep the Linux renders when a golden test fails
         if: failure()

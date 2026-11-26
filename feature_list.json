@@ -54,10 +54,11 @@
       "description": "packages/extractor: read a Storybook index and each story's argTypes, render each story x state x theme in headless Chrome, and record computed styles, geometry, matched CSS rules (with var() references) and ARIA roles.",
       "dependencies": [
         "feat-003",
-        "feat-004"
+        "feat-004",
+        "feat-015"
       ],
       "status": "not-started",
-      "done_when": "Pointed at a pinned shadcn/ui Storybook, it writes a measurement file per cell for Button, Badge and Card covering the same variants and states as the spike; two runs give identical files.",
+      "done_when": "Pointed at examples/shadcn-neutral/storybook's static build, it writes a measurement file per cell for Button, Badge and Card covering the same variants and states as the spike; two runs give identical files.",
       "evidence": ""
     },
     {
@@ -170,6 +171,19 @@
       "status": "done",
       "done_when": "On a clean CI runner, ./init.sh runs the example package's golden tests instead of skipping them, and a font file with a wrong hash fails the download with its name.",
       "evidence": "2026-11-26, PR #12: CI on a clean runner downloaded Inter 4.1, verified the zip and three fonts against tool/fonts.sha256, and ran the example's golden tests (all 6 sheets compared, passing). A byte appended to the cached Inter-Medium.ttf makes tool/fetch-fonts.sh exit 1 naming it. Oracle with the pinned fonts: 426/426 cells, 36/36 tokens. Goldens are Linux renders taken from CI (macOS differs by 1-2% of pixels, text anti-aliasing only), compared on Linux only."
+    },
+    {
+      "id": "feat-015",
+      "phase": 1,
+      "name": "A pinned shadcn Storybook",
+      "description": "examples/shadcn-neutral/storybook: Storybook 10 of the same shadcn/ui Button, Badge and Card the enricher reads, synced byte for byte from its pinned sources, with controls generated from the registry's cva variants and a light/dark theme global.",
+      "dependencies": [
+        "feat-004",
+        "feat-014"
+      ],
+      "status": "done",
+      "done_when": "pnpm run build-storybook writes an index of the Button, Badge and Card stories; the sync check fails when a component differs from the pinned source; a test fails if the story controls differ from the registry's cva config; a smoke test renders the default button in both themes with Inter loaded; ./init.sh and CI are green.",
+      "evidence": "2026-11-26, issue #13, branch feat/13-shadcn-storybook: ./init.sh green with the Storybook as a package: sync check up to date; build writes index v5 with 7 stories; 5/5 tests (index; argTypes read through Storybook's own storyStore.loadStory equal the registry cva config; default button renders in light and dark with Inter 500 loaded; editing badge.tsx makes the sync check exit 1 naming it). Oracle unchanged after sharing globals.css: 426/426, 36/36."
     }
   ]
 }
