@@ -110,8 +110,8 @@ That code now lives here, with its history (see [Repository layout](#repository-
 | `packages/enricher-shadcn` | JavaScript | Reads shadcn/ui source into a DSIR; renders its reference markup | Exists (from the spike) |
 | `packages/oracle` | JavaScript | Compares browser renders with Flutter goldens; writes the scorecard | Exists (from the spike) |
 | `packages/adapter-scrib` | JSON, shell | Maps a generated package onto Scrib's widget contract | Exists (from the spike) |
-| `examples/shadcn-neutral` | — | shadcn/ui Button, Badge and Card, converted: the DSIR and the generated package | Exists |
-| `packages/extractor` | TypeScript, Playwright | Renders Storybook stories and measures them | Planned (`feat-005`) |
+| `examples/shadcn-neutral` | — | shadcn/ui Button, Badge and Card: a pinned Storybook, the DSIR and the generated package | Exists |
+| `packages/extractor` | JavaScript, Playwright | Renders every Storybook cell and records what the browser drew | Exists |
 | `packages/primitives-flutter` | Dart (Flutter) | The primitives as a package generated code depends on | Planned |
 | `packages/cli` | TypeScript (+ a Dart CLI) | `stroma init`, `extract`, `emit`, `verify` | Planned (`feat-010`, `feat-011`) |
 

@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-015` is done on branch `feat/13-shadcn-storybook`; `feat-005` is next.
+- **Active feature:** none. `feat-005` is done on branch `feat/15-extractor`; `feat-006` is next.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -20,14 +20,16 @@
 
 - `feat-015`: a pinned shadcn Storybook in `examples/shadcn-neutral/storybook`, the extractor's first input.
 
+- `feat-005`: `packages/extractor`, 822 deterministic cell files from the example Storybook.
+
 ## In progress
 
 Nothing.
 
 ## Next
 
-1. Merge the `feat-015` pull request (issue #13).
-2. `feat-005`: the render-based extractor, reading `examples/shadcn-neutral/storybook`'s static build.
+1. Merge the `feat-005` pull request (issue #15).
+2. `feat-006`: turn the measurements into a DSIR (rules by diffing renders per axis, tokens from `var()`, anatomy from the DOM), and compare it with the source-derived DSIR.
 3. Later, not blocking: reserve the names (npm organisation `steach` for `@steach/stroma`; `stroma` on pub.dev). Deferred by the maintainer on 2026-11-26.
 
 ## Blockers and risks
@@ -65,6 +67,9 @@ Nothing.
 | 2026-11-26 | Stroma keeps its own pinned shadcn Storybook (`examples/shadcn-neutral/storybook`) | shadcn/ui publishes none (its repository has no Storybook config or stories); a local build is also the private-system path `docs/usage.md` promises | Pointing Phase 1 at Carbon first, which loses the shadcn ground truth |
 | 2026-11-26 | The Storybook's components, `globals.css` and control options are generated from the enricher's pinned sources | The Storybook and the enricher can't disagree about what shadcn/ui is | Hand-copied files |
 | 2026-11-26 | Storybook telemetry off in config and CI | A fixture must not send usage data | — |
+| 2026-11-26 | The extractor sets cells through Storybook's preview channel, then checks the args and theme Storybook holds | Storybook ignores `args` in the iframe URL; the first run measured the default badge under every variant's name until the check caught it | URL args |
+| 2026-11-26 | Cells record author rules as written plus each referenced variable's computed value | Tailwind v4 inlines theme variables (`var(--primary)`, not `var(--color-primary)`); recording the value resolves any CSS-variable system without reading `:root` | Recording computed values only |
+| 2026-11-26 | The component root is the first element marked `data-slot`, `data-part` or `data-scope` | shadcn, Ark and Chakra mark parts this way; a story without one fails loudly | A layout heuristic |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

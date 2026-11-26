@@ -1,0 +1,21 @@
+{
+  "name": "@steach/stroma-extractor",
+  "private": true,
+  "version": "0.0.0",
+  "description": "Renders every Storybook cell in headless Chromium and records what it drew.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "bin": {
+    "stroma-extract": "bin/extract.mjs"
+  },
+  "scripts": {
+    "test": "node --test"
+  },
+  "dependencies": {
+    "playwright": "1.65.1"
+  }
+}
