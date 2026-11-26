@@ -125,6 +125,29 @@ test('coverage says what the stories did not exercise: an icon never drawn, opti
   assert.deepEqual(cov['badge--default'].states, ['rest']);
 });
 
+test('fonts say what drew the text: a web font, a requested family that is not there, and no text', async () => {
+  // shadcn's Storybook loads Inter itself: a web font. An icon-only story draws no text.
+  const real = path.join(tmp(), 'a');
+  await extract({ storybook, out: real, stories: ['badge--default', 'button--icon-only'], where: { variant: 'default', size: 'icon' } });
+  const fonts = read(real, 'index.json').fonts;
+  assert.equal(fonts['badge--default'].source, 'web');
+  assert.deepEqual(fonts['badge--default'].requested, ['Inter']);
+  assert.equal(fonts['button--icon-only'].source, null, 'no text, so not a failure');
+  // A page that asks for a family nothing provides: the text is drawn in a fallback, and the extraction says so.
+  const fake = tmp();
+  fs.writeFileSync(path.join(fake, 'index.json'), JSON.stringify({ v: 5, entries: { 'plain--default': { type: 'story', id: 'plain--default' } } }));
+  fs.writeFileSync(path.join(fake, 'iframe.html'), `<!doctype html><div id="storybook-root"><div data-slot="x" style="font-family: 'NoSuchFontStroma', sans-serif">some text</div></div>
+<script>window.__STORYBOOK_PREVIEW__ = { ready: async () => {}, storyStore: {
+  loadStory: async () => ({ title: 'Plain', name: 'Default', argTypes: {} }), projectAnnotations: {}, args: { get: () => ({}) } } };</script>`);
+  const out = path.join(tmp(), 'out');
+  const { gaps } = await extract({ storybook: fake, out });
+  const f = read(out, 'index.json').fonts['plain--default'];
+  assert.equal(f.source, 'fallback');
+  assert.deepEqual(f.requested, ['NoSuchFontStroma']);
+  assert.ok(f.used.length > 0 && f.used.every((u) => u.custom === false), 'drawn in a system font');
+  assert.ok(gaps.some((g) => /"NoSuchFontStroma" did not load/.test(g)), JSON.stringify(gaps));
+});
+
 test('it refuses to write into a directory that already holds files', async () => {
   const out = tmp();
   fs.writeFileSync(path.join(out, 'old.json'), '{}');

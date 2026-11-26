@@ -145,3 +145,21 @@ test('an inset ring shadow is read as an inset ring, an outer one is not', () =>
   assert.equal(outer.ringWidth, 3);
   assert.equal('ringInset' in outer, false, 'an outer ring says nothing about being inset');
 });
+
+test('the DSIR says when its numbers were measured in a font the page did not load', () => {
+  const build = (fonts) => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'stroma-infer-'));
+    fs.mkdirSync(path.join(dir, 'x--default'), { recursive: true });
+    const file = 'x--default/state=rest.json';
+    fs.writeFileSync(path.join(dir, file), JSON.stringify({ story: 'x--default', theme: null, args: {}, state: 'rest', elements: [{
+      tag: 'div', parent: -1, role: null, attrs: { class: 'ds-box' }, text: '', box: { x: 0, y: 0, w: 10, h: 10 },
+      style: { 'background-color': 'rgb(1, 2, 3)', color: 'rgb(0, 0, 0)', 'border-top-color': 'rgb(0, 0, 0)', 'font-family': 'Roboto, sans-serif', 'padding-left': '0px', 'padding-top': '0px' },
+      rules: [{ selector: '.ds-box', at: [], decls: [['background-color', 'rgb(1, 2, 3)']] }], vars: {},
+    }] }));
+    fs.writeFileSync(path.join(dir, 'index.json'), JSON.stringify({ stories: { 'x--default': { axes: {}, defaults: {}, themes: [], title: 'X', name: 'Default' } }, cells: [{ story: 'x--default', theme: null, args: {}, state: 'rest', file }], fonts }));
+    return infer({ extraction: dir, license: 'MIT', source: 'test' }).dsir.tokens.font.sans;
+  };
+  assert.equal(build({ 'x--default': { requested: ['Roboto'], used: [{ family: 'Roboto', custom: true }], source: 'web' } }).note, undefined);
+  assert.match(build({ 'x--default': { requested: ['Roboto'], used: [{ family: 'Roboto Medium', custom: false }], source: 'system' } }).note, /installed on the machine.*Roboto Medium/);
+  assert.match(build({ 'x--default': { requested: ['Roboto'], used: [{ family: 'Helvetica', custom: false }], source: 'fallback' } }).note, /fallback font \(Helvetica\).*did not load/);
+});

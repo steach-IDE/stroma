@@ -18,4 +18,4 @@ Pinned: `@mui/material` 9.6.0, `@emotion/react` 11.14.0, `@emotion/styled` 11.14
 
 The results, and what they mean for Phase 2, are in [`docs/css-in-js-probe.md`](../../../docs/css-in-js-probe.md).
 
-Roboto is not loaded (MUI does not ship it and the extractor blocks the network), so text is measured in the machine's fallback font: **a measurement here depends on the machine**. Pinning it is feat-022.
+MUI does not ship Roboto and the extractor blocks the network, so the page does not load it: text is drawn in the Roboto installed on the machine that extracts, a system font, and **a measurement here depends on the machine having it**. The extraction says so (`fonts`, `source: system`), and so does the DSIR's font token.

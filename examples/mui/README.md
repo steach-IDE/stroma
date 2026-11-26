@@ -8,7 +8,7 @@
 | `inferred/mui.dsir.json` | The DSIR `packages/infer` wrote from the extraction: one component, 100% of 7,344 values explained, no unsupported value, two modes, no colour token |
 | `packages/mui_ui/` | The Flutter package `packages/emitter-flutter` writes from it (`dart run bin/emit.dart --example mui`); never edit it by hand |
 
-MIT licence. The package has no fonts: Roboto is not pinned yet (`feat-022`).
+MIT licence. The package has no fonts: Roboto is not pinned (the extraction reports it as a **system font**, installed on the machine that extracted it and not loaded by the page; the DSIR's font token carries a note saying so).
 
 ## What is different from shadcn and Carbon
 
@@ -37,8 +37,8 @@ The goldens are Linux renders from the `update-goldens` workflow; a macOS render
 
 | What | Why |
 | --- | --- |
-| Text width and glyphs | Roboto is not loaded, so Chrome drew the machine's fallback font and Flutter its own; width is reported, not gated, and the extraction depends on the machine (`feat-022`) |
+| Text width and glyphs | Chrome drew the machine's installed Roboto (a system font, per the extraction's `fonts`) and Flutter its own default font, since the package has none; width is reported, not gated, and the extraction depends on the machine having Roboto |
 | Corner radius in 72 of 108 rest cells | The box does not stand out from the page (text and outlined buttons), so the pixel measurement has nothing to read |
 | Text colour in 42 dark-mode cells | Against Chrome's image, 390 of 432 cells pass the text-colour gate (ΔE 5) and **42 do not**: all are contained buttons in dark mode, whose text is `rgba(0, 0, 0, 0.87)` on a light fill. Flutter's glyph pixel is exactly that colour composited over the fill (an info button: `#051820`, 13% of `#29b6f6`); Chrome's is a neutral `#101010`, darker, which is consistent with Chrome's text rasteriser darkening translucent dark text. The specified colour is reproduced; the difference is the engines' (worst ΔE 10.0) |
-| SSIM 0.71 on average | Roboto is not loaded, so each engine draws its own fallback font (`feat-022`) |
+| SSIM 0.71 on average | The two engines draw different fonts: Chrome the installed Roboto, Flutter its default (no font is pinned for this package) |
 | Ripple, elevation transitions | Not drawn by Flutter |
