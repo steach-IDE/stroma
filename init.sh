@@ -95,7 +95,7 @@ for pkg in ${packages[@]+"${packages[@]}"}; do
       (cd "$pkg" && flutter pub get >/dev/null && flutter analyze) || fail "$pkg: flutter analyze"
       if grep -q 'asset: fonts/' "$pkg/pubspec.yaml"; then
         # Goldens need the exact pinned font bytes (fonts are downloaded, never committed).
-        tool/fetch-fonts.sh "$pkg/fonts" || fail "$pkg: pinned fonts"
+        tool/pin-fonts.sh "$pkg" || fail "$pkg: pinned fonts"
       fi
       if [[ -d "$pkg/test" ]]; then
         (cd "$pkg" && flutter test) || fail "$pkg: flutter test"

@@ -2,7 +2,7 @@
 
 ## Current objective
 
-`feat-008`, Carbon. Slices 1 to 4 (#25 to #28: Storybook, infer, emit, fonts) are done locally and not pushed; the oracle is next.
+`feat-008`, Carbon. Slices 1 to 5 (#25 to #29) are done locally and not pushed. Carbon passes 780/780 on macOS goldens; the Linux run is what is left.
 
 ## Completed this session
 
@@ -37,6 +37,14 @@
 - The emitter copies the DSIR family's font files and licence; the generated oracle test now names components under `$component` (Carbon's Tag has an axis called `type`).
 - The Carbon package's 12 sheets (`btn`, `tag`, `tile` x 4 themes) run under `flutter test` and write `build/oracle/flutter/*.json`.
 
+## Slice 5 (issue #29)
+
+- `packages/oracle/compare-extraction.mjs` (+ `pixels.mjs`): Carbon's Flutter cells vs the extraction. 780/780; negative control fails one damaged cell alone.
+- `emit --example carbon` writes the committed `examples/carbon/packages/carbon_ui`; `tool/pin-fonts.sh` pins its font.
+- Two causes found by the first run (0/780): `min-block-size` heights were not counted by inference; `children` slots ignored a cell's text in the generated builder.
+- Scorecard and `unsupported`: `examples/carbon/README.md`.
+- **Open:** the Carbon package has no Linux goldens, so CI's `flutter test` on Linux fails until the `update-goldens` workflow has run on the pushed branch (push needs the user's go-ahead; the classifier denied it earlier).
+
 ## Findings for the next slice (some now done)
 
 - Carbon's tokens are `var(--cds-button-primary, #0f62fe)`: a fallback after the name. Infer must read that form, and the hover rule names a different token (`--cds-button-primary-hover`).
@@ -51,4 +59,4 @@
 
 ## Recommended next step
 
-The oracle's browser side for Carbon: the extraction (`.stroma/carbon-*`) already holds each cell's box and style, so compare Flutter's geometry (`build/oracle/flutter/*.json`, cell ids like `btn.primary.lg.rest.white`) with it instead of a Chrome reference page, at the same gates (1 px, dE2000 under 2). Colour needs a pixel from a Chrome screenshot or the computed colour. Then CI goldens, then the scorecard and the `unsupported` list.
+With the user's go-ahead, push `feat/25` to `feat/29`, open the PRs in order, run `gh workflow run update-goldens.yml --ref <branch>` on the last one, pull the goldens, re-run `compare-extraction.mjs`, and mark `feat-008` done. Then `feat-009`, the Phase 1 verdict.

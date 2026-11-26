@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** `feat-008` (Carbon): slice 4 (fonts) on `feat/28-carbon-fonts` (issue #28), stacked on #27, #26 and #25; none pushed.
+- **Active feature:** `feat-008` (Carbon): slice 5 (oracle) on `feat/29-carbon-oracle` (issue #29), stacked on #28, #27, #26 and #25; none pushed.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -27,7 +27,7 @@
 
 ## In progress
 
-- `feat-008`: the pinned Carbon Storybook (#25), inference (#26), emit (#27) and pinned fonts (#28) are done. Next: the oracle's browser side for Carbon, goldens on CI, and its scorecard.
+- `feat-008`: Storybook (#25), inference (#26), emit (#27), fonts (#28) and the oracle (#29) are done locally: 780/780 Carbon cells pass on macOS goldens. Open: push the branches, run `update-goldens` for Linux goldens, re-run the oracle on them, then mark done.
 
 ## Next
 
@@ -87,6 +87,8 @@
 | 2026-11-26 | The oracle's node builder and cells are generated from the DSIR, except shadcn's card examples | A hand-written builder named Button, Badge and Card | Writing one per design system |
 | 2026-11-26 | IBM Plex Sans comes from the `@ibm/plex-sans` 1.1.0 release: its woff2 (npm, lockfile-pinned) for the Storybook, its TTFs (a hash-checked download, `tool/fetch-plex.sh`) for Flutter | The npm package has no TTF and Flutter needs one; both are the same release | Converting woff2 to TTF; the CDN |
 | 2026-11-26 | The extractor aborts every request outside the Storybook and lists them in `index.json` | A CDN font would change a measurement silently | Trusting the network |
+| 2026-11-26 | The oracle compares Carbon with its extraction (Chrome's computed styles), not a Chrome reference sheet | The extraction already holds what Chrome drew per cell; a sheet would measure the same thing a second way | Rendering a Chrome sheet for every design system |
+| 2026-11-26 | `tool/pin-fonts.sh <package>` picks the pinned font from the package's pubspec | `init.sh` and `update-goldens` ran the Inter script for every package | One script per family called by name |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

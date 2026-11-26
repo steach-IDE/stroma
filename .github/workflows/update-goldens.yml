@@ -27,7 +27,7 @@ jobs:
       - name: Render every example's goldens
         run: |
           for pkg in examples/*/packages/*/; do
-            tool/fetch-fonts.sh "$pkg/fonts"
+            tool/pin-fonts.sh "$pkg"
             (cd "$pkg" && flutter pub get && flutter test --update-goldens)
           done
       - name: Commit them if they changed

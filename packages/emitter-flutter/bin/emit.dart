@@ -1,4 +1,4 @@
-// dart run bin/emit.dart [--check] [--dsir <file>] [--mapping <file> | --no-mapping] [--package <name>] [--out <dir>] [--fonts <dir>]
+// dart run bin/emit.dart [--check] [--example shadcn-neutral|carbon] [--dsir <file>] [--mapping <file> | --no-mapping] [--package <name>] [--out <dir>] [--fonts <dir>]
 // Emits a Flutter package from a DSIR. The defaults build the shadcn example in examples/shadcn-neutral.
 // --check fails if the committed output differs from what would be written, or holds files no longer emitted.
 // --fonts is where Inter-{Regular,Medium,SemiBold}.ttf are copied from (default: the pinned copy that
@@ -17,16 +17,25 @@ Future<void> main(List<String> args) async {
     return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback;
   }
 
-  final dsirPath = option(
-    'dsir',
-    p.join(repo, 'examples', 'shadcn-neutral', 'inferred', 'shadcn.dsir.json'),
-  );
+  // An example is a design system's DSIR, its package name and where its package lives; every one has no Scrib
+  // mapping but shadcn's.
+  final example = option('example', 'shadcn-neutral');
+  const examples = {
+    'shadcn-neutral': ('shadcn.dsir.json', 'shadcn_neutral_ui'),
+    'carbon': ('carbon.dsir.json', 'carbon_ui'),
+  };
+  if (!examples.containsKey(example)) {
+    stderr.writeln('unknown --example $example (known: ${examples.keys.join(', ')})');
+    exit(2);
+  }
+  final (exampleDsir, examplePackage) = examples[example]!;
+  final dsirPath = option('dsir', p.join(repo, 'examples', example, 'inferred', exampleDsir));
   final mappingPath = option(
     'mapping',
     p.join(repo, 'packages', 'adapter-scrib', 'mappings', 'shadcn.scrib.json'),
   );
-  final packageName = option('package', 'shadcn_neutral_ui');
-  final out = option('out', p.join(repo, 'examples', 'shadcn-neutral', 'packages', packageName));
+  final packageName = option('package', examplePackage);
+  final out = option('out', p.join(repo, 'examples', example, 'packages', packageName));
   Map<String, dynamic> readJson(String path) =>
       jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
 
@@ -44,7 +53,9 @@ Future<void> main(List<String> args) async {
   final dsir = readJson(dsirPath);
   final files = emitPackage(
     dsir: dsir,
-    mapping: args.contains('--no-mapping') ? null : readJson(mappingPath),
+    mapping: args.contains('--no-mapping') || example != 'shadcn-neutral'
+        ? null
+        : readJson(mappingPath),
     templates: templates,
     packageName: packageName,
   );

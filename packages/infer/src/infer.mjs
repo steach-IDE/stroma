@@ -16,13 +16,13 @@ const { validate } = await import(path.join(here, '..', '..', 'dsir', 'src', 'va
 const COLOR_KEYS = ['bg', 'fg', 'borderColor', 'ringColor'];
 const SPACING_KEYS = ['h', 'w', 'px', 'py', 'pt', 'pb', 'gap'];
 /** A root with no marker is named by its block class: the one the other classes extend (`cds--btn` for `cds--btn--primary`). */
-const blockOf = (cls) => {
+export const blockOf = (cls) => {
   const c = cls.split(/\s+/);
   return c.find((x) => c.some((y) => y.startsWith(`${x}--`))) ?? c[0];
 };
 const slotOf = (e) => e.attrs['data-slot'] ?? e.attrs['data-part'] ?? e.attrs['data-scope'] ?? (e.attrs.class ? blockOf(e.attrs.class) : null);
 // `cds--btn` -> Btn: the design system's prefix is not part of the component's name.
-const pascal = (slot) => slot.split('--').pop().split(/[-_]/).filter(Boolean).map((w) => w[0].toUpperCase() + w.slice(1)).join('');
+export const pascal = (slot) => slot.split('--').pop().split(/[-_]/).filter(Boolean).map((w) => w[0].toUpperCase() + w.slice(1)).join('');
 const round = (n) => Math.round(n * 1000) / 1000;
 
 /** A computed CSS colour -> { hex, alpha }. Throws on a format it doesn't know, never guesses. */

@@ -106,8 +106,16 @@ void main() {
     expect(pubspec, contains('asset: fonts/IBMPlexSans-Regular.ttf'));
   });
 
-  test('the committed example is what the emitter writes now', () {
-    final run = Process.runSync(Platform.resolvedExecutable, ['run', 'bin/emit.dart', '--check']);
-    expect(run.exitCode, 0, reason: '${run.stdout}${run.stderr}');
-  });
+  for (final example in ['shadcn-neutral', 'carbon']) {
+    test('the committed $example example is what the emitter writes now', () {
+      final run = Process.runSync(Platform.resolvedExecutable, [
+        'run',
+        'bin/emit.dart',
+        '--check',
+        '--example',
+        example,
+      ]);
+      expect(run.exitCode, 0, reason: '${run.stdout}${run.stderr}');
+    });
+  }
 }

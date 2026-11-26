@@ -971,7 +971,7 @@ String _buildNode(List<Map<String, dynamic>> components, String packageName) {
         "$axis: _enumByName(${_enumName(c, axis)}.values, n['$axis'] as String),",
       if (slots.contains('icon')) "icon: n['icon'] == true ? const OracleIcon() : null,",
       if (slots.contains('child')) 'child: text == null ? null : Text(text),',
-      if (slots.contains('children')) 'children: kids(),',
+      if (slots.contains('children')) 'children: text == null ? kids() : [Text(text)],',
       if (parts.isNotEmpty) '${parts.single.$1}: action == null ? null : buildNode(action.cast()),',
       if (interactive) 'statesController: states,',
       if (interactive)
