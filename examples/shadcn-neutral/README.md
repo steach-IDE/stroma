@@ -3,6 +3,7 @@
 **In one sentence:** shadcn/ui's Button, Badge and Card, converted by Stroma, laid out exactly as `docs/usage.md` says a user's repository will be.
 
 ```
+storybook/                     # the design system's own Storybook: Stroma's input (see storybook/README.md)
 design-system/                 # the DSIR (0.2), DTCG tokens per mode, dsir.lock
 packages/shadcn_neutral_ui/    # the generated Flutter package: never edit by hand
 ```
