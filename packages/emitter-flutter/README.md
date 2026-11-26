@@ -35,6 +35,7 @@ The emitter makes no assumption about a design system's themes or components:
 - **Page tokens.** The tokens that paint the page and its text are found by name (`background` or `*-background`; `foreground`, `*-text-primary` or `*-foreground`); with none, the emit fails saying so. (A `shortcut:` in `emitter.dart`.)
 - **Names.** `danger--ghost` is `dangerGhost`, and `2xl` is `v2xl`, as Dart identifiers need.
 - **The oracle's test.** `test/oracle/build_node.dart` and `cells.json` are generated from the DSIR's components, slots and variant axes. Only shadcn's Button, Badge and Card have hand-written cells, for the card examples.
+- **Fonts.** `fontFiles(dsir)` names the files a DSIR needs: its family without spaces, then the weights its rules use (and 400): `Inter-Medium.ttf`, `IBMPlexSans-Regular.ttf`. `emit` copies them, with the licence, from `--fonts <dir>` or, for Inter and IBM Plex Sans, the pinned copy that `tool/fetch-fonts.sh` or `tool/fetch-plex.sh` keeps in `.stroma/fonts`; another family needs `--fonts`. `pubspec.yaml` lists them.
 - `scrib/` and `test/pressable_test.dart` are only written when there is a Scrib mapping, and a Button.
 
 ```sh

@@ -21,14 +21,14 @@ Carbon marks no part with `data-slot`, `data-part` or `data-scope`, so the extra
 | `.storybook/preview.tsx` | Carbon's precompiled stylesheet and a `theme` toolbar global over its four themes (`white`, `g10`, `g90`, `g100`) |
 | `LICENSE-carbon` | Carbon's Apache-2.0 licence |
 
-Pinned: `@carbon/react` 1.121.0 and `@carbon/styles` 1.120.0 (the version it resolves to). Storybook telemetry is off.
+Pinned: `@carbon/react` 1.121.0, `@carbon/styles` 1.120.0 (the version it resolves to) and `@ibm/plex-sans` 1.1.0 (SIL OFL 1.1). Storybook telemetry is off.
 
 ## What the first extraction shows
 
 - Four themes, not light and dark: 784 cells (Button 672, Tag 96, Tile 16).
 - Tokens arrive with a fallback, `var(--cds-button-primary, #0f62fe)`; `packages/infer` reads that form.
 - The preview wraps stories in `Theme`, not `GlobalTheme`: the latter only sets React context, so all four themes rendered the same until a test caught it (`each theme changes how a tile looks`).
-- Fonts: Carbon's stylesheet asks for IBM Plex from a CDN. The pinned fonts for the oracle are not done yet, so measurements here depend on the font that loads.
+- Fonts: Carbon's stylesheet asks for IBM Plex Sans from a CDN. The preview declares the faces itself (300, 400 and 600, from the pinned `@ibm/plex-sans` 1.1.0, declared later so they win), and the extractor blocks the network. An extraction with the CDN reachable and one without are byte-identical, so the pinned font is the one the CDN served. The Flutter side uses the same release's TTFs: `tool/fetch-plex.sh`.
 
 | What you see | Why | What to do |
 | --- | --- | --- |
