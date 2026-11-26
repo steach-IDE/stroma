@@ -2,7 +2,8 @@
 # Stroma's baseline check. Run it at the start and end of every session; a failure is the first thing to fix.
 #   1. The harness: required files, feature_list.json integrity, shell syntax.
 #   2. Every package under packages/: Node (pnpm) and Dart/Flutter checks, found by their manifest.
-# Nothing here writes outside the repository or deletes anything.
+# Nothing here writes outside the repository or deletes anything. The first run downloads the pinned fonts
+# (tool/fetch-fonts.sh) into .stroma/fonts; later runs use that copy.
 set -euo pipefail
 cd "$(dirname "$0")"
 
@@ -92,10 +93,11 @@ for pkg in ${packages[@]+"${packages[@]}"}; do
       step "$pkg (flutter)"
       command -v flutter >/dev/null || fail "$pkg needs the Flutter SDK"
       (cd "$pkg" && flutter pub get >/dev/null && flutter analyze) || fail "$pkg: flutter analyze"
-      if grep -q 'asset: fonts/' "$pkg/pubspec.yaml" && [[ ! -d "$pkg/fonts" ]]; then
-        # shortcut: goldens need the bundled fonts, which are not vendored until feat-002 decides how; CI analyzes only.
-        echo "tests skipped: $pkg/fonts is missing (run the emitter with --fonts to copy them)"
-      elif [[ -d "$pkg/test" ]]; then
+      if grep -q 'asset: fonts/' "$pkg/pubspec.yaml"; then
+        # Goldens need the exact pinned font bytes (fonts are downloaded, never committed).
+        tool/fetch-fonts.sh "$pkg/fonts" || fail "$pkg: pinned fonts"
+      fi
+      if [[ -d "$pkg/test" ]]; then
         (cd "$pkg" && flutter test) || fail "$pkg: flutter test"
       fi
     else
