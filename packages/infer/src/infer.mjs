@@ -6,7 +6,7 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { valuesOf } from './values.mjs';
+import { valuesOf, fallbacksOf } from './values.mjs';
 import { mine } from './mine.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -15,8 +15,14 @@ const { validate } = await import(path.join(here, '..', '..', 'dsir', 'src', 'va
 
 const COLOR_KEYS = ['bg', 'fg', 'borderColor', 'ringColor'];
 const SPACING_KEYS = ['h', 'w', 'px', 'py', 'pt', 'pb', 'gap'];
-const slotOf = (e) => e.attrs['data-slot'] ?? e.attrs['data-part'] ?? e.attrs['data-scope'] ?? null;
-const pascal = (slot) => slot.split(/[-_]/).map((w) => w[0].toUpperCase() + w.slice(1)).join('');
+/** A root with no marker is named by its block class: the one the other classes extend (`cds--btn` for `cds--btn--primary`). */
+const blockOf = (cls) => {
+  const c = cls.split(/\s+/);
+  return c.find((x) => c.some((y) => y.startsWith(`${x}--`))) ?? c[0];
+};
+const slotOf = (e) => e.attrs['data-slot'] ?? e.attrs['data-part'] ?? e.attrs['data-scope'] ?? (e.attrs.class ? blockOf(e.attrs.class) : null);
+// `cds--btn` -> Btn: the design system's prefix is not part of the component's name.
+const pascal = (slot) => slot.split('--').pop().split(/[-_]/).filter(Boolean).map((w) => w[0].toUpperCase() + w.slice(1)).join('');
 const round = (n) => Math.round(n * 1000) / 1000;
 
 /** A computed CSS colour -> { hex, alpha }. Throws on a format it doesn't know, never guesses. */
@@ -113,8 +119,10 @@ export function infer({ extraction, license, source }) {
       o.obs.push({ when, values, tokenized, icon, children: childSlots });
       for (const [name, value] of Object.entries(part.el.vars)) {
         if (name === '--radius') radiusBase ??= value;
-        (tokenValues[name.slice(2)] ??= {})[cell.theme ?? 'light'] ??= value;
+        if (value) (tokenValues[name.slice(2)] ??= {})[cell.theme ?? 'light'] ??= value;
       }
+      // A token the theme never defines still has its value: the fallback in var(--name, fallback).
+      for (const [name, fallback] of fallbacksOf(part.el.rules)) (tokenValues[name] ??= {})[cell.theme ?? 'light'] ??= fallback;
       fontFamily ??= part.el.style['font-family'].split(',')[0].replace(/["']/g, '').trim();
     }
   }

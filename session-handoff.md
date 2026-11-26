@@ -2,7 +2,7 @@
 
 ## Current objective
 
-`feat-008`, Carbon. First slice (issue #25) done; inference, fonts, emit and the oracle are next.
+`feat-008`, Carbon. Slices 1 (#25) and 2 (#26, infer) are done locally and not pushed; fonts, emit and the oracle are next.
 
 ## Completed this session
 
@@ -18,7 +18,13 @@
 | No match | `--root '.cds--nothing'` | exit 1, names the story |
 | Baseline | `./init.sh` | see the PR |
 
-## Findings for the next slice
+## Slice 2 (issue #26)
+
+- `stroma-infer` on the Carbon extraction: valid DSIR, 3 components, 100% of 14,304 values explained, modes `white`/`g10`/`g90`/`g100`.
+- The extractor now records the root's `class`; the schema's `mode` is any string; `py` stays set when only the bottom padding differs (`pb` overrides).
+- Slice 1's preview did not switch themes (`GlobalTheme` is context only); fixed with `Theme` and a test.
+
+## Findings for the next slice (some now done)
 
 - Carbon's tokens are `var(--cds-button-primary, #0f62fe)`: a fallback after the name. Infer must read that form, and the hover rule names a different token (`--cds-button-primary-hover`).
 - Four themes (`white`, `g10`, `g90`, `g100`), where the DSIR and emitter assume `light` and `dark`.
@@ -32,4 +38,4 @@
 
 ## Recommended next step
 
-An issue for infer on Carbon: components from the root class, `var()` fallbacks, themes as modes. Run it on `examples/carbon/storybook` and report how much of the 784 cells the rules explain.
+An issue for the emitter on Carbon's DSIR: themes beyond light and dark (`DsTokens` has `light` and `dark` only), then the pinned IBM Plex fonts, then the oracle's browser side.

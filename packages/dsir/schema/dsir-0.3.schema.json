@@ -411,10 +411,9 @@
       "description": "All conditions must hold. Keys other than the fixed ones name a variant axis of the component; the validator checks that the axis and its value exist.",
       "properties": {
         "mode": {
-          "enum": [
-            "light",
-            "dark"
-          ]
+          "type": "string",
+          "minLength": 1,
+          "description": "A theme name as the design system has it: light and dark, or Carbon's white, g10, g90 and g100."
         },
         "states": {
           "type": "array",

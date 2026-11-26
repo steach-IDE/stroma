@@ -46,11 +46,20 @@ export function colorRef(value) {
   if (value == null) return null;
   const v = value.trim();
   if (v === 'transparent' || v === '#0000') return { transparent: true };
-  let m = /^var\(\s*--([\w-]+)\s*\)$/.exec(v);
+  let m = /^var\(\s*--([\w-]+)\s*(?:,\s*(?:#[0-9a-f]+|rgba?\([^)]*\))\s*)?\)$/i.exec(v);
   if (m) return { token: m[1], alpha: 1 };
   m = /^color-mix\(in oklab,\s*var\(\s*--([\w-]+)\s*\)\s+([\d.]+)%,\s*transparent\)$/.exec(v);
   if (m) return { token: m[1], alpha: round(Number.parseFloat(m[2]) / 100) };
   return null;
+}
+
+const FALLBACK = /var\(\s*--([\w-]+)\s*,\s*(#[0-9a-f]{3,8}|rgba?\([^)]*\))\s*\)/gi;
+
+/** [name, colour] for every `var(--name, colour)` the rules write: a token's value when the theme never defines it. */
+export function fallbacksOf(rules) {
+  const out = new Map();
+  for (const r of rules) for (const [, v] of r.decls) for (const m of v.matchAll(FALLBACK)) out.set(m[1], m[2]);
+  return out;
 }
 
 /** Splits a computed box-shadow list into a ring (spread only, no offset or blur) and real shadows. */
@@ -94,10 +103,8 @@ export function valuesOf(el, literalColor, force = new Set()) {
     set(key, v === null ? null : round(v), /var\(--spacing\)/.test(winning(el.rules, DECLARED_BY[key]) ?? ''));
   }
   if (declared('py') && s['padding-bottom'] !== s['padding-top']) {
-    set('pt', px(s['padding-top']));
+    // `py` stays as the top padding, so every cell has one; `pb` overrides the bottom where it differs.
     set('pb', px(s['padding-bottom']));
-    delete values.py;
-    delete tokenized.py;
   }
 
   if (declared('radius')) {

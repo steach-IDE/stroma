@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** `feat-008` (Carbon), first slice on `feat/25-carbon-storybook` (issue #25).
+- **Active feature:** `feat-008` (Carbon): slice 2 (infer) on `feat/26-infer-carbon` (issue #26), stacked on slice 1 (issue #25, `feat/25-carbon-storybook`, not pushed).
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -27,7 +27,7 @@
 
 ## In progress
 
-- `feat-008`: a pinned Carbon Storybook and an extractor `--root` option are done (issue #25). Next slices: inference for Carbon (four themes, `var()` with fallbacks, no `data-slot`), pinned IBM Plex fonts, emit, and the oracle's browser side.
+- `feat-008`: the pinned Carbon Storybook and `--root` (#25) and inference on it (#26) are done. Next: pinned IBM Plex fonts, emit with themes beyond light and dark, and the oracle's browser side for Carbon.
 
 ## Next
 
@@ -81,6 +81,8 @@
 | 2026-11-26 | A colour token measured in one mode only is emitted with the other mode's value and a comment | No cell used it in the other mode, so no rule reads it there | Failing the emit; inventing a value |
 | 2026-11-26 | `examples/shadcn-neutral` is emitted from the inferred DSIR (`inferred/shadcn.dsir.json`); `design-system/` keeps the source-derived one as ground truth | The gate must run on what the extractor measured; CI then guards it | Keeping the example source-derived |
 | 2026-11-26 | Carbon is read from a local Storybook built from pinned `@carbon/react`, not the hosted one; the extractor takes `--root` for it | The hosted site can't be pinned; Carbon marks no `data-slot`/`data-part` | Extracting the hosted site |
+| 2026-11-26 | A DSIR condition `mode` is any theme name, not only light and dark | Carbon has four themes; the validator still checks that rules only name modes as strings | A 0.4 schema; mapping Carbon's themes onto two modes, which loses information |
+| 2026-11-26 | A root with no marker is a component named by its block class; a token's value is its `var()` fallback when no theme defines it | Carbon marks no parts and defines shared tokens only as fallbacks | An override table of component names |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

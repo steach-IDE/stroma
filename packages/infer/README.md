@@ -12,7 +12,7 @@ node bin/infer.mjs --extraction .stroma/extract --out shadcn.inferred.dsir.json 
 
 ## How it works
 
-1. **Parts.** Every element marked `data-slot` (or `data-part`, `data-scope`) is a part, and each part slot becomes a component (`card-header` → `CardHeader`). A part that is the root of some story is a component of its own (the button in a card's footer), never part of the card. So extract **every** story, or a left-out component is read as a part of another.
+1. **Parts.** (A root with no marker, as in Carbon, is a component named by its block class: `cds--btn`, the class the others extend, becomes `Btn`. Only the root is a part then.) Every element marked `data-slot` (or `data-part`, `data-scope`) is a part, and each part slot becomes a component (`card-header` → `CardHeader`). A part that is the root of some story is a component of its own (the button in a card's footer), never part of the card. So extract **every** story, or a left-out component is read as a part of another.
 2. **Conditions per cell:** the story's variant args, the theme (`mode`), the state, and three facts from the DOM: `hasIcon` (an `svg` child), `interactive` (the part is a link), `hasSlot` (which child parts are present).
 3. **Values.** Only properties an author rule declares count, mapped to DSIR style keys. Once any cell declares a property, its computed value counts in every cell, except width and height, which are layout results where nobody declared them. Colours keep their token: `color-mix(in oklab, var(--primary) 90%, transparent)` → `{ token: primary, alpha: 0.9 }`.
 4. **Rules** (`src/mine.mjs`), per style key:
@@ -36,3 +36,17 @@ Full extraction of `examples/shadcn-neutral/storybook`, compared with the DSIR r
 | Spacing values on the `--spacing` scale | 69% |
 
 What rendering can't recover: radius names (`radius-md` is measured as "`--radius` minus 2px", named `radius-minus2`), and anything the browser never draws in a story.
+
+## On Carbon
+
+`examples/carbon/storybook` extracted with `--root` (784 cells, four themes), `--license Apache-2.0`:
+
+| | |
+| --- | --- |
+| Components | Btn, Tag, Tile (named from the root's block class) |
+| Values explained by the rules | 14,304 of 14,304 (100%) |
+| Modes | the theme names: `white`, `g10`, `g90`, `g100` |
+| Colour values written as tokens | 64% |
+| Radius and spacing as tokens | 0%: Carbon has no radius and its sizes are `rem` literals, not a scale |
+
+Carbon writes `var(--cds-button-primary, #0f62fe)`: the name is the token, and the fallback is its value when no theme defines it (a token that every theme shares is only ever defined this way).

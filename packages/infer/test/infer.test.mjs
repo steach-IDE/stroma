@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mine } from '../src/mine.mjs';
-import { colorRef } from '../src/values.mjs';
+import { colorRef, fallbacksOf } from '../src/values.mjs';
 import { infer, literalColor } from '../src/infer.mjs';
 import { compare } from '../src/compare.mjs';
 
@@ -63,4 +63,32 @@ test('the example extraction gives a valid DSIR that explains every value and ma
   const vs = compare(a.dsir, source).components;
   assert.ok(vs.Button.variantsMatch && vs.Button.defaultsMatch && vs.Badge.variantsMatch);
   assert.deepEqual(vs.Card.colourTokens.sourceOnly, [], "every colour token the source's Card uses was recovered");
+});
+
+test('var(--name, fallback) is the token `name`, and its fallback is the value when no theme defines it', () => {
+  assert.deepEqual(colorRef('var(--cds-button-primary,#0f62fe)'), { token: 'cds-button-primary', alpha: 1 });
+  assert.deepEqual(colorRef('var(--cds-layer)'), { token: 'cds-layer', alpha: 1 });
+  const rules = [{ decls: [['background-color', 'var(--cds-button-primary,#0f62fe)'], ['color', 'var(--cds-text, rgba(0, 0, 0, .5))']] }];
+  assert.deepEqual([...fallbacksOf(rules)], [['cds-button-primary', '#0f62fe'], ['cds-text', 'rgba(0, 0, 0, .5)']]);
+});
+
+test('a root with no data-* marker is a component named by its block class, and its theme names are its modes', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'stroma-infer-'));
+  const cells = [];
+  for (const theme of ['white', 'g100']) {
+    const file = `x--default/theme=${theme},state=rest.json`;
+    fs.mkdirSync(path.join(dir, 'x--default'), { recursive: true });
+    const bg = theme === 'white' ? 'rgb(255, 255, 255)' : 'rgb(22, 22, 22)';
+    fs.writeFileSync(path.join(dir, file), JSON.stringify({ story: 'x--default', theme, args: {}, state: 'rest', elements: [{
+      tag: 'div', parent: -1, role: null, attrs: { class: 'ds--box ds--box--wide' }, text: '', box: { x: 0, y: 0, w: 10, h: 10 },
+      style: { 'background-color': bg, color: 'rgb(0, 0, 0)', 'border-top-color': 'rgb(0, 0, 0)', 'font-family': 'Plex', 'padding-left': '0px', 'padding-top': '0px' },
+      rules: [{ selector: '.ds--box', at: [], decls: [['background-color', 'var(--ds-layer,#ffffff)']] }],
+      vars: { '--ds-layer': bg },
+    }] }));
+    cells.push({ story: 'x--default', theme, args: {}, state: 'rest', file });
+  }
+  fs.writeFileSync(path.join(dir, 'index.json'), JSON.stringify({ stories: {}, cells }));
+  const { dsir } = infer({ extraction: dir, license: 'Apache-2.0', source: 'test' });
+  assert.deepEqual(dsir.components.map((c) => [c.name, c.slot]), [['Box', 'ds--box']]);
+  assert.deepEqual(Object.keys(dsir.tokens.color['ds-layer']).sort(), ['g100', 'white']);
 });
