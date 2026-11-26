@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** `feat-008` (Carbon): slice 2 (infer) on `feat/26-infer-carbon` (issue #26), stacked on slice 1 (issue #25, `feat/25-carbon-storybook`, not pushed).
+- **Active feature:** `feat-008` (Carbon): slice 3 (emit) on `feat/27-emit-carbon` (issue #27), stacked on #26 and #25; none pushed.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -27,7 +27,7 @@
 
 ## In progress
 
-- `feat-008`: the pinned Carbon Storybook and `--root` (#25) and inference on it (#26) are done. Next: pinned IBM Plex fonts, emit with themes beyond light and dark, and the oracle's browser side for Carbon.
+- `feat-008`: the pinned Carbon Storybook (#25), inference (#26) and emit (#27) are done. Next: pinned IBM Plex fonts, the oracle's browser side for Carbon, and its scorecard.
 
 ## Next
 
@@ -83,6 +83,8 @@
 | 2026-11-26 | Carbon is read from a local Storybook built from pinned `@carbon/react`, not the hosted one; the extractor takes `--root` for it | The hosted site can't be pinned; Carbon marks no `data-slot`/`data-part` | Extracting the hosted site |
 | 2026-11-26 | A DSIR condition `mode` is any theme name, not only light and dark | Carbon has four themes; the validator still checks that rules only name modes as strings | A 0.4 schema; mapping Carbon's themes onto two modes, which loses information |
 | 2026-11-26 | A root with no marker is a component named by its block class; a token's value is its `var()` fallback when no theme defines it | Carbon marks no parts and defines shared tokens only as fallbacks | An override table of component names |
+| 2026-11-26 | `DsTokens` has one set per DSIR mode and `t.mode` conditions; the page background and foreground tokens are found by name | Carbon has four themes; a DSIR does not name its page tokens yet | Two modes only; explicit page roles in the DSIR (later, if names stop working) |
+| 2026-11-26 | The oracle's node builder and cells are generated from the DSIR, except shadcn's card examples | A hand-written builder named Button, Badge and Card | Writing one per design system |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

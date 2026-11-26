@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 @immutable
 class DsTokens extends ThemeExtension<DsTokens> {
   const DsTokens({
+    required this.mode,
     required this.brightness,
     required this.accent,
     required this.accentForeground,
@@ -27,6 +28,8 @@ class DsTokens extends ThemeExtension<DsTokens> {
     this.fontPackage = 'shadcn_neutral_ui',
   });
 
+  /// The theme this set is for, as the design system names it.
+  final String mode;
   final Brightness brightness;
 
   /// `--accent`
@@ -102,6 +105,7 @@ class DsTokens extends ThemeExtension<DsTokens> {
   );
 
   static const light = DsTokens(
+    mode: 'light',
     brightness: Brightness.light,
     accent: Color(0xFFF5F5F5),
     accentForeground: Color(0xFF171717),
@@ -127,6 +131,7 @@ class DsTokens extends ThemeExtension<DsTokens> {
   );
 
   static const dark = DsTokens(
+    mode: 'dark',
     brightness: Brightness.dark,
     accent: Color(0xFF262626),
     accentForeground: Color(0xFFFAFAFA),
@@ -145,6 +150,14 @@ class DsTokens extends ThemeExtension<DsTokens> {
     secondary: Color(0xFF262626),
     secondaryForeground: Color(0xFFFAFAFA),
   );
+
+  static const all = [light, dark];
+
+  static DsTokens byMode(String mode) => all.firstWhere((t) => t.mode == mode);
+
+  /// What paints the page, and its text.
+  Color get pageBackground => background;
+  Color get pageForeground => foreground;
 
   @override
   DsTokens copyWith({
@@ -167,6 +180,7 @@ class DsTokens extends ThemeExtension<DsTokens> {
     Color? secondaryForeground,
     double? radius,
   }) => DsTokens(
+    mode: mode,
     brightness: brightness ?? this.brightness,
     accent: accent ?? this.accent,
     accentForeground: accentForeground ?? this.accentForeground,
@@ -193,6 +207,7 @@ class DsTokens extends ThemeExtension<DsTokens> {
   DsTokens lerp(DsTokens? other, double t) {
     if (other == null) return this;
     return DsTokens(
+      mode: t < 0.5 ? mode : other.mode,
       brightness: t < 0.5 ? brightness : other.brightness,
       accent: Color.lerp(accent, other.accent, t)!,
       accentForeground: Color.lerp(accentForeground, other.accentForeground, t)!,

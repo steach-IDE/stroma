@@ -1,5 +1,6 @@
 // DSIR -> Flutter package. Pure: the same DSIR, mapping and templates give the same bytes.
 import 'dart:convert';
+import 'dart:math' as math;
 
 import 'package:dart_style/dart_style.dart';
 
@@ -16,10 +17,12 @@ final _formatter = DartFormatter(
   pageWidth: 100,
 );
 
-/// kebab-case -> lowerCamelCase: `primary-foreground` -> `primaryForeground`.
+/// kebab-case -> lowerCamelCase: `primary-foreground` -> `primaryForeground`. Empty parts (`danger--ghost`)
+/// are dropped, and a name that starts with a digit (`2xl`) gets a `v`, as Dart identifiers need.
 String camel(String kebab) {
-  final parts = kebab.split('-');
-  return parts.first + parts.skip(1).map((p) => p[0].toUpperCase() + p.substring(1)).join();
+  final parts = kebab.split('-').where((p) => p.isNotEmpty).toList();
+  final name = parts.first + parts.skip(1).map((p) => p[0].toUpperCase() + p.substring(1)).join();
+  return RegExp(r'^\d').hasMatch(name) ? 'v$name' : name;
 }
 
 /// A cva option as a Dart enum value. `default` is a Dart keyword, so it is named `regular`.
@@ -34,7 +37,7 @@ String _fixed(double v) => _num(double.parse(v.toStringAsFixed(4)));
 
 Map<String, String> emitPackage({
   required Map<String, dynamic> dsir,
-  required Map<String, dynamic> mapping,
+  Map<String, dynamic>? mapping,
   required Map<String, String> templates,
   required String packageName,
 }) {
@@ -47,9 +50,16 @@ Map<String, String> emitPackage({
   // scrib/ holds the adapter an app copies in; it only resolves inside a Scrib app.
   out['analysis_options.yaml'] =
       'include: package:flutter_lints/flutter.yaml\n\nanalyzer:\n  exclude:\n    - scrib/**\n';
+  _pageTokens(dsir); // fails here, naming the problem, if the tokens name no page background
   out['lib/src/tokens.dart'] = dart(_tokens(dsir, packageName));
   for (final entry in templates.entries) {
-    final text = entry.value.replaceAll('{{package}}', packageName);
+    // The pressable test drives a Button; a design system with none has nothing for it to press.
+    if (entry.key == 'test/pressable_test.dart' && !components.any((c) => c['name'] == 'Button')) {
+      continue;
+    }
+    final text = entry.value
+        .replaceAll('{{package}}', packageName)
+        .replaceAll('{{fontFamily}}', _fontFamily(dsir));
     out[entry.key] = entry.key.endsWith('.dart') ? dart(text) : text;
   }
 
@@ -73,9 +83,10 @@ Map<String, String> emitPackage({
       for (final f in files.keys) "export 'src/components/$f.dart';",
     ].join('\n'),
   );
-  out['scrib/scrib_adapter.dart'] = dart(_scribAdapter(mapping, packageName));
+  if (mapping != null) out['scrib/scrib_adapter.dart'] = dart(_scribAdapter(mapping, packageName));
+  out['test/oracle/build_node.dart'] = dart(_buildNode(components, packageName));
   out['test/oracle/cells.json'] =
-      '${const JsonEncoder.withIndent('  ').convert(oracleCells(components))}\n';
+      '${const JsonEncoder.withIndent('  ').convert(oracleCells(components, _modes(dsir)))}\n';
   return out;
 }
 
@@ -112,6 +123,62 @@ flutter:
 
 // ---------------- tokens ----------------
 
+String _fontFamily(Map<String, dynamic> dsir) =>
+    (((dsir['tokens'] as Map)['font'] as Map?)?['sans'] as Map?)?['family'] as String? ?? 'Inter';
+
+/// The DSIR's modes (theme names): light and dark first, then the rest in name order.
+List<String> _modes(Map<String, dynamic> dsir) {
+  final colors = ((dsir['tokens'] as Map)['color'] as Map).cast<String, dynamic>();
+  final all = {for (final t in colors.values) ...(t as Map).keys.cast<String>()}.toList()..sort();
+  return [
+    ...['light', 'dark'].where(all.contains),
+    ...all.where((m) => m != 'light' && m != 'dark'),
+  ];
+}
+
+/// The tokens that paint the page and its text. A DSIR does not name them, so they are found by name:
+/// `background` or the shortest `*-background`; `foreground`, `*-text-primary` or `*-foreground`.
+/// shortcut: a naming convention, when a design system uses another a DSIR needs explicit page roles.
+(String background, String foreground) _pageTokens(Map<String, dynamic> dsir) {
+  final names = (((dsir['tokens'] as Map)['color'] as Map).keys.cast<String>()).toList()..sort();
+  String? find(List<String> exact, List<String> suffixes) {
+    for (final n in names) {
+      if (exact.contains(n)) return n;
+    }
+    for (final suffix in suffixes) {
+      final hits = names.where((n) => n.endsWith(suffix)).toList()
+        ..sort((a, b) => a.length - b.length);
+      if (hits.isNotEmpty) return hits.first;
+    }
+    return null;
+  }
+
+  final bg = find(['background'], ['-background']);
+  final fg = find(['foreground'], ['-text-primary', '-foreground']);
+  if (bg == null || fg == null) {
+    throw EmitException(
+      'no page ${bg == null ? 'background' : 'foreground'} token: name one `background` or `foreground`',
+    );
+  }
+  return (bg, fg);
+}
+
+/// How light a mode's page is, 0 (black) to 1 (white). A mode with no page background there counts as light.
+double _pageLuminance(String mode, Map<String, dynamic> dsir) {
+  final bg = (((dsir['tokens'] as Map)['color'] as Map)[_pageTokens(dsir).$1] as Map)[mode] as Map?;
+  if (bg == null) return 1;
+  final rgb = [1, 3, 5].map((i) => int.parse((bg['hex'] as String).substring(i, i + 2), radix: 16));
+  final l = rgb.map((v) {
+    final c = v / 255;
+    return c <= 0.03928 ? c / 12.92 : math.pow((c + 0.055) / 1.055, 2.4).toDouble();
+  }).toList();
+  return 0.2126 * l[0] + 0.7152 * l[1] + 0.0722 * l[2];
+}
+
+/// `dark` for a mode named so, or one whose page background is dark; every other mode is light.
+bool _isDark(String mode, Map<String, dynamic> dsir) =>
+    mode == 'dark' || (mode != 'light' && _pageLuminance(mode, dsir) < 0.5);
+
 String _colorLiteral(String hex, num alpha) {
   final rgb = hex.substring(1).toUpperCase();
   if (alpha == 1) return 'Color(0xFF$rgb)';
@@ -122,9 +189,12 @@ String _colorLiteral(String hex, num alpha) {
 String _tokens(Map<String, dynamic> dsir, String packageName) {
   final tokens = dsir['tokens'] as Map<String, dynamic>;
   final colors = (tokens['color'] as Map).cast<String, dynamic>();
-  final radius = tokens['radius'] as Map<String, dynamic>;
+  // A design system with no radius tokens (Carbon's corners are square) has a base of 0 and nothing derived.
+  final radius = (tokens['radius'] as Map?)?.cast<String, dynamic>() ?? const {'base': 0};
   final names = colors.keys.toList();
   final fields = names.map(camel).toList();
+  final modes = _modes(dsir);
+  final (pageBg, pageFg) = _pageTokens(dsir);
   final b = StringBuffer()
     ..writeln('// Generated from the DSIR tokens (DTCG files in dsir/tokens/). Do not edit.')
     ..writeln("import 'package:flutter/material.dart';")
@@ -135,16 +205,19 @@ String _tokens(Map<String, dynamic> dsir, String packageName) {
     ..writeln('@immutable')
     ..writeln('class DsTokens extends ThemeExtension<DsTokens> {')
     ..writeln('  const DsTokens({')
+    ..writeln('    required this.mode,')
     ..writeln('    required this.brightness,');
   for (final f in fields) {
     b.writeln('    required this.$f,');
   }
   b
     ..writeln('    this.radius = ${_num(radius['base'] as num)},')
-    ..writeln("    this.fontFamily = 'Inter',")
+    ..writeln("    this.fontFamily = '${_fontFamily(dsir)}',")
     ..writeln("    this.fontPackage = '$packageName',")
     ..writeln('  });')
     ..writeln()
+    ..writeln('  /// The theme this set is for, as the design system names it.')
+    ..writeln('  final String mode;')
     ..writeln('  final Brightness brightness;');
   for (var i = 0; i < names.length; i++) {
     b
@@ -159,7 +232,7 @@ String _tokens(Map<String, dynamic> dsir, String packageName) {
     ..writeln('  final double radius;')
     ..writeln('  final String fontFamily;')
     ..writeln('  final String? fontPackage;');
-  final derived = (radius['derived'] as Map).cast<String, dynamic>();
+  final derived = ((radius['derived'] as Map?) ?? const {}).cast<String, dynamic>();
   for (final e in derived.entries) {
     final d = e.value as num;
     final expr = d == 0 ? 'radius' : (d > 0 ? 'radius + ${_num(d)}' : 'radius - ${_num(-d)}');
@@ -181,21 +254,22 @@ String _tokens(Map<String, dynamic> dsir, String packageName) {
     ..writeln('        fontSize: 16,')
     ..writeln('        height: 1.5,')
     ..writeln('        fontWeight: FontWeight.w400,')
-    ..writeln('        color: foreground,')
+    ..writeln('        color: ${camel(pageFg)},')
     ..writeln('        leadingDistribution: TextLeadingDistribution.even,')
     ..writeln('        decoration: TextDecoration.none,')
     ..writeln('      );')
     ..writeln();
-  for (final mode in ['light', 'dark']) {
+  for (final mode in modes) {
     b
-      ..writeln('  static const $mode = DsTokens(')
-      ..writeln('    brightness: Brightness.$mode,');
+      ..writeln('  static const ${camel(mode)} = DsTokens(')
+      ..writeln("    mode: '$mode',")
+      ..writeln('    brightness: Brightness.${_isDark(mode, dsir) ? 'dark' : 'light'},');
     for (var i = 0; i < names.length; i++) {
       // A token no cell used in one mode has no measured value there; no rule can read it, so it
       // borrows the other mode's value and says so.
-      final modes = (colors[names[i]] as Map).cast<String, dynamic>();
-      final measured = modes[mode] as Map<String, dynamic>?;
-      final v = (measured ?? modes.values.first) as Map<String, dynamic>;
+      final byMode = (colors[names[i]] as Map).cast<String, dynamic>();
+      final measured = byMode[mode] as Map<String, dynamic>?;
+      final v = (measured ?? byMode.values.first) as Map<String, dynamic>;
       b.writeln(
         '    ${fields[i]}: ${_colorLiteral(v['hex'] as String, v['alpha'] as num)},'
         '${measured == null ? ' // not measured in $mode: no rule reads it there' : ''}',
@@ -205,11 +279,30 @@ String _tokens(Map<String, dynamic> dsir, String packageName) {
       ..writeln('  );')
       ..writeln();
   }
+  // The ambient theme picks by brightness: the lightest light mode and the darkest dark one (or the first mode).
+  double lum(String m) => _pageLuminance(m, dsir);
+  final lights = modes.where((m) => !_isDark(m, dsir)).toList()
+    ..sort((a, b) => lum(b).compareTo(lum(a)));
+  final darks = modes.where((m) => _isDark(m, dsir)).toList()
+    ..sort((a, b) => lum(a).compareTo(lum(b)));
+  final light = lights.isEmpty ? modes.first : lights.first;
+  final dark = darks.isEmpty ? light : darks.first;
+  if (!modes.contains('light')) b.writeln('  static const light = ${camel(light)};');
+  if (!modes.contains('dark')) b.writeln('  static const dark = ${camel(dark)};');
   b
+    ..writeln('  static const all = [${modes.map(camel).join(', ')}];')
+    ..writeln()
+    ..writeln('  static DsTokens byMode(String mode) => all.firstWhere((t) => t.mode == mode);')
+    ..writeln()
+    ..writeln('  /// What paints the page, and its text.')
+    ..writeln('  Color get pageBackground => ${camel(pageBg)};')
+    ..writeln('  Color get pageForeground => ${camel(pageFg)};')
+    ..writeln()
     ..writeln('  @override')
     ..writeln(
       '  DsTokens copyWith({Brightness? brightness, ${fields.map((f) => 'Color? $f').join(', ')}, double? radius}) => DsTokens(',
     )
+    ..writeln('    mode: mode,')
     ..writeln('    brightness: brightness ?? this.brightness,');
   for (final f in fields) {
     b.writeln('    $f: $f ?? this.$f,');
@@ -224,6 +317,7 @@ String _tokens(Map<String, dynamic> dsir, String packageName) {
     ..writeln('  DsTokens lerp(DsTokens? other, double t) {')
     ..writeln('    if (other == null) return this;')
     ..writeln('    return DsTokens(')
+    ..writeln('      mode: t < 0.5 ? mode : other.mode,')
     ..writeln('      brightness: t < 0.5 ? brightness : other.brightness,');
   for (final f in fields) {
     b.writeln('      $f: Color.lerp($f, other.$f, t)!,');
@@ -366,6 +460,21 @@ String? _partField(Map<String, dynamic> c, String ref) {
   return null;
 }
 
+/// The part slots a rule asks about (`hasSlot`) as (widget field, data-slot). The one grid this emitter
+/// lays out has a single trailing part.
+List<(String, String)> _parts(Map<String, dynamic> c) {
+  final inputs = _inputs(c);
+  final parts = [
+    for (final s in (c['slots'] as List).cast<Map<String, dynamic>>())
+      if (s['dataSlot'] != null && inputs.contains(_flag(c, s['dataSlot'] as String)))
+        (_partField(c, s['dataSlot'] as String)!, s['dataSlot'] as String),
+  ];
+  if (parts.length > 1) {
+    throw EmitException('${c['name']}: ${parts.length} part slots have no Flutter layout here');
+  }
+  return parts;
+}
+
 String _flag(Map<String, dynamic> c, String slot) {
   final field = _partField(c, slot);
   if (field == null) throw EmitException('${c['name']}: hasSlot "$slot" names no part slot');
@@ -380,7 +489,7 @@ String _condition(Map<String, dynamic> c, Map<String, dynamic> rule) {
   for (final e in when.entries) {
     switch (e.key) {
       case 'mode':
-        parts.add(e.value == 'dark' ? 'dark' : '!dark');
+        parts.add("t.mode == '${e.value}'");
       case 'states':
         parts.addAll((e.value as List).map((s) => 'states.contains(WidgetState.$s)'));
       case 'hasIcon' || 'interactive':
@@ -418,6 +527,12 @@ Set<String> _inputs(Map<String, dynamic> c) {
   return used;
 }
 
+/// A button, or any component whose rules ask about its state or whether it is interactive (Badge as a link).
+bool _isPressable(Map<String, dynamic> c) =>
+    c['role'] == 'button' ||
+    c['name'] == 'Badge' ||
+    _inputs(c).any(const {'states', 'interactive'}.contains);
+
 /// The boolean inputs among a resolver's inputs: icon, then interactive, then one per part slot.
 List<String> _flags(Set<String> inputs) => [
   ...['hasIcon', 'interactive'].where(inputs.contains),
@@ -449,7 +564,6 @@ String _resolver(Map<String, dynamic> c, Map<String, dynamic> globals) {
     ..writeln(
       '$ret resolve${name}Style(DsTokens t${named.isEmpty ? '' : ', {${named.join(', ')}}'}) {',
     );
-  if (inputs.contains('mode')) b.writeln('  final dark = t.brightness == Brightness.dark;');
   b.writeln(
     '  var root = DsStyle($starArgs);${star == null ? '' : " // * { @apply ${star['from']} }"}',
   );
@@ -468,7 +582,7 @@ String _resolver(Map<String, dynamic> c, Map<String, dynamic> globals) {
 }
 
 String _componentFile(List<Map<String, dynamic>> group, Map<String, dynamic> globals) {
-  final pressable = group.any((c) => c['role'] == 'button' || c['name'] == 'Badge');
+  final pressable = group.any(_isPressable);
   final b = StringBuffer()
     ..writeln('// Generated by scrib_ds from the DSIR. Do not edit.')
     ..writeln("import 'package:flutter/widgets.dart';")
@@ -501,19 +615,13 @@ String _widget(Map<String, dynamic> c) {
       .map((s) => s['name'] as String)
       .toSet();
   final inputs = _inputs(c);
-  // The part slots a rule asks about (`hasSlot`). The one grid this emitter lays out has a single trailing part.
-  final parts = [
-    for (final s in (c['slots'] as List).cast<Map<String, dynamic>>())
-      if (s['dataSlot'] != null && inputs.contains(_flag(c, s['dataSlot'] as String)))
-        (_partField(c, s['dataSlot'] as String)!, s['dataSlot'] as String),
-  ];
-  if (parts.length > 1)
-    throw EmitException('$name: ${parts.length} part slots have no Flutter layout here');
+  final parts = _parts(c);
   final part = parts.isEmpty ? null : parts.single.$1;
   final defaults = (c['defaultVariants'] as Map).cast<String, dynamic>();
   final isButton = c['role'] == 'button';
-  final isBadge = name == 'Badge';
-  final interactive = isButton || isBadge;
+  final interactive = _isPressable(c);
+  // A pressable that is not a button (Badge, a clickable tile) is a plain element until it has an `onPressed`.
+  final isBadge = interactive && !isButton;
   final hasIcon = slots.contains('icon');
   final fields = <String>[];
   final ctor = <String>['super.key'];
@@ -630,13 +738,17 @@ String _widget(Map<String, dynamic> c) {
 
 // ---------------- oracle cells ----------------
 
-/// The cells both renderers draw: one per variant x size x state x mode, plus card examples.
-List<Map<String, dynamic>> oracleCells(List<Map<String, dynamic>> components) {
+/// The cells both renderers draw. shadcn's Button, Badge and Card have hand-written cells (below, with the
+/// card examples); any other DSIR gets one per component x variant combination x state x mode.
+/// shortcut: compound components (Card) need their examples written by hand, until anatomy can generate them.
+List<Map<String, dynamic>> oracleCells(List<Map<String, dynamic>> components, List<String> modes) {
+  final names = components.map((c) => c['name']).toSet();
+  if (!names.containsAll(['Button', 'Badge', 'Card'])) return _genericCells(components, modes);
   List<String> axis(String component, String name) =>
       (_variants(components.firstWhere((c) => c['name'] == component))[name] as List)
           .cast<String>();
   final cells = <Map<String, dynamic>>[];
-  for (final mode in ['light', 'dark']) {
+  for (final mode in modes) {
     for (final variant in axis('Button', 'variant')) {
       for (final size in axis('Button', 'size')) {
         for (final state in ['rest', 'hovered', 'focused', 'disabled']) {
@@ -713,6 +825,142 @@ List<Map<String, dynamic>> oracleCells(List<Map<String, dynamic>> components) {
     }
   }
   return cells;
+}
+
+/// One cell per variant combination x state x mode for every component that is not drawn inside another.
+List<Map<String, dynamic>> _genericCells(
+  List<Map<String, dynamic>> components,
+  List<String> modes,
+) {
+  final inside = {
+    for (final c in components)
+      for (final child in ((c['anatomy'] as Map?)?['children'] as List? ?? const [])) child,
+  };
+  final cells = <Map<String, dynamic>>[];
+  for (final mode in modes) {
+    for (final c in components) {
+      if (inside.contains(c['slot'])) continue;
+      var combos = <Map<String, String>>[{}];
+      for (final a in _variants(c).entries) {
+        combos = [
+          for (final combo in combos)
+            for (final v in (a.value as List).cast<String>()) {...combo, a.key: v},
+        ];
+      }
+      final role = c['role'];
+      final states = role == 'button'
+          ? ['rest', 'hovered', 'focused', 'disabled']
+          : role == 'link'
+          ? ['rest', 'hovered', 'focused']
+          : ['rest'];
+      final name = c['name'] as String;
+      for (final combo in combos) {
+        for (final state in states) {
+          cells.add({
+            'id': '${name.toLowerCase()}.${[...combo.values, state].join('.')}.$mode',
+            'sheet': name.toLowerCase(),
+            'mode': mode,
+            'state': state,
+            'node': {'type': name, ...combo, 'text': name, 'interactive': state != 'rest'},
+          });
+        }
+      }
+    }
+  }
+  return cells;
+}
+
+// ---------------- the oracle's node builder ----------------
+
+/// test/oracle/build_node.dart: turns a cell's node (type, variant values, text, children) into the
+/// component's widget, from the DSIR's slots and variant axes.
+String _buildNode(List<Map<String, dynamic>> components, String packageName) {
+  final names = components.map((c) => c['name'] as String).toSet();
+  final b = StringBuffer()
+    ..writeln('// Generated from the DSIR. Do not edit.')
+    ..writeln('// ignore_for_file: sort_child_properties_last')
+    ..writeln("import 'package:flutter/widgets.dart';")
+    ..writeln("import 'package:$packageName/$packageName.dart';")
+    ..writeln()
+    ..writeln(
+      "/// Stands in for an svg icon: a circle of radius 10 in a 24 box, like the HTML fixture's svg.",
+    )
+    ..writeln('class OracleIcon extends StatelessWidget {')
+    ..writeln('  const OracleIcon({super.key});')
+    ..writeln()
+    ..writeln('  @override')
+    ..writeln('  Widget build(BuildContext context) {')
+    ..writeln('    final theme = IconTheme.of(context);')
+    ..writeln('    final size = theme.size ?? 24;')
+    ..writeln('    return SizedBox.square(')
+    ..writeln('      dimension: size,')
+    ..writeln('      child: Center(')
+    ..writeln('        child: Container(')
+    ..writeln('          width: size * 20 / 24,')
+    ..writeln('          height: size * 20 / 24,')
+    ..writeln('          decoration: BoxDecoration(color: theme.color, shape: BoxShape.circle),')
+    ..writeln('        ),')
+    ..writeln('      ),')
+    ..writeln('    );')
+    ..writeln('  }')
+    ..writeln('}')
+    ..writeln()
+    ..writeln('T _enumByName<T extends Enum>(List<T> values, String option) {')
+    ..writeln("  if (option == 'default') return values.byName('regular');")
+    ..writeln(
+      "  final name = option.replaceAllMapped(RegExp('-+(.)'), (m) => m[1]!.toUpperCase());",
+    )
+    ..writeln("  return values.byName(RegExp(r'^\\d').hasMatch(name) ? 'v\$name' : name);")
+    ..writeln('}')
+    ..writeln()
+    ..writeln("/// Widgets whose geometry the oracle reads by name (a card's title and content).")
+    ..writeln('const oracleParts = <String, Type>{')
+    ..writeln(
+      [
+        if (names.contains('CardTitle')) "  'title': CardTitle,",
+        if (names.contains('CardContent')) "  'content': CardContent,",
+      ].join('\n'),
+    )
+    ..writeln('};')
+    ..writeln()
+    ..writeln(
+      'Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool disabled = false}) {',
+    )
+    ..writeln("  final text = n['text'] as String?;")
+    ..writeln('  List<Widget> kids() => [')
+    ..writeln(
+      "    for (final c in (n['children'] as List? ?? const [])) buildNode((c as Map).cast()),",
+    )
+    ..writeln('  ];')
+    ..writeln("  switch (n['type']) {");
+  for (final c in components) {
+    final name = c['name'] as String;
+    final slots = (c['slots'] as List).cast<Map<String, dynamic>>().map((s) => s['name']).toSet();
+    final parts = _parts(c);
+    final isButton = c['role'] == 'button';
+    final interactive = _isPressable(c);
+    final args = <String>[
+      for (final axis in _variants(c).keys)
+        "$axis: _enumByName(${_enumName(c, axis)}.values, n['$axis'] as String),",
+      if (slots.contains('icon')) "icon: n['icon'] == true ? const OracleIcon() : null,",
+      if (slots.contains('child')) 'child: text == null ? null : Text(text),',
+      if (slots.contains('children')) 'children: kids(),',
+      if (parts.isNotEmpty) '${parts.single.$1}: action == null ? null : buildNode(action.cast()),',
+      if (interactive) 'statesController: states,',
+      if (interactive)
+        isButton
+            ? 'onPressed: disabled ? null : () {},'
+            : "onPressed: n['interactive'] == true ? () {} : null,",
+    ];
+    b.writeln("    case '$name':");
+    if (parts.isNotEmpty) b.writeln("      final action = n['action'] as Map?;");
+    b.writeln('      return $name(${args.join(' ')});');
+  }
+  b
+    ..writeln('  }')
+    ..writeln("  throw ArgumentError('unknown node \${n['type']}');")
+    ..writeln('}');
+  return b.toString();
 }
 
 // ---------------- scrib adapter ----------------

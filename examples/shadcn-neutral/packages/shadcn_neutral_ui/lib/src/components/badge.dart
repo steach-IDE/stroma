@@ -91,7 +91,6 @@ class Badge extends StatelessWidget {
   required Set<WidgetState> states,
   required bool hasIcon,
 }) {
-  final dark = t.brightness == Brightness.dark;
   var root = DsStyle();
   var icon = const DsStyle();
   icon = icon.merge(
@@ -158,10 +157,10 @@ class Badge extends StatelessWidget {
   if (hasIcon) {
     root = root.merge(const DsStyle(width: 70.6094));
   } // measured: hasIcon=true
-  if (variant == BadgeVariant.destructive && !dark) {
+  if (variant == BadgeVariant.destructive && t.mode == 'light') {
     root = root.merge(DsStyle(background: t.destructive));
   } // measured: variant=destructive, mode=light
-  if (variant == BadgeVariant.ghost && dark) {
+  if (variant == BadgeVariant.ghost && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFFFAFAFA)));
   } // measured: variant=ghost, mode=dark
   if (variant == BadgeVariant.regular && states.contains(WidgetState.hovered)) {
@@ -187,7 +186,9 @@ class Badge extends StatelessWidget {
   if (variant == BadgeVariant.secondary && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.secondary.scaleAlpha(0.9)));
   } // measured: variant=secondary, state=hovered
-  if (variant == BadgeVariant.destructive && dark && states.contains(WidgetState.focused)) {
+  if (variant == BadgeVariant.destructive &&
+      t.mode == 'dark' &&
+      states.contains(WidgetState.focused)) {
     root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.4)));
   } // measured: variant=destructive, mode=dark, state=focused
   return (root: root, icon: icon);

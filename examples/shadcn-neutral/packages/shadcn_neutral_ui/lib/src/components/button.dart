@@ -85,7 +85,6 @@ class Button extends StatelessWidget {
   required Set<WidgetState> states,
   required bool hasIcon,
 }) {
-  final dark = t.brightness == Brightness.dark;
   var root = DsStyle();
   var icon = const DsStyle();
   icon = icon.merge(
@@ -201,13 +200,13 @@ class Button extends StatelessWidget {
   if (size == ButtonSize.xs && hasIcon) {
     root = root.merge(const DsStyle(paddingX: 6));
   } // measured: size=xs, hasIcon=true
-  if (variant == ButtonVariant.destructive && !dark) {
+  if (variant == ButtonVariant.destructive && t.mode == 'light') {
     root = root.merge(DsStyle(background: t.destructive));
   } // measured: variant=destructive, mode=light
-  if (variant == ButtonVariant.ghost && dark) {
+  if (variant == ButtonVariant.ghost && t.mode == 'dark') {
     root = root.merge(const DsStyle(foreground: Color(0xFFFAFAFA)));
   } // measured: variant=ghost, mode=dark
-  if (variant == ButtonVariant.outline && dark) {
+  if (variant == ButtonVariant.outline && t.mode == 'dark') {
     root = root.merge(
       DsStyle(
         background: t.input.scaleAlpha(0.3),
@@ -236,16 +235,22 @@ class Button extends StatelessWidget {
   if (variant == ButtonVariant.secondary && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.secondary.scaleAlpha(0.8)));
   } // measured: variant=secondary, state=hovered
-  if (variant == ButtonVariant.destructive && dark && states.contains(WidgetState.focused)) {
+  if (variant == ButtonVariant.destructive &&
+      t.mode == 'dark' &&
+      states.contains(WidgetState.focused)) {
     root = root.merge(DsStyle(ringColor: t.destructive.scaleAlpha(0.4)));
   } // measured: variant=destructive, mode=dark, state=focused
-  if (variant == ButtonVariant.destructive && !dark && states.contains(WidgetState.hovered)) {
+  if (variant == ButtonVariant.destructive &&
+      t.mode == 'light' &&
+      states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.destructive.scaleAlpha(0.9)));
   } // measured: variant=destructive, mode=light, state=hovered
-  if (variant == ButtonVariant.ghost && !dark && states.contains(WidgetState.hovered)) {
+  if (variant == ButtonVariant.ghost && t.mode == 'light' && states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.accent));
   } // measured: variant=ghost, mode=light, state=hovered
-  if (variant == ButtonVariant.outline && dark && states.contains(WidgetState.hovered)) {
+  if (variant == ButtonVariant.outline &&
+      t.mode == 'dark' &&
+      states.contains(WidgetState.hovered)) {
     root = root.merge(DsStyle(background: t.input.scaleAlpha(0.5)));
   } // measured: variant=outline, mode=dark, state=hovered
   return (root: root, icon: icon);

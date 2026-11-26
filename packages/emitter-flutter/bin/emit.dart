@@ -1,4 +1,4 @@
-// dart run bin/emit.dart [--check] [--dsir <file>] [--mapping <file>] [--out <dir>] [--fonts <dir>]
+// dart run bin/emit.dart [--check] [--dsir <file>] [--mapping <file> | --no-mapping] [--package <name>] [--out <dir>] [--fonts <dir>]
 // Emits a Flutter package from a DSIR. The defaults build the shadcn example in examples/shadcn-neutral.
 // --check fails if the committed output differs from what would be written, or holds files no longer emitted.
 // --fonts is where Inter-{Regular,Medium,SemiBold}.ttf are copied from (default: the pinned copy that
@@ -8,8 +8,6 @@ import 'dart:io';
 
 import 'package:path/path.dart' as p;
 import 'package:stroma_emitter/emitter.dart';
-
-const packageName = 'shadcn_neutral_ui';
 
 Future<void> main(List<String> args) async {
   final root = p.dirname(p.dirname(Platform.script.toFilePath()));
@@ -27,6 +25,7 @@ Future<void> main(List<String> args) async {
     'mapping',
     p.join(repo, 'packages', 'adapter-scrib', 'mappings', 'shadcn.scrib.json'),
   );
+  final packageName = option('package', 'shadcn_neutral_ui');
   final out = option('out', p.join(repo, 'examples', 'shadcn-neutral', 'packages', packageName));
   Map<String, dynamic> readJson(String path) =>
       jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
@@ -42,9 +41,10 @@ Future<void> main(List<String> args) async {
           ..sort((a, b) => a.path.compareTo(b.path)))
       p.posix.joinAll(p.split(p.relative(f.path, from: templateDir.path))): f.readAsStringSync(),
   };
+  final dsir = readJson(dsirPath);
   final files = emitPackage(
-    dsir: readJson(dsirPath),
-    mapping: readJson(mappingPath),
+    dsir: dsir,
+    mapping: args.contains('--no-mapping') ? null : readJson(mappingPath),
     templates: templates,
     packageName: packageName,
   );
@@ -85,7 +85,9 @@ Future<void> main(List<String> args) async {
     }
   }
   if (stale > 0) exit(1);
-  if (!check) {
+  // Only Inter is pinned so far; another family's font files are a later step (the package then has none).
+  final family = (((dsir['tokens'] as Map)['font'] as Map?)?['sans'] as Map?)?['family'];
+  if (!check && family == 'Inter') {
     // Goldens are only reproducible with the exact font bytes, so the default is the pinned copy.
     final i = args.indexOf('--fonts');
     final from = i >= 0 ? args[i + 1] : p.join(repo, '.stroma', 'fonts', 'inter-4.1');

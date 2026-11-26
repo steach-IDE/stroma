@@ -11,74 +11,10 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:shadcn_neutral_ui/shadcn_neutral_ui.dart';
 
+import 'oracle/build_node.dart';
+
 const sheetWidth = 1200.0;
 const sheetHeight = 3200.0;
-
-/// Stands in for an svg icon: a circle of radius 10 in a 24 box, like the HTML fixture's svg.
-class OracleIcon extends StatelessWidget {
-  const OracleIcon({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    final theme = IconTheme.of(context);
-    final size = theme.size ?? 24;
-    return SizedBox.square(
-      dimension: size,
-      child: Center(
-        child: Container(
-          width: size * 20 / 24,
-          height: size * 20 / 24,
-          decoration: BoxDecoration(color: theme.color, shape: BoxShape.circle),
-        ),
-      ),
-    );
-  }
-}
-
-T _enumByName<T extends Enum>(List<T> values, String option) => values.byName(
-  option == 'default'
-      ? 'regular'
-      : option.replaceAllMapped(RegExp('-(.)'), (m) => m[1]!.toUpperCase()),
-);
-
-Widget buildNode(Map<String, dynamic> n, {WidgetStatesController? states, bool disabled = false}) {
-  final text = n['text'] as String?;
-  List<Widget> kids() => [
-    for (final c in (n['children'] as List? ?? const [])) buildNode((c as Map).cast()),
-  ];
-  switch (n['type']) {
-    case 'Button':
-      return Button(
-        variant: _enumByName(ButtonVariant.values, n['variant'] as String),
-        size: _enumByName(ButtonSize.values, n['size'] as String),
-        icon: n['icon'] == true ? const OracleIcon() : null,
-        statesController: states,
-        onPressed: disabled ? null : () {},
-        child: text == null ? null : Text(text),
-      );
-    case 'Badge':
-      return Badge(
-        variant: _enumByName(BadgeVariant.values, n['variant'] as String),
-        statesController: states,
-        onPressed: n['interactive'] == true ? () {} : null,
-        child: Text(text!),
-      );
-    case 'Card':
-      return Card(children: kids());
-    case 'CardHeader':
-      final action = n['action'] as Map?;
-      return CardHeader(action: action == null ? null : buildNode(action.cast()), children: kids());
-    case 'CardTitle':
-      return CardTitle(child: Text(text!));
-    case 'CardDescription':
-      return CardDescription(child: Text(text!));
-    case 'CardContent':
-      return CardContent(child: Text(text!));
-    case 'CardFooter':
-      return CardFooter(children: kids());
-  }
-  throw ArgumentError('unknown node ${n['type']}');
-}
 
 Map<String, double> _rect(Rect r, Offset o) => {
   'x': r.left - o.dx,
@@ -96,12 +32,14 @@ void main() {
   }
 
   setUpAll(() async {
-    // Components ask for family Inter from this package, which Flutter names packages/<pkg>/Inter.
+    // Components ask for the design system's family from this package, which Flutter names packages/<pkg>/<family>.
     final loader = FontLoader('packages/shadcn_neutral_ui/Inter');
-    for (final w in ['Regular', 'Medium', 'SemiBold']) {
-      loader.addFont(
-        Future.value(ByteData.sublistView(File('fonts/Inter-$w.ttf').readAsBytesSync())),
-      );
+    final fonts = Directory('fonts').existsSync()
+        ? Directory('fonts').listSync().whereType<File>().toList()
+        : [];
+    fonts.sort((a, b) => a.path.compareTo(b.path));
+    for (final f in fonts.where((f) => f.path.endsWith('.ttf'))) {
+      loader.addFont(Future.value(ByteData.sublistView(f.readAsBytesSync())));
     }
     await loader.load();
   });
@@ -111,8 +49,7 @@ void main() {
       tester.view.devicePixelRatio = 2;
       tester.view.physicalSize = const Size(sheetWidth * 2, sheetHeight * 2);
       addTearDown(tester.view.reset);
-      final dark = entry.key.endsWith('.dark');
-      final tokens = dark ? DsTokens.dark : DsTokens.light;
+      final tokens = DsTokens.byMode(entry.key.substring(entry.key.indexOf('.') + 1));
       const sheetKey = ValueKey('sheet');
 
       Widget cell(Map<String, dynamic> c) {
@@ -145,7 +82,7 @@ void main() {
                 key: sheetKey,
                 child: Container(
                   width: sheetWidth,
-                  color: tokens.background,
+                  color: tokens.pageBackground,
                   padding: const EdgeInsets.all(16),
                   child: DefaultTextStyle(
                     style: tokens.bodyText,
@@ -187,8 +124,8 @@ void main() {
               'box': _rect(tester.getRect(find.byKey(ValueKey(c['id']))), origin),
               'text': first(find.byKey(ValueKey(c['id'])), RichText),
               'icon': first(find.byKey(ValueKey(c['id'])), OracleIcon),
-              'title': first(find.byKey(ValueKey(c['id'])), CardTitle),
-              'content': first(find.byKey(ValueKey(c['id'])), CardContent),
+              for (final part in oracleParts.entries)
+                part.key: first(find.byKey(ValueKey(c['id'])), part.value),
             },
         },
       };
