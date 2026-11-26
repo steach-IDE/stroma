@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. Phase 1 is done: `feat-009` (issue #35) wrote the verdict, go. `feat-010` (the npm CLI) is next, after the Phase 2 conditions in the verdict are planned into issues.
+- **Active feature:** none. Phase 1 is done: `feat-009` (issue #35) wrote the verdict, go. Phase 2 is planned (issue #37): `feat-019` (the CSS-in-JS probe) first, then `feat-016` (coverage report), `feat-018` (overrides) and `feat-017` (pixel oracle), then `feat-010` (the CLI); `feat-020` (layout values) beside them.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done

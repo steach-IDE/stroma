@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-Plan Phase 2 into issues before `feat-010`: the coverage report, a Chrome crop per cell with a pixel comparison, the DSIR override file, and the CSS-in-JS probe (Chakra UI v3 or Fluent UI v9, pinned Storybook). Add them to `feature_list.json` first; the probe's verdict decides whether CSS-in-JS systems are in scope.
+Start `feat-019`, the CSS-in-JS probe (Chakra UI v3 or Fluent UI v9, a pinned Storybook, the existing extractor): it is the largest open question and decides whether CSS-in-JS systems are in scope. Open its GitHub issue first. Then `feat-016`, `feat-018`, `feat-017`; `feat-010` needs the first and third.
