@@ -48,3 +48,16 @@ test('the controls are Carbon\'s own axes, and each story renders a Carbon root'
   assert.deepEqual(seen['tile--default'], {});
   await page.close();
 });
+
+test('each theme changes how a tile looks', async () => {
+  const page = await browser.newPage();
+  const seen = {};
+  for (const theme of ['white', 'g10', 'g90', 'g100']) {
+    await page.goto(`${server.url}/iframe.html?id=tile--default&viewMode=story&globals=theme:${theme}`);
+    const tile = page.locator('#storybook-root .cds--tile').first();
+    await tile.waitFor({ timeout: 10_000 });
+    seen[theme] = await tile.evaluate((el) => getComputedStyle(el).backgroundColor);
+  }
+  assert.equal(new Set(Object.values(seen)).size >= 3, true, `themes render alike: ${JSON.stringify(seen)}`);
+  await page.close();
+});

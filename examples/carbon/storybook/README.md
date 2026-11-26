@@ -26,7 +26,8 @@ Pinned: `@carbon/react` 1.121.0 and `@carbon/styles` 1.120.0 (the version it res
 ## What the first extraction shows
 
 - Four themes, not light and dark: 784 cells (Button 672, Tag 96, Tile 16).
-- Tokens arrive with a fallback, `var(--cds-button-primary, #0f62fe)`; the inference has to read that form.
+- Tokens arrive with a fallback, `var(--cds-button-primary, #0f62fe)`; `packages/infer` reads that form.
+- The preview wraps stories in `Theme`, not `GlobalTheme`: the latter only sets React context, so all four themes rendered the same until a test caught it (`each theme changes how a tile looks`).
 - Fonts: Carbon's stylesheet asks for IBM Plex from a CDN. The pinned fonts for the oracle are not done yet, so measurements here depend on the font that loads.
 
 | What you see | Why | What to do |
