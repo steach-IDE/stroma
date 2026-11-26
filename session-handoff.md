@@ -2,43 +2,47 @@
 
 ## Current objective
 
-Phase 1. Phase 0 and `feat-014` are done; next is `feat-005`, the render-based extractor.
+Phase 1: the render-based extractor (`feat-005`). Its input, a pinned shadcn Storybook (`feat-015`), is done.
 
 ## Completed this session
 
-- Restored the spike history and the Phase 1 decisions on `main` (issue #9, PR #10, merged with a merge commit).
-- Turned on "delete branch on merge" for the repository.
-- `feat-014` (issue #11, PR #12):
-  - `tool/fetch-fonts.sh` downloads Inter 4.1 once into `.stroma/fonts`, checks the hashes in `tool/fonts.sha256`, and copies the fonts.
-  - The emitter defaults to that copy; `./init.sh` fetches the fonts and runs the golden tests; CI caches the fonts.
-  - Goldens are Linux renders from CI, compared on Linux only; the `update-goldens` workflow regenerates them.
+- `feat-015` (issue #13): `examples/shadcn-neutral/storybook`.
+  - Storybook 10.6.9, React 19.3.1, Vite 8.3.8, Tailwind 4.3.5, all pinned exactly.
+  - Components, `globals.css` and `variants.json` synced from `packages/enricher-shadcn/sources`; `pnpm run check` catches drift.
+  - Stories: Button (`Default`, `IconOnly`), Badge (`Default`, `AsLink`), Card (`Full`, `WithAction`, `ContentOnly`, 360 px like the oracle).
+  - `theme` global (light/dark) toggles shadcn's `dark` class.
+- `packages/enricher-shadcn/globals-css.mjs`: the one `globals.css` builder for the Chrome reference and the Storybook.
+- CI installs Playwright's Chromium (1.65.1); `./init.sh` scans `examples/*/storybook/`.
 
 ## Verification evidence
 
 | Check | Command | Result | Notes |
 | --- | --- | --- | --- |
-| CI | PR #12 checks | baseline, work rules, all green pass | Clean runner downloaded the fonts and ran the goldens |
-| Wrong hash | append a byte to the cached Inter-Medium.ttf, run `tool/fetch-fonts.sh` | exit 1, names the file | Restored afterwards |
-| Oracle | `pnpm run reference` + `pnpm run compare` | 426/426 cells, 36/36 tokens | Against the Linux goldens |
-| Baseline | `./init.sh` | passed | On macOS the golden image comparison is skipped by design |
+| Baseline | `./init.sh` | passed | Storybook: sync check, build, 5/5 tests |
+| Controls | test reads `__STORYBOOK_PREVIEW__.storyStore.loadStory(...).argTypes` | equal to the registry cva config | the same call `feat-005` will use |
+| Oracle | `pnpm run reference` + `pnpm run compare` | 426/426, 36/36 | after moving `globals.css` into its own module |
 
 ## Files changed
 
-`tool/fetch-fonts.sh`, `tool/fonts.sha256`, `packages/emitter-flutter/bin/emit.dart`, the oracle test template (+ the example's copy), the 6 goldens, `init.sh`, `.github/workflows/{ci,update-goldens}.yml`, `AGENTS.md`, READMEs, the state files.
+`examples/shadcn-neutral/storybook/**`, `packages/enricher-shadcn/{globals-css,reference}.mjs`, `init.sh`, `.github/workflows/ci.yml`, `.gitignore`, `examples/shadcn-neutral/README.md`, the state files.
 
 ## Decisions
 
-See `progress.md`: Linux goldens; regenerate on CI only; how to merge stacked pull requests.
+See `progress.md`: Stroma's own shadcn Storybook; synced from the pinned sources; telemetry off.
 
 ## Blockers
 
-None.
+None. The first-ever local Storybook build failed once and passed on every rerun; watch CI for it.
 
 ## Next session startup
 
 1. Read `AGENTS.md`, `feature_list.json`, `progress.md` and this file.
-2. Run `./init.sh` (Node 20, pnpm, Flutter 3.35; the first run downloads about 34 MB of fonts).
+2. Run `./init.sh` (Node 20.19+, pnpm, Flutter 3.35, Playwright's Chromium).
 
 ## Recommended next step
 
-`feat-005`: the render-based extractor (Storybook index + argTypes, render each story x state x theme, record computed styles, geometry, matched CSS rules with `var()` references, and ARIA roles). Start against shadcn's Storybook, so `feat-006` can compare its DSIR with the source-derived one.
+`feat-005`, `packages/extractor`:
+- Serve `storybook-static/` and read `index.json`.
+- Get each story's `argTypes` through `storyStore.loadStory`.
+- Render each story x variant x state x theme (`iframe.html?id=…&args=…&globals=theme:…`, hover and focus forced through the DevTools protocol).
+- Record computed styles, geometry, `CSS.getMatchedStylesForNode` (with `var()` references) and ARIA attributes, written deterministically.

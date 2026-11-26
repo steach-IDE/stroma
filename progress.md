@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. `feat-014` is done on branch `feat/11-pinned-fonts` (PR #12).
+- **Active feature:** none. `feat-015` is done on branch `feat/13-shadcn-storybook`; `feat-005` is next.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -18,14 +18,16 @@
 - `feat-002`: Carbon, no LLM until Phase 5, pinned font downloads.
 - `feat-014`: `tool/fetch-fonts.sh` (Inter 4.1, hash-checked, cached); the golden tests run in CI on Linux.
 
+- `feat-015`: a pinned shadcn Storybook in `examples/shadcn-neutral/storybook`, the extractor's first input.
+
 ## In progress
 
 Nothing.
 
 ## Next
 
-1. Merge PR #12 (`feat-014`) with a merge commit or a squash; it carries no history worth keeping.
-2. Phase 1: `feat-005`, the render-based extractor, on shadcn's Storybook first.
+1. Merge the `feat-015` pull request (issue #13).
+2. `feat-005`: the render-based extractor, reading `examples/shadcn-neutral/storybook`'s static build.
 3. Later, not blocking: reserve the names (npm organisation `steach` for `@steach/stroma`; `stroma` on pub.dev). Deferred by the maintainer on 2026-11-26.
 
 ## Blockers and risks
@@ -60,6 +62,9 @@ Nothing.
 | 2026-11-26 | Golden images are Linux renders, compared only on Linux | macOS rasterises text differently by 1-2% of pixels even with byte-identical fonts (the diff is glyph edges only) | A pixel tolerance, which would also hide real regressions |
 | 2026-11-26 | Goldens are regenerated on CI (`update-goldens` workflow), never on a laptop | Only CI's runner type gives CI's pixels; a Docker image on an arm64 Mac may still differ from x86_64 | A local Docker script |
 | 2026-11-26 | Stacked pull requests: merge the lower one first, and merge any PR that carries history to keep with a merge commit | #7's squash dropped the spike history and #8 merged into a branch; fixed by #10 | — |
+| 2026-11-26 | Stroma keeps its own pinned shadcn Storybook (`examples/shadcn-neutral/storybook`) | shadcn/ui publishes none (its repository has no Storybook config or stories); a local build is also the private-system path `docs/usage.md` promises | Pointing Phase 1 at Carbon first, which loses the shadcn ground truth |
+| 2026-11-26 | The Storybook's components, `globals.css` and control options are generated from the enricher's pinned sources | The Storybook and the enricher can't disagree about what shadcn/ui is | Hand-copied files |
+| 2026-11-26 | Storybook telemetry off in config and CI | A fixture must not send usage data | — |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified
