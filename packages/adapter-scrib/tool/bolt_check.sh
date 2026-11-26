@@ -18,10 +18,11 @@ if [[ $mode == generated && ! -f "$ds/shadcn_adapter.dart" ]]; then
   mv "$ds/adapter.dart" "$ds/shadcn_adapter.dart"
   # shortcut: the base adapter's icon lookup is private; expose it until the contract exports one.
   printf '\nIconData? scribResolveIcon(ScribIcon icon, String label) => _resolveIcon(icon, label);\n' >> "$ds/shadcn_adapter.dart"
-  cp "$pkg/scrib/scrib_adapter.dart" "$ds/adapter.dart"
   # pubspec: add the generated package by path, under dependencies.
   sed -i '' "s|^dependencies:|dependencies:\n  shadcn_neutral_ui:\n    path: $pkg|" "$app/pubspec.yaml"
 fi
+# Every run: the adapter just emitted, never a copy left from an earlier run.
+if [[ $mode == generated ]]; then cp "$pkg/scrib/scrib_adapter.dart" "$ds/adapter.dart"; fi
 
 routes=$(grep -oE "static const [a-zA-Z]+ = '[^']+'" "$app/lib/router.dart" | sed -E "s/.*'(.*)'/'\1'/" | paste -sd, -)
 cat > "$app/test/routes_test.dart" <<DART
