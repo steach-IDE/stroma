@@ -9,6 +9,7 @@ import path from 'node:path';
 import { PNG } from 'pngjs';
 import { LIMITS, S, deltaE, hex, radius, sample } from './pixels.mjs';
 import { blockOf, pascal } from '../infer/src/infer.mjs';
+import { pageTokenNames } from '../dsir/src/page.mjs';
 
 const arg = (name, fallback) => {
   const i = process.argv.indexOf(`--${name}`);
@@ -31,13 +32,11 @@ const px = (v) => (typeof v === 'string' && v.endsWith('px') ? Number.parseFloat
 const components = Object.fromEntries(dsir.components.map((c) => [c.slot, c]));
 const usesInteractive = (c) => c.rules.some((r) => r.when.interactive);
 
-// The page the Flutter sheet paints, in the same naming convention the emitter uses (emitter.dart, _pageTokens).
-const colorTokens = Object.keys(dsir.tokens.color).sort();
-const pageToken = colorTokens.find((n) => n === 'background') ?? colorTokens.filter((n) => n.endsWith('-background')).sort((a, b) => a.length - b.length)[0];
-if (!pageToken) throw new Error('the DSIR names no page background token');
+// The page the Flutter sheet paints: the DSIR's `tokens.page` when it has one, else the token the emitter finds by name.
 const page = (mode) => {
-  const h = dsir.tokens.color[pageToken][mode].hex;
-  return [1, 3, 5].map((i) => Number.parseInt(h.slice(i, i + 2), 16));
+  const colour = dsir.tokens.page?.background[mode] ?? dsir.tokens.color[pageTokenNames(dsir.tokens.color).background]?.[mode];
+  if (!colour) throw new Error(`the DSIR names no page background for mode ${mode}`);
+  return [1, 3, 5].map((i) => Number.parseInt(colour.hex.slice(i, i + 2), 16));
 };
 
 /** A computed `rgb(...)`/`rgba(...)` painted over the page, as the Flutter sheet paints it. */
@@ -48,6 +47,8 @@ function composite(css, under) {
   return [+m[1], +m[2], +m[3]].map((c, i) => c * a + under[i] * (1 - a));
 }
 
+// Which sheet draws which cell is the package's own record (large components are split over several sheets).
+const sheetOf = Object.fromEntries(readJson(path.join(pkg, 'test', 'oracle', 'cells.json')).map((c) => [c.id, `${c.sheet}.${c.mode}`]));
 const goldens = {};
 const png = (sheet) => (goldens[sheet] ??= PNG.sync.read(fs.readFileSync(path.join(goldenDir, `${sheet}.png`))));
 const geometry = {};
@@ -63,14 +64,14 @@ for (const cell of index.cells) {
   const name = pascal(slot).toLowerCase();
   const values = Object.keys(comp.variants).map((axis) => cell.args[axis]);
   const id = `${name}.${[...values, cell.state].join('.')}.${cell.theme}`;
-  const sheet = `${name}.${cell.theme}`;
   // One DSIR component can stand for two stories (a tile and a clickable tile): the one whose cells the
   // Flutter widget draws for this state is the one with the matching interactivity.
   if (usesInteractive(comp) && (root.role === 'link') !== (cell.state !== 'rest')) {
     skipped.push({ id, story: cell.story, why: 'the story is not interactive in the way the Flutter cell for this state is' });
     continue;
   }
-  const f = flutter(sheet).cells[id];
+  const sheet = sheetOf[id];
+  const f = sheet ? flutter(sheet).cells[id] : null;
   if (!f) { skipped.push({ id, story: cell.story, why: 'Flutter draws no such cell' }); continue; }
 
   const checks = {};

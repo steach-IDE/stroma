@@ -110,6 +110,31 @@
           "items": {
             "type": "string"
           }
+        },
+        "page": {
+          "type": "object",
+          "description": "The page's background and text colour per mode, for a design system whose tokens do not name them (the emitter looks for a `background` and a `foreground` token first).",
+          "required": [
+            "background",
+            "foreground"
+          ],
+          "additionalProperties": false,
+          "properties": {
+            "background": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/srgb"
+              }
+            },
+            "foreground": {
+              "type": "object",
+              "minProperties": 1,
+              "additionalProperties": {
+                "$ref": "#/$defs/srgb"
+              }
+            }
+          }
         }
       }
     },

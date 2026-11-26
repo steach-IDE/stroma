@@ -105,7 +105,7 @@ test('intent loss on shadcn: colour tokens and radius values survive, radius nam
   assert.match(out, /radius references, same token name\s+0\/6 \(0%\)/);
 });
 
-test('a token whose value depends on a variant, not only the mode, is listed as unsupported instead of kept quietly', () => {
+test('a token whose value depends on a variant, not only the mode, is written as the literal colours it was', () => {
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'stroma-infer-'));
   const cells = [];
   for (const [color, bg] of [['red', 'rgb(255, 0, 0)'], ['blue', 'rgb(0, 0, 255)']]) {
@@ -120,7 +120,11 @@ test('a token whose value depends on a variant, not only the mode, is listed as 
     cells.push({ story: 'x--default', theme: 'light', args: { color }, state: 'rest', file });
   }
   fs.writeFileSync(path.join(dir, 'index.json'), JSON.stringify({ stories: { 'x--default': { axes: { color: ['red', 'blue'] }, defaults: { color: 'red' }, themes: ['light'], title: 'X', name: 'Default' } }, cells }));
-  const { dsir } = infer({ extraction: dir, license: 'MIT', source: 'test' });
-  const why = dsir.components[0].unsupported.map((u) => u.what);
-  assert.deepEqual(why, ['token --ds-fill in mode light']);
+  const { dsir, report } = infer({ extraction: dir, license: 'MIT', source: 'test' });
+  assert.deepEqual(dsir.components[0].unsupported, []);
+  assert.deepEqual(dsir.tokens.color, {});
+  const bgs = dsir.components[0].rules.flatMap((r) => (r.set.bg ? [[r.when.color ?? 'base', r.set.bg.hex]] : []));
+  // Which colour is the base rule and which the override is the miner's choice; both must be there, as literals.
+  assert.deepEqual(bgs.map(([, hex]) => hex).sort(), ['#0000ff', '#ff0000']);
+  assert.deepEqual(report.writtenAsLiterals, ['ds-fill']);
 });

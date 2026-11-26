@@ -92,6 +92,7 @@ export function valuesOf(el, literalColor, force = new Set()) {
   const declared = (key) => authored(key) || (force.has(key) && key !== 'h' && key !== 'w');
   const values = {};
   const tokenized = {};
+  const literals = {}; // each colour's measured value, for when its token turns out not to be one
   const set = (key, value, isToken) => {
     if (value === null || value === undefined) return;
     values[key] = value;
@@ -121,7 +122,8 @@ export function valuesOf(el, literalColor, force = new Set()) {
   for (const [key, prop] of [['bg', 'background-color'], ['fg', 'color'], ['borderColor', 'border-top-color']]) {
     if (!declared(key)) continue;
     const ref = colorRef(winning(el.rules, DECLARED_BY[key]));
-    set(key, ref ?? literalColor(s[prop]), Boolean(ref?.token));
+    literals[key] = literalColor(s[prop]);
+    set(key, ref ?? literals[key], Boolean(ref?.token));
   }
   if (declared('borderWidth')) set('borderWidth', px(s['border-top-width']));
 
@@ -130,7 +132,8 @@ export function valuesOf(el, literalColor, force = new Set()) {
     if (ring) {
       set('ringWidth', ring.width);
       const ref = colorRef(winning(el.rules, RING_COLOR_DECLS));
-      set('ringColor', ref ?? literalColor(ring.color), Boolean(ref?.token));
+      literals.ringColor = literalColor(ring.color);
+      set('ringColor', ref ?? literals.ringColor, Boolean(ref?.token));
     }
     if (shadow.length) {
       set('shadow', shadow.map((sh) => {
@@ -138,6 +141,10 @@ export function valuesOf(el, literalColor, force = new Set()) {
         const rgb = [1, 3, 5].map((i) => Number.parseInt(c.hex.slice(i, i + 2), 16));
         return { x: sh.x, y: sh.y, blur: sh.blur, spread: sh.spread, color: { rgb, alpha: c.alpha } };
       }));
+    } else if (force.has('shadow') && winning(el.rules, ['box-shadow'])?.trim() === 'none') {
+      // Where some other cell has a shadow, a rule that says `box-shadow: none` (Material UI's disabled button) removes
+      // it: an empty list says so; without one a translucent fill would be painted over the shadow.
+      set('shadow', []);
     }
   }
 
@@ -170,5 +177,5 @@ export function valuesOf(el, literalColor, force = new Set()) {
       set('transitionCurve', s['transition-timing-function']);
     }
   }
-  return { values, tokenized };
+  return { values, tokenized, literals };
 }

@@ -8,6 +8,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { valuesOf, fallbacksOf } from './values.mjs';
 import { mine } from './mine.mjs';
+import { pageTokenNames } from '../../dsir/src/page.mjs';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const { oklchToSrgb, hex } = await import(path.join(here, '..', '..', 'enricher-shadcn', 'oklch.mjs'));
@@ -82,7 +83,8 @@ export function infer({ extraction, license, source }) {
     const els = cell.data.elements;
     for (const part of partsOf(els, componentSlots).parts) {
       const slot = inPlay.get(part.slot) ?? { root: new Set(), icon: new Set() };
-      Object.keys(valuesOf(part.el, literalColor).values).forEach((k) => slot.root.add(k));
+      // (An empty shadow list is only ever written where a shadow is in play, so it does not put the key in play.)
+      Object.entries(valuesOf(part.el, literalColor).values).forEach(([k, v]) => { if (!(k === 'shadow' && v.length === 0)) slot.root.add(k); });
       const svg = els.findIndex((e, i) => e.tag === 'svg' && e.parent === part.index && i > part.index);
       if (svg >= 0) Object.keys(valuesOf(els[svg], literalColor).values).forEach((k) => slot.icon.add(k));
       inPlay.set(part.slot, slot);
@@ -117,13 +119,14 @@ export function infer({ extraction, license, source }) {
         interactive: String(part.el.role === 'link'),
         ...Object.fromEntries(childSlots.map((s) => [`hasSlot:${s}`, 'true'])),
       };
-      const { values, tokenized } = valuesOf(part.el, literalColor, inPlay.get(part.slot).root);
-      const icon = svg >= 0 ? valuesOf(els[svg], literalColor, inPlay.get(part.slot).icon).values : null;
+      const { values, tokenized, literals } = valuesOf(part.el, literalColor, inPlay.get(part.slot).root);
+      const iconMeasured = svg >= 0 ? valuesOf(els[svg], literalColor, inPlay.get(part.slot).icon) : null;
+      const icon = iconMeasured?.values ?? null;
       if (!observed.has(part.slot)) observed.set(part.slot, { roles: new Map(), isRoot: false, story: null, obs: [] });
       const o = observed.get(part.slot);
       o.roles.set(part.el.role, (o.roles.get(part.el.role) ?? 0) + 1);
       if (part.slot === rootSlot) { o.isRoot = true; o.story ??= cell.story; }
-      o.obs.push({ when, values, tokenized, icon, children: childSlots });
+      o.obs.push({ when, values, tokenized, literals, icon, iconLiterals: iconMeasured?.literals, children: childSlots });
       for (const [name, value] of Object.entries(part.el.vars)) {
         if (name === '--radius') radiusBase ??= value;
         if (value) seeToken(name.slice(2), cell.theme ?? 'light', value);
@@ -139,6 +142,17 @@ export function infer({ extraction, license, source }) {
       if (tokenSeen[name]?.[mode]) continue; // a theme defines it: the fallback is not its value
       (tokenSeen[name] ??= {})[mode] = seen;
       (tokenValues[name] ??= {})[mode] = [...seen][0];
+    }
+  }
+  // A token holds one value per mode. One that took several within a mode (Material UI's per-colour variables)
+  // is not a token of this design system's: each colour that named it is written as the literal the browser drew.
+  const conflicting = new Set(Object.entries(tokenSeen).filter(([, modes]) => Object.values(modes).some((seen) => seen.size > 1)).map(([name]) => name));
+  for (const o of observed.values()) {
+    for (const x of o.obs) {
+      for (const key of COLOR_KEYS) {
+        if (conflicting.has(x.values[key]?.token)) { x.values[key] = x.literals[key]; x.tokenized[key] = false; }
+        if (conflicting.has(x.icon?.[key]?.token)) x.icon[key] = x.iconLiterals[key];
+      }
     }
   }
   const usedColorTokens = new Set();
@@ -273,6 +287,13 @@ export function infer({ extraction, license, source }) {
     return [`${m[1]}${m[2]}`, Number.parseFloat(m[2]) * (m[1] === 'minus' ? -1 : 1)];
   }));
   if (usedRadii.has('radius-base')) derived.base = 0;
+  // Tokens that name the page's colours are the emitter's source for them; without any (Material UI), the colours the
+  // extraction measured on <body> are written as `tokens.page`.
+  const named = pageTokenNames(color);
+  const page = named.background && named.foreground || !index.page ? null : {
+    background: Object.fromEntries(Object.entries(index.page).map(([m, c]) => [m, literalColor(c.background)])),
+    foreground: Object.fromEntries(Object.entries(index.page).map(([m, c]) => [m, literalColor(c.color)])),
+  };
   const dsir = {
     dsirVersion: '0.3.0',
     source: { kind: 'storybook', url: source, license, hash: `sha256:${crypto.createHash('sha256').update(indexText).digest('hex')}` },
@@ -280,6 +301,7 @@ export function infer({ extraction, license, source }) {
       color,
       ...(radiusBase ? { radius: { base: remToPx(radiusBase), derived } } : {}),
       ...(fontFamily ? { font: { sans: { family: fontFamily } } } : {}),
+      ...(page ? { page } : {}),
     },
     globals: {},
     components,
@@ -292,6 +314,8 @@ export function infer({ extraction, license, source }) {
     report: {
       cells: cells.length,
       fit: { ...fit, percent: pct([fit.explained, fit.values]) },
+      // Tokens that took several values within a mode: written as literals in the rules, never as tokens.
+      writtenAsLiterals: [...conflicting].sort(),
       tokenShare: Object.fromEntries(Object.entries(share).map(([k, v]) => [k, { tokenized: v[0], of: v[1], percent: pct(v) }])),
     },
   };
