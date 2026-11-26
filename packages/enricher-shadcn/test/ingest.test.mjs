@@ -43,6 +43,6 @@ test('ingest is byte-identical across runs and matches the committed dsir/', asy
   const [a, b] = [await ingest(), await ingest()];
   assert.deepEqual(a, b);
   for (const [rel, content] of Object.entries(a)) {
-    assert.equal(fs.readFileSync(new URL(`../../dsir/${rel}`, import.meta.url), 'utf8'), content, `dsir/${rel} is stale`);
+    assert.equal(fs.readFileSync(new URL(`../../../examples/shadcn-neutral/design-system/${rel}`, import.meta.url), 'utf8'), content, `design-system/${rel} is stale`);
   }
 });

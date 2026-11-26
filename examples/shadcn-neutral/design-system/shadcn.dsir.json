@@ -1,5 +1,5 @@
 {
-  "dsirVersion": "0.1.0",
+  "dsirVersion": "0.2.0",
   "source": {
     "kind": "shadcn-registry",
     "style": "new-york-v4",
@@ -227,7 +227,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [
@@ -253,7 +254,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -269,7 +271,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": []
@@ -280,7 +283,7 @@
       "name": "Button",
       "slot": "button",
       "role": "button",
-      "behaviour": null,
+      "behaviour": "button",
       "variants": {
         "variant": [
           "default",
@@ -328,7 +331,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -344,7 +348,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -360,7 +365,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -376,7 +382,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -392,7 +399,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -407,7 +415,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -422,7 +431,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -437,7 +447,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -452,7 +463,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -465,7 +477,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -478,7 +491,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -493,7 +507,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -508,7 +523,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -529,7 +545,8 @@
             {
               "size": "sm"
             }
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -544,7 +561,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -561,7 +579,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -578,7 +597,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -595,7 +615,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -612,7 +633,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -627,7 +649,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -645,7 +668,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -663,7 +687,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -681,7 +706,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -699,7 +725,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -714,7 +741,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -729,7 +757,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -744,7 +773,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -759,7 +789,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -774,7 +805,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -793,7 +825,8 @@
             {
               "size": "xs"
             }
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -809,7 +842,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -822,7 +856,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -835,7 +870,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -853,7 +889,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -871,7 +908,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -889,7 +927,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -907,7 +946,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -937,7 +977,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -951,7 +992,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -967,7 +1009,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -983,7 +1026,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1005,7 +1049,8 @@
             {
               "size": "icon-xs"
             }
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1021,7 +1066,8 @@
             0,
             1,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1037,7 +1083,8 @@
             0,
             1,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1053,7 +1100,8 @@
             0,
             1,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1069,7 +1117,8 @@
             0,
             1,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1090,7 +1139,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1111,7 +1161,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1132,7 +1183,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1153,7 +1205,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1174,7 +1227,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1195,7 +1249,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1216,7 +1271,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1234,7 +1290,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1254,7 +1311,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1271,7 +1329,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1292,7 +1351,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1317,7 +1377,8 @@
             {
               "variant": "destructive"
             }
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1334,7 +1395,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1354,7 +1416,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1374,7 +1437,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1393,7 +1457,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1412,7 +1477,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1431,7 +1497,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1453,7 +1520,8 @@
             0,
             3,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1475,7 +1543,8 @@
             0,
             3,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1497,7 +1566,8 @@
             0,
             3,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1518,7 +1588,8 @@
             0,
             3,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [
@@ -1592,7 +1663,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1605,7 +1677,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1618,7 +1691,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1631,7 +1705,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1644,7 +1719,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1659,7 +1735,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1672,7 +1749,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1690,7 +1768,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1710,7 +1789,8 @@
             {
               "variant": "outline"
             }
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1728,7 +1808,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1746,7 +1827,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1764,7 +1846,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1777,7 +1860,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1790,7 +1874,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1804,7 +1889,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1817,7 +1903,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1830,7 +1917,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1848,7 +1936,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1866,7 +1955,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1884,7 +1974,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1902,7 +1993,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1920,7 +2012,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1934,7 +2027,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -1948,7 +2042,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1968,7 +2063,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -1985,7 +2081,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2006,7 +2103,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2031,7 +2129,8 @@
             {
               "variant": "destructive"
             }
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2051,7 +2150,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2071,7 +2171,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2090,7 +2191,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2112,7 +2214,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2134,7 +2237,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2156,7 +2260,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2178,7 +2283,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2200,7 +2306,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2222,7 +2329,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2244,7 +2352,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2263,7 +2372,8 @@
             0,
             2,
             1
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2285,7 +2395,8 @@
             0,
             3,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2306,7 +2417,8 @@
             0,
             3,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [
@@ -2361,7 +2473,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2374,7 +2487,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2387,7 +2501,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2402,7 +2517,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2415,7 +2531,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2431,7 +2548,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2444,7 +2562,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2460,7 +2579,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2502,7 +2622,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [],
@@ -2539,7 +2660,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2552,7 +2674,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2565,7 +2688,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2578,7 +2702,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {
@@ -2596,7 +2721,8 @@
             0,
             2,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [
@@ -2646,7 +2772,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2659,7 +2786,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [],
@@ -2691,7 +2819,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2707,7 +2836,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [],
@@ -2776,7 +2906,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [],
@@ -2807,7 +2938,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2820,7 +2952,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         },
         {
           "when": {},
@@ -2833,7 +2966,8 @@
             0,
             1,
             0
-          ]
+          ],
+          "provenance": "enricher"
         }
       ],
       "noops": [],

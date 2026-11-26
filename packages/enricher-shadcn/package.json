@@ -1,15 +1,17 @@
 {
-  "name": "scrib-ds-ingest",
+  "name": "@steach/stroma-enricher-shadcn",
   "private": true,
   "version": "0.0.0",
   "license": "Apache-2.0",
   "type": "module",
   "packageManager": "pnpm@10.15.1",
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "ingest": "node ingest.mjs",
     "check": "node ingest.mjs --check",
-    "oracle": "node oracle/reference.mjs && node oracle/compare.mjs",
+    "reference": "node reference.mjs",
     "test": "node --test"
   },
   "devDependencies": {
@@ -20,5 +22,6 @@
     "tailwind-merge": "3.7.1",
     "tailwindcss": "4.3.5",
     "typescript": "5.9.3"
-  }
+  },
+  "description": "Reads shadcn/ui source into a DSIR, and renders its reference markup for the oracle."
 }

@@ -14,11 +14,14 @@ import { cva as runCva } from 'class-variance-authority';
 import { twMerge } from 'tailwind-merge';
 import { oklchToSrgb, hex } from './oklch.mjs';
 import { loadTailwindTheme, mapClasses, cascadeSort, SHADCN_V4_THEME_INLINE } from './tailwind.mjs';
+import { migrate01to02 } from '../dsir/src/migrate.mjs';
+import { validate } from '../dsir/src/validate.mjs';
 
 const require = createRequire(import.meta.url);
 const here = path.dirname(fileURLToPath(import.meta.url));
 const SOURCES = path.join(here, 'sources');
-const OUT = path.join(here, '..', 'dsir');
+// The shadcn example's design-system folder: the layout docs/usage.md describes for a user's repository.
+const OUT = path.join(here, '..', '..', 'examples', 'shadcn-neutral', 'design-system');
 const COMPONENT_SOURCES = ['button.json', 'badge.json', 'card.json'];
 const THEME_SOURCE = 'colors-neutral.json';
 const STYLE_SOURCE = 'index.json';
@@ -315,8 +318,12 @@ export async function ingest() {
     globals: Object.fromEntries(Object.entries(globals).map(([k, v]) => [k, { rules: cascadeSort(v.rules), noops: v.noops }])),
     components,
   };
+  // The rules above are built in the 0.1 shape; the migration adds 0.2's provenance and behaviour.
+  const dsir02 = migrate01to02(dsir);
+  const errors = validate(dsir02);
+  if (errors.length) throw new Error(`ingest built an invalid DSIR:\n${errors.map((e) => `${e.path}: ${e.message}`).join('\n')}`);
   return {
-    'shadcn.dsir.json': json(dsir),
+    'shadcn.dsir.json': json(dsir02),
     'dsir.lock': json(lock),
     'tokens/light.tokens.json': json(tokens.dtcg.light),
     'tokens/dark.tokens.json': json(tokens.dtcg.dark),
@@ -331,7 +338,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   for (const [rel, content] of Object.entries(out)) {
     const p = path.join(OUT, rel);
     if (check) {
-      if (!fs.existsSync(p) || fs.readFileSync(p, 'utf8') !== content) { console.error(`stale: dsir/${rel}`); stale++; }
+      if (!fs.existsSync(p) || fs.readFileSync(p, 'utf8') !== content) { console.error(`stale: ${rel}`); stale++; }
     } else {
       fs.mkdirSync(path.dirname(p), { recursive: true });
       fs.writeFileSync(p, content);
@@ -340,8 +347,8 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   // Files in dsir/ that ingest no longer writes are stale too (removed outputs must not linger).
   const listed = fs.readdirSync(OUT, { recursive: true }).filter((f) => fs.statSync(path.join(OUT, f)).isFile());
   for (const rel of listed.map((f) => f.split(path.sep).join('/')).filter((f) => !(f in out))) {
-    if (check) { console.error(`stale: dsir/${rel} is no longer written`); stale++; } else fs.rmSync(path.join(OUT, rel));
+    if (check) { console.error(`stale: ${rel} is no longer written`); stale++; } else fs.rmSync(path.join(OUT, rel));
   }
   if (stale) process.exit(1);
-  console.log(check ? 'dsir is up to date' : `wrote ${Object.keys(out).length} files to dsir/`);
+  console.log(check ? 'examples/shadcn-neutral/design-system is up to date' : `wrote ${Object.keys(out).length} files to examples/shadcn-neutral/design-system`);
 }

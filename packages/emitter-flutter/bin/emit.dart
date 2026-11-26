@@ -1,19 +1,28 @@
-// dart run bin/emit.dart [--check] [--fonts <dir>]
-// Reads dsir/shadcn.dsir.json, mappings/ and templates/, writes generated/<package>/.
-// --check fails if the committed output differs from what would be written.
+// dart run bin/emit.dart [--check] [--dsir <file>] [--mapping <file>] [--out <dir>] [--fonts <dir>]
+// Emits a Flutter package from a DSIR. The defaults build the shadcn example in examples/shadcn-neutral.
+// --check fails if the committed output differs from what would be written, or holds files no longer emitted.
 // --fonts is where Inter-{Regular,Medium,SemiBold}.ttf are copied from (default /Library/Fonts).
 import 'dart:convert';
 import 'dart:io';
 
 import 'package:path/path.dart' as p;
-import 'package:scrib_ds/emitter.dart';
+import 'package:stroma_emitter/emitter.dart';
 
 const packageName = 'shadcn_neutral_ui';
 
 Future<void> main(List<String> args) async {
   final root = p.dirname(p.dirname(Platform.script.toFilePath()));
-  Map<String, dynamic> readJson(String rel) =>
-      jsonDecode(File(p.join(root, rel)).readAsStringSync()) as Map<String, dynamic>;
+  final repo = p.normalize(p.join(root, '..', '..'));
+  String option(String name, String fallback) {
+    final i = args.indexOf('--$name');
+    return i >= 0 && i + 1 < args.length ? args[i + 1] : fallback;
+  }
+
+  final dsirPath = option('dsir', p.join(repo, 'examples', 'shadcn-neutral', 'design-system', 'shadcn.dsir.json'));
+  final mappingPath = option('mapping', p.join(repo, 'packages', 'adapter-scrib', 'mappings', 'shadcn.scrib.json'));
+  final out = option('out', p.join(repo, 'examples', 'shadcn-neutral', 'packages', packageName));
+  Map<String, dynamic> readJson(String path) =>
+      jsonDecode(File(path).readAsStringSync()) as Map<String, dynamic>;
 
   final templateDir = Directory(p.join(root, 'templates', 'package'));
   final templates = <String, String>{
@@ -27,20 +36,19 @@ Future<void> main(List<String> args) async {
       p.posix.joinAll(p.split(p.relative(f.path, from: templateDir.path))): f.readAsStringSync(),
   };
   final files = emitPackage(
-    dsir: readJson('dsir/shadcn.dsir.json'),
-    mapping: readJson('mappings/shadcn.scrib.json'),
+    dsir: readJson(dsirPath),
+    mapping: readJson(mappingPath),
     templates: templates,
     packageName: packageName,
   );
 
-  final out = p.join(root, 'generated', packageName);
   final check = args.contains('--check');
   var stale = 0;
   for (final e in files.entries) {
     final file = File(p.join(out, e.key));
     if (check) {
       if (!file.existsSync() || file.readAsStringSync() != e.value) {
-        stderr.writeln('stale: ${p.relative(file.path, from: root)}');
+        stderr.writeln('stale: ${p.relative(file.path, from: repo)}');
         stale++;
       }
     } else {
@@ -63,7 +71,7 @@ Future<void> main(List<String> args) async {
       : <String>[];
   for (final rel in leftovers) {
     if (check) {
-      stderr.writeln('stale: generated/$packageName/$rel is no longer emitted');
+      stderr.writeln('stale: ${p.relative(p.join(out, rel), from: repo)} is no longer emitted');
       stale++;
     } else {
       File(p.join(out, rel)).deleteSync();
@@ -86,7 +94,7 @@ Future<void> main(List<String> args) async {
   }
   stdout.writeln(
     check
-        ? 'generated/$packageName is up to date'
-        : 'wrote ${files.length} files to generated/$packageName',
+        ? '${p.relative(out, from: repo)} is up to date'
+        : 'wrote ${files.length} files to ${p.relative(out, from: repo)}',
   );
 }

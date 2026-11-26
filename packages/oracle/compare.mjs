@@ -1,6 +1,6 @@
 // Compares Flutter goldens + geometry with the Chrome references, cell by cell.
 // Geometry and colour decide pass/fail; SSIM is reported, not gated, since the two engines
-// antialias text differently. Writes build/oracle/report/{index.html,summary.json,crops/}.
+// antialias text differently. Writes .stroma/oracle/report/{index.html,summary.json,crops/} at the repository root.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -8,11 +8,12 @@ import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
 import { differenceCiede2000, formatHex, parse, toGamut } from 'culori';
 
-const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const pkg = path.join(root, 'generated', 'shadcn_neutral_ui');
-const chromeDir = path.join(root, 'build', 'oracle', 'chrome');
+const repo = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
+const example = path.join(repo, 'examples', 'shadcn-neutral');
+const pkg = path.join(example, 'packages', 'shadcn_neutral_ui');
+const chromeDir = path.join(repo, '.stroma', 'oracle', 'chrome');
 const flutterDir = path.join(pkg, 'build', 'oracle', 'flutter');
-const reportDir = path.join(root, 'build', 'oracle', 'report');
+const reportDir = path.join(repo, '.stroma', 'oracle', 'report');
 const cropDir = path.join(reportDir, 'crops');
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const S = 2; // device pixel ratio on both sides
@@ -182,9 +183,10 @@ function compareCell(id, c, f, chromePng, flutterPng, state) {
 }
 
 function tokenCheck() {
-  const dsir = readJson(path.join(root, 'dsir', 'shadcn.dsir.json'));
+  const dsir = readJson(path.join(example, 'design-system', 'shadcn.dsir.json'));
   const chrome = readJson(path.join(chromeDir, 'tokens.json'));
-  const { cssVarsV4 } = readJson(path.join(root, 'ingest', 'sources', 'colors-neutral.json'));
+  // shortcut: compares with shadcn's source cssVars, so the token check is shadcn-only until feat-005 measures tokens.
+  const { cssVarsV4 } = readJson(path.join(repo, 'packages', 'enricher-shadcn', 'sources', 'colors-neutral.json'));
   const rows = [];
   for (const mode of ['light', 'dark']) {
     for (const [name, modes] of Object.entries(dsir.tokens.color)) {

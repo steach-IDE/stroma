@@ -11,6 +11,9 @@ pubspec.lock
 
 # Stroma runs: renders, measurements and reports are rebuilt, never committed
 .stroma/
+
+# Fonts are copied into an example by the emitter (--fonts); not vendored until feat-002 decides how
+examples/*/packages/*/fonts/
 **/oracle-report/
 
 # Local settings and secrets: never committed

@@ -2,7 +2,7 @@
 // Markup is what shadcn's React components emit: the class strings come from the registry
 // source through the real cva and tailwind-merge, and the CSS from the real Tailwind v4 compiler
 // with a shadcn v4 globals.css. Hover and focus are forced per node through the DevTools protocol.
-// Writes build/oracle/chrome/<sheet>.<mode>.{html,png,json} and tokens.json.
+// Writes .stroma/oracle/chrome/<sheet>.<mode>.{html,png,json} and tokens.json at the repository root.
 
 import fs from 'node:fs';
 import path from 'node:path';
@@ -13,14 +13,15 @@ import { twMerge } from 'tailwind-merge';
 import * as tailwind from 'tailwindcss';
 import { chromium } from 'playwright';
 import { PNG } from 'pngjs';
-import { parseComponentFile } from '../ingest.mjs';
-import { SHADCN_V4_THEME_INLINE } from '../tailwind.mjs';
+import { parseComponentFile } from './ingest.mjs';
+import { SHADCN_V4_THEME_INLINE } from './tailwind.mjs';
 
-const root = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
-const require = createRequire(path.join(root, 'ingest', 'package.json'));
-const pkg = path.join(root, 'generated', 'shadcn_neutral_ui');
-const out = path.join(root, 'build', 'oracle', 'chrome');
-const sources = path.join(root, 'ingest', 'sources');
+const here = path.dirname(fileURLToPath(import.meta.url));
+const repo = path.join(here, '..', '..');
+const require = createRequire(path.join(here, 'package.json'));
+const pkg = path.join(repo, 'examples', 'shadcn-neutral', 'packages', 'shadcn_neutral_ui');
+const out = path.join(repo, '.stroma', 'oracle', 'chrome');
+const sources = path.join(here, 'sources');
 const readJson = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 
 // ---------- class strings, exactly as the React components build them ----------
@@ -91,7 +92,7 @@ ${fonts}
 
 async function compileCss(candidates) {
   const compiler = await tailwind.compile(globalsCss(), {
-    base: root,
+    base: here,
     loadStylesheet: async (id, base) => ({
       path: id,
       base,
@@ -186,7 +187,7 @@ body { margin: 0; font-family: Inter, sans-serif; }
   }
   fs.writeFileSync(path.join(out, 'tokens.json'), JSON.stringify(tokenReport, null, 2));
   await browser.close();
-  console.log(`rendered ${Object.keys(sheets).length} sheets to build/oracle/chrome`);
+  console.log(`rendered ${Object.keys(sheets).length} sheets to .stroma/oracle/chrome`);
 }
 
 await main();

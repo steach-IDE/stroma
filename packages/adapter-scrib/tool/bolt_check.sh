@@ -1,16 +1,18 @@
 #!/usr/bin/env bash
 # Compiles packages/scrib/examples/bolt.tsp with scrib_compiler's pluggable Shadcn target, swaps in
 # the generated adapter (unless --baseline), then runs flutter analyze and renders every route at
-# 320, 390 and 1280 px. Output goes to build/bolt-<mode>/ (gitignored).
+# 320, 390 and 1280 px. Output goes to .stroma/bolt-<mode>/ (gitignored). Needs SCRIB_DIR.
 #   tool/bolt_check.sh [--baseline]
 set -euo pipefail
 here="$(cd "$(dirname "$0")/.." && pwd)"
+repo="$(cd "$here/../.." && pwd)"
+scrib="${SCRIB_DIR:?set SCRIB_DIR to a Scrib checkout (the repository root)}"
 mode=generated; [[ "${1:-}" == "--baseline" ]] && mode=baseline
-app="$here/build/bolt-$mode"
-pkg="$here/generated/shadcn_neutral_ui"
+app="$repo/.stroma/bolt-$mode"
+pkg="$repo/examples/shadcn-neutral/packages/shadcn_neutral_ui"
 
 if [[ ! -d "$app" ]]; then
-  (cd "$here/../scrib_compiler" && dart run bin/scrib_compiler.dart compile --target flutter --output "$app" ../scrib/examples/bolt.tsp >/dev/null)
+  (cd "$scrib/packages/scrib_compiler" && dart run bin/scrib_compiler.dart compile --target flutter --output "$app" ../scrib/examples/bolt.tsp >/dev/null)
 fi
 ds="$app/lib/design_system"
 
