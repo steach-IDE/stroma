@@ -337,6 +337,11 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
       fs.writeFileSync(p, content);
     }
   }
+  // Files in dsir/ that ingest no longer writes are stale too (removed outputs must not linger).
+  const listed = fs.readdirSync(OUT, { recursive: true }).filter((f) => fs.statSync(path.join(OUT, f)).isFile());
+  for (const rel of listed.map((f) => f.split(path.sep).join('/')).filter((f) => !(f in out))) {
+    if (check) { console.error(`stale: dsir/${rel} is no longer written`); stale++; } else fs.rmSync(path.join(OUT, rel));
+  }
   if (stale) process.exit(1);
   console.log(check ? 'dsir is up to date' : `wrote ${Object.keys(out).length} files to dsir/`);
 }

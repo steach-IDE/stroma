@@ -18,7 +18,11 @@ Future<void> main(List<String> args) async {
   final templateDir = Directory(p.join(root, 'templates', 'package'));
   final templates = <String, String>{
     for (final f
-        in templateDir.listSync(recursive: true).whereType<File>().toList()
+        in templateDir
+            .listSync(recursive: true)
+            .whereType<File>()
+            .where((f) => !p.basename(f.path).startsWith('.')) // .DS_Store and friends
+            .toList()
           ..sort((a, b) => a.path.compareTo(b.path)))
       p.posix.joinAll(p.split(p.relative(f.path, from: templateDir.path))): f.readAsStringSync(),
   };
@@ -42,6 +46,27 @@ Future<void> main(List<String> args) async {
     } else {
       file.parent.createSync(recursive: true);
       file.writeAsStringSync(e.value);
+    }
+  }
+  // Files the emitter owns but no longer writes (a renamed or removed component). Fonts, goldens
+  // (written by flutter test) and tool output are not the emitter's.
+  final outDir = Directory(out);
+  final leftovers = outDir.existsSync()
+      ? outDir
+            .listSync(recursive: true)
+            .whereType<File>()
+            .map((f) => p.posix.joinAll(p.split(p.relative(f.path, from: out))))
+            .where((rel) => !files.containsKey(rel))
+            .where((rel) => !RegExp(r'^(fonts|build|\.dart_tool|test/goldens)/').hasMatch(rel))
+            .where((rel) => !p.basename(rel).startsWith('.') && rel != 'pubspec.lock')
+            .toList()
+      : <String>[];
+  for (final rel in leftovers) {
+    if (check) {
+      stderr.writeln('stale: generated/$packageName/$rel is no longer emitted');
+      stale++;
+    } else {
+      File(p.join(out, rel)).deleteSync();
     }
   }
   if (stale > 0) exit(1);
