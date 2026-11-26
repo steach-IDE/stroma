@@ -5,7 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { mine } from '../src/mine.mjs';
-import { colorRef, fallbacksOf } from '../src/values.mjs';
+import { colorRef, fallbacksOf, valuesOf } from '../src/values.mjs';
 import { infer, literalColor } from '../src/infer.mjs';
 import { compare } from '../src/compare.mjs';
 
@@ -134,4 +134,14 @@ test('a token whose value depends on a variant, not only the mode, is written as
   // Which colour is the base rule and which the override is the miner's choice; both must be there, as literals.
   assert.deepEqual(bgs.map(([, hex]) => hex).sort(), ['#0000ff', '#ff0000']);
   assert.deepEqual(report.writtenAsLiterals, ['ds-fill']);
+});
+
+test('an inset ring shadow is read as an inset ring, an outer one is not', () => {
+  const el = (shadow, computed) => ({ style: { 'box-shadow': computed }, rules: [{ selector: '.x', at: [], decls: [['box-shadow', shadow]] }] });
+  const inset = valuesOf(el('inset 0 0 0 1px #393939', 'rgb(57, 57, 57) 0px 0px 0px 1px inset'), literalColor).values;
+  assert.equal(inset.ringWidth, 1);
+  assert.equal(inset.ringInset, true);
+  const outer = valuesOf(el('0 0 0 3px #00f', 'rgb(0, 0, 255) 0px 0px 0px 3px'), literalColor).values;
+  assert.equal(outer.ringWidth, 3);
+  assert.equal('ringInset' in outer, false, 'an outer ring says nothing about being inset');
 });

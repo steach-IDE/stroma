@@ -129,45 +129,83 @@ class DsBox extends StatelessWidget {
           );
     final duration = s.transition ?? Duration.zero;
     final curve = s.curve ?? Curves.linear;
-    return AnimatedOpacity(
-      opacity: s.opacity ?? 1,
+    Widget box = AnimatedContainer(
       duration: duration,
       curve: curve,
-      child: AnimatedContainer(
-        duration: duration,
-        curve: curve,
-        height: s.height,
-        width: s.width,
-        // Container adds the border width to this padding, which is CSS border-box sizing.
-        padding: EdgeInsets.fromLTRB(
-          s.paddingX ?? 0,
-          s.paddingTop ?? s.paddingY ?? 0,
-          s.paddingX ?? 0,
-          s.paddingBottom ?? s.paddingY ?? 0,
-        ),
-        clipBehavior: s.clip == true ? Clip.antiAlias : Clip.none,
-        decoration: BoxDecoration(
-          color: s.background,
-          border: borderWidth > 0
-              ? Border.all(width: borderWidth, color: s.borderColor ?? const Color(0x00000000))
-              : null,
-          borderRadius: radius,
-          boxShadow: s.shadows,
-        ),
-        // A Tailwind ring is a spread box-shadow outside the border box, never under it, so it
-        // is painted as an outside stroke rather than a BoxShadow (which would fill underneath).
-        foregroundDecoration: ringWidth > 0
-            ? BoxDecoration(
-                border: Border.all(
-                  width: ringWidth,
-                  color: s.ringColor ?? const Color(0x00000000),
-                  strokeAlign: BorderSide.strokeAlignOutside,
-                ),
-                borderRadius: radius,
-              )
-            : null,
-        child: content,
+      height: s.height,
+      width: s.width,
+      // Container adds the border width to this padding, which is CSS border-box sizing.
+      padding: EdgeInsets.fromLTRB(
+        s.paddingX ?? 0,
+        s.paddingTop ?? s.paddingY ?? 0,
+        s.paddingX ?? 0,
+        s.paddingBottom ?? s.paddingY ?? 0,
       ),
+      clipBehavior: s.clip == true ? Clip.antiAlias : Clip.none,
+      decoration: BoxDecoration(
+        color: s.background,
+        border: borderWidth > 0
+            ? Border.all(width: borderWidth, color: s.borderColor ?? const Color(0x00000000))
+            : null,
+        borderRadius: radius,
+        boxShadow: s.shadows,
+      ),
+      // A Tailwind ring is a spread box-shadow outside the border box, never under it, so it
+      // is painted as an outside stroke rather than a BoxShadow (which would fill underneath).
+      // (An inset ring, Carbon's borders and focus rings, is painted below, inside the border.)
+      foregroundDecoration: ringWidth > 0 && s.ringInset != true
+          ? BoxDecoration(
+              border: Border.all(
+                width: ringWidth,
+                color: s.ringColor ?? const Color(0x00000000),
+                strokeAlign: BorderSide.strokeAlignOutside,
+              ),
+              borderRadius: radius,
+            )
+          : null,
+      child: content,
     );
+    // CSS paints an inset shadow inside the padding box: inside the border, over the background.
+    if (ringWidth > 0 && s.ringInset == true) {
+      box = CustomPaint(
+        foregroundPainter: _InsetRingPainter(
+          inset: borderWidth,
+          width: ringWidth,
+          color: s.ringColor ?? const Color(0x00000000),
+          radius: s.radius ?? 0,
+        ),
+        child: box,
+      );
+    }
+    return AnimatedOpacity(opacity: s.opacity ?? 1, duration: duration, curve: curve, child: box);
   }
+}
+
+/// A ring inside the padding box, as CSS `box-shadow: inset 0 0 0 Wpx colour` draws it: [inset] (the border width)
+/// in from the edge, [width] thick, with the corners' radius reduced to match.
+class _InsetRingPainter extends CustomPainter {
+  const _InsetRingPainter({
+    required this.inset,
+    required this.width,
+    required this.color,
+    required this.radius,
+  });
+
+  final double inset;
+  final double width;
+  final Color color;
+  final double radius;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final outer = RRect.fromRectAndRadius(
+      Offset.zero & size,
+      Radius.circular(radius),
+    ).deflate(inset);
+    canvas.drawDRRect(outer, outer.deflate(width), Paint()..color = color);
+  }
+
+  @override
+  bool shouldRepaint(_InsetRingPainter old) =>
+      old.inset != inset || old.width != width || old.color != color || old.radius != radius;
 }

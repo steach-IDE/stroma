@@ -139,7 +139,12 @@ DsStyle resolveButtonStyle(
   } // measured: state=disabled
   if (states.contains(WidgetState.focused)) {
     root = root.merge(
-      const DsStyle(borderColor: Color(0xFF0F62FE), ringColor: Color(0xFF161616), ringWidth: 2),
+      const DsStyle(
+        borderColor: Color(0xFF0F62FE),
+        ringColor: Color(0xFF161616),
+        ringInset: true,
+        ringWidth: 2,
+      ),
     );
   } // measured: state=focused
   if (states.contains(WidgetState.hovered)) {
