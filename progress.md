@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** `feat-008` (Carbon): slice 5 (oracle) on `feat/29-carbon-oracle` (issue #29), stacked on #28, #27, #26 and #25; none pushed.
+- **Active feature:** none. `feat-008` is done (PRs for issues #25 to #29, stacked); `feat-009`, the Phase 1 verdict, is next.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -20,6 +20,7 @@
 
 - `feat-015`: a pinned shadcn Storybook in `examples/shadcn-neutral/storybook`, the extractor's first input.
 
+- `feat-008`: Carbon's Button, Tag and Tile pass the oracle (780/780 cells on Linux goldens) from a pinned Storybook through extract, infer, emit and verify; unsupported items are listed in `examples/carbon/README.md`.
 - `feat-007`: the example package is emitted from the inferred DSIR; the oracle passes 426/426 cells and 36/36 tokens on Linux goldens.
 - `feat-005`: `packages/extractor`, 822 deterministic cell files from the example Storybook.
 
@@ -27,7 +28,7 @@
 
 ## In progress
 
-- `feat-008`: Storybook (#25), inference (#26), emit (#27), fonts (#28) and the oracle (#29) are done locally: 780/780 Carbon cells pass on macOS goldens. Open: push the branches, run `update-goldens` for Linux goldens, re-run the oracle on them, then mark done.
+Nothing.
 
 ## Next
 

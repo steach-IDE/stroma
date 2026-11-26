@@ -30,7 +30,7 @@ node packages/oracle/compare-extraction.mjs --extraction <dir> --dsir examples/c
 
 Largest difference on a gated check: height 0 px, padding 0 px, background dE2000 0.32, radius 0.35 px. A negative control (one Flutter height damaged by 3 px) fails that cell alone, 779 of 780.
 
-**Which run.** The numbers above come from macOS renders of the goldens, so they are indicative; the committed goldens are Linux renders from CI (the `update-goldens` workflow), which are the ones that count.
+**Which run.** The goldens are Linux renders from the `update-goldens` workflow (the platform CI compares on); Flutter's geometry is from `flutter test` on the same package. A macOS render of the goldens gave the same numbers.
 
 ### What the gates do not cover (`unsupported`, with the reason)
 
