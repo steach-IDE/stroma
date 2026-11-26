@@ -5,7 +5,7 @@
 | Path | What it is |
 | --- | --- |
 | `storybook/` | The pinned `@carbon/react` 1.121.0 Storybook the extractor reads ([its README](storybook/README.md)) |
-| `inferred/carbon.dsir.json` | The DSIR `packages/infer` wrote from the extraction: 3 components, 100% of 14,304 values explained, four modes |
+| `inferred/carbon.dsir.json` | The DSIR `packages/infer` wrote from the extraction: 3 components, 100% of 14,416 values explained, four modes |
 | `packages/carbon_ui/` | The Flutter package `packages/emitter-flutter` writes from it (`dart run bin/emit.dart --example carbon`); never edit it by hand |
 
 Carbon is Apache-2.0; IBM Plex Sans is SIL OFL 1.1 (the pinned font, `tool/fetch-plex.sh`).
