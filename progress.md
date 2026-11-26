@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. Phase 1 is done: `feat-009` (issue #35) wrote the verdict, go. Phase 2 is planned (issue #37): `feat-019` (the CSS-in-JS probe) first, then `feat-016` (coverage report), `feat-018` (overrides) and `feat-017` (pixel oracle), then `feat-010` (the CLI); `feat-020` (layout values) beside them.
+- **Active feature:** none. Phase 1 is done: `feat-009` (issue #35) wrote the verdict, go. Phase 2 is planned (issue #37); `feat-019` (the CSS-in-JS probe, issue #39) is done: in scope, with `feat-021` (tokens that vary by variant) first. Then `feat-016` (coverage report), `feat-018` (overrides) and `feat-017` (pixel oracle), then `feat-010` (the CLI); `feat-020` (layout values) beside them.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -92,6 +92,7 @@ Nothing.
 | 2026-11-26 | The oracle compares Carbon with its extraction (Chrome's computed styles), not a Chrome reference sheet | The extraction already holds what Chrome drew per cell; a sheet would measure the same thing a second way | Rendering a Chrome sheet for every design system |
 | 2026-11-26 | `tool/pin-fonts.sh <package>` picks the pinned font from the package's pubspec | `init.sh` and `update-goldens` ran the Inter script for every package | One script per family called by name |
 | 2026-11-26 | Phase 1 verdict: go. Phase 2 starts with a CSS-in-JS probe and three conditions (a coverage report, a pixel comparison for every system, a DSIR override file for names) beside the CLI | Both systems passed; what rendering lost is names and semantics, not values; the unproven part is systems with no `var()` references | Going on to the CLI only |
+| 2026-11-26 | CSS-in-JS systems are in scope for Phase 2, once tokens can vary by variant (`feat-021`); inference lists a token whose value depends on more than the mode in `unsupported` | The probe (Material UI) produced a DSIR whose 6 colour tokens all had several values per mode and would have painted the first | Excluding CSS-in-JS; keeping the first value quietly |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-Start `feat-019`, the CSS-in-JS probe (Chakra UI v3 or Fluent UI v9, a pinned Storybook, the existing extractor): it is the largest open question and decides whether CSS-in-JS systems are in scope. Open its GitHub issue first. Then `feat-016`, `feat-018`, `feat-017`; `feat-010` needs the first and third.
+`feat-021`, tokens that vary by variant: the probe's one blocking finding (`docs/css-in-js-probe.md`). Open its issue; decide between a token with a value per axis value and writing such values as literals; verify on the Material UI Button end to end, with shadcn and Carbon unchanged. Then `feat-016`, `feat-018`, `feat-017`, `feat-022`, `feat-010`.

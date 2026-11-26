@@ -87,6 +87,22 @@ test('a request outside the Storybook is blocked, and listed in index.json', asy
   assert.deepEqual(JSON.parse(fs.readFileSync(path.join(out, 'index.json'), 'utf8')).blocked, ['http://127.0.0.1:9/outside.css']);
 });
 
+test('a rule inserted through the CSS object model (CSS-in-JS) is recorded with its declarations', async () => {
+  const fake = tmp();
+  fs.writeFileSync(path.join(fake, 'index.json'), JSON.stringify({ v: 5, entries: { 'plain--default': { type: 'story', id: 'plain--default' } } }));
+  fs.writeFileSync(path.join(fake, 'iframe.html'), `<!doctype html><style id="s"></style>
+<div id="storybook-root"><div class="css-abc" data-slot="x">x</div></div>
+<script>document.getElementById('s').sheet.insertRule('.css-abc { background-color: #1976d2; padding: 6px 16px; }');
+window.__STORYBOOK_PREVIEW__ = { ready: async () => {}, storyStore: {
+  loadStory: async () => ({ title: 'Plain', name: 'Default', argTypes: {} }), projectAnnotations: {}, args: { get: () => ({}) } } };</script>`);
+  const out = path.join(tmp(), 'out');
+  await extract({ storybook: fake, out });
+  const rules = read(out, 'plain--default/state=rest.json').elements[0].rules;
+  const decls = rules.flatMap((r) => r.decls);
+  assert.ok(decls.some(([n, v]) => n === 'background-color' && v === 'rgb(25, 118, 210)'), JSON.stringify(rules));
+  assert.ok(decls.some(([n]) => n === 'padding'), 'the shorthand as written is kept');
+});
+
 test('it refuses to write into a directory that already holds files', async () => {
   const out = tmp();
   fs.writeFileSync(path.join(out, 'old.json'), '{}');

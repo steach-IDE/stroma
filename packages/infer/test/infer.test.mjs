@@ -104,3 +104,23 @@ test('intent loss on shadcn: colour tokens and radius values survive, radius nam
   assert.match(out, /radius references, same value in px\s+6\/6 \(100%\)/);
   assert.match(out, /radius references, same token name\s+0\/6 \(0%\)/);
 });
+
+test('a token whose value depends on a variant, not only the mode, is listed as unsupported instead of kept quietly', () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'stroma-infer-'));
+  const cells = [];
+  for (const [color, bg] of [['red', 'rgb(255, 0, 0)'], ['blue', 'rgb(0, 0, 255)']]) {
+    const file = `x--default/theme=light,color=${color},state=rest.json`;
+    fs.mkdirSync(path.join(dir, 'x--default'), { recursive: true });
+    fs.writeFileSync(path.join(dir, file), JSON.stringify({ story: 'x--default', theme: 'light', args: { color }, state: 'rest', elements: [{
+      tag: 'div', parent: -1, role: null, attrs: { class: 'ds-box' }, text: '', box: { x: 0, y: 0, w: 10, h: 10 },
+      style: { 'background-color': bg, color: 'rgb(0, 0, 0)', 'border-top-color': 'rgb(0, 0, 0)', 'font-family': 'Plex', 'padding-left': '0px', 'padding-top': '0px' },
+      rules: [{ selector: '.ds-box', at: [], decls: [['background-color', 'var(--ds-fill)']] }],
+      vars: { '--ds-fill': bg },
+    }] }));
+    cells.push({ story: 'x--default', theme: 'light', args: { color }, state: 'rest', file });
+  }
+  fs.writeFileSync(path.join(dir, 'index.json'), JSON.stringify({ stories: { 'x--default': { axes: { color: ['red', 'blue'] }, defaults: { color: 'red' }, themes: ['light'], title: 'X', name: 'Default' } }, cells }));
+  const { dsir } = infer({ extraction: dir, license: 'MIT', source: 'test' });
+  const why = dsir.components[0].unsupported.map((u) => u.what);
+  assert.deepEqual(why, ['token --ds-fill in mode light']);
+});

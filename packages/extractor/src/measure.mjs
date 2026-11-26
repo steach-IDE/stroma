@@ -56,11 +56,15 @@ function inPage({ rootSelector, properties }) {
 async function matchedRules(cdp, nodeId) {
   const m = await cdp.send('CSS.getMatchedStylesForNode', { nodeId });
   const rules = [];
-  const keep = (props) => props.filter((d) => d.text && !d.disabled).map((d) => [d.name, d.value]);
+  // What the author wrote. In a rule with source text that is what has `text`; the rest are longhands a shorthand
+  // expanded to. A rule a CSS-in-JS library inserted through the CSS object model has no source text at all, so
+  // there every declaration that is not marked implicit counts.
+  const keep = (props, sourced = true) =>
+    props.filter((d) => !d.disabled && d.name && (sourced ? d.text : !d.implicit && d.value !== undefined)).map((d) => [d.name, d.value]);
   const inline = keep(m.inlineStyle?.cssProperties ?? []);
   for (const { rule } of m.matchedCSSRules ?? []) {
     if (rule.origin !== 'regular') continue; // user-agent defaults are already in the computed style
-    const decls = keep(rule.style.cssProperties);
+    const decls = keep(rule.style.cssProperties, rule.style.range != null);
     if (decls.length === 0) continue;
     const at = [...(rule.media ?? []).map((x) => `@media ${x.text}`), ...(rule.supports ?? []).map((x) => `@supports ${x.text}`),
       ...(rule.containerQueries ?? []).map((x) => `@container ${x.text}`), ...(rule.layers ?? []).map((x) => `@layer ${x.text}`)];

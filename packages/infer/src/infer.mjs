@@ -91,7 +91,14 @@ export function infer({ extraction, license, source }) {
 
   // Pass 2, observations per part slot: one per cell the part appears in.
   const observed = new Map(); // slot -> { role counts, story root?, obs: [{ when, values, tokenized, icon, children }] }
-  const tokenValues = {}; // token name -> mode -> literal
+  const tokenValues = {}; // token name -> mode -> literal (the first one seen)
+  const tokenSeen = {}; // token name -> mode -> every distinct literal seen: more than one means it depends on more than the mode
+  const fallbackSeen = {}; // the same for `var(--name, fallback)` fallbacks: a token's value only where no theme defines it
+  const seeToken = (name, mode, value) => {
+    ((tokenSeen[name] ??= {})[mode] ??= new Set()).add(value);
+    (tokenValues[name] ??= {})[mode] ??= value;
+  };
+  const seeFallback = (name, mode, value) => ((fallbackSeen[name] ??= {})[mode] ??= new Set()).add(value);
   let radiusBase = null;
   let fontFamily = null;
   for (const cell of cells) {
@@ -119,14 +126,21 @@ export function infer({ extraction, license, source }) {
       o.obs.push({ when, values, tokenized, icon, children: childSlots });
       for (const [name, value] of Object.entries(part.el.vars)) {
         if (name === '--radius') radiusBase ??= value;
-        if (value) (tokenValues[name.slice(2)] ??= {})[cell.theme ?? 'light'] ??= value;
+        if (value) seeToken(name.slice(2), cell.theme ?? 'light', value);
       }
       // A token the theme never defines still has its value: the fallback in var(--name, fallback).
-      for (const [name, fallback] of fallbacksOf(part.el.rules)) (tokenValues[name] ??= {})[cell.theme ?? 'light'] ??= fallback;
+      for (const [name, fallback] of fallbacksOf(part.el.rules)) seeFallback(name, cell.theme ?? 'light', fallback);
       fontFamily ??= part.el.style['font-family'].split(',')[0].replace(/["']/g, '').trim();
     }
   }
 
+  for (const [name, modes] of Object.entries(fallbackSeen)) {
+    for (const [mode, seen] of Object.entries(modes)) {
+      if (tokenSeen[name]?.[mode]) continue; // a theme defines it: the fallback is not its value
+      (tokenSeen[name] ??= {})[mode] = seen;
+      (tokenValues[name] ??= {})[mode] = [...seen][0];
+    }
+  }
   const usedColorTokens = new Set();
   const usedRadii = new Set();
   const components = [];
@@ -147,6 +161,7 @@ export function infer({ extraction, license, source }) {
 
     const mined = []; // { target, key, rule, rank }
     const unsupported = [];
+    const ownTokens = new Set(); // the colour tokens this component's rules use
     for (const target of ['root', 'icon']) {
       const obs = target === 'root' ? o.obs : o.obs.filter((x) => x.icon);
       const keys = [...new Set(obs.flatMap((x) => Object.keys(target === 'root' ? x.values : x.icon)))].sort();
@@ -191,13 +206,24 @@ export function infer({ extraction, license, source }) {
       }
       if (!ok) { unsupported.push({ what: `${m.key} under two slot conditions`, why: 'a DSIR rule holds one hasSlot condition' }); continue; }
       const v = m.rule.value;
-      if (COLOR_KEYS.includes(m.key) && v?.token) usedColorTokens.add(v.token);
+      if (COLOR_KEYS.includes(m.key) && v?.token) { usedColorTokens.add(v.token); ownTokens.add(v.token); }
       if (m.key === 'radius' && v?.token) usedRadii.add(v.token);
       const last = rules.at(-1);
       if (last && last.target === m.target && JSON.stringify(last.when) === JSON.stringify(when) && !(m.key in last.set)) {
         last.set[m.key] = v;
       } else {
         rules.push({ when, target: m.target, set: { [m.key]: v }, from: `measured: ${Object.entries(m.rule.when).map(([d, x]) => `${d}=${x}`).join(', ') || 'every cell'}`, provenance: 'measured' });
+      }
+    }
+
+    // A token holds one value per mode. One that took several within a mode depends on something else (a variant
+    // axis, a state): the DSIR keeps the first value, and says so here instead of being quietly wrong.
+    for (const token of [...ownTokens].sort()) {
+      for (const [mode, seen] of Object.entries(tokenSeen[token] ?? {})) {
+        if (seen.size > 1) {
+          unsupported.push({ what: `token --${token} in mode ${mode}`, why: `it took ${seen.size} different values (e.g. ${[...seen].slice(0, 2).join(', ')}): its value depends on more than the mode, and a DSIR token holds one per mode` });
+          break;
+        }
       }
     }
 
