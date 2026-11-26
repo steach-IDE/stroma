@@ -18,7 +18,7 @@ Nothing.
 ## Next
 
 1. Finish `feat-001`: open issues for `feat-002`, `feat-003` and `feat-004`, then record the evidence.
-2. Agree how people will install and use Stroma; that shapes `packages/cli` and the README's quick start.
+2. Reserve the names: create the npm organisation `steach` (for `@steach/stroma`) and publish a placeholder of `stroma` on pub.dev.
 
 ## Blockers and risks
 
@@ -33,6 +33,12 @@ Nothing.
 | 2026-11-26 | `AGENTS.md` holds the agent instructions; `CLAUDE.md` imports it | Contributors use different coding agents | Only `CLAUDE.md` |
 | 2026-11-26 | The repository is public under the steach-IDE organisation | Same home as Aegil and Scrib | A personal account |
 | 2026-11-26 | Licence: Apache-2.0 | Permissive, with an explicit patent grant; matches Scrib | MIT (no patent grant) |
+| 2026-11-26 | First user: the team that owns a web design system | Owns the rights, already has a Storybook, gains most from staying in sync | App teams converting a third-party system; tool builders |
+| 2026-11-26 | Three install paths with the same commands and byte-identical output: `npx`, `dart`, Docker for CI | Web teams have Node, Flutter teams have Dart; only a pinned image gives identical goldens | One runtime only |
+| 2026-11-26 | Package names: `@steach/stroma` on npm, `stroma` on pub.dev | `stroma` is taken on npm; both are free otherwise | `stroma-cli` on npm |
+| 2026-11-26 | Generated packages are committed in the team's repository; Stroma never publishes them | Reviewable, and no redistribution of anyone's design system | Stroma publishing to pub.dev |
+| 2026-11-26 | Customisation through DSIR overrides and hand-written replacements, never edits to generated files | Keeps regeneration safe | Editable generated code |
+| 2026-11-26 | No hosted service and no catalogue of converted output for now | Scope, and licensing of derivatives | Both, later |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

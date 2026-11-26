@@ -109,6 +109,42 @@
       "status": "not-started",
       "done_when": "docs/phase-1-verdict.md states go or no-go, links the scorecards of both systems, reports the intent-loss figure, and the roadmap in README.md is updated to match.",
       "evidence": ""
+    },
+    {
+      "id": "feat-010",
+      "phase": 2,
+      "name": "npm CLI",
+      "description": "packages/cli published as @steach/stroma: init, extract, review, emit, verify and update as docs/usage.md describes, with the Dart emitter compiled to JavaScript.",
+      "dependencies": [
+        "feat-009"
+      ],
+      "status": "not-started",
+      "done_when": "npx @steach/stroma runs every command on the shadcn fixture from a clean machine with Node 20 alone (plus Flutter for verify); emit --check and verify exit non-zero on a stale file and on a failed gate.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-011",
+      "phase": 2,
+      "name": "Dart CLI with output parity",
+      "description": "The pub.dev package stroma: the same commands, the emitter native, extract and verify run through the same TypeScript core on Node.",
+      "dependencies": [
+        "feat-010"
+      ],
+      "status": "not-started",
+      "done_when": "CI emits every fixture DSIR with both CLIs and the outputs are byte-identical; dart run stroma extract without Node exits non-zero naming Node 20 and the Docker image.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-012",
+      "phase": 2,
+      "name": "Docker image for CI",
+      "description": "ghcr.io/steach-ide/stroma with Chromium, the Flutter SDK and the fonts pinned.",
+      "dependencies": [
+        "feat-010"
+      ],
+      "status": "not-started",
+      "done_when": "Two runs of verify on the shadcn fixture, on two different hosts, give identical goldens and scorecards; the image is built and pushed from a release tag.",
+      "evidence": ""
     }
   ]
 }
