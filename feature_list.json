@@ -18,9 +18,9 @@
       "dependencies": [
         "feat-001"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "Each of the three decisions is in progress.md under Decisions with the alternatives and the reason.",
-      "evidence": ""
+      "evidence": "2026-11-26, branch chore/3-phase-1-decisions (issue #3): the three decisions are rows in progress.md under Decisions made, with alternatives and reasons. Carbon: Apache-2.0, Storybook https://react.carbondesignsystem.com (index v5, 668 entries, checked 2026-11-26). LLM help deferred to Phase 5 (feat-013). Fonts: pinned download (feat-014)."
     },
     {
       "id": "feat-003",
@@ -78,7 +78,8 @@
       "name": "Phase 1 gate on shadcn/ui",
       "description": "Emit Flutter from the render-extracted shadcn DSIR and run the oracle at the spike's gates.",
       "dependencies": [
-        "feat-006"
+        "feat-006",
+        "feat-014"
       ],
       "status": "not-started",
       "done_when": "The oracle passes every Button, Badge and Card cell at height, padding and radius within 1 px and background within dE2000 2, light and dark.",
@@ -87,14 +88,14 @@
     {
       "id": "feat-008",
       "phase": 1,
-      "name": "Phase 1 gate on a second design system",
-      "description": "Run extract, emit and verify on the second design system chosen in feat-002, styled with something other than Tailwind.",
+      "name": "Phase 1 gate on Carbon",
+      "description": "Run extract, emit and verify on IBM's Carbon design system (Apache-2.0; Storybook at https://react.carbondesignsystem.com), styled with SCSS and CSS-variable tokens rather than Tailwind.",
       "dependencies": [
         "feat-002",
         "feat-007"
       ],
       "status": "not-started",
-      "done_when": "Its button, badge (or tag) and card equivalents pass the same oracle gates, with every failure that remains listed in unsupported with a reason.",
+      "done_when": "Carbon's Button, Tag and Tile pass the same oracle gates against a pinned Carbon version, with every failure that remains listed in unsupported with a reason.",
       "evidence": ""
     },
     {
@@ -144,6 +145,30 @@
       ],
       "status": "not-started",
       "done_when": "Two runs of verify on the shadcn fixture, on two different hosts, give identical goldens and scorecards; the image is built and pushed from a release tag.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-013",
+      "phase": 5,
+      "name": "LLM help at extraction",
+      "description": "A model proposes DSIR facts deterministic extraction can't infer (token and variant names, intent), each marked provenance: llm and reviewed by a person. Never used when emitting.",
+      "dependencies": [
+        "feat-009"
+      ],
+      "status": "not-started",
+      "done_when": "To be planned once Phase 1 shows where deterministic extraction falls short. It must show that proposals reduce review work without lowering oracle pass rates.",
+      "evidence": ""
+    },
+    {
+      "id": "feat-014",
+      "phase": 1,
+      "name": "Pinned fonts for goldens",
+      "description": "A script downloads the fonts the goldens use from fixed URLs and checks each file's SHA-256; the emitter, the reference renderer and CI all use those files.",
+      "dependencies": [
+        "feat-004"
+      ],
+      "status": "not-started",
+      "done_when": "On a clean CI runner, ./init.sh runs the example package's golden tests instead of skipping them, and a font file with a wrong hash fails the download with its name.",
       "evidence": ""
     }
   ]

@@ -22,8 +22,8 @@ Nothing.
 ## Next
 
 1. Merge the `feat-004` pull request (issue #5). That closes Phase 0 except `feat-002`.
-2. `feat-002` (issue #3): the second design system, the LLM policy, and fonts in CI. The second system blocks `feat-008`; the fonts decision would let CI run the goldens.
-3. Phase 1: `feat-005`, the render-based extractor.
+2. Merge the `feat-002` pull request (issue #3).
+3. Phase 1: `feat-014` (pinned fonts, so CI runs the goldens) and `feat-005` (the render-based extractor) can start in parallel.
 3. Later, not blocking: reserve the names (npm organisation `steach` for `@steach/stroma`; `stroma` on pub.dev). Deferred by the maintainer on 2026-11-26.
 
 ## Blockers and risks
@@ -52,6 +52,9 @@ Nothing.
 | 2026-11-26 | The converted shadcn example lives in `examples/shadcn-neutral`, laid out like a user's repository | It is the fixture `docs/usage.md` describes, and it keeps generated output out of `packages/` | A folder inside the emitter package |
 | 2026-11-26 | The primitives stay as emitter templates for now | They import generated `tokens.dart`, so they aren't a standalone package yet | `packages/primitives-flutter` now |
 | 2026-11-26 | CI analyzes the generated Flutter package but skips its golden tests while Inter isn't vendored | Goldens need the exact font; how to pin it is `feat-002` | Committing the fonts now |
+| 2026-11-26 | Phase 1's second design system: Carbon (IBM), Apache-2.0, Storybook https://react.carbondesignsystem.com | Furthest from shadcn (SCSS and global classes, not utility classes), the same licence as Stroma, and 668 stories keep Phase 1 to two weeks | Primer React (MIT, CSS modules); Fluent UI v9 (MIT, runtime CSS-in-JS); Chakra UI v3 (MIT, CSS-in-JS recipes) |
+| 2026-11-26 | No LLM at extraction for now; LLM help becomes Phase 5 (`feat-013`) | Deterministic extraction must be good first; a model would hide where it falls short | Allowing a model to propose DSIR facts from the start |
+| 2026-11-26 | CI gets the golden fonts by downloading pinned files and checking their SHA-256 (`feat-014`) | Keeps font binaries out of the repository while making goldens reproducible | Committing the OFL font files |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

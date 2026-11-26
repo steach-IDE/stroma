@@ -32,7 +32,7 @@ Needs Node 20 or later. Run `pnpm install` once, then `pnpm test`.
 Two fields are new in 0.2:
 
 - **`behaviour`**: the WAI-ARIA pattern a component implements (`button`, `dialog`, `tabs`, …), or `null` for a static box. The emitter picks the hand-written primitive from it.
-- **`provenance`** on every rule: `measured` (from a render), `enricher` (from source code), `llm` (proposed by a model: review it), or `human`.
+- **`provenance`** on every rule: `measured` (from a render), `enricher` (from source code), `llm` (reserved for Phase 5: nothing writes it until LLM help is added), or `human`.
 
 ## What the validator checks
 

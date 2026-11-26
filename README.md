@@ -60,7 +60,7 @@ What a component renders to is the specification, whatever styling technology pr
 Every style, state or behaviour Stroma can't translate is listed in the DSIR's `unsupported` array with a reason, and shows on the scorecard.
 
 ### 4. Extraction may be fuzzy; emission is pure
-Extraction, and an LLM if one is used, only proposes a DSIR. A person reviews and commits it. From a committed DSIR, output is deterministic.
+Extraction only proposes a DSIR; a person reviews and commits it. From a committed DSIR, output is deterministic. Extraction is deterministic too: LLM help is a later phase, once deterministic extraction is proven.
 
 ### 5. Style is generated, behaviour is hand-written
 Interaction patterns are written once, tested with real keyboard and pointer input, and reused by every design system.
@@ -124,10 +124,11 @@ Durations are estimates for one engineer, based on the spike.
 | Phase | What | About | Gate to pass before the next phase |
 | --- | --- | --- | --- |
 | 0 · Bootstrap | Repository, licence, CI, DSIR 0.2 schema, spike code moved | 1 week | Spike code moved with its history; CI green |
-| 1 · Prove it | Render-based extraction on shadcn/ui and one other design system | 2 weeks | Extracted shadcn passes the spike's gates; how much intent rendering loses is measured |
+| 1 · Prove it | Render-based extraction on shadcn/ui and Carbon | 2 weeks | Extracted shadcn passes the spike's gates; how much intent rendering loses is measured |
 | 2 · Style | Style-only components, layout linter, the CLI (`npx`, `dart`, Docker) | 3 weeks | 15+ components per system pass; the linter flags an input in a row |
 | 3 · Behaviour | P1 patterns: tabs, dialog, checkbox, switch, disclosure | 5 weeks | Real-input tests pass on both systems |
 | 4 · Third system | P2 patterns (menus, popovers, select) and a contributor-led port | 5 weeks | A third design system ported with no core changes |
+| 5 · LLM help | A model proposes what deterministic extraction can't infer (names, intent), marked `provenance: llm` and reviewed; never used when emitting | To plan | Proposals measurably reduce review work without lowering oracle pass rates |
 
 If Phase 1's gate fails, the fallback is per-library enrichers as the main input, and the roadmap is re-planned.
 
