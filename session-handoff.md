@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-`feat-010`, the CLI: `npx @steach/stroma` running init, extract, review, emit and verify as `docs/usage.md` describes, exposing what Phase 2 added (the coverage report, the font report, overrides, the pixel comparison). Then `feat-011` (the Dart CLI) and `feat-012` (the Docker image). `feat-024` (stacked inset rings and outlines: the focused Carbon button and tile) and `feat-020` (layout values) are the oracle's remaining findings. **The branch stack is long** (#47, #49, #51 and this one are all open and stacked): merge them in order before starting `feat-010`. Open the issue first; run `.github/scripts/work-gate.sh` before pushing.
+`feat-010`, next slice: `stroma extract` (the extractor and inference behind the CLI: Chromium downloaded on first run, `--root`, overrides from `design-system/overrides/`, `dsir.lock`), then `verify` (Flutter goldens and the pixel comparison, `scorecard.md`), `review` and `update`. Open the issue first; run `.github/scripts/work-gate.sh` before pushing. `feat-024` (stacked inset rings and outlines) and `feat-020` (layout values) are the oracle's remaining findings.

@@ -3,7 +3,7 @@
 ## Current state
 
 - **Last updated:** 2026-11-26
-- **Active feature:** none. Phase 1 is done: `feat-009` (issue #35) wrote the verdict, go. Phase 2 is planned (issue #37); `feat-019` (the CSS-in-JS probe, issue #39) and `feat-021` (variant-dependent colours as literals, issue #41) are done: the Material UI Button passes the oracle (432/432). `feat-016` (coverage report, issue #43) is done. Next: `feat-018` (overrides) and `feat-017` (pixel oracle), `feat-022` (fonts that did not load), then `feat-010` (the CLI); `feat-020` (layout values) beside them.
+- **Active feature:** none. Phase 1 is done: `feat-009` (issue #35) wrote the verdict, go. Phase 2 is planned (issue #37); `feat-019` (the CSS-in-JS probe, issue #39) and `feat-021` (variant-dependent colours as literals, issue #41) are done: the Material UI Button passes the oracle (432/432). `feat-016` (coverage report, issue #43) is done. Next: `feat-018` (overrides) and `feat-017` (pixel oracle), `feat-022` (fonts that did not load), then `feat-010` (the CLI); `feat-020` (layout values) beside them. `feat-010` (the CLI) is in progress: `init`, `emit` and `emit --check` run on Node alone (issue #54); `extract`, `review`, `verify` and `update` are next.
 - **Code:** `packages/dsir`, `emitter-flutter`, `enricher-shadcn`, `oracle`, `adapter-scrib`, and `examples/shadcn-neutral`.
 
 ## Done
@@ -96,6 +96,7 @@ Nothing.
 | 2026-11-26 | A colour whose token takes several values within a mode is written as a literal, not as a token with a value per variant; the page colours are measured into `tokens.page` when no token names them | Needs no new DSIR construct and loses nothing (the literal is in the rule); Material UI has no token to name the page | A per-variant token value; failing the inference |
 | 2026-11-26 | Names are overrides applied by `stroma-infer --overrides`, kept in `examples/<system>/overrides.json` beside the DSIR; they rename and annotate and never change a value or a condition | A person wants the design system's names, and hand-editing the inferred file is undone by the next inference | Editing the DSIR by hand; naming in the emitter |
 | 2026-11-26 | The oracle compares text colour (gated at dE 5) and SSIM (reported) against Chrome's own image of each cell, saved by the extractor; no Chrome reference sheet per design system | The Carbon and Material UI oracles only compared Flutter with the numbers the rules were mined from | A reference sheet per system |
+| 2026-11-27 | The CLI runs the emitter compiled to JavaScript (`dart compile js`, built once) and its tests compare it with the committed packages the native Dart emitter wrote | `docs/usage.md` promises Node alone; byte-identity is what lets the npm and Dart paths produce the same output | Shelling out to `dart`; a second emitter in JavaScript |
 | 2026-11-26 | Same working rules as Aegil and Scrib: issue first, issue-named branches, one-line commits, no agent attribution | The three repositories should work alike | — |
 
 ## Files modified

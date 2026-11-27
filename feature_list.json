@@ -122,9 +122,9 @@
         "feat-016",
         "feat-018"
       ],
-      "status": "not-started",
+      "status": "in-progress",
       "done_when": "npx @steach/stroma runs every command on the shadcn fixture from a clean machine with Node 20 alone (plus Flutter for verify); emit --check and verify exit non-zero on a stale file and on a failed gate.",
-      "evidence": ""
+      "evidence": "2026-11-27, issue #54 (first slice, not done): packages/cli with init, emit and emit --check. The emitter compiles to JavaScript (dart compile js, 870 KB with dart_style) and runs in Node with two shims (self, location); stroma emit --check, run with no Dart on PATH, finds the three committed packages the native Dart emitter wrote byte-identical (shadcn 16 files, Carbon 14, Material UI 12); it fails naming the file for an edited, a missing and a no-longer-emitted file, and emit repairs all three; a DSIR the emitter cannot print or a missing DSIR exit 1 with the reason; extract, review, verify, update exit 2 saying they are not in this version. 5 tests. Still to do: extract (the extractor and inference behind the CLI, Chromium on first run), review, verify (Flutter goldens and the pixel comparison), update, dsir.lock, overrides from design-system/overrides/, scorecard.md, and publishing."
     },
     {
       "id": "feat-011",

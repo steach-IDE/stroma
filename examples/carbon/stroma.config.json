@@ -1,0 +1,6 @@
+{
+  "source": { "storybookBuild": "storybook/storybook-static" },
+  "package": { "name": "carbon_ui", "path": "packages/carbon_ui" },
+  "dsir": "inferred/carbon.dsir.json",
+  "handWritten": []
+}

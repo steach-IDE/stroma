@@ -1,0 +1,7 @@
+{
+  "source": { "storybookBuild": "storybook/storybook-static" },
+  "package": { "name": "shadcn_neutral_ui", "path": "packages/shadcn_neutral_ui" },
+  "dsir": "inferred/shadcn.dsir.json",
+  "scribMapping": "../../packages/adapter-scrib/mappings/shadcn.scrib.json",
+  "handWritten": []
+}
