@@ -7,6 +7,7 @@ import path from 'node:path';
 import { chromium } from 'playwright';
 import { serveStatic } from './serve.mjs';
 import { measure, ROOT_SELECTOR } from './measure.mjs';
+import { CROP_MARGIN } from './crop.mjs';
 
 const INTERACTIVE = 'button, a[href], input, select, textarea, [tabindex]';
 const FORCED = { hovered: ['hover'], focused: ['focus', 'focus-visible'] };
@@ -106,7 +107,7 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
   const pageColours = {}; // theme -> the page's background and text colour, from <body> (else <html>, else white)
   const described = {};
   try {
-    const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 1 });
+    const page = await browser.newPage({ viewport: { width: 1280, height: 800 }, deviceScaleFactor: 2 }); // 2x: the crops are compared with Flutter's goldens, which are 2x; CSS px (every measurement) are unaffected
     // Nothing outside the Storybook may shape a measurement (a CDN font, say): the network is cut, and what was
     // asked for is listed in index.json, so a fallback font is never silent.
     await page.route('**/*', (route) => {
@@ -168,6 +169,11 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
               const rel = path.posix.join(storyId, fileName({ theme, args: combo, state }));
               fs.mkdirSync(path.join(out, storyId), { recursive: true });
               fs.writeFileSync(path.join(out, rel), JSON.stringify(cell, null, 2) + '\n');
+              // What Chrome drew: the root's box and a margin around it (a focus ring or shadow sits outside the box).
+              const at = await page.locator(rootSelector).first().boundingBox();
+              const margin = CROP_MARGIN;
+              const clip = { x: Math.max(0, at.x - margin), y: Math.max(0, at.y - margin), width: at.width + 2 * margin, height: at.height + 2 * margin };
+              fs.writeFileSync(path.join(out, rel.replace(/\.json$/, '.png')), await page.screenshot({ clip, animations: 'disabled', caret: 'hide' }));
               cells.push({ story: storyId, theme, args: combo, state, file: rel });
             }
             await cdp.send('CSS.forcePseudoState', { nodeId: nodeIds[0], forcedPseudoClasses: [] });

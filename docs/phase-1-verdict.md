@@ -49,7 +49,7 @@ In short: **values and colour tokens survive rendering; names and semantics do n
 ## Conditions on the go
 
 1. **The Storybook decides what can be seen.** The extractor describes what a story draws: shadcn's Badge had no icon slot until a story drew an icon, and Carbon's ClickableTile is only visible through its own story. Phase 2 needs a coverage report (which axes, slots and states no story exercises), not a silent gap.
-2. **A real second source for the oracle.** The Carbon oracle is circular in the sense above. Phase 2 should have the extractor save a Chrome crop per cell so every system is compared with pixels as well as numbers (which also gives text colour and SSIM, ungated today).
+2. **A real second source for the oracle.** The Carbon oracle was circular in the sense above. This is done (`feat-017`): the extractor saves a Chrome image per cell, and every system is compared with pixels (text colour gated, SSIM reported), which found a defect the gates could not see (`feat-023`).
 3. **Names need a home.** Component names came from class names (`cds--btn` is `Btn`) and radius names are relative. The DSIR's override file has to exist before a team is asked to commit a DSIR.
 
 ## Not proven

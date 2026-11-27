@@ -32,4 +32,13 @@ node compare-extraction.mjs --extraction <dir> --dsir <dsir.json> --package <gen
 
 Same gates as above: height, padding (border plus padding, from the extraction's style) and corner radius within ±1 px, background within ΔE2000 < 2 (a transparent background is composited over the page token, as the Flutter sheet paints it). Width is reported only. Cells match by id (`btn.primary.lg.rest.white`) and mode; a component that holds two stories (Tile and ClickableTile) matches each by whether the story is interactive. A cell that fails is listed in the summary's `failures`, grouped by component and check, with its worst case; the exit code is 1.
 
+Where the extraction holds `<cell>.png` (the extractor saves one per cell), the comparator also reads **pixels**, so it no longer compares Flutter only with the numbers the rules were mined from:
+
+| Check | How | |
+| --- | --- | --- |
+| Text colour | The glyph pixel furthest from the background, in Chrome's image and in Flutter's golden, ΔE2000 | **Gated at 5**: thin glyphs antialias differently in the two engines, so the tolerance is wider than the 2 for a flat fill |
+| SSIM | Mean SSIM of the two images over the root's box plus a 6 px margin, on luma | Reported, per cell and per component |
+
+A Flutter cell is matched to the story that draws the same thing (a cell with an icon to a story whose root has one), so shadcn's Button and Badge go through the same path as Carbon and Material UI. A damaged golden is caught: with one cell's text painted red, 779 of 780 Carbon cells passed and that cell alone failed (white against red, ΔE 45.8).
+
 `pixels.mjs` holds the pixel helpers both comparators use.
