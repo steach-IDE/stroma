@@ -1,0 +1,24 @@
+{
+  "name": "@steach/stroma",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Stroma: turn a web design system's Storybook into a Flutter package. init, emit and emit --check so far.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "packageManager": "pnpm@10.15.1",
+  "engines": {
+    "node": ">=20.19"
+  },
+  "bin": {
+    "stroma": "bin/stroma.mjs"
+  },
+  "files": [
+    "bin",
+    "src",
+    "dist"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node scripts/build.mjs && node --test"
+  }
+}

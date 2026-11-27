@@ -1,0 +1,6 @@
+{
+  "source": { "storybookBuild": "storybook/storybook-static" },
+  "package": { "name": "mui_ui", "path": "packages/mui_ui", "fonts": false },
+  "dsir": "inferred/mui.dsir.json",
+  "handWritten": []
+}

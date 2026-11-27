@@ -2,7 +2,7 @@
 
 **In one sentence:** A design-system team points Stroma at its Storybook, reviews the description Stroma extracts, and commits a generated Flutter package that CI keeps in sync with every release.
 
-> **Planned.** None of this exists yet. This page is the design the CLI is built to (`feat-010` to `feat-012` in `feature_list.json`). Where it says "Stroma does", read "Stroma will do".
+> **Partly built.** This page is the design the CLI is built to (`feat-010` to `feat-012` in `feature_list.json`). What exists today (`packages/cli`): **`init`, `emit` and `emit --check`**, running the emitter compiled to JavaScript on Node alone. `extract`, `review`, `verify` and `update`, the Dart CLI and the Docker image are planned: where this page describes them, read "Stroma will do".
 
 ---
 

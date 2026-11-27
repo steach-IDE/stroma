@@ -116,7 +116,7 @@ That code now lives here, with its history (see [Repository layout](#repository-
 | `examples/mui/storybook` | — | A pinned Material UI Storybook (Button): the CSS-in-JS probe | Exists (extraction and inference only) |
 | `examples/carbon/storybook` | — | A pinned Carbon Storybook (Button, Tag, Tile): the second design system | Exists (extraction only) |
 | `packages/primitives-flutter` | Dart (Flutter) | The primitives as a package generated code depends on | Planned |
-| `packages/cli` | TypeScript (+ a Dart CLI) | `stroma init`, `extract`, `emit`, `verify` | Planned (`feat-010`, `feat-011`) |
+| `packages/cli` | JavaScript (the emitter compiled from Dart) | `stroma init`, `emit`, `emit --check` (Node alone); `extract`, `review`, `verify`, `update` and the Dart CLI to come | Partly built (`feat-010`, `feat-011`) |
 
 ---
 
