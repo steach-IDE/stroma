@@ -290,6 +290,13 @@ export function infer({ extraction, license, source, overrides }) {
   if (usedRadii.has('radius-base')) derived.base = 0;
   // Tokens that name the page's colours are the emitter's source for them; without any (Material UI), the colours the
   // extraction measured on <body> are written as `tokens.page`.
+  // Say what the numbers were measured in when it was not a font the page loaded (the extraction's `fonts`).
+  const fontNotes = Object.values(index.fonts ?? {}).filter((f) => f.source === 'system' || f.source === 'fallback');
+  const fontNote = fontNotes.length
+    ? fontNotes.some((f) => f.source === 'fallback')
+      ? `measured in a fallback font (${[...new Set(fontNotes.flatMap((f) => f.used.map((u) => u.family)))].join(', ')}): the requested family did not load`
+      : `measured in a font installed on the machine that extracted it (${[...new Set(fontNotes.flatMap((f) => f.used.map((u) => u.family)))].join(', ')}), not one the page loaded`
+    : null;
   const named = pageTokenNames(color);
   const page = named.background && named.foreground || !index.page ? null : {
     background: Object.fromEntries(Object.entries(index.page).map(([m, c]) => [m, literalColor(c.background)])),
@@ -301,7 +308,7 @@ export function infer({ extraction, license, source, overrides }) {
     tokens: {
       color,
       ...(radiusBase ? { radius: { base: remToPx(radiusBase), derived } } : {}),
-      ...(fontFamily ? { font: { sans: { family: fontFamily } } } : {}),
+      ...(fontFamily ? { font: { sans: { family: fontFamily, ...(fontNote ? { note: fontNote } : {}) } } } : {}),
       ...(page ? { page } : {}),
     },
     globals: {},

@@ -4,13 +4,14 @@
     "kind": "storybook",
     "url": "local Storybook build",
     "license": "MIT",
-    "hash": "sha256:af2df7f893e143a40fa5faee15de384c34e6945f3a3bd23cca97798b6db9b576"
+    "hash": "sha256:63c08ec48a377b09d6c26804f048e816c1f16e9c234aac2c48fd398960e83446"
   },
   "tokens": {
     "color": {},
     "font": {
       "sans": {
-        "family": "Roboto"
+        "family": "Roboto",
+        "note": "measured in a font installed on the machine that extracted it (Roboto Medium), not one the page loaded"
       }
     },
     "page": {

@@ -104,6 +104,7 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
   const cells = [];
   const blocked = new Set();
   const seen = {}; // story -> what its cells showed, for the coverage section
+  const fontSeen = {}; // story -> { requested: first font family asked for, used: families that drew the text }
   const pageColours = {}; // theme -> the page's background and text colour, from <body> (else <html>, else white)
   const described = {};
   try {
@@ -151,6 +152,14 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
               return { background: !clear(body.backgroundColor) ? body.backgroundColor : !clear(html.backgroundColor) ? html.backgroundColor : 'rgb(255, 255, 255)', color: body.color };
             });
             const nodeIds = await nodeIdsUnderRoot(cdp, rootSelector);
+            // Which font was asked for, and which really drew the text (a web font that did not load is replaced silently).
+            const asked = await page.locator(rootSelector).first().evaluate((el) => getComputedStyle(el).fontFamily.split(',')[0].replace(/["']/g, '').trim());
+            const fonts = (fontSeen[storyId] ??= { requested: new Set(), used: new Map() });
+            fonts.requested.add(asked);
+            for (const nodeId of nodeIds) {
+              const { fonts: drawn } = await cdp.send('CSS.getPlatformFontsForNode', { nodeId });
+              for (const f of drawn) fonts.used.set(f.familyName, f.isCustomFont);
+            }
             const interactive = await page.locator(rootSelector).first().evaluate((el, sel) => el.matches(sel), INTERACTIVE);
             const states = disabled ? ['disabled'] : ['rest', ...(interactive ? ['hovered', 'focused'] : [])];
             for (const state of states) {
@@ -196,11 +205,27 @@ export async function extract({ storybook, out, stories = [], where = {}, root }
     icon: how(saw.icon, saw.cells),
     parts: Object.fromEntries(Object.entries(saw.parts).sort().map(([part, n]) => [part, how(n, saw.cells)])),
   }]));
+  // What drew the text, against the font the component asked for. The browser reports a face's full name (`Inter
+  // Medium`), so a used face is the requested family when the rest of its name is only style words. `source` is `web` (a
+  // font the page loaded: the same on every machine), `system` (installed here: the measurement depends on the machine)
+  // or `fallback` (not the requested family at all); `null` when the component drew no text.
+  const STYLE = /^(\s+(thin|extra ?light|ultra ?light|light|regular|book|normal|medium|semi ?bold|demi ?bold|bold|extra ?bold|ultra ?bold|black|heavy|italic|oblique|condensed))*$/i;
+  const fonts = Object.fromEntries(Object.entries(fontSeen).map(([id, f]) => {
+    const used = [...f.used].sort(([a], [b]) => (a < b ? -1 : 1)).map(([family, custom]) => ({ family, custom }));
+    const requested = [...f.requested].sort();
+    const matching = (r) => used.filter((u) => u.family.toLowerCase().startsWith(r.toLowerCase()) && STYLE.test(u.family.slice(r.length)));
+    const sourceOf = (r) => (matching(r).length === 0 ? 'fallback' : matching(r).every((u) => u.custom) ? 'web' : 'system');
+    const sources = requested.map(sourceOf);
+    const source = used.length === 0 ? null : sources.includes('fallback') ? 'fallback' : sources.includes('system') ? 'system' : 'web';
+    return [id, { requested, used, source }];
+  }));
   const gaps = Object.entries(coverage).flatMap(([id, c]) => [
+    ...(fonts[id]?.source === 'fallback' ? [`${id}: font ${fonts[id].requested.map((r) => `"${r}"`).join(', ')} did not load; the text was drawn in ${fonts[id].used.map((u) => u.family).join(', ')}`] : []),
+    ...(fonts[id]?.source === 'system' ? [`${id}: font ${fonts[id].requested.map((r) => `"${r}"`).join(', ')} is installed on this machine, not loaded by the page: what was measured depends on the machine`] : []),
     ...Object.entries(c.axes).filter(([, a]) => a.notRendered.length).map(([axis, a]) => `${id}: ${axis} options not rendered: ${a.notRendered.join(', ')}`),
     ...(c.uncontrolled.length ? [`${id}: args with a control that no cell varies: ${c.uncontrolled.join(', ')}`] : []),
   ]);
   fs.mkdirSync(out, { recursive: true });
-  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells, coverage, page: Object.fromEntries(Object.entries(pageColours).sort()), ...(blocked.size ? { blocked: [...blocked].sort() } : {}) }, null, 2) + '\n');
+  fs.writeFileSync(path.join(out, 'index.json'), JSON.stringify({ extractor: 'stroma-extractor 0.0.0', stories: described, cells, coverage, fonts, page: Object.fromEntries(Object.entries(pageColours).sort()), ...(blocked.size ? { blocked: [...blocked].sort() } : {}) }, null, 2) + '\n');
   return { stories: selected.length, cells: cells.length, gaps };
 }

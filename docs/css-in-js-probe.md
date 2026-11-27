@@ -27,7 +27,7 @@ node packages/infer/bin/infer.mjs --extraction <dir> --out mui.dsir.json --licen
 2. **A rule from the object model holds longhands.** MUI wrote `border-radius: 4px`; inference saw only `border-top-left-radius` and found no radius. It now knows the radius longhands (fixed here; the other two systems are unchanged).
 3. **A token's value can depend on more than the mode (not fixed: a new feature).** MUI v9 does use custom properties, but private ones, set per component by the `color` prop: `--variant-containedBg` is `#1976d2` for `primary` and `#d32f2f` for `error`. Across the 432 cells the six variables take 2 to 12 different values within one mode. The DSIR's token model is name, then mode, then one value, so inference kept the first value seen, and every rule that uses the token would paint the first colour. Before this probe nothing flagged it, because "values explained" is measured on what the browser drew, not on what the tokens resolve to. Inference now lists each such token in `unsupported` (a test covers it); shadcn and Carbon have none.
 4. **Names.** The component came out as `MuiButtonBaseRoot` (the first class on the element). DSIR overrides (`feat-018`, done) name it: `examples/mui/overrides.json` makes it `Button`.
-5. **A font that is not loaded is measured as whatever the machine has.** Roboto is not shipped by MUI, so text is in a fallback, and the extraction depends on the machine.
+5. **A font the page does not load is measured as whatever the machine has.** MUI does not ship Roboto. I first read that as "drawn in a fallback"; the extractor's font report (`feat-022`) shows that on the machine that extracted it Roboto is *installed*, so the text was drawn in the real Roboto, as a system font: right here, and different on a machine without it. The extraction now says so (`fonts`, `source: system`) and the DSIR's font token carries a note.
 
 ## Chakra UI v3 and Fluent UI v9
 
@@ -52,7 +52,7 @@ So both leave the references the extractor recovers tokens from. Not shown: that
 The finding in "What the probe found" 3 is closed by writing a colour as the literal the browser drew where its token held several values in a mode (it is then no token: Material UI's DSIR has none). Getting the Button through emit and the oracle needed four more things, each found by a failing cell, not by reading:
 
 1. **No page tokens.** The emitter found none, so the extractor now measures `<body>` per theme and the DSIR holds `tokens.page`; the emitter turns it into two ordinary colour tokens.
-2. **No fonts.** `emit --no-fonts` (Roboto is not pinned: `feat-022`).
+2. **No fonts.** `emit --no-fonts` (Roboto is not pinned; a system font here, see above).
 3. **"No shadow" was inexpressible.** The 36 unexplained shadow values were disabled buttons saying `box-shadow: none`. A rule that says so now sets an empty shadow list where a shadow is in play; without it, Flutter painted a translucent fill over a shadow (`#888888` for Chrome's `#e0e0e0`). Inference now explains 100% of the values.
 4. **A sheet is one image.** 216 cells per mode overflowed it and the last ones were never drawn (64 false background failures); a component with more than about 200 cells is split over several sheets.
 

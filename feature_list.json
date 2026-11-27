@@ -263,13 +263,13 @@
       "id": "feat-022",
       "phase": 2,
       "name": "Report fonts that did not load",
-      "description": "The extractor records, per extraction, which font families the measured elements asked for and whether the first one loaded, so a measurement in a fallback font is visible.",
+      "description": "The extractor records, per story, which font family the component asked for first, which faces drew its text (Chrome's own record) and whether that was a web font the page loaded, a system font installed on the machine, or a fallback; inference notes it on the DSIR's font token.",
       "dependencies": [
         "feat-019"
       ],
-      "status": "not-started",
+      "status": "done",
       "done_when": "On the Material UI Storybook (Roboto not shipped) the extraction's index.json says the first family did not load and names the fallback; on shadcn and Carbon it says they did.",
-      "evidence": ""
+      "evidence": "2026-11-26, issue #52: index.json `fonts` per story (requested family, faces used, source: web / system / fallback / null for no text) from CSS.getPlatformFontsForNode; the extractor summary and stroma-coverage name a system or fallback font; inference writes a note on the font token. shadcn (Inter) and Carbon (IBM Plex Sans): web; Material UI (Roboto): system, installed on the extracting machine and not loaded by the page; shadcn's icon-only story: null. This corrected my earlier reading of the Material UI results as 'drawn in a fallback font' (the text was drawn in a real, installed Roboto). Re-inferring: shadcn and Carbon DSIRs identical, Material UI's gains only the note, the three packages byte-unchanged. Tests: a web font, a requested family that does not exist (fallback), no text; the DSIR note. Extractor 9/9, infer 14/14."
     },
     {
       "id": "feat-023",

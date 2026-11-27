@@ -43,6 +43,19 @@ The extractor describes only what a story draws, so `index.json` also holds a `c
 
 `node bin/coverage.mjs <extraction dir>` (`stroma-coverage`) prints it as a table, and `stroma-extract` ends with the gaps it can name without judgement (an axis option not rendered, args no cell varies). The report states facts; whether a component should have an icon is for a person to decide. On this repository's Storybooks it shows, for instance, that shadcn's Badge shows no icon unless the `WithIcon` story is included, and that **no Carbon Button story draws an icon** though Carbon's own Storybook has icon-button stories.
 
+## Which font drew the text
+
+A web font that fails to load is replaced silently, and a font installed on the extracting machine is a different font on another one. So `index.json` also holds `fonts`, per story, from Chrome's own record of the faces that drew the root's text (`CSS.getPlatformFontsForNode`), against the family the component asked for first:
+
+| `source` | Means |
+| --- | --- |
+| `web` | The page loaded it: the same on every machine |
+| `system` | Installed on this machine, not loaded by the page: **what was measured depends on the machine** |
+| `fallback` | Not the requested family at all: it did not load |
+| `null` | The component drew no text (an icon-only button) |
+
+The extractor's summary names a `system` or `fallback` story, `stroma-coverage` prints it, and inference writes a `note` on the DSIR's font token (`measured in a font installed on the machine that extracted it (Roboto Medium)…`) so the DSIR says what its numbers were measured in. On this repository's Storybooks: shadcn's Inter and Carbon's IBM Plex Sans are `web`; Material UI's Roboto is `system` (it is installed here; the page does not load it).
+
 ## No network
 
 Every request that is not to the Storybook's own server is aborted, and `index.json` lists them under `blocked` (the key is absent when there were none). A CDN font can't change a measurement, and one that is missing shows up as a URL, not as a quietly different width.
