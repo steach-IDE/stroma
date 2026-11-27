@@ -26,6 +26,20 @@ Cells are set through Storybook's preview channel (`updateStoryArgs`, `updateGlo
 
 `index.json` also holds `page`: the page's background and text colour per theme (from `<body>`, else `<html>`, else white), for a DSIR whose tokens do not name them.
 
+## Coverage: what the stories did not exercise
+
+The extractor describes only what a story draws, so `index.json` also holds a `coverage` section, per story, of facts about the cells it measured:
+
+| Field | Says |
+| --- | --- |
+| `axes` | Each variant axis's options, and any the cells did not render (`--where` leaves the rest out) |
+| `uncontrolled` | Args with a control and no options (a text or boolean control): nothing varies them |
+| `states` | The states measured (`rest`, `hovered`, `focused`, `disabled`) |
+| `icon` | Whether the root had an `svg` child: `never`, `sometimes` or `always` |
+| `parts` | Child parts (`data-slot`, `data-part`, `data-scope`) and how often each was present |
+
+`node bin/coverage.mjs <extraction dir>` (`stroma-coverage`) prints it as a table, and `stroma-extract` ends with the gaps it can name without judgement (an axis option not rendered, args no cell varies). The report states facts; whether a component should have an icon is for a person to decide. On this repository's Storybooks it shows, for instance, that shadcn's Badge shows no icon unless the `WithIcon` story is included, and that **no Carbon Button story draws an icon** though Carbon's own Storybook has icon-button stories.
+
 ## No network
 
 Every request that is not to the Storybook's own server is aborted, and `index.json` lists them under `blocked` (the key is absent when there were none). A CDN font can't change a measurement, and one that is missing shows up as a URL, not as a quietly different width.

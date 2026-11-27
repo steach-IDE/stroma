@@ -19,8 +19,9 @@ if (!opts.storybook || !opts.out) {
   process.exit(2);
 }
 try {
-  const { stories, cells } = await extract(opts);
+  const { stories, cells, gaps } = await extract(opts);
   console.log(`extracted ${cells} cells from ${stories} stories into ${opts.out}`);
+  if (gaps.length) console.log(`coverage gaps (stroma-coverage ${opts.out} for all of it):\n${gaps.map((g) => `  ${g}`).join('\n')}`);
 } catch (e) {
   console.error(`stroma-extract: ${e.message}`);
   process.exit(1);
