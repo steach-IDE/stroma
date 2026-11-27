@@ -1,0 +1,1553 @@
+{
+  "dsirVersion": "0.3.0",
+  "source": {
+    "kind": "storybook",
+    "url": "local Storybook build",
+    "license": "MIT",
+    "hash": "sha256:cc6e59528ee1e8d199c1604937eaa7e4b26239377d2fd39903e6044fe96e55ac"
+  },
+  "tokens": {
+    "color": {
+      "accent": {
+        "dark": {
+          "hex": "#262626",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#f5f5f5",
+          "alpha": 1
+        }
+      },
+      "accent-foreground": {
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#171717",
+          "alpha": 1
+        }
+      },
+      "background": {
+        "dark": {
+          "hex": "#0a0a0a",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "border": {
+        "dark": {
+          "hex": "#ffffff",
+          "alpha": 0.1
+        },
+        "light": {
+          "hex": "#e5e5e5",
+          "alpha": 1
+        }
+      },
+      "card": {
+        "dark": {
+          "hex": "#171717",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "card-foreground": {
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#0a0a0a",
+          "alpha": 1
+        }
+      },
+      "color-white": {
+        "dark": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "destructive": {
+        "dark": {
+          "hex": "#ff6467",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#e7000b",
+          "alpha": 1
+        }
+      },
+      "foreground": {
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#0a0a0a",
+          "alpha": 1
+        }
+      },
+      "input": {
+        "dark": {
+          "hex": "#ffffff",
+          "alpha": 0.15
+        }
+      },
+      "muted-foreground": {
+        "dark": {
+          "hex": "#a1a1a1",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#737373",
+          "alpha": 1
+        }
+      },
+      "primary": {
+        "dark": {
+          "hex": "#e5e5e5",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#171717",
+          "alpha": 1
+        }
+      },
+      "primary-foreground": {
+        "dark": {
+          "hex": "#171717",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#fafafa",
+          "alpha": 1
+        }
+      },
+      "ring": {
+        "dark": {
+          "hex": "#737373",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#a1a1a1",
+          "alpha": 1
+        }
+      },
+      "secondary": {
+        "dark": {
+          "hex": "#262626",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#f5f5f5",
+          "alpha": 1
+        }
+      },
+      "secondary-foreground": {
+        "dark": {
+          "hex": "#fafafa",
+          "alpha": 1
+        },
+        "light": {
+          "hex": "#171717",
+          "alpha": 1
+        }
+      }
+    },
+    "radius": {
+      "base": 10,
+      "derived": {
+        "minus2": -2,
+        "plus4": 4
+      }
+    },
+    "font": {
+      "sans": {
+        "family": "Inter"
+      }
+    }
+  },
+  "globals": {},
+  "components": [
+    {
+      "name": "Badge",
+      "slot": "badge",
+      "role": "link",
+      "behaviour": null,
+      "variants": {
+        "variant": [
+          "default",
+          "secondary",
+          "destructive",
+          "outline",
+          "ghost",
+          "link"
+        ]
+      },
+      "defaultVariants": {
+        "variant": "default"
+      },
+      "slots": [
+        {
+          "name": "icon",
+          "kind": "leading",
+          "optional": true
+        },
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "icon",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "h": 12,
+            "layout": "block",
+            "px": 0,
+            "py": 0,
+            "w": 12
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#000000",
+              "alpha": 0
+            },
+            "borderColor": {
+              "transparent": true
+            },
+            "borderWidth": 1,
+            "clip": true,
+            "crossAlign": "center",
+            "fg": {
+              "token": "color-white",
+              "alpha": 1
+            },
+            "fontSize": 12,
+            "fontWeight": 500,
+            "gap": 4,
+            "layout": "inlineRow",
+            "lineHeightFactor": 1.3333,
+            "mainAlign": "center",
+            "maxLines": 1,
+            "px": 8,
+            "py": 2,
+            "radius": 33554400,
+            "transitionCurve": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionMs": 150,
+            "underline": false,
+            "w": 54.6094
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "default"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "primary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=default",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.6
+            }
+          },
+          "from": "measured: variant=destructive",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "ghost"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#0a0a0a",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=ghost",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "link"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "primary",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=link",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outline"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=outline",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "secondary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=secondary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "ring",
+              "alpha": 1
+            },
+            "ringColor": {
+              "token": "ring",
+              "alpha": 0.5
+            },
+            "ringWidth": 3
+          },
+          "from": "measured: state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 1
+            }
+          },
+          "from": "measured: state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "w": 70.6094
+          },
+          "from": "measured: hasIcon=true",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "mode": "light"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=destructive, mode=light",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#fafafa",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=ghost, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "default",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 0.9
+            }
+          },
+          "from": "measured: variant=default, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.2
+            }
+          },
+          "from": "measured: variant=destructive, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.9
+            }
+          },
+          "from": "measured: variant=destructive, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=ghost, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "link",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#000000",
+              "alpha": 0
+            },
+            "underline": true
+          },
+          "from": "measured: variant=link, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=outline, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "secondary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 0.9
+            }
+          },
+          "from": "measured: variant=secondary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "mode": "dark",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.4
+            }
+          },
+          "from": "measured: variant=destructive, mode=dark, state=focused",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "Button",
+      "slot": "button",
+      "role": "button",
+      "behaviour": "button",
+      "variants": {
+        "variant": [
+          "default",
+          "destructive",
+          "outline",
+          "secondary",
+          "ghost",
+          "link"
+        ],
+        "size": [
+          "default",
+          "xs",
+          "sm",
+          "lg",
+          "icon",
+          "icon-xs",
+          "icon-sm",
+          "icon-lg"
+        ]
+      },
+      "defaultVariants": {
+        "size": "default",
+        "variant": "default"
+      },
+      "slots": [
+        {
+          "name": "icon",
+          "kind": "leading",
+          "optional": true
+        },
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "icon",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "h": 16,
+            "layout": "block",
+            "px": 0,
+            "py": 0,
+            "w": 16
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "transparent": true
+            },
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "crossAlign": "center",
+            "fg": {
+              "hex": "#0a0a0a",
+              "alpha": 1
+            },
+            "fontSize": 14,
+            "fontWeight": 500,
+            "gap": 8,
+            "h": 24,
+            "layout": "inlineRow",
+            "lineHeightFactor": 1.4286,
+            "mainAlign": "center",
+            "maxLines": 1,
+            "opacity": 1,
+            "px": 0,
+            "py": 0,
+            "radius": {
+              "token": "radius-minus2"
+            },
+            "transitionCurve": "cubic-bezier(0.4, 0, 0.2, 1)",
+            "transitionMs": 150,
+            "underline": false
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "default"
+          },
+          "target": "root",
+          "set": {
+            "h": 36,
+            "px": 16,
+            "py": 8
+          },
+          "from": "measured: size=default",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "icon"
+          },
+          "target": "root",
+          "set": {
+            "h": 36,
+            "w": 36
+          },
+          "from": "measured: size=icon",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "icon-lg"
+          },
+          "target": "root",
+          "set": {
+            "h": 40,
+            "w": 40
+          },
+          "from": "measured: size=icon-lg",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "icon-sm"
+          },
+          "target": "root",
+          "set": {
+            "h": 32,
+            "w": 32
+          },
+          "from": "measured: size=icon-sm",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "icon-xs"
+          },
+          "target": "icon",
+          "set": {
+            "h": 12,
+            "w": 12
+          },
+          "from": "measured: size=icon-xs",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "icon-xs"
+          },
+          "target": "root",
+          "set": {
+            "w": 24
+          },
+          "from": "measured: size=icon-xs",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "target": "root",
+          "set": {
+            "h": 40,
+            "px": 24
+          },
+          "from": "measured: size=lg",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "sm"
+          },
+          "target": "root",
+          "set": {
+            "gap": 6,
+            "h": 32,
+            "px": 12
+          },
+          "from": "measured: size=sm",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "icon",
+          "set": {
+            "h": 12,
+            "w": 12
+          },
+          "from": "measured: size=xs",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "root",
+          "set": {
+            "fontSize": 12,
+            "gap": 4,
+            "lineHeightFactor": 1.3333,
+            "px": 8
+          },
+          "from": "measured: size=xs",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "default"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "primary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=default",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.6
+            },
+            "fg": {
+              "token": "color-white",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=destructive",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "link"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "primary",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=link",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outline"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "background",
+              "alpha": 1
+            },
+            "borderWidth": 1,
+            "shadow": [
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 2,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.05
+                }
+              }
+            ]
+          },
+          "from": "measured: variant=outline",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "secondary-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=secondary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "opacity": 0.5
+          },
+          "from": "measured: state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "ring",
+              "alpha": 1
+            },
+            "ringColor": {
+              "token": "ring",
+              "alpha": 0.5
+            },
+            "ringWidth": 3
+          },
+          "from": "measured: state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "default",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 12
+          },
+          "from": "measured: size=default, hasIcon=true",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "lg",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 16
+          },
+          "from": "measured: size=lg, hasIcon=true",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "sm",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 10
+          },
+          "from": "measured: size=sm, hasIcon=true",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "xs",
+            "hasIcon": true
+          },
+          "target": "root",
+          "set": {
+            "px": 6
+          },
+          "from": "measured: size=xs, hasIcon=true",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "mode": "light"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=destructive, mode=light",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#fafafa",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=ghost, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "mode": "dark"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "input",
+              "alpha": 0.3
+            },
+            "borderColor": {
+              "token": "input",
+              "alpha": 1
+            },
+            "fg": {
+              "hex": "#fafafa",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=outline, mode=dark",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "default",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "primary",
+              "alpha": 0.9
+            }
+          },
+          "from": "measured: variant=default, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.2
+            }
+          },
+          "from": "measured: variant=destructive, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 0.5
+            },
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=ghost, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "link",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "underline": true
+          },
+          "from": "measured: variant=link, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "accent-foreground",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=outline, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "secondary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "secondary",
+              "alpha": 0.8
+            }
+          },
+          "from": "measured: variant=secondary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "mode": "dark",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "token": "destructive",
+              "alpha": 0.4
+            }
+          },
+          "from": "measured: variant=destructive, mode=dark, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "destructive",
+            "mode": "light",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "destructive",
+              "alpha": 0.9
+            }
+          },
+          "from": "measured: variant=destructive, mode=light, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "ghost",
+            "mode": "light",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "accent",
+              "alpha": 1
+            }
+          },
+          "from": "measured: variant=ghost, mode=light, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "variant": "outline",
+            "mode": "dark",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "input",
+              "alpha": 0.5
+            }
+          },
+          "from": "measured: variant=outline, mode=dark, state=hovered",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "Card",
+      "slot": "card",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        },
+        {
+          "name": "cardHeader",
+          "kind": "content",
+          "optional": true,
+          "dataSlot": "card-header"
+        },
+        {
+          "name": "cardFooter",
+          "kind": "content",
+          "optional": true,
+          "dataSlot": "card-footer"
+        }
+      ],
+      "anatomy": {
+        "children": [
+          "card-header",
+          "card-content",
+          "card-footer"
+        ]
+      },
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "card",
+              "alpha": 1
+            },
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 1,
+            "fg": {
+              "token": "card-foreground",
+              "alpha": 1
+            },
+            "gap": 24,
+            "layout": "column",
+            "px": 0,
+            "py": 24,
+            "radius": {
+              "token": "radius-plus4"
+            },
+            "shadow": [
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 3,
+                "spread": 0,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.1
+                }
+              },
+              {
+                "x": 0,
+                "y": 1,
+                "blur": 2,
+                "spread": -1,
+                "color": {
+                  "rgb": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "alpha": 0.1
+                }
+              }
+            ]
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardAction",
+      "slot": "card-action",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "px": 0,
+            "py": 0
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardContent",
+      "slot": "card-content",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "px": 24,
+            "py": 0
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardDescription",
+      "slot": "card-description",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "fg": {
+              "token": "muted-foreground",
+              "alpha": 1
+            },
+            "fontSize": 14,
+            "lineHeightFactor": 1.4286,
+            "px": 0,
+            "py": 0
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardFooter",
+      "slot": "card-footer",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "crossAlign": "center",
+            "layout": "row",
+            "px": 24,
+            "py": 0
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardHeader",
+      "slot": "card-header",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        },
+        {
+          "name": "cardAction",
+          "kind": "content",
+          "optional": true,
+          "dataSlot": "card-action"
+        }
+      ],
+      "anatomy": {
+        "children": [
+          "card-title",
+          "card-description",
+          "card-action"
+        ]
+      },
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "gap": 8,
+            "layout": "grid",
+            "px": 24,
+            "py": 0
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "hasSlot": "card-action"
+          },
+          "target": "root",
+          "set": {
+            "columns": [
+              "1fr",
+              "auto"
+            ]
+          },
+          "from": "measured: hasSlot:card-action=true",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "CardTitle",
+      "slot": "card-title",
+      "role": null,
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "border",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "fontWeight": 600,
+            "lineHeightFactor": 1,
+            "px": 0,
+            "py": 0
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    }
+  ]
+}

@@ -4,7 +4,7 @@
     "kind": "storybook",
     "url": "local Storybook build",
     "license": "Apache-2.0",
-    "hash": "sha256:598db51c1869b939fdd951d274a7a026f2d05397f209716e0086d77b49e59993"
+    "hash": "sha256:88ef2545a54c337224f35243005f5e1d7a741d73157856f70f84aa598451f607"
   },
   "tokens": {
     "color": {
@@ -630,7 +630,7 @@
   "globals": {},
   "components": [
     {
-      "name": "Btn",
+      "name": "Button",
       "slot": "cds--btn",
       "role": "button",
       "behaviour": "button",

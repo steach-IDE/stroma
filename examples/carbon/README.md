@@ -6,6 +6,7 @@
 | --- | --- |
 | `storybook/` | The pinned `@carbon/react` 1.121.0 Storybook the extractor reads ([its README](storybook/README.md)) |
 | `inferred/carbon.dsir.json` | The DSIR `packages/infer` wrote from the extraction: 3 components, 100% of 14,416 values explained, four modes |
+| `overrides.json` | Names the DSIR: inference calls the button `Btn` (from `cds--btn`); this makes it `Button`. Apply it with `stroma-infer --overrides` |
 | `packages/carbon_ui/` | The Flutter package `packages/emitter-flutter` writes from it (`dart run bin/emit.dart --example carbon`); never edit it by hand |
 
 Carbon is Apache-2.0; IBM Plex Sans is SIL OFL 1.1 (the pinned font, `tool/fetch-plex.sh`).
@@ -24,7 +25,7 @@ node packages/oracle/compare-extraction.mjs --extraction <dir> --dsir examples/c
 
 | Component | Cells | Pass |
 | --- | --- | --- |
-| Btn (7 kinds x 6 sizes x rest, hovered, focused, disabled x 4 themes) | 672 | 672 |
+| Button (7 kinds x 6 sizes x rest, hovered, focused, disabled x 4 themes) | 672 | 672 |
 | Tag (8 types x 3 sizes x 4 themes) | 96 | 96 |
 | Tile (rest, hovered, focused x 4 themes) | 12 | 12 |
 

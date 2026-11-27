@@ -8,7 +8,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { PNG } from 'pngjs';
 import { LIMITS, S, deltaE, hex, radius, sample } from './pixels.mjs';
-import { blockOf, pascal } from '../infer/src/infer.mjs';
+import { blockOf } from '../infer/src/infer.mjs';
 import { pageTokenNames } from '../dsir/src/page.mjs';
 
 const arg = (name, fallback) => {
@@ -61,7 +61,7 @@ for (const cell of index.cells) {
   const root = data.elements[0];
   const slot = root.attrs['data-slot'] ?? root.attrs['data-part'] ?? root.attrs['data-scope'] ?? blockOf(root.attrs.class ?? '');
   const comp = components[slot];
-  const name = pascal(slot).toLowerCase();
+  const name = comp.name.toLowerCase(); // the DSIR's name (overrides may have renamed what inference called it)
   const values = Object.keys(comp.variants).map((axis) => cell.args[axis]);
   const id = `${name}.${[...values, cell.state].join('.')}.${cell.theme}`;
   // One DSIR component can stand for two stories (a tile and a clickable tile): the one whose cells the

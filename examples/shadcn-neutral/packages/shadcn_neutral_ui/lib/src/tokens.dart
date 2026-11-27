@@ -85,11 +85,11 @@ class DsTokens extends ThemeExtension<DsTokens> {
   final String fontFamily;
   final String? fontPackage;
 
-  /// `--radius-minus2`: calc(var(--radius) - 2px)
-  double get radiusMinus2 => radius - 2;
+  /// `--radius-md`: calc(var(--radius) - 2px)
+  double get radiusMd => radius - 2;
 
-  /// `--radius-plus4`: calc(var(--radius) + 4px)
-  double get radiusPlus4 => radius + 4;
+  /// `--radius-xl`: calc(var(--radius) + 4px)
+  double get radiusXl => radius + 4;
 
   /// What components inherit from `body`: the browser's 16px, preflight's line-height
   /// 1.5, and `text-foreground` from the style's base layer.

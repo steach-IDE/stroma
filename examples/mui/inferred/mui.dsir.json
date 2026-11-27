@@ -4,7 +4,7 @@
     "kind": "storybook",
     "url": "local Storybook build",
     "license": "MIT",
-    "hash": "sha256:c63f058c6c349bc2c1340ea393cac2da108501da360d0960558c2497071e5db4"
+    "hash": "sha256:af2df7f893e143a40fa5faee15de384c34e6945f3a3bd23cca97798b6db9b576"
   },
   "tokens": {
     "color": {},
@@ -39,7 +39,7 @@
   "globals": {},
   "components": [
     {
-      "name": "MuiButtonBaseRoot",
+      "name": "Button",
       "slot": "MuiButtonBase-root",
       "role": "button",
       "behaviour": "button",

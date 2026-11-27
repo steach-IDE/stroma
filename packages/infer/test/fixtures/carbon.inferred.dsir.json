@@ -1,0 +1,1624 @@
+{
+  "dsirVersion": "0.3.0",
+  "source": {
+    "kind": "storybook",
+    "url": "local Storybook build",
+    "license": "Apache-2.0",
+    "hash": "sha256:598db51c1869b939fdd951d274a7a026f2d05397f209716e0086d77b49e59993"
+  },
+  "tokens": {
+    "color": {
+      "cds-background": {
+        "g10": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#161616",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#262626",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "cds-background-hover": {
+        "g10": {
+          "hex": "#8d8d8d",
+          "alpha": 0.122
+        },
+        "g100": {
+          "hex": "#8d8d8d",
+          "alpha": 0.161
+        },
+        "g90": {
+          "hex": "#8d8d8d",
+          "alpha": 0.161
+        },
+        "white": {
+          "hex": "#8d8d8d",
+          "alpha": 0.122
+        }
+      },
+      "cds-background-inverse": {
+        "g10": {
+          "hex": "#393939",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#393939",
+          "alpha": 1
+        }
+      },
+      "cds-button-danger-hover": {
+        "g10": {
+          "hex": "#b81921",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#b81921",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#b81921",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#b81921",
+          "alpha": 1
+        }
+      },
+      "cds-button-danger-primary": {
+        "g10": {
+          "hex": "#da1e28",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#da1e28",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#da1e28",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#da1e28",
+          "alpha": 1
+        }
+      },
+      "cds-button-danger-secondary": {
+        "g10": {
+          "hex": "#da1e28",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#fa4d56",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#ff8389",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#da1e28",
+          "alpha": 1
+        }
+      },
+      "cds-button-disabled": {
+        "g10": {
+          "hex": "#c6c6c6",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#8d8d8d",
+          "alpha": 0.302
+        },
+        "g90": {
+          "hex": "#8d8d8d",
+          "alpha": 0.302
+        },
+        "white": {
+          "hex": "#c6c6c6",
+          "alpha": 1
+        }
+      },
+      "cds-button-primary": {
+        "g10": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        }
+      },
+      "cds-button-primary-hover": {
+        "g10": {
+          "hex": "#0050e6",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#0050e6",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#0050e6",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0050e6",
+          "alpha": 1
+        }
+      },
+      "cds-button-secondary": {
+        "g10": {
+          "hex": "#393939",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#6f6f6f",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#6f6f6f",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#393939",
+          "alpha": 1
+        }
+      },
+      "cds-button-secondary-hover": {
+        "g10": {
+          "hex": "#474747",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#5e5e5e",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#5e5e5e",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#474747",
+          "alpha": 1
+        }
+      },
+      "cds-button-tertiary": {
+        "g10": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        }
+      },
+      "cds-button-tertiary-hover": {
+        "g10": {
+          "hex": "#0050e6",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0050e6",
+          "alpha": 1
+        }
+      },
+      "cds-layer": {
+        "g10": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#262626",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#393939",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        }
+      },
+      "cds-layer-hover": {
+        "g10": {
+          "hex": "#e8e8e8",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#333333",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#474747",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#e8e8e8",
+          "alpha": 1
+        }
+      },
+      "cds-link-primary": {
+        "g10": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#78a9ff",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#78a9ff",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0f62fe",
+          "alpha": 1
+        }
+      },
+      "cds-link-primary-hover": {
+        "g10": {
+          "hex": "#0043ce",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#a6c8ff",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#a6c8ff",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0043ce",
+          "alpha": 1
+        }
+      },
+      "cds-tag-background-blue": {
+        "g10": {
+          "hex": "#d0e2ff",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#0043ce",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#0043ce",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#d0e2ff",
+          "alpha": 1
+        }
+      },
+      "cds-tag-background-cyan": {
+        "g10": {
+          "hex": "#bae6ff",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#00539a",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#00539a",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#bae6ff",
+          "alpha": 1
+        }
+      },
+      "cds-tag-background-gray": {
+        "g10": {
+          "hex": "#e0e0e0",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#525252",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#525252",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#e0e0e0",
+          "alpha": 1
+        }
+      },
+      "cds-tag-background-green": {
+        "g10": {
+          "hex": "#a7f0ba",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#0e6027",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#0e6027",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#a7f0ba",
+          "alpha": 1
+        }
+      },
+      "cds-tag-background-red": {
+        "g10": {
+          "hex": "#ffd7d9",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#a2191f",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#a2191f",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#ffd7d9",
+          "alpha": 1
+        }
+      },
+      "cds-tag-background-teal": {
+        "g10": {
+          "hex": "#9ef0f0",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#005d5d",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#005d5d",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#9ef0f0",
+          "alpha": 1
+        }
+      },
+      "cds-tag-color-blue": {
+        "g10": {
+          "hex": "#0043ce",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#d0e2ff",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#d0e2ff",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0043ce",
+          "alpha": 1
+        }
+      },
+      "cds-tag-color-cyan": {
+        "g10": {
+          "hex": "#00539a",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#bae6ff",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#bae6ff",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#00539a",
+          "alpha": 1
+        }
+      },
+      "cds-tag-color-gray": {
+        "g10": {
+          "hex": "#161616",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#161616",
+          "alpha": 1
+        }
+      },
+      "cds-tag-color-green": {
+        "g10": {
+          "hex": "#0e6027",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#a7f0ba",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#a7f0ba",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#0e6027",
+          "alpha": 1
+        }
+      },
+      "cds-tag-color-red": {
+        "g10": {
+          "hex": "#a2191f",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#ffd7d9",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#ffd7d9",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#a2191f",
+          "alpha": 1
+        }
+      },
+      "cds-tag-color-teal": {
+        "g10": {
+          "hex": "#005d5d",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#9ef0f0",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#9ef0f0",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#005d5d",
+          "alpha": 1
+        }
+      },
+      "cds-text-disabled": {
+        "g10": {
+          "hex": "#161616",
+          "alpha": 0.251
+        },
+        "g100": {
+          "hex": "#f4f4f4",
+          "alpha": 0.251
+        },
+        "g90": {
+          "hex": "#f4f4f4",
+          "alpha": 0.251
+        },
+        "white": {
+          "hex": "#161616",
+          "alpha": 0.251
+        }
+      },
+      "cds-text-inverse": {
+        "g10": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#161616",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#161616",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "cds-text-on-color": {
+        "g10": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#ffffff",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#ffffff",
+          "alpha": 1
+        }
+      },
+      "cds-text-on-color-disabled": {
+        "g10": {
+          "hex": "#8d8d8d",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#ffffff",
+          "alpha": 0.251
+        },
+        "g90": {
+          "hex": "#ffffff",
+          "alpha": 0.251
+        },
+        "white": {
+          "hex": "#8d8d8d",
+          "alpha": 1
+        }
+      },
+      "cds-text-primary": {
+        "g10": {
+          "hex": "#161616",
+          "alpha": 1
+        },
+        "g100": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "g90": {
+          "hex": "#f4f4f4",
+          "alpha": 1
+        },
+        "white": {
+          "hex": "#161616",
+          "alpha": 1
+        }
+      }
+    },
+    "font": {
+      "sans": {
+        "family": "IBM Plex Sans"
+      }
+    }
+  },
+  "globals": {},
+  "components": [
+    {
+      "name": "Btn",
+      "slot": "cds--btn",
+      "role": "button",
+      "behaviour": "button",
+      "variants": {
+        "kind": [
+          "primary",
+          "secondary",
+          "tertiary",
+          "ghost",
+          "danger",
+          "danger--tertiary",
+          "danger--ghost"
+        ],
+        "size": [
+          "xs",
+          "sm",
+          "md",
+          "lg",
+          "xl",
+          "2xl"
+        ]
+      },
+      "defaultVariants": {
+        "kind": "primary",
+        "size": "lg"
+      },
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "transparent": true
+            },
+            "borderColor": {
+              "hex": "#000000",
+              "alpha": 0
+            },
+            "borderWidth": 1,
+            "fg": {
+              "token": "cds-text-on-color",
+              "alpha": 1
+            },
+            "fontSize": 14,
+            "fontWeight": 400,
+            "h": 24,
+            "layout": "inlineRow",
+            "lineHeightFactor": 1.2857,
+            "px": 15,
+            "py": 14,
+            "radius": 0,
+            "transitionCurve": "cubic-bezier(0, 0, 0.38, 0.9), cubic-bezier(0, 0, 0.38, 0.9), cubic-bezier(0, 0, 0.38, 0.9), cubic-bezier(0, 0, 0.38, 0.9)",
+            "transitionMs": 70,
+            "underline": false,
+            "w": 123.5
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "danger"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-danger-primary",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=danger",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "danger--ghost"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "cds-button-danger-secondary",
+              "alpha": 1
+            },
+            "w": 75.5
+          },
+          "from": "measured: kind=danger--ghost",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "danger--tertiary"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "cds-button-danger-secondary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-button-danger-secondary",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=danger--tertiary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "ghost"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "cds-link-primary",
+              "alpha": 1
+            },
+            "w": 75.5
+          },
+          "from": "measured: kind=ghost",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "primary"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-primary",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=primary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "secondary"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-secondary",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=secondary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "tertiary"
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "cds-button-tertiary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-button-tertiary",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=tertiary",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "2xl"
+          },
+          "target": "root",
+          "set": {
+            "h": 80
+          },
+          "from": "measured: size=2xl",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "target": "root",
+          "set": {
+            "h": 48
+          },
+          "from": "measured: size=lg",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "md"
+          },
+          "target": "root",
+          "set": {
+            "h": 40,
+            "py": 10
+          },
+          "from": "measured: size=md",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "sm"
+          },
+          "target": "root",
+          "set": {
+            "h": 32,
+            "py": 6
+          },
+          "from": "measured: size=sm",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "xl"
+          },
+          "target": "root",
+          "set": {
+            "h": 64
+          },
+          "from": "measured: size=xl",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "xs"
+          },
+          "target": "root",
+          "set": {
+            "pb": 1.99996,
+            "py": 1.5
+          },
+          "from": "measured: size=xs",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "hex": "#000000",
+              "alpha": 0
+            },
+            "borderColor": {
+              "token": "cds-button-disabled",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-disabled",
+              "alpha": 1
+            }
+          },
+          "from": "measured: state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#0f62fe",
+              "alpha": 1
+            },
+            "ringColor": {
+              "hex": "#161616",
+              "alpha": 1
+            },
+            "ringWidth": 2
+          },
+          "from": "measured: state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-danger-hover",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-on-color",
+              "alpha": 1
+            }
+          },
+          "from": "measured: state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "danger",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-disabled",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-on-color-disabled",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=danger, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "danger--ghost",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "transparent": true
+            }
+          },
+          "from": "measured: kind=danger--ghost, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "danger--tertiary",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-danger-primary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-on-color",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=danger--tertiary, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "danger--tertiary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "token": "cds-button-danger-hover",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=danger--tertiary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "ghost",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "transparent": true
+            }
+          },
+          "from": "measured: kind=ghost, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "ghost",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-background-hover",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-link-primary-hover",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=ghost, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "primary",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-disabled",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-on-color-disabled",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=primary, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "primary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-primary-hover",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=primary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "secondary",
+            "states": [
+              "disabled"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-disabled",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-on-color-disabled",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=secondary, state=disabled",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "secondary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-secondary-hover",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=secondary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "tertiary",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-tertiary",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-inverse",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=tertiary, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "kind": "tertiary",
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-button-tertiary-hover",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-inverse",
+              "alpha": 1
+            }
+          },
+          "from": "measured: kind=tertiary, state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "g10",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "hex": "#f4f4f4",
+              "alpha": 1
+            }
+          },
+          "from": "measured: mode=g10, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "g100",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 1
+            }
+          },
+          "from": "measured: mode=g100, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "g90",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "borderColor": {
+              "hex": "#ffffff",
+              "alpha": 1
+            },
+            "ringColor": {
+              "hex": "#262626",
+              "alpha": 1
+            }
+          },
+          "from": "measured: mode=g90, state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "white",
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "hex": "#ffffff",
+              "alpha": 1
+            }
+          },
+          "from": "measured: mode=white, state=focused",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "Tag",
+      "slot": "cds--tag",
+      "role": null,
+      "behaviour": null,
+      "variants": {
+        "type": [
+          "red",
+          "blue",
+          "cyan",
+          "teal",
+          "green",
+          "gray",
+          "high-contrast",
+          "outline"
+        ],
+        "size": [
+          "sm",
+          "md",
+          "lg"
+        ]
+      },
+      "defaultVariants": {
+        "size": "md",
+        "type": "red"
+      },
+      "slots": [
+        {
+          "name": "children",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-background",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "crossAlign": "center",
+            "fg": {
+              "token": "cds-tag-color-blue",
+              "alpha": 1
+            },
+            "fontSize": 12,
+            "fontWeight": 400,
+            "h": 18,
+            "layout": "inlineRow",
+            "lineHeightFactor": 1.3333,
+            "mainAlign": "center",
+            "px": 8,
+            "py": 0,
+            "radius": 16
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "lg"
+          },
+          "target": "root",
+          "set": {
+            "h": 32,
+            "px": 12
+          },
+          "from": "measured: size=lg",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "size": "md"
+          },
+          "target": "root",
+          "set": {
+            "h": 24
+          },
+          "from": "measured: size=md",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "blue"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-tag-background-blue",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=blue",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "cyan"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-tag-background-cyan",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-tag-color-cyan",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=cyan",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "gray"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-tag-background-gray",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-tag-color-gray",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=gray",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "green"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-tag-background-green",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-tag-color-green",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=green",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "high-contrast"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-background-inverse",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-text-inverse",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=high-contrast",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "outline"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "cds-text-primary",
+              "alpha": 1
+            },
+            "ringColor": {
+              "hex": "#393939",
+              "alpha": 1
+            },
+            "ringWidth": 1
+          },
+          "from": "measured: type=outline",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "red"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-tag-background-red",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-tag-color-red",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=red",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "teal"
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-tag-background-teal",
+              "alpha": 1
+            },
+            "fg": {
+              "token": "cds-tag-color-teal",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=teal",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "outline",
+            "mode": "g100"
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "hex": "#f4f4f4",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=outline, mode=g100",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "type": "outline",
+            "mode": "g90"
+          },
+          "target": "root",
+          "set": {
+            "ringColor": {
+              "hex": "#f4f4f4",
+              "alpha": 1
+            }
+          },
+          "from": "measured: type=outline, mode=g90",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    },
+    {
+      "name": "Tile",
+      "slot": "cds--tile",
+      "role": "link",
+      "behaviour": null,
+      "variants": {},
+      "defaultVariants": {},
+      "slots": [
+        {
+          "name": "child",
+          "kind": "content"
+        }
+      ],
+      "rules": [
+        {
+          "when": {},
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-layer",
+              "alpha": 1
+            },
+            "borderWidth": 0,
+            "fg": {
+              "hex": "#161616",
+              "alpha": 1
+            },
+            "fontSize": 14,
+            "fontWeight": 400,
+            "h": 64,
+            "layout": "block",
+            "lineHeightFactor": 1.2857,
+            "px": 16,
+            "py": 16,
+            "underline": false
+          },
+          "from": "measured: every cell",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "g100"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#f4f4f4",
+              "alpha": 1
+            }
+          },
+          "from": "measured: mode=g100",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "mode": "g90"
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "hex": "#f4f4f4",
+              "alpha": 1
+            }
+          },
+          "from": "measured: mode=g90",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "focused"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "transitionCurve": "cubic-bezier(0.2, 0, 0.38, 0.9)",
+            "transitionMs": 150,
+            "underline": true
+          },
+          "from": "measured: state=focused",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "states": [
+              "hovered"
+            ]
+          },
+          "target": "root",
+          "set": {
+            "bg": {
+              "token": "cds-layer-hover",
+              "alpha": 1
+            }
+          },
+          "from": "measured: state=hovered",
+          "provenance": "measured"
+        },
+        {
+          "when": {
+            "interactive": true
+          },
+          "target": "root",
+          "set": {
+            "fg": {
+              "token": "cds-text-primary",
+              "alpha": 1
+            },
+            "transitionCurve": "cubic-bezier(0.2, 0, 0.38, 0.9)",
+            "transitionMs": 150
+          },
+          "from": "measured: interactive=true",
+          "provenance": "measured"
+        }
+      ],
+      "noops": [],
+      "unsupported": []
+    }
+  ]
+}

@@ -93,16 +93,23 @@ test('a root with no data-* marker is a component named by its block class, and 
   assert.deepEqual(Object.keys(dsir.tokens.color['ds-layer']).sort(), ['g100', 'white']);
 });
 
-test('intent loss on shadcn: colour tokens and radius values survive, radius names and class names do not', async () => {
+test('intent loss on shadcn: colour tokens and radius values survive; the examples overrides restore radius names and roles', async () => {
   const { execFileSync } = await import('node:child_process');
-  const out = execFileSync(process.execPath, [
+  const run = (inferred) => execFileSync(process.execPath, [
     path.join(here, '..', 'bin', 'intent-loss.mjs'),
-    '--inferred', path.join(repo, 'examples', 'shadcn-neutral', 'inferred', 'shadcn.dsir.json'),
+    '--inferred', inferred,
     '--source', path.join(repo, 'examples', 'shadcn-neutral', 'design-system', 'shadcn.dsir.json'),
   ], { encoding: 'utf8' });
-  assert.match(out, /colour tokens a component uses, recovered by name\s+23\/23 \(100%\)/);
-  assert.match(out, /radius references, same value in px\s+6\/6 \(100%\)/);
-  assert.match(out, /radius references, same token name\s+0\/6 \(0%\)/);
+  // From renders alone (inference's own output, no overrides): the names and roles are lost.
+  const bare = run(path.join(here, 'fixtures', 'shadcn.inferred.dsir.json'));
+  assert.match(bare, /colour tokens a component uses, recovered by name\s+23\/23 \(100%\)/);
+  assert.match(bare, /radius references, same value in px\s+6\/6 \(100%\)/);
+  assert.match(bare, /radius references, same token name\s+0\/6 \(0%\)/);
+  assert.match(bare, /component roles identical\s+7\/9/);
+  // With the committed overrides file (examples/shadcn-neutral/overrides.json): the names and roles are back.
+  const named = run(path.join(repo, 'examples', 'shadcn-neutral', 'inferred', 'shadcn.dsir.json'));
+  assert.match(named, /radius references, same token name\s+6\/6 \(100%\)/);
+  assert.match(named, /component roles identical\s+9\/9/);
 });
 
 test('a token whose value depends on a variant, not only the mode, is written as the literal colours it was', () => {

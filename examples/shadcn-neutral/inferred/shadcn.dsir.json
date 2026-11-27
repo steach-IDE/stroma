@@ -4,7 +4,7 @@
     "kind": "storybook",
     "url": "local Storybook build",
     "license": "MIT",
-    "hash": "sha256:cc6e59528ee1e8d199c1604937eaa7e4b26239377d2fd39903e6044fe96e55ac"
+    "hash": "sha256:39383759f0d7ef8da7a9c3b635f81ceaa7812141f07de8c11089e44b0f2af0a7"
   },
   "tokens": {
     "color": {
@@ -168,8 +168,8 @@
     "radius": {
       "base": 10,
       "derived": {
-        "minus2": -2,
-        "plus4": 4
+        "md": -2,
+        "xl": 4
       }
     },
     "font": {
@@ -183,7 +183,7 @@
     {
       "name": "Badge",
       "slot": "badge",
-      "role": "link",
+      "role": "status",
       "behaviour": null,
       "variants": {
         "variant": [
@@ -668,7 +668,7 @@
             "px": 0,
             "py": 0,
             "radius": {
-              "token": "radius-minus2"
+              "token": "radius-md"
             },
             "transitionCurve": "cubic-bezier(0.4, 0, 0.2, 1)",
             "transitionMs": 150,
@@ -1220,7 +1220,7 @@
     {
       "name": "Card",
       "slot": "card",
-      "role": null,
+      "role": "group",
       "behaviour": null,
       "variants": {},
       "defaultVariants": {},
@@ -1272,7 +1272,7 @@
             "px": 0,
             "py": 24,
             "radius": {
-              "token": "radius-plus4"
+              "token": "radius-xl"
             },
             "shadow": [
               {
@@ -1466,7 +1466,7 @@
         },
         {
           "name": "cardAction",
-          "kind": "content",
+          "kind": "trailing",
           "optional": true,
           "dataSlot": "card-action"
         }

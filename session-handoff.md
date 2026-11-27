@@ -26,4 +26,4 @@ None.
 
 ## Recommended next step
 
-`feat-018`, DSIR overrides for names (`MuiButtonBaseRoot` to `Button`, `Btn` to `Button`, `radius-minus2` to `radius-md`, roles and slot kinds), kept when re-inferred; an override naming something that does not exist must fail naming it. Then `feat-017` (a Chrome crop per cell), `feat-022` (fonts that did not load) and `feat-010` (the CLI). Open each issue first, and run `.github/scripts/work-gate.sh` before pushing: CI rejects a commit subject over 72 characters.
+`feat-017`, a Chrome crop per cell and a pixel comparison for every system (text colour, SSIM), so no oracle compares only the numbers the rules were mined from; then `feat-022` (report fonts that did not load) and `feat-010` (the CLI, which exposes the coverage report and the overrides). Open each issue first; run `.github/scripts/work-gate.sh` before pushing.

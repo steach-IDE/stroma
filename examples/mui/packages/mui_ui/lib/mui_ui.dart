@@ -4,4 +4,4 @@ library;
 export 'src/primitives/ds_style.dart' show DsColor;
 export 'src/theme.dart';
 export 'src/tokens.dart';
-export 'src/components/mui.dart';
+export 'src/components/button.dart';

@@ -34,7 +34,7 @@ DsStyle resolveCardStyle(DsTokens t) {
       layout: DsLayout.column,
       paddingX: 0,
       paddingY: 24,
-      radius: t.radiusPlus4,
+      radius: t.radiusXl,
       shadows: [
         BoxShadow(
           offset: Offset(0, 1),

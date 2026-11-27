@@ -116,7 +116,7 @@ class Button extends StatelessWidget {
       opacity: 1,
       paddingX: 0,
       paddingY: 0,
-      radius: t.radiusMinus2,
+      radius: t.radiusMd,
       curve: Cubic(0.4, 0, 0.2, 1),
       transition: Duration(milliseconds: 150),
       underline: false,

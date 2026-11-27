@@ -1,0 +1,13 @@
+{
+  "components": {
+    "Badge": { "role": "status" },
+    "Card": { "role": "group" },
+    "CardHeader": { "slots": { "cardAction": { "kind": "trailing" } } }
+  },
+  "tokens": {
+    "radius": {
+      "radius-minus2": "radius-md",
+      "radius-plus4": "radius-xl"
+    }
+  }
+}
