@@ -10,7 +10,8 @@
     "node": ">=20.19"
   },
   "bin": {
-    "stroma-extract": "bin/extract.mjs"
+    "stroma-extract": "bin/extract.mjs",
+    "stroma-coverage": "bin/coverage.mjs"
   },
   "scripts": {
     "test": "node --test"
