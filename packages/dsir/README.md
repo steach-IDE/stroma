@@ -70,4 +70,4 @@ node bin/migrate.mjs old.dsir.json new.dsir.json
 
 `anatomy.children`: the slots of the parts that appear directly inside a component, in DOM order (Card → `card-header`, `card-content`, `card-footer`). The inferrer (`packages/infer`) reads it from the rendered DOM.
 
-`tokens.page` (optional) holds the page's background and text colour per mode, for a design system whose tokens name neither (Material UI); the emitter looks for tokens named `background` and `foreground` first, and `packages/dsir/src/page.mjs` holds that rule for the JavaScript tools. A rule's `shadow: []` says "no shadow".
+`tokens.page` (optional) holds the page's background and text colour per mode, for a design system whose tokens name neither (Material UI); the emitter looks for tokens named `background` and `foreground` first, and `packages/dsir/src/page.mjs` holds that rule for the JavaScript tools. A rule's `shadow: []` says "no shadow". `ringInset: true` says a ring (`ringWidth`, `ringColor`) is inside the border box (Carbon's `box-shadow: inset 0 0 0 1px`), where a ring is otherwise outside it (Tailwind's); an inset ring is painted inside the border, over the background.

@@ -4,7 +4,7 @@
     "kind": "storybook",
     "url": "local Storybook build",
     "license": "Apache-2.0",
-    "hash": "sha256:88ef2545a54c337224f35243005f5e1d7a741d73157856f70f84aa598451f607"
+    "hash": "sha256:7732fd5bb32479175ee34d10f396b6bfcee0f3fa4b43cafa21d2f5449559f541"
   },
   "tokens": {
     "color": {
@@ -913,6 +913,7 @@
               "hex": "#161616",
               "alpha": 1
             },
+            "ringInset": true,
             "ringWidth": 2
           },
           "from": "measured: state=focused",
@@ -1427,6 +1428,7 @@
               "hex": "#393939",
               "alpha": 1
             },
+            "ringInset": true,
             "ringWidth": 1
           },
           "from": "measured: type=outline",

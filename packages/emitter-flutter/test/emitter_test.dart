@@ -71,6 +71,10 @@ void main() {
         contains('dangerTertiary'),
       ); // danger--tertiary
       expect(
+        files['lib/src/components/tag.dart']!,
+        contains('ringInset: true'),
+      ); // Carbon's inset border
+      expect(
         files['lib/src/components/button.dart']!,
         contains('v2xl'),
       ); // 2xl is not a Dart identifier

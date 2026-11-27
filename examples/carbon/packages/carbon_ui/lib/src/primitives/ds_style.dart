@@ -28,6 +28,7 @@ class DsStyle {
     this.borderColor,
     this.ringWidth,
     this.ringColor,
+    this.ringInset,
     this.shadows,
     this.opacity,
     this.fontSize,
@@ -57,6 +58,9 @@ class DsStyle {
   final Color? borderColor;
   final double? ringWidth;
   final Color? ringColor;
+
+  /// The ring is inside the border box (`box-shadow: inset 0 0 0 1px`), not outside it.
+  final bool? ringInset;
   final List<BoxShadow>? shadows;
   final double? opacity;
   final double? fontSize;
@@ -88,6 +92,7 @@ class DsStyle {
     borderColor: o.borderColor ?? borderColor,
     ringWidth: o.ringWidth ?? ringWidth,
     ringColor: o.ringColor ?? ringColor,
+    ringInset: o.ringInset ?? ringInset,
     shadows: o.shadows ?? shadows,
     opacity: o.opacity ?? opacity,
     fontSize: o.fontSize ?? fontSize,

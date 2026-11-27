@@ -70,7 +70,12 @@ DsStyle resolveTagStyle(DsTokens t, {required TagType type, required TagSize siz
   } // measured: type=high-contrast
   if (type == TagType.outline) {
     root = root.merge(
-      DsStyle(foreground: t.cdsTextPrimary, ringColor: Color(0xFF393939), ringWidth: 1),
+      DsStyle(
+        foreground: t.cdsTextPrimary,
+        ringColor: Color(0xFF393939),
+        ringInset: true,
+        ringWidth: 1,
+      ),
     );
   } // measured: type=outline
   if (type == TagType.red) {

@@ -106,3 +106,13 @@ test('the CLI exits 0 on a valid file and 1 with the path on a broken one', () =
   assert.equal(run.status, 1);
   assert.match(run.stderr, /\/components\/0\/behaviour: must be one of/);
 });
+
+test('ringInset is a boolean on a rule that has a ring', () => {
+  const doc = fixture();
+  const set = doc.components[0].rules[0].set;
+  set.ringWidth = 1;
+  set.ringInset = true;
+  assert.deepEqual(validate(doc), []);
+  set.ringInset = 'yes';
+  assert.ok(validate(doc).some((e) => /ringInset/.test(e.path)), 'a non-boolean is rejected');
+});

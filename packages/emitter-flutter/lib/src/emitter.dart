@@ -443,6 +443,8 @@ String _cubic(String css) {
         args.add('fontWeight: FontWeight.w$v');
       case 'maxLines':
         args.add('maxLines: $v');
+      case 'ringInset':
+        args.add('ringInset: $v');
       case 'underline' || 'clip':
         args.add('${e.key}: $v');
       case 'bg':

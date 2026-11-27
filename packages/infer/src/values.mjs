@@ -73,7 +73,8 @@ function shadows(computed) {
     const color = /^(\S+\([^)]*\)|#\w+|\w+)/.exec(p)?.[1] ?? '';
     const [x, y, blur, spread] = [...p.slice(color.length).trim().split(/\s+/).filter((t) => t && t !== 'inset').map(px), 0, 0, 0, 0];
     if (x === 0 && y === 0 && blur === 0 && spread === 0) continue; // Tailwind's empty shadow layers
-    if (x === 0 && y === 0 && blur === 0 && spread > 0) ring = { width: spread, color };
+    // `inset 0 0 0 1px c` is how Carbon draws a border; it sits inside the box, where an outer ring sits outside.
+    if (x === 0 && y === 0 && blur === 0 && spread > 0) ring = { width: spread, color, inset: /(^|\s)inset(\s|$)/.test(p) };
     else shadow.push({ x, y, blur, spread, color });
   }
   return { ring, shadow };
@@ -131,6 +132,7 @@ export function valuesOf(el, literalColor, force = new Set()) {
     const { ring, shadow } = shadows(s['box-shadow']);
     if (ring) {
       set('ringWidth', ring.width);
+      if (ring.inset) set('ringInset', true);
       const ref = colorRef(winning(el.rules, RING_COLOR_DECLS));
       literals.ringColor = literalColor(ring.color);
       set('ringColor', ref ?? literals.ringColor, Boolean(ref?.token));

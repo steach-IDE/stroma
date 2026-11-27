@@ -340,6 +340,10 @@
         "ringWidth": {
           "$ref": "#/$defs/length"
         },
+        "ringInset": {
+          "type": "boolean",
+          "description": "The ring is inside the border box (Carbon's `box-shadow: inset 0 0 0 1px`), not outside it."
+        },
         "shadow": {
           "type": "array",
           "description": "In CSS order: the first shadow is painted on top.",
